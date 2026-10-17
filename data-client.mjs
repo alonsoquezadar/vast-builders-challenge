@@ -3,6 +3,7 @@ export const STATIC = document.documentElement.dataset.deployment === 'static';
 export function dataUrl(path) {
   if (!STATIC) return path;
   const url = new URL(path, location.href);
+  if (!url.pathname.includes('/api/')) return path;
   if (url.pathname.endsWith('/api/satellite')) return `./data/${encodeURIComponent(url.searchParams.get('layer'))}.json`;
   if (url.pathname.endsWith('/api/incident')) return './data/incident.json';
   throw new Error('This feature requires the local FireTrace server.');

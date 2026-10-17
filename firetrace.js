@@ -1,7 +1,8 @@
 import * as M from './firetrace_model.mjs';
-import {initTour} from './tour.js?v=video-sync-1';
-import {STATIC, dataUrl, projectionCursor, forecastFetch} from './data-client.mjs';
-import {initCameraPlayer} from './camera-player.js';
+import {initTour} from './tour.js?v=video-model-1';
+import {STATIC, dataUrl, projectionCursor, forecastFetch} from './data-client.mjs?v=video-model-1';
+import {initCameraPlayer} from './camera-player.js?v=video-model-3';
+import {readVideoScenario, videoScenarioFrame} from './video-scenario.mjs';
 
 const $ = id => document.getElementById(id);
 const el = (tag, props = {}, ...kids) => {
@@ -38,6 +39,8 @@ const derived = {areaSeries: null, edges: null, overpasses: [], weatherHours: []
 const forecastTracker = M.createForecastTracker();
 let map = null;
 let cameraPlayback = null;
+let videoScenario = null;
+let videoScenarioError = '';
 const pendingSources = new Map();
 
 // ---------- utilities ----------
@@ -63,6 +66,7 @@ const LAYER_DEFS = [
   {id: 'firms', label: 'FIRMS hotspots · current overpass', cls: 'obs', pill: 'OBSERVED', on: true, data: 'hotspots', map: ['firms-glow', 'firms']},
   {id: 'perimeter', label: 'FINAL perimeter (Dec 2025)', cls: 'obs', pill: 'OBSERVED', on: false, data: 'perimeter', map: ['perimeter-fill', 'perimeter-line']},
   {id: 'forecast', label: 'Forecast', cls: 'mod', pill: 'MODELLED', on: true, data: null, map: []},
+  {id: 'video-model', label: 'Video-linked growth', cls: 'mod', pill: 'MODELLED', on: true, data: null, map: ['video-model-fill', 'video-model-recent']},
   {id: 'cones', label: 'Camera cones', cls: 'hyp', pill: 'HYPOTHESIS', on: false, data: null, map: ['cones-fill', 'cones-line']}
 ];
 const layerOn = Object.fromEntries(LAYER_DEFS.map(d => [d.id, d.on]));
@@ -86,6 +90,54 @@ async function loadIncident() {
   try { data.incident = await fetchJson('./api/incident'); dataStatus.incident = 'ready'; cameraPlayback.setIncident(data.incident); addCameraPins(); }
   catch (e) { dataStatus.incident = 'error:' + e.message; reportFailure('cameras'); }
   cameraKey = ''; paintAll(); if (data.incident) paintProvenance();
+  $('video-model-start').disabled = !videoScenario || !data.incident;
+}
+
+async function loadVideoScenario() {
+  try {
+    videoScenario = readVideoScenario(await fetchJson('./evidence/garnet/video-scenario.json'));
+    setSource('video-model', videoScenario.geojson);
+    const p = videoScenario.properties, provenance = $('video-model-provenance'), e = p.evaluation;
+    const items = [
+      `Initial reconstruction: ${p.startUtc}. Recent active boundary seeds: ${p.activeSeedCount}.`,
+      p.source, ...listify(p.assumptions), ...listify(p.limitations)
+    ];
+    if (e) items.push(`Comparison at ${e.timeUtc}: ${M.formatNumber(e.predictedAreaHa)} ha modelled versus ${M.formatNumber(e.referenceAreaHa)} ha in the later satellite reconstruction; total overlap IoU ${M.formatNumber(e.iou, 2)}. This is not independent validation.`,
+      e.growthReferenceAreaHa === 0 ? 'The reference adds no new reconstructed area at this overpass, so this comparison cannot establish whether the model captures the real growth.' : `New growth in the reference: ${M.formatNumber(e.growthReferenceAreaHa)} ha.`, e.note);
+    provenance.replaceChildren(...items.map(text => el('p', {text})));
+    $('video-model-start').disabled = !data.incident;
+    renderLayerRows(); paintAll();
+  } catch (error) {
+    videoScenarioError = error.message;
+    paintVideoScenario();
+  }
+}
+
+function paintVideoScenario() {
+  const frame = videoScenarioFrame(videoScenario, state.cursor, layerOn['video-model']);
+  const status = $('video-model-status'), stats = $('video-model-stats');
+  if (state.mapReady) {
+    map.setFilter('video-model-fill', frame.filter);
+    map.setFilter('video-model-recent', ['all', frame.filter, ['>', ['get', 'arrivalSec'], state.cursor - 20 * 60]]);
+  }
+  if (!videoScenario) {
+    status.textContent = videoScenarioError ? `Scenario unavailable: ${videoScenarioError}` : 'Loading the wind-and-terrain scenario…';
+    return;
+  }
+  const p = videoScenario.properties;
+  stats.replaceChildren();
+  if (frame.status !== 'active') {
+    const start = M.formatStamp(p.startSec, state.zone), end = M.formatStamp(p.endSec, state.zone);
+    status.textContent = frame.status === 'off' ? 'Video-linked growth is hidden. Enable it in Layers or press Play video + model.' :
+      `Scenario available from ${start.date} ${start.time} to ${end.date} ${end.time} ${end.zone}. Press Play video + model to begin.`;
+    return;
+  }
+  status.textContent = `${M.formatNumber(frame.elapsedHours, 1)} h after the initial front · EXPERIMENTAL MODEL · not validated against the video.`;
+  const row = (title, value) => stats.append(el('dt', {text: title}), el('dd', {text: value}));
+  row('Initial reconstruction', `${M.formatNumber(p.initialAreaHa)} ha`);
+  row('New modelled growth', `+${M.formatNumber(frame.newAreaHa)} ha`);
+  row('Modelled total', `${M.formatNumber(frame.modelledAreaHa)} ha`);
+  $('hud-sub').append(el('br'), el('span', {class: 'video-model-hud', text: `+${M.formatNumber(frame.newAreaHa)} ha MODELLED growth · experimental`}));
 }
 function onData(name) {
   if (name === 'arrival') {
@@ -107,6 +159,7 @@ function setSource(id, fc) {
 }
 
 function layerStatusText(def) {
+  if (def.id === 'video-model') return videoScenario ? 'experimental wind-and-terrain scenario' : 'scenario loading';
   if (!def.data) return def.id === 'forecast' ? (forecastTracker.state?.status === 'ready' ? 'projection active' : 'no projection at this moment') : 'hypothetical positions';
   const s = dataStatus[def.data];
   if (!s) return def.on ? 'pending' : 'loads when enabled';
@@ -133,6 +186,7 @@ function toggleLayer(id, on) {
   const def = LAYER_DEFS.find(d => d.id === id);
   if (on && def.data) loadData(def.data);
   applyVisibility(); updateLegend(); renderLayerRows();
+  if (id === 'video-model') paintAll();
 }
 function applyVisibility() {
   if (!state.mapReady) return;
@@ -143,6 +197,7 @@ function updateLegend() {
   const q = sel => document.querySelector(sel);
   q('.legend-perimeter').hidden = !layerOn.perimeter;
   q('.legend-cones').hidden = !layerOn.cones;
+  q('.legend-video-model').hidden = !layerOn['video-model'];
   const forecastShown = layerOn.forecast && forecastTracker.state?.status === 'ready';
   document.querySelectorAll('.legend-forecast').forEach(n => { n.hidden = !forecastShown; });
   $('legend-recent').textContent = `RECONSTRUCTED recent activity (${state.recentHours} h)`;
@@ -169,7 +224,7 @@ const EMPTY = {type: 'FeatureCollection', features: []};
 const initial = id => pendingSources.get(id) || EMPTY;
 
 function addMapContent() {
-  for (const id of ['arrival', 'edges', 'hotspots', 'perimeter', 'forecast', 'cones']) map.addSource(id, {type: 'geojson', data: initial(id)});
+  for (const id of ['arrival', 'edges', 'hotspots', 'perimeter', 'forecast', 'cones', 'video-model']) map.addSource(id, {type: 'geojson', data: initial(id)});
   const c = state.cursor;
   map.addLayer({id: 'burn-fill', type: 'fill', source: 'arrival', filter: M.cumulativeFilter(c), paint: {'fill-color': '#1c1210', 'fill-opacity': 0.66, 'fill-antialias': false}});
   map.addLayer({id: 'recent-fill', type: 'fill', source: 'arrival', filter: M.recentFilter(c, state.recentHours), paint: {'fill-color': '#ff4a18', 'fill-opacity': 0.5, 'fill-antialias': false}});
@@ -179,6 +234,8 @@ function addMapContent() {
   map.addLayer({id: 'perimeter-fill', type: 'fill', source: 'perimeter', layout: {visibility: 'none'}, paint: {'fill-color': '#ffd36b', 'fill-opacity': 0.06}});
   map.addLayer({id: 'perimeter-line', type: 'line', source: 'perimeter', layout: {visibility: 'none'}, paint: {'line-color': '#ffd36b', 'line-width': 1.8, 'line-dasharray': [3, 2]}});
   addForecastLayers();
+  map.addLayer({id: 'video-model-fill', type: 'fill', source: 'video-model', filter: ['==', ['get', 'arrivalSec'], -1], paint: {'fill-color': '#e656b8', 'fill-opacity': 0.5, 'fill-antialias': false}});
+  map.addLayer({id: 'video-model-recent', type: 'line', source: 'video-model', filter: ['==', ['get', 'arrivalSec'], -1], paint: {'line-color': '#ffc0eb', 'line-width': 1.6, 'line-opacity': 0.75}});
   map.addLayer({id: 'cones-fill', type: 'fill', source: 'cones', layout: {visibility: 'none'}, paint: {'fill-color': '#38c7e8', 'fill-opacity': 0.14}});
   map.addLayer({id: 'cones-line', type: 'line', source: 'cones', layout: {visibility: 'none'}, paint: {'line-color': '#38c7e8', 'line-width': 1.4, 'line-dasharray': [2, 2]}});
   const radius = ['interpolate', ['linear'], ['get', 'frpMW'], 0, 3, 20, 5, 100, 8, 400, 11];
@@ -243,6 +300,7 @@ function paintNow() {
     map.setFilter('firms-glow', pf); map.setFilter('firms', pf);
   }
   paintState(pass); paintHudSub(pass);
+  paintVideoScenario();
   paintCursorExtras();
 }
 function paintHudSub(pass) {
@@ -270,7 +328,7 @@ function paintState(pass) {
 // ---------- playback and timeline ----------
 
 function setCursor(sec, {fromPlay = false, fromVideo = false} = {}) {
-  const c = M.clampCursor(sec);
+  const c = fromVideo ? Math.max(M.RANGE_START_SEC, Math.min(M.RANGE_END_SEC, sec)) : M.clampCursor(sec);
   if (!fromVideo) cameraPlayback?.syncCursor(c);
   if (!fromPlay) state.playPos = sec;
   if (c === state.cursor) return;
@@ -710,6 +768,11 @@ function start() {
   if (window.maplibregl) initMap(); else showData('The map engine could not be loaded; the timeline remains available.');
   loadData('overpasses'); loadData('arrival'); loadData('hotspots'); loadData('weather'); loadData('daily'); loadData('summary');
   loadIncident(); bindForecast(); observeCharts(); drawCharts();
+  loadVideoScenario();
+  $('video-model-start').addEventListener('click', () => {
+    toggleLayer('video-model', true);
+    cameraPlayback.open(); cameraPlayback.restart();
+  });
   initTour({pause: () => { pause(); cameraPlayback.pause(); }});
   if (STATIC) {
     $('deployment-note').hidden = false;
