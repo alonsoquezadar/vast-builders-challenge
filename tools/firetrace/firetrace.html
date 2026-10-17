@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FireTrace · Garnet Fire 2025</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="./firetrace.css">
+<script defer src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+<script type="module" src="./firetrace.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./firetrace.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20 10 6l4 7 3-4 5 11z" fill="#ff6a1a"/><path d="M10 6l4 7-5 7H2z" fill="#c4350f"/></svg><b>FireTrace</b></a>
+  <div class="incident"><strong>Garnet Fire</strong><span>Sierra National Forest, California</span></div>
+  <span class="badge badge-replay" title="Datos históricos del incidente; no es un seguimiento en vivo">REPRODUCCIÓN HISTÓRICA · AGO–SEP 2025</span>
+  <span class="spacer"></span>
+  <div class="zone" role="group" aria-label="Zona horaria mostrada">
+    <button id="zone-utc" aria-pressed="true">UTC</button>
+    <button id="zone-pdt" aria-pressed="false" title="PDT = UTC−7. Es un supuesto para relacionar las horas impresas de las cámaras">PDT</button>
+  </div>
+</header>
+
+<main class="app">
+  <section class="stage" aria-label="Mapa del incendio">
+    <div id="map" role="application" aria-label="Mapa 3D del Garnet Fire"></div>
+
+    <div class="hud" aria-live="off">
+      <div class="hud-date" id="hud-date">—</div>
+      <div class="hud-time"><span id="hud-time">—</span><em id="hud-zone">UTC</em></div>
+      <div class="hud-sub" id="hud-sub"></div>
+    </div>
+
+    <div class="map-chip-row">
+      <span class="map-chip map-chip-warn" id="tiles-chip" hidden></span>
+      <span class="map-chip map-chip-warn" id="data-chip" hidden></span>
+    </div>
+
+    <div class="legend collapsed" aria-label="Leyenda de clases de dato">
+      <div class="legend-title">Clase de dato</div><button class="legend-toggle" id="legend-toggle" aria-expanded="false" aria-label="Desplegar leyenda">+</button>
+      <div class="legend-key"><b class="pill pill-obs">OBSERVADO</b><b class="pill pill-rec">RECONSTRUIDO</b><b class="pill pill-mod">MODELADO</b></div>
+      <ul id="legend-list">
+        <li><i class="sw sw-burn"></i><span>Área acumulada</span><b class="pill pill-rec">RECONSTRUIDO</b></li>
+        <li><i class="sw sw-recent"></i><span id="legend-recent">Actividad reciente RECONSTRUIDA</span><b class="pill pill-rec">RECONSTRUIDO</b></li>
+        <li><i class="sw sw-firms"></i><span>Focos de la pasada actual</span><b class="pill pill-obs">OBSERVADO</b></li>
+        <li class="legend-perimeter" hidden><i class="sw sw-perimeter"></i><span>Perímetro FINAL (dic 2025)</span><b class="pill pill-obs">OBSERVADO</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-model"></i><span>Proyección del modelo</span><b class="pill pill-mod">MODELADO</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-over"></i><span>Sobrepredicción (modelo, sin referencia)</span><b class="pill pill-mod">MODELADO</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-under"></i><span>Subpredicción (referencia, sin modelo)</span><b class="pill pill-mod">MODELADO</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-overlap"></i><span>Coincidencia modelo–referencia</span><b class="pill pill-mod">MODELADO</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-initial"></i><span>Extensión inicial del frente</span><b class="pill pill-rec">RECONSTRUIDO</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-ref"></i><span>Referencia futura (contorno)</span><b class="pill pill-rec">RECONSTRUIDO</b></li>
+        <li class="legend-cones" hidden><i class="sw sw-cone"></i><span>Conos de cámara (hipótesis)</span><b class="pill pill-hyp">HIPÓTESIS</b></li>
+      </ul>
+    </div>
+
+    <div class="view-controls">
+      <button id="view-reset" title="Encuadrar el incendio">Encuadrar</button>
+      <button id="view-flat" aria-pressed="false" title="Vista cenital / inclinada">2D</button>
+      <button id="view-tilt" aria-pressed="true">3D</button>
+    </div>
+  </section>
+
+  <aside class="side" aria-label="Paneles de análisis">
+    <section class="panel" id="panel-layers">
+      <h2>Capas</h2>
+      <ul class="layers" id="layer-list"></ul>
+      <label class="inline-field">Actividad reciente
+        <select id="recent-hours" aria-label="Horas consideradas actividad reciente">
+          <option value="6">últimas 6 h</option><option value="12" selected>últimas 12 h</option><option value="24">últimas 24 h</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="panel" id="panel-state">
+      <h2>Estado en el cursor</h2>
+      <dl class="kv" id="state-kv"></dl>
+      <p class="muted small" id="state-note"></p>
+    </section>
+
+    <section class="panel" id="panel-weather">
+      <h2>Meteorología <b class="pill pill-model">MODELADO</b></h2>
+      <div id="weather-body"><p class="muted">Cargando…</p></div>
+    </section>
+
+    <section class="panel" id="panel-forecast">
+      <h2>Proyección desde este frente <b class="pill pill-mod">MODELADO</b></h2>
+      <div class="horizon" role="group" aria-label="Horizonte de proyección">
+        <button data-h="6" aria-pressed="false">6 h</button><button data-h="12" aria-pressed="true">12 h</button><button data-h="24" aria-pressed="false">24 h</button>
+      </div>
+      <button id="forecast-run" class="primary">Proyectar desde este frente</button>
+      <p class="forecast-status" id="forecast-status" role="status">Elige un instante y proyecta. Se parte de la reconstrucción en el cursor, nunca de una semilla del operador.</p>
+      <div id="forecast-card"></div>
+    </section>
+
+    <section class="panel" id="panel-camera">
+      <h2>Cámaras</h2>
+      <div id="camera-body"><p class="muted">Cargando evidencia…</p></div>
+    </section>
+
+    <section class="panel" id="panel-events">
+      <h2>Hitos</h2>
+      <ul class="events" id="event-list"></ul>
+    </section>
+
+    <section class="panel" id="panel-provenance">
+      <h2>Procedencia y límites</h2>
+      <div id="provenance-body"></div>
+    </section>
+  </aside>
+
+  <section class="timeline" aria-label="Línea de tiempo">
+    <div class="transport">
+      <button id="play" class="play" aria-label="Reproducir" title="Reproducir / pausar (barra espaciadora)">▶</button>
+      <button id="step-back" aria-label="Retroceder 1 hora" title="−1 h">⏮</button>
+      <button id="step-fwd" aria-label="Avanzar 1 hora" title="+1 h">⏭</button>
+      <label class="speed">Velocidad <select id="speed" aria-label="Velocidad de reproducción"></select></label>
+      <div class="now"><b id="now-date">—</b> <span id="now-time">—</span> <em id="now-zone">UTC</em></div>
+      <span class="spacer"></span>
+      <span class="scope">Aug 24 – Sep 12, 2025 · <span id="range-note">20 días</span></span>
+    </div>
+    <div class="scrub">
+      <div class="scrub-track" id="scrub-track">
+        <div class="scrub-events" id="scrub-events"></div>
+        <input type="range" id="slider" aria-label="Instante del incidente" min="0" max="1" step="60" value="0">
+      </div>
+      <div class="scrub-axis" id="scrub-axis"></div>
+    </div>
+    <div class="charts" id="charts">
+      <figure class="chart" id="chart-area-wrap"><figcaption>Área reconstruida <small>acres · acumulada</small></figcaption><svg id="chart-area" role="img" aria-label="Área reconstruida acumulada"></svg></figure>
+      <figure class="chart" id="chart-frp-wrap"><figcaption>FRP por pasada <small>MW · observado</small></figcaption><svg id="chart-frp" role="img" aria-label="FRP total por pasada de satélite"></svg></figure>
+      <figure class="chart" id="chart-wind-wrap"><figcaption>Viento horario <small>m/s · modelado</small></figcaption><svg id="chart-wind" role="img" aria-label="Viento horario modelado"></svg></figure>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # FireTrace
 
-Demo de reconstrucción y modelación de incendios sobre relieve real, con un gateway Python y MapLibre GL JS 5.6.1. Se mantiene local por decisión del usuario. La entrada principal se está preparando en `/firetrace.html`.
+Demo de reconstrucción y modelación de incendios sobre relieve real, con un gateway Python y MapLibre GL JS 5.6.1. Se mantiene local por decisión del usuario. La entrada principal es `/firetrace.html`; `/` redirige a esa vista.
 
 ## Abrir la demo local
 
@@ -13,6 +13,19 @@ python3 tools/firetrace/run_local.py
 Abre **http://localhost:5173/**. El script carga las observaciones guardadas y abre una conexión privada por SSH al gateway del laboratorio para solicitar inferencias a Cosmos. Las credenciales permanecen en el laboratorio. No cambia Ingress ni el botón App.
 
 La nueva vista principal es **http://localhost:5173/firetrace.html**: crecimiento reconstruido a partir de detecciones satelitales del Garnet Fire (24 agosto–12 septiembre de 2025), línea de tiempo, meteorología histórica y cámaras de referencia. La proyección a 6/12/24 horas se inicializa desde la superficie reconstruida seleccionada; es una modelación heurística y su comparación posterior usa otra reconstrucción, sin validación independiente.
+
+Para ejecutar el pronóstico en otro entorno, instala `python3 -m pip install -r tools/firetrace/requirements-forecast.txt`. Los datos de llegada, viento y elevación están guardados y se comprueban mediante SHA-256. El cálculo no necesita GPU ni consultas externas; las imágenes satelitales y las teselas del visor sí requieren conexión.
+
+Recorrido de la vista principal:
+
+1. Reproduce la línea de tiempo o arrastra el cursor para ver el área acumulada, la actividad reconstruida reciente y la última pasada FIRMS.
+2. Pausa en un instante, elige 6, 12 o 24 horas y pulsa **Proyectar desde este frente**. Compara la extensión modelada con la reconstrucción posterior y consulta el IoU total y el del crecimiento.
+3. Abre una cámara para consultar la imagen más cercana, su diferencia temporal con el cursor y la respuesta guardada de Cosmos. Los conos representan una hipótesis de orientación.
+4. Consulta **Procedencia y límites** para revisar el sesgo de superficie, las horas de descubrimiento incompatibles y los supuestos del modelo.
+
+El modelo trata todo el borde de la superficie inicial como activo y puede reactivar bordes antiguos. En el caso evaluado sobrepredice considerablemente el crecimiento. La comparación permite medir ese fallo; no acredita capacidad de predicción operativa.
+
+Con el servidor abierto, `node tools/firetrace/verify_operations.mjs http://localhost:5173` comprueba la entrada principal y el contrato real entre la página y el servicio: horizontes 6/12/24 h, inicialización desde la reconstrucción, métricas, ausencia de referencia posterior y solicitudes inválidas. La interacción visual se comprueba aparte en el navegador.
 
 La asimilación de cámaras queda pausada como fase siguiente: las 11 observaciones estructuradas de Cosmos tienen la base oculta y no producen correcciones. Los artefactos y el motivo se conservan en `camera_assimilation/vision/` y `camera_assimilation/assimilation/`.
 

@@ -1,0 +1,61 @@
+{
+  "verifiedAtUtc": "2026-10-17T15:02:05.984Z",
+  "pythonUnitTests": 108,
+  "javascriptOperationsTests": 22,
+  "http": {
+    "base": "http://localhost:5173",
+    "initialCells": 1657,
+    "cameraFrames": 6,
+    "results": [
+      {
+        "horizonHours": 6,
+        "iou": 0.3806,
+        "growthIou": 0,
+        "predictedHa": 17416,
+        "referenceHa": 6628,
+        "domainBoundaryReached": false
+      },
+      {
+        "horizonHours": 12,
+        "iou": 0.2873,
+        "growthIou": 0.046,
+        "predictedHa": 26204,
+        "referenceHa": 7528,
+        "domainBoundaryReached": false
+      },
+      {
+        "horizonHours": 24,
+        "iou": 0.1709,
+        "growthIou": 0.0345,
+        "predictedHa": 46928,
+        "referenceHa": 8020,
+        "domainBoundaryReached": false
+      }
+    ],
+    "unavailableReferenceChecked": true,
+    "invalidRequestsChecked": true
+  },
+  "browser": {
+    "engine": "Safari native via CUA after two T3 snapshot timeouts",
+    "verified": [
+      "growth playback and pause",
+      "12-hour forecast geometry and metrics",
+      "24-hour forecast metrics",
+      "weather and charts",
+      "camera frame and temporal difference",
+      "saved Cosmos review notes",
+      "forecast invalidation during playback",
+      "2D and 3D control state",
+      "compact always-visible data classes"
+    ],
+    "limitations": [
+      "The final native fitBounds change was reviewed and executed; a final canvas screenshot was unavailable after the browser control reported noWindowsAvailable."
+    ]
+  },
+  "videoRangeRequests": {
+    "delilah": 206,
+    "buckrock": 206
+  },
+  "modelValidated": false,
+  "cameraAssimilation": "paused; 11 of 11 bases hidden; no corrections"
+}

@@ -185,6 +185,13 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = urlparse(self.path).path
         try:
+            if path == '/':
+                self.send_response(302)
+                self.send_header('Location', '/firetrace.html')
+                self.send_header('Content-Length', '0')
+                self.send_header('Cache-Control', 'no-store')
+                self.end_headers()
+                return
             if path == '/api/camera-fusion':
                 from camera_bundle import load_camera_bundle
                 return self.send_json(load_camera_bundle())

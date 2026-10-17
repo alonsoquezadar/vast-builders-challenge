@@ -1,6 +1,6 @@
 {
-  "version": 5,
-  "status": "operations-view-in-development",
+  "version": 6,
+  "status": "local-operations-view-verified",
   "presentationMinutesAssumption": 3,
   "deliveryDeadline": null,
   "preserveExistingWorkshopApp": "pulse-corridor",
@@ -15,7 +15,8 @@
       "triangulación validada de Garnet",
       "relojes de cámaras sincronizados",
       "dominio público por etiqueta del mirror",
-      "simulación iniciada desde un perímetro observado contemporáneo de Garnet"
+      "simulación iniciada desde un perímetro observado contemporáneo de Garnet",
+      "correcciones de la simulación derivadas de las cámaras en este video"
     ],
     "primaryIncident": "Garnet Fire · 2025-08-27",
     "cameraCount": 2,
@@ -25,7 +26,7 @@
     "satelliteDetections": 13883,
     "reconstructedCells": 6073,
     "simulationWorkspace": "/firetrace.html",
-    "simulationStatus": "reconstructed-front-forecast-in-development"
+    "simulationStatus": "retrospective-heuristic-forecast-integrated-not-validated"
   },
   "gates": [
     {
@@ -72,5 +73,6 @@
   "frameAnalysisPermission": "User explicitly confirmed analysis with Cosmos is permitted",
   "priority": "Single visual operations view: reconstructed wildfire growth over real terrain, then 6/12/24h retrospective modeling. Camera assimilation paused.",
   "cameraAssimilationContract": "camera_assimilation/CONTRACT.md",
-  "cameraAssimilationStatus": "paused-next-phase: 11/11 hidden bases, 0 camera corrections"
+  "cameraAssimilationStatus": "paused-next-phase: 11/11 hidden bases, 0 camera corrections",
+  "verificationCommand": "node tools/firetrace/verify_operations.mjs http://localhost:5173"
 }
