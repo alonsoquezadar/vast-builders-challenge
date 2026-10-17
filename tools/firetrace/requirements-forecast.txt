@@ -1,0 +1,3 @@
+numpy>=1.24,<3
+shapely>=2.0,<3
+# Pillow>=10,<13 is only needed to rebuild the DEM with forecast_data/build_dem.py

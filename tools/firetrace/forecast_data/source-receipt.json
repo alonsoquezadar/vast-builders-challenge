@@ -1,0 +1,28 @@
+{
+ "schema": "firetrace-forecast-sources-v1",
+ "note": "Pinned SHA-256 of every input the reconstruction forecast reads; a mismatch aborts the forecast (no fallback).",
+ "arrival": {
+  "path": "evidence/garnet/satellite/arrival-reconstructed.geojson",
+  "sha256": "726dddb723f8ef11ef445626ce50c0f3ab6a52f5e0a08d8c95caf937f59680cc"
+ },
+ "weather": {
+  "path": "evidence/garnet/satellite/weather-hourly.json",
+  "sha256": "7ccf94526c73a8d4081a0a8693eee36d00819ef441987dbbe3c05b936c24eb07"
+ },
+ "dem": {
+  "file": "dem-extended-200m.npz",
+  "sha256": "3f6a18799343d94a0ec6ec68270d250541dc34004e220e722c720849ebf852c6",
+  "builtBy": "forecast_data/build_dem.py"
+ },
+ "demReceipt": {
+  "file": "dem-extended-receipt.json",
+  "sha256": "27279f0704e183f36df68f19baaf2d60e79ecf79627c07ce0d3b12ac6e0fb9af"
+ },
+ "baseDem": {
+  "file": "dem-200m.npz",
+  "sha256": "7175b10443930f519838b443d973337ddeffdde9bbf112cfc833ad83ffa595d2",
+  "receiptFile": "dem-receipt.json",
+  "receiptSha256": "2338c272d090279114d25326f05e7af597da59dca56ec44db5fd99bd7f35943b",
+  "note": "149x158 DEM copied from camera_assimilation (7b9d731); kept only to check that the extended DEM reproduces it exactly."
+ }
+}
