@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "status": "reviewed-plan-with-open-data-and-publication-gates",
+  "version": 2,
+  "status": "local-integrated-demo-with-geolocation-open",
   "presentationMinutesAssumption": 3,
   "deliveryDeadline": "2026-10-17T14:38:33Z",
   "preserveExistingWorkshopApp": "pulse-corridor",
@@ -11,14 +11,22 @@
     "excludedClaims": [
       "perímetro generado desde una columna de humo",
       "predicción validada del avance",
-      "recomendaciones operativas de evacuación"
-    ]
+      "recomendaciones operativas de evacuación",
+      "triangulación validada de Garnet",
+      "relojes de cámaras sincronizados",
+      "dominio público por etiqueta del mirror"
+    ],
+    "primaryIncident": "Garnet Fire · 2025-08-27",
+    "cameraCount": 2,
+    "framesWithSavedCosmosAnalysis": 6,
+    "entryPath": "/incident.html",
+    "calibrationWorkspace": "/alignment.html"
   },
   "gates": [
     {
       "id": "data",
-      "requirement": "Elegir un incidente y comprobar si cámara y satélite corresponden al mismo lugar y periodo.",
-      "status": "open",
+      "requirement": "Mostrar solo evidencia de Garnet del día impreso; no mezclar FIRMS actuales con este incidente histórico.",
+      "status": "garnet-camera-evidence-reviewed-no-historical-firms",
       "cutAfterMinutesEstimate": 30
     },
     {
@@ -29,7 +37,7 @@
     {
       "id": "vision",
       "requirement": "Verificar un ejemplo positivo y un negativo, guardando entrada, salida, modelo y fecha sin declarar precisión estadística.",
-      "status": "open"
+      "status": "six-real-cosmos-responses-hash-bound-not-accuracy-evaluation"
     },
     {
       "id": "replay",
@@ -39,7 +47,7 @@
     {
       "id": "location",
       "requirement": "Identificar el rumbo como línea de visión. No dibujar una posición estimada sin supuestos y comprobación geométrica.",
-      "status": "scope-limited"
+      "status": "camera-positions-and-incident-reference-only-fire-location-unresolved"
     },
     {
       "id": "rehearsal",
@@ -49,7 +57,7 @@
   ],
   "cutoffPolicy": {
     "freezeFeatureMinutesBeforeDemoEstimate": 45,
-    "fallback": "Presentar reconstrucción temporal con datos satelitales y relieve reales; mostrar visión como módulo separado si no se valida la correspondencia con la cámara.",
+    "fallback": "Reproducir las seis observaciones reales guardadas sin GPU. Las teselas del relieve siguen necesitando red.",
     "fallbackIsNot": "una demostración validada de fusión cámara-terreno"
   },
   "deliveryDeadlineLondon": "2026-10-17T15:38:33+01:00",

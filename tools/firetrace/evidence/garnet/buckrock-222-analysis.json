@@ -1,0 +1,8 @@
+{
+  "content": "Esta imagen es una captura de pantalla de una observación de ALERTCalifornia, con créditos de UC San Diego y PG&E. Muestra una escena de montañas con una gran masa de humo visible en el centro y a la izquierda. El humo se eleva desde una zona más oscura en la base de las montañas, sugiriendo la presencia de un incendio forestal. El humo se extiende horizontalmente sobre las montañas, con tonos grises y blancos que contrastan con el cielo azul. No se observan llamas visibles en la imagen. La calidad de la imagen es clara, permitiendo distinguir los contornos de las montañas y la densidad del humo. La escena está iluminada por luz natural, probablemente durante el día. No hay evidencia de nubes o niebla que puedan explicar el humo observado.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T13:47:45.088821+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "5d9d752cb528c24ac7c9b062fbeb8cdd4935c37b98f7716f264e13b6c213684b"
+}

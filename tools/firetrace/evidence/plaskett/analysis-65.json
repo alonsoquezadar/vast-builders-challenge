@@ -1,0 +1,8 @@
+{
+  "content": "Esta imagen es una captura de pantalla de una observación de incendio forestal. Se muestra una gran columna de humo blanco y gris que se eleva desde el suelo y se extiende horizontalmente sobre las montañas. El humo es visible en el centro de la imagen, cubriendo parcialmente las cumbres de las montañas. A la derecha, se ve una torre de telecomunicaciones metálica. A la izquierda, hay un poste blanco. El cielo es azul claro. No se ven llamas ni fuego en la imagen. La fuente de la imagen es UC San Diego y se indica que es cortesía de PG&E. La ubicación es Axis-Rockybutte, elevación 3245 pies. La fecha y hora de la captura son 2026/08/30 17:04:10.10.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T13:25:40.447617+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "ec80845d2fdd31a106cef754a4dced2c05b6fdac0755cd989bf1a309f3b6ae5b"
+}

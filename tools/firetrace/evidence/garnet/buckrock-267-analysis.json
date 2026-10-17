@@ -1,0 +1,8 @@
+{
+  "content": "Esta es una captura de pantalla de una cámara de vigilancia. En la parte inferior izquierda se observa una fuente de luz intensa, probablemente el sol, que ilumina el cielo con tonos naranja y rojo. Sobre el horizonte se extiende una masa de humo o nubes oscuras que cubre gran parte del cielo. La imagen muestra una escena de atardecer o amanecer con una mezcla de colores cálidos cerca del horizonte y tonos azules más fríos en la parte superior. No se pueden distinguir claramente llamas o estructuras de incendio. La presencia de humo es evidente, pero su origen no se puede determinar con certeza a partir de esta imagen. La calidad de la imagen es baja y está afectada por la distancia y la atmósfera.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T13:47:49.785207+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "1df06e871155069dcd8c67300837c6b226fdc9df745f83f392773adaa1ace8e7"
+}

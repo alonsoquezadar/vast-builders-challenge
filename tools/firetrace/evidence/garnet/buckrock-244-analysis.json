@@ -1,0 +1,8 @@
+{
+  "content": "Esta imagen es una captura de pantalla de una observación de alerta de California. Muestra una gran masa de humo que se eleva desde una zona montañosa. El humo es denso y se extiende horizontalmente sobre las montañas, con algunas áreas más claras cerca del suelo. No se ven llamas visibles en la imagen. La masa de humo se extiende sobre un amplio área de montañas, con algunas zonas más oscuras que podrían indicar la presencia de fuego. La imagen está marcada con el logo de UC San Diego y ALERTCalifornia, y se indica que la imagen fue proporcionada por PG&E. La fecha y hora de la captura se muestran en la parte inferior de la imagen.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T13:47:47.270863+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "d915faab015dca854f3d5b2d27e06d74b62c1db5a0737fea0e298a3947bbe73a"
+}

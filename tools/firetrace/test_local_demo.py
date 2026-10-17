@@ -62,6 +62,61 @@ class LocalDemoTests(unittest.TestCase):
         self.assertEqual(data['mode'], 'replay')
         self.assertEqual(data['replayCapturedAt'], self.bundle['capturedAt'])
 
+    def test_alignment_assets_are_served_but_source_files_stay_private(self):
+        for path, mime in [('/alignment.html', 'text/html'), ('/alignment.js', 'javascript'),
+                           ('/evidence/plaskett/clip.mp4', 'video/mp4'),
+                           ('/evidence/plaskett/frame-55.jpg', 'image/jpeg')]:
+            with urlopen(self.url + path, timeout=3) as response:
+                self.assertEqual(response.status, 200)
+                self.assertIn(mime, response.headers['Content-Type'])
+                response.read()
+        for path in ['/calibration.py', '/evidence/plaskett/source.json']:
+            with self.assertRaises(HTTPError) as error:
+                self.get(path)
+            self.assertEqual(error.exception.code, 404)
+
+    def test_camera_fit_endpoint_requires_verified_correspondences(self):
+        request = Request(self.url + '/api/calibrate', data=b'{}', headers={'Content-Type': 'application/json'})
+        with self.assertRaises(HTTPError) as error:
+            urlopen(request, timeout=3)
+        self.assertEqual(error.exception.code, 400)
+
+    def test_plaskett_analysis_is_bound_to_original_frame(self):
+        data = self.get('/api/alignment-observation')
+        frame = Path(__file__).with_name('evidence').joinpath('plaskett/frame-65.jpg').read_bytes()
+        self.assertEqual(data['frameSecond'], 65)
+        self.assertEqual(data['analysis']['imageSha256'], hashlib.sha256(frame).hexdigest())
+        self.assertEqual(data['analysis']['geolocation'], 'unresolved')
+
+    def test_incident_replay_is_available_without_upstream_network(self):
+        data = self.get('/api/incident')
+        self.assertEqual(data['mode'], 'historical-replay')
+        self.assertEqual(len(data['frames']), 6)
+        self.assertEqual(data['clockSynchronization'], 'unverified')
+        self.assertIsNone(data['firmsHistoricalData'])
+        self.assertTrue(all(frame['analysisIntegrity'] == 'matched' for frame in data['frames']))
+        for path in ['/incident.html', '/incident.js', '/incident.css', '/incident_model.mjs',
+                     '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/buckrock-267.jpg']:
+            with urlopen(self.url + path, timeout=3) as response:
+                self.assertEqual(response.status, 200)
+                response.read()
+        with self.assertRaises(HTTPError) as error:
+            self.get('/evidence/garnet/manifest.json')
+        self.assertEqual(error.exception.code, 404)
+
+    def test_clip_supports_seeking_and_rejects_out_of_bounds_ranges(self):
+        request = Request(self.url + '/evidence/plaskett/clip.mp4', headers={'Range': 'bytes=100-199'})
+        clip = Path(__file__).with_name('evidence').joinpath('plaskett/clip.mp4').read_bytes()
+        with urlopen(request, timeout=3) as response:
+            self.assertEqual(response.status, 206)
+            self.assertEqual(response.read(), clip[100:200])
+            self.assertEqual(response.headers['Content-Range'], f'bytes 100-199/{len(clip)}')
+        for value in ['bytes=999999999-', 'bytes=9-2', 'bytes=-', 'bytes=0-1,3-4']:
+            request = Request(self.url + '/evidence/plaskett/clip.mp4', headers={'Range': value})
+            with self.assertRaises(HTTPError) as error:
+                urlopen(request, timeout=3)
+            self.assertEqual(error.exception.code, 416)
+
     def test_analysis_requires_configuration_in_saved_only_mode(self):
         image = Path(__file__).with_name('evidence').joinpath('gann-official-thumbnail.jpg').read_bytes()
         payload = {'image': 'data:image/jpeg;base64,' + base64.b64encode(image).decode()}

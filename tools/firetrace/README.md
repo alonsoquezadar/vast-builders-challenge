@@ -12,6 +12,10 @@ python3 tools/firetrace/run_local.py
 
 Abre **http://localhost:5173/**. El script carga las observaciones guardadas y abre una conexión privada por SSH al gateway del laboratorio para solicitar inferencias a Cosmos. Las credenciales permanecen en el laboratorio. No cambia Ingress ni el botón App.
 
+La demo de dos cámaras está en **http://localhost:5173/incident.html**. Selecciona uno de tres momentos de Garnet Fire y pulsa una cámara para consultar su fotograma, respuesta real guardada de Cosmos y posición pública sobre el relieve. **Ver secuencia** abre el tramo de video de esa cámara. **Analizar este fotograma ahora** solicita una inferencia nueva. **Exportar evidencia** descarga fuentes, horas impresas, huellas y respuestas.
+
+Las dos imágenes de cada momento tienen horas cercanas, no idénticas; la interfaz muestra la diferencia. No se ha verificado la sincronía de relojes ni la zona horaria. El marcador de CAL FIRE es una referencia del incidente, no una detección extraída del video. Las seis observaciones guardadas se muestran únicamente si corresponden a los bytes de su imagen. Las correcciones de procedencia se presentan junto al texto original del modelo.
+
 Para ensayar sin conectar con Cosmos:
 
 ```sh
@@ -33,6 +37,20 @@ El Gann Fire es una miniatura de la publicación oficial, con llamas y humo visi
 El usuario confirmó que se permite analizar un fotograma con Cosmos. No se ha ingerido este material en el índice VAST.
 
 ## Estado de la primera versión
+
+### Caso Plaskett: humo y alineación
+
+Abre **http://localhost:5173/alignment.html** con el servidor local en ejecución. Incluye los segundos 55–75 del video oficial de Rocky Butte y tres fotogramas del 30 de agosto de 2026. Las regiones de humo están marcadas manualmente en píxeles. No representan superficie quemada ni resultados de segmentación automática.
+
+Selecciona una referencia reconocible en el fotograma y después el mismo punto en el mapa. El mapa consulta su altura en el DEM. Añade seis referencias de ajuste y dos de comprobación, separadas por la imagen. Cada fotograma conserva sus propias referencias. **Guardar sesión** exporta las marcas, coordenadas, fuentes y ajuste actual.
+
+El ajuste experimental requiere NumPy y SciPy, disponibles en el entorno de desarrollo. En otro entorno, instálalos con `python3 -m pip install -r tools/firetrace/requirements-calibration.txt`. El resto del gateway sigue usando la biblioteca estándar.
+
+La posición pública de Rocky Butte está redondeada. El ajuste mantiene fija esa posición, estima orientación y campo de visión, y muestra errores de reproyección. No incorpora distorsión óptica ni refracción. El error de comprobación no certifica precisión geográfica. Las referencias reales aún no están identificadas: la alineación sigue pendiente. El humo oculta el frente en los fotogramas revisados, por lo que no se proyecta sobre el suelo. Las horas impresas se conservan sin atribuirles una zona horaria no verificada.
+
+Procedencia y huellas de los archivos: `evidence/plaskett/source.json`. Créditos conservados: ALERTCalifornia | UC San Diego y PG&E. No se ha ingerido la secuencia en VAST.
+
+### Visor general
 
 - Terreno real Terrarium, escala vertical inicial 1×, imagen satelital de Esri y controles de perspectiva.
 - Detecciones NASA FIRMS S-NPP VIIRS de los últimos siete días, filtradas al entorno de California. El cursor muestra las 24 horas anteriores.
@@ -69,10 +87,11 @@ El túnel de revisión debe reiniciarse después de un rollout porque queda cone
 Desde la raíz del repositorio:
 
 ```sh
-node --test tools/firetrace/geo.test.mjs
+node --test tools/firetrace/geo.test.mjs tools/firetrace/incident_model.test.mjs
 python3 -B -m unittest discover -s tools/firetrace -p 'test_*.py'
 python3 -m py_compile tools/firetrace/main.py tools/firetrace/deploy.py
 node --check tools/firetrace/app.js
+node --check tools/firetrace/incident.js
 ```
 
 Las pruebas comprueban distancias y rumbos geográficos, exclusión de observaciones futuras y validación de importaciones. La comprobación visual cubre el visor, las capas, los controles temporales, las cámaras y el diseño móvil. Una respuesta de Cosmos demuestra conectividad, no precisión de detección de incendios.

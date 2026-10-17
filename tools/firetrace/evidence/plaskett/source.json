@@ -1,0 +1,39 @@
+{
+  "sourceUrl": "https://www.youtube.com/watch?v=lH4-wSAmbNo",
+  "officialListing": "https://alertcalifornia.org/images-and-video/",
+  "credit": "ALERTCalifornia | UC San Diego; PG&E",
+  "cameraId": "Axis-RockyButte",
+  "recordingDateVisible": "2026-08-30",
+  "timezoneVerified": false,
+  "clipOriginalSeconds": [
+    55,
+    75
+  ],
+  "clipProcessing": "H.264 transcode for local browser playback, no audio; all on-image source credits retained",
+  "frames": [
+    {
+      "second": 55,
+      "sha256": "dc1c97c9aaa4210fc2294058fbc76e55ebb9cb6a42959f21d73ea9b9daf9f798"
+    },
+    {
+      "second": 65,
+      "sha256": "ec80845d2fdd31a106cef754a4dced2c05b6fdac0755cd989bf1a309f3b6ae5b"
+    },
+    {
+      "second": 75,
+      "sha256": "a57756aa704009d1a8d9416887946953324375637282ccc2cf768f8a42daa3ff"
+    }
+  ],
+  "annotations": "Manual approximate image-space smoke polygons, not model segmentation or fire perimeter",
+  "calibrationStatus": "unresolved; operator-verified image-to-terrain correspondences required",
+  "cameraOrigin": [
+    -121.05,
+    35.67,
+    989
+  ],
+  "cameraOriginStatus": "rounded public catalog; not surveyed optical center",
+  "historicalPoseVerified": false,
+  "notIngestedIntoVAST": true,
+  "referenceIncidentUrl": "https://www.fire.ca.gov/incidents/2026/8/26/plaskett-fire/",
+  "clipSha256": "eee0ff585b0ccfb7671e183ffb15b3892bfafa668e203cafc75b49a395cfd8a9"
+}

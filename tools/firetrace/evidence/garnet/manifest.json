@@ -1,0 +1,148 @@
+{
+  "schema": "firetrace-incident-v1",
+  "id": "garnet-2025-08-27",
+  "title": "Garnet Fire",
+  "date": "2025-08-27",
+  "mode": "historical-replay",
+  "createdAt": "2026-10-17T13:47:31.752514+00:00",
+  "source": {
+    "page": "https://commons.wikimedia.org/wiki/File:Garnet_Fire_Afternoon_Growth_Compilation.ogg",
+    "attribution": "ALERTCalifornia | UC San Diego · PG&E",
+    "originalSha256": "2d54936d96ab5c3e6c8786282e1e86a4235d7504e84f8f76f132374f4ddf4240",
+    "originalSource": "ALERTCalifornia compilation, mirror supplied by user",
+    "rightsNote": "Commons PD-automated label is not treated as clearance; ALERTCalifornia source terms and credits retained. Local research replay, not ingested into VAST.",
+    "termsUrl": "https://alertcalifornia.org/terms/"
+  },
+  "cameras": [
+    {
+      "id": "delilah",
+      "catalogId": "Axis-DelilahLookout2",
+      "name": "Delilah Lookout 2",
+      "coordinates": [
+        -119.12,
+        36.8,
+        1570
+      ],
+      "positionStatus": "rounded-public-catalog-unverified",
+      "clipPath": "./evidence/garnet/delilah.mp4",
+      "sourceClipStart": 83
+    },
+    {
+      "id": "buckrock",
+      "catalogId": "Axis-BuckRock1",
+      "name": "Buck Rock 1",
+      "coordinates": [
+        -118.86,
+        36.74,
+        2578
+      ],
+      "positionStatus": "rounded-public-catalog-unverified",
+      "clipPath": "./evidence/garnet/buckrock.mp4",
+      "sourceClipStart": 190
+    }
+  ],
+  "reference": {
+    "coordinates": [
+      -119.027914,
+      36.86508
+    ],
+    "label": "Ubicación de referencia del incidente · CAL FIRE",
+    "sourceUrl": "https://www.fire.ca.gov/incidents/2025/8/24/garnet-fire",
+    "meaning": "Published incident location; not a frame-derived fire location or historical perimeter"
+  },
+  "frames": [
+    {
+      "id": "delilah-86",
+      "cameraId": "delilah",
+      "sourceVideoSecond": 86,
+      "printedTime": "2025-08-27T16:16:57.53",
+      "timezone": "unverified",
+      "imagePath": "./evidence/garnet/delilah-86.jpg",
+      "imageSha256": "cc1f480b530ef8fd156424ccf774c652f20d0fd23ad4263567c913e06c775fef",
+      "analysisPath": "delilah-86-analysis.json"
+    },
+    {
+      "id": "delilah-110",
+      "cameraId": "delilah",
+      "sourceVideoSecond": 110,
+      "printedTime": "2025-08-27T18:13:32.25",
+      "timezone": "unverified",
+      "imagePath": "./evidence/garnet/delilah-110.jpg",
+      "imageSha256": "9a2aab2c33b261b1ba7df39e310af1e110bf8b5e871aa01eaf73bfd6b722bbc6",
+      "analysisPath": "delilah-110-analysis.json",
+      "reviewNotes": [
+        "Corrección de procedencia: es una cámara fija de torre. La referencia del modelo a una vista aérea o satelital es incorrecta."
+      ]
+    },
+    {
+      "id": "delilah-134",
+      "cameraId": "delilah",
+      "sourceVideoSecond": 134,
+      "printedTime": "2025-08-27T20:16:58.11",
+      "timezone": "unverified",
+      "imagePath": "./evidence/garnet/delilah-134.jpg",
+      "imageSha256": "a66a134ab4f53031f90cb58aa88400a9cb78be15813d6cae96e9bdd486ceb9d8",
+      "analysisPath": "delilah-134-analysis.json",
+      "reviewNotes": [
+        "Imagen monocroma. Las referencias del modelo a colores y calor no constituyen mediciones; no se ha identificado el tipo de sensor ni una temperatura."
+      ]
+    },
+    {
+      "id": "buckrock-222",
+      "cameraId": "buckrock",
+      "sourceVideoSecond": 222,
+      "printedTime": "2025-08-27T16:26:41.25",
+      "timezone": "unverified",
+      "imagePath": "./evidence/garnet/buckrock-222.jpg",
+      "imageSha256": "5d9d752cb528c24ac7c9b062fbeb8cdd4935c37b98f7716f264e13b6c213684b",
+      "analysisPath": "buckrock-222-analysis.json"
+    },
+    {
+      "id": "buckrock-244",
+      "cameraId": "buckrock",
+      "sourceVideoSecond": 244,
+      "printedTime": "2025-08-27T18:16:25.63",
+      "timezone": "unverified",
+      "imagePath": "./evidence/garnet/buckrock-244.jpg",
+      "imageSha256": "d915faab015dca854f3d5b2d27e06d74b62c1db5a0737fea0e298a3947bbe73a",
+      "analysisPath": "buckrock-244-analysis.json"
+    },
+    {
+      "id": "buckrock-267",
+      "cameraId": "buckrock",
+      "sourceVideoSecond": 267,
+      "printedTime": "2025-08-27T20:09:08.33",
+      "timezone": "unverified",
+      "imagePath": "./evidence/garnet/buckrock-267.jpg",
+      "imageSha256": "1df06e871155069dcd8c67300837c6b226fdc9df745f83f392773adaa1ace8e7",
+      "analysisPath": "buckrock-267-analysis.json"
+    }
+  ],
+  "moments": [
+    {
+      "label": "Tarde · 16 h",
+      "frameIds": [
+        "delilah-86",
+        "buckrock-222"
+      ]
+    },
+    {
+      "label": "Crecimiento visible · 18 h",
+      "frameIds": [
+        "delilah-110",
+        "buckrock-244"
+      ]
+    },
+    {
+      "label": "Anochecer · 20 h",
+      "frameIds": [
+        "delilah-134",
+        "buckrock-267"
+      ]
+    }
+  ],
+  "geolocation": "unresolved",
+  "clockSynchronization": "unverified",
+  "propagationModel": null,
+  "firmsHistoricalData": null
+}

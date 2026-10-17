@@ -159,12 +159,64 @@ class Handler(SimpleHTTPRequestHandler):
         try:
             if path == '/health':
                 return self.send_json({'ok': True})
+            if path in ['/evidence/plaskett/clip.mp4', '/evidence/garnet/delilah.mp4', '/evidence/garnet/buckrock.mp4']:
+                clip = ROOT / path.lstrip('/')
+                size = clip.stat().st_size
+                start, end, status = 0, size - 1, 200
+                requested = self.headers.get('Range')
+                if requested:
+                    match = re.fullmatch(r'bytes=(\d*)-(\d*)', requested)
+                    if not match or not any(match.groups()):
+                        self.send_response(416)
+                        self.send_header('Content-Range', f'bytes */{size}')
+                        self.send_header('Content-Length', '0')
+                        self.end_headers()
+                        return
+                    if match[1]:
+                        start = int(match[1])
+                        end = min(int(match[2]), size - 1) if match[2] else size - 1
+                    else:
+                        start = max(0, size - int(match[2]))
+                    if start > end or start >= size:
+                        self.send_response(416)
+                        self.send_header('Content-Range', f'bytes */{size}')
+                        self.send_header('Content-Length', '0')
+                        self.end_headers()
+                        return
+                    status = 206
+                self.send_response(status)
+                self.send_header('Content-Type', 'video/mp4')
+                self.send_header('Accept-Ranges', 'bytes')
+                self.send_header('Content-Length', str(end - start + 1))
+                if status == 206:
+                    self.send_header('Content-Range', f'bytes {start}-{end}/{size}')
+                self.end_headers()
+                with clip.open('rb') as stream:
+                    stream.seek(start)
+                    remaining = end - start + 1
+                    while remaining:
+                        block = stream.read(min(65536, remaining))
+                        if not block:
+                            break
+                        self.wfile.write(block)
+                        remaining -= len(block)
+                return
             if path == '/api/status':
                 return self.send_json({'vast': bool(os.environ.get('VSS_URL') or BACKEND_PROXY),
                                        'cosmos': bool(os.environ.get('GPU_BEARER_TOKEN') or BACKEND_PROXY),
                                        'mode': 'replay' if REPLAY else 'live',
                                        'demoExample': (ROOT / 'evidence/gann-official-thumbnail-source.json').is_file(),
                                        'replayCapturedAt': REPLAY['capturedAt'] if REPLAY else None})
+            if path == '/api/alignment-observation':
+                evidence = ROOT / 'evidence/plaskett'
+                saved = json.loads((evidence / 'analysis-65.json').read_text())
+                if saved.get('imageSha256') != hashlib.sha256((evidence / 'frame-65.jpg').read_bytes()).hexdigest():
+                    return self.send_json({'error': 'La imagen no coincide con el análisis guardado.'}, 409)
+                return self.send_json({'frameSecond': 65, 'analysis': saved,
+                                       'source': json.loads((evidence / 'source.json').read_text())})
+            if path == '/api/incident':
+                from incident_bundle import load_incident
+                return self.send_json(load_incident(ROOT / 'evidence/garnet'))
             if REPLAY and path in ['/api/firms', '/api/cameras', '/api/perimeters']:
                 params = parse_qs(urlparse(self.path).query)
                 lon = float(params['lon'][0]) if 'lon' in params else None
@@ -201,9 +253,18 @@ class Handler(SimpleHTTPRequestHandler):
             if path.startswith('/api/'):
                 return self.send_json({'error': 'Ruta no disponible.'}, 404)
             if path not in ['/', '/index.html', '/style.css', '/app.js', '/geo.mjs',
+                            '/alignment.html', '/alignment.js', '/alignment.css',
+                            '/incident.html', '/incident.js', '/incident.css', '/incident_model.mjs',
+                            '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
+                            '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',
+                            '/evidence/garnet/buckrock-244.jpg', '/evidence/garnet/buckrock-267.jpg',
+                            '/evidence/plaskett/clip.mp4', '/evidence/plaskett/frame-55.jpg',
+                            '/evidence/plaskett/frame-65.jpg', '/evidence/plaskett/frame-75.jpg',
                             '/evidence/gann-official-thumbnail.jpg', '/evidence/grizzly-camera.jpg']:
                 return self.send_json({'error': 'Archivo no disponible.'}, 404)
             return super().do_GET()
+        except (BrokenPipeError, ConnectionResetError):
+            return
         except (ValueError, KeyError):
             return self.send_json({'error': 'Solicitud inválida o fuente no disponible.'}, 400)
         except Exception:
@@ -216,6 +277,12 @@ class Handler(SimpleHTTPRequestHandler):
                 return self.send_json({'error': 'Solicitud demasiado grande o vacía.'}, 413)
             data = json.loads(self.rfile.read(length))
             path = urlparse(self.path).path
+            if path == '/api/calibrate':
+                try:
+                    from calibration import fit_camera
+                    return self.send_json(fit_camera(data))
+                except ImportError:
+                    return self.send_json({'error': 'Instala requirements-calibration.txt para ajustar la cámara.'}, 503)
             if path == '/api/analyze':
                 return self.send_json(analyze(data))
             if path == '/api/search':

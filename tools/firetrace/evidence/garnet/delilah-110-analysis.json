@@ -1,0 +1,8 @@
+{
+  "content": "Esta imagen es una captura de pantalla de una observación de ALERT California de un incendio forestal. Se muestra una gran columna de humo blanco y gris que se eleva desde las montañas en el centro de la imagen. El humo se dispersa hacia la derecha y se extiende sobre las colinas. El cielo está parcialmente nublado, con algunas nubes blancas visibles en la parte superior izquierda. En la parte superior derecha, hay un texto que dice \"IMAGE COURTESY OF PG&E\". En la parte superior izquierda, hay un logotipo de ALERT California y el texto \"UC San Diego\". La imagen parece ser una vista aérea o de satélite del incendio forestal. No se pueden ver llamas en la imagen.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T13:47:38.044229+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "9a2aab2c33b261b1ba7df39e310af1e110bf8b5e871aa01eaf73bfd6b722bbc6"
+}

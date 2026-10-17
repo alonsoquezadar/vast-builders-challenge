@@ -1,0 +1,8 @@
+{
+  "content": "Esta imagen es una captura de pantalla de una observación de alerta de California. Muestra una escena nocturna con una fuerte emisión de luz blanca y amarilla en el centro, que corresponde a un incendio forestal activo. La luz es intensa y se extiende sobre una superficie irregular que parece ser terreno montañoso o boscoso. Alrededor de la zona iluminada, hay una densa nube de humo o vapor que se eleva y se dispersa hacia el cielo. La imagen está en blanco y negro, lo que dificulta distinguir colores, pero la fuerte luminosidad central contrasta con las áreas más oscuras a los lados. No se pueden identificar claramente llamas, pero la luz intensa sugiere una fuente de calor significativa. La presencia de humo es evidente y se extiende sobre el terreno.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T13:47:40.808404+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "a66a134ab4f53031f90cb58aa88400a9cb78be15813d6cae96e9bdd486ceb9d8"
+}
