@@ -1,0 +1,460 @@
+{
+ "schema": "firetrace-multicam-manifest/1",
+ "generated": "2026-10-18",
+ "recommended_incident": {
+  "name": "Gann Fire",
+  "year": 2026,
+  "county": "Calaveras",
+  "state": "CA",
+  "ignition_point_wfigs": {
+   "lat": 38.112384,
+   "lon": -120.774225
+  },
+  "calfire_start": "2026-08-03 17:27 PDT (reported)",
+  "wfigs_discovery_utc": "2026-08-04T00:27:56Z"
+ },
+ "source_video": {
+  "title": "Gann Fire Compilation",
+  "publisher": "ALERTCalifornia (YouTube)",
+  "url": "https://www.youtube.com/watch?v=N_C9qivAWfA",
+  "published": "2026-08-06",
+  "duration_s": 773.83,
+  "resolution": "1280x720 (analysed copy, 30 fps)",
+  "download_url": null,
+  "acquisition": "Not offered for download by ALERTCalifornia. Request original per-camera footage via https://alertcalifornia.org/contact/ (media/scientist/partner/government) citing terms at https://alertcalifornia.org/terms/ ; curated b-roll via Photoshelter linked from https://alertcalifornia.org/images-and-video/ (gallery content not accessible without login in our check)"
+ },
+ "compilation_is_sequential": true,
+ "timezone": {
+  "printed": null,
+  "assumed": "America/Los_Angeles (PDT, UTC-7)",
+  "status": "inferred, not printed on screen",
+  "evidence": [
+   "sunset/twilight progression consistent with ~19:55 PDT sunset",
+   "WFIGS discovery 2026-08-04T00:27:56Z = 17:27 PDT matches Cal Fire start 5:27 PM",
+   "caveat: smoke already visible at Valley Springs at printed 17:22:21 i.e. ~5 min before official start time (official time = report time, not ignition)"
+  ]
+ },
+ "common_interval_all4_night1": {
+  "local_PDT": [
+   "2026-08-03T17:47:31",
+   "2026-08-04T00:57:39"
+  ],
+  "utc": [
+   "2026-08-04T00:47:31Z",
+   "2026-08-04T07:57:39Z"
+  ],
+  "duration_h": 7.17,
+  "basis": "max of first printed times (goldengate) to min of last printed times (southworth), read by OCR+eye; ends +-2 min"
+ },
+ "second_interval_two_cameras_day2": {
+  "cameras": [
+   "valleysprings",
+   "goldengate"
+  ],
+  "local_PDT": [
+   "2026-08-04T12:31:29",
+   "2026-08-04T19:59:45"
+  ],
+  "note": "valleysprings 12:03-20:56, goldengate 12:31-19:59"
+ },
+ "cameras": [
+  {
+   "camera_id": "axis-valleysprings",
+   "display_name": "Valley Springs",
+   "site_id": "valleysprings",
+   "camera_console_url": "https://cameras.alertcalifornia.org/?id=Axis-ValleySprings",
+   "coordinates": {
+    "lat": 38.1115,
+    "lon": -120.817703,
+    "source": "ALERTCalifornia_Camera_Feed ArcGIS FeatureServer layer (current camera layer, queried 2026-10-18 Europe/London)",
+    "uncertainty_m": null,
+    "note": "current layer, not historical evidence; uncertainty not published"
+   },
+   "elevation_ft_printed": 1388,
+   "segments_in_compilation": [
+    {
+     "video_start_s": 0.0,
+     "video_end_s": 166.0,
+     "printed_start": "2026-08-03T17:23:11.59",
+     "printed_end": "2026-08-04T06:58:11.07",
+     "anchors": [
+      {
+       "video_s": 0.0,
+       "printed_time": "2026-08-03T17:23:11.59"
+      },
+      {
+       "video_s": 34.0,
+       "printed_time": "2026-08-03T18:45:34.09"
+      },
+      {
+       "video_s": 67.0,
+       "printed_time": "2026-08-03T21:40:43.33"
+      },
+      {
+       "video_s": 100.0,
+       "printed_time": "2026-08-04T00:39:35.65"
+      },
+      {
+       "video_s": 133.0,
+       "printed_time": "2026-08-04T03:52:03.12"
+      },
+      {
+       "video_s": 166.0,
+       "printed_time": "2026-08-04T06:58:11.07"
+      }
+     ]
+    },
+    {
+     "video_start_s": 565.0,
+     "video_end_s": 657.0,
+     "printed_start": "2026-08-04T12:03:07.59",
+     "printed_end": "2026-08-04T20:56:29.68",
+     "anchors": [
+      {
+       "video_s": 565.0,
+       "printed_time": "2026-08-04T12:03:07.59"
+      },
+      {
+       "video_s": 583.0,
+       "printed_time": "2026-08-04T13:51:56.39"
+      },
+      {
+       "video_s": 602.0,
+       "printed_time": "2026-08-04T15:20:52.02"
+      },
+      {
+       "video_s": 620.0,
+       "printed_time": "2026-08-04T17:11:05.55"
+      },
+      {
+       "video_s": 639.0,
+       "printed_time": "2026-08-04T19:09:14.34"
+      },
+      {
+       "video_s": 657.0,
+       "printed_time": "2026-08-04T20:56:29.68"
+      }
+     ]
+    },
+    {
+     "video_start_s": 738.0,
+     "video_end_s": 770.0,
+     "printed_start": "2026-08-05T12:42:12.04",
+     "printed_end": "2026-08-05T15:54:06.72",
+     "anchors": [
+      {
+       "video_s": 738.0,
+       "printed_time": "2026-08-05T12:42:12.04"
+      },
+      {
+       "video_s": 744.0,
+       "printed_time": "2026-08-05T13:17:04.41"
+      },
+      {
+       "video_s": 751.0,
+       "printed_time": "2026-08-05T14:00:36.12"
+      },
+      {
+       "video_s": 757.0,
+       "printed_time": "2026-08-05T14:35:27.83"
+      },
+      {
+       "video_s": 764.0,
+       "printed_time": "2026-08-05T15:18:06.41"
+      },
+      {
+       "video_s": 770.0,
+       "printed_time": "2026-08-05T15:54:06.72"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "camera_id": "axis-upperbear",
+   "display_name": "Upper Bear 1 (preset/camera printed as \"upperbear\"; colocated Upper Bear 2)",
+   "site_id": "upperbear",
+   "camera_console_url": "https://cameras.alertcalifornia.org/?id=Axis-UpperBear",
+   "coordinates": {
+    "lat": 38.116901,
+    "lon": -120.725197,
+    "source": "ALERTCalifornia_Camera_Feed ArcGIS FeatureServer layer (current camera layer, queried 2026-10-18 Europe/London)",
+    "uncertainty_m": null,
+    "note": "current layer, not historical evidence; uncertainty not published"
+   },
+   "elevation_ft_printed": 2687,
+   "segments_in_compilation": [
+    {
+     "video_start_s": 167.0,
+     "video_end_s": 329.0,
+     "printed_start": "2026-08-03T17:04:50.73",
+     "printed_end": "2026-08-04T06:57:24.22",
+     "anchors": [
+      {
+       "video_s": 167.0,
+       "printed_time": "2026-08-03T17:04:50.73"
+      },
+      {
+       "video_s": 193.0,
+       "printed_time": "2026-08-03T19:17:29.06"
+      },
+      {
+       "video_s": 222.0,
+       "printed_time": "2026-08-03T22:01:38.73"
+      },
+      {
+       "video_s": 248.0,
+       "printed_time": "2026-08-04T00:11:47.49"
+      },
+      {
+       "video_s": 284.0,
+       "printed_time": "2026-08-04T02:45:29.50"
+      },
+      {
+       "video_s": 329.0,
+       "printed_time": "2026-08-04T06:57:24.22"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "camera_id": "axis-southworth",
+   "display_name": "Southworth",
+   "site_id": "southworth",
+   "camera_console_url": "https://cameras.alertcalifornia.org/?id=Axis-Southworth",
+   "coordinates": {
+    "lat": 38.147942,
+    "lon": -120.924828,
+    "source": "ALERTCalifornia_Camera_Feed ArcGIS FeatureServer layer (current camera layer, queried 2026-10-18 Europe/London)",
+    "uncertainty_m": null,
+    "note": "current layer, not historical evidence; uncertainty not published"
+   },
+   "elevation_ft_printed": 348,
+   "segments_in_compilation": [
+    {
+     "video_start_s": 330.0,
+     "video_end_s": 407.0,
+     "printed_start": "2026-08-03T17:35:28.88",
+     "printed_end": "2026-08-04T00:53:31",
+     "anchors": [
+      {
+       "video_s": 330.0,
+       "printed_time": "2026-08-03T17:35:28.88"
+      },
+      {
+       "video_s": 345.0,
+       "printed_time": "2026-08-03T19:08:55.92"
+      },
+      {
+       "video_s": 361.0,
+       "printed_time": "2026-08-03T20:43:13.37"
+      },
+      {
+       "video_s": 376.0,
+       "printed_time": "2026-08-03T22:14:27.61"
+      },
+      {
+       "video_s": 392.0,
+       "printed_time": "2026-08-03T23:51:41.47"
+      },
+      {
+       "video_s": 407.0,
+       "printed_time": "2026-08-04T00:53:31"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "camera_id": "axis-goldengate",
+   "display_name": "Golden Gate",
+   "site_id": "goldengate",
+   "camera_console_url": "https://cameras.alertcalifornia.org/?id=Axis-GoldenGate",
+   "coordinates": {
+    "lat": 38.2486,
+    "lon": -120.747299,
+    "source": "ALERTCalifornia_Camera_Feed ArcGIS FeatureServer layer (current camera layer, queried 2026-10-18 Europe/London)",
+    "uncertainty_m": null,
+    "note": "current layer, not historical evidence; uncertainty not published"
+   },
+   "elevation_ft_printed": 1959,
+   "segments_in_compilation": [
+    {
+     "video_start_s": 408.0,
+     "video_end_s": 564.0,
+     "printed_start": "2026-08-03T17:47:24.70",
+     "printed_end": "2026-08-04T06:57:47.94",
+     "anchors": [
+      {
+       "video_s": 408.0,
+       "printed_time": "2026-08-03T17:47:24.70"
+      },
+      {
+       "video_s": 439.0,
+       "printed_time": "2026-08-03T20:31:59.94"
+      },
+      {
+       "video_s": 470.0,
+       "printed_time": "2026-08-03T23:44:15.43"
+      },
+      {
+       "video_s": 502.0,
+       "printed_time": "2026-08-04T01:39:22.77"
+      },
+      {
+       "video_s": 533.0,
+       "printed_time": "2026-08-04T04:00:33.84"
+      },
+      {
+       "video_s": 564.0,
+       "printed_time": "2026-08-04T06:57:47.94"
+      }
+     ]
+    },
+    {
+     "video_start_s": 658.0,
+     "video_end_s": 737.0,
+     "printed_start": "2026-08-04T12:31:29.66",
+     "printed_end": "2026-08-04T19:59:45.57",
+     "anchors": [
+      {
+       "video_s": 658.0,
+       "printed_time": "2026-08-04T12:31:29.66"
+      },
+      {
+       "video_s": 674.0,
+       "printed_time": "2026-08-04T13:49:12.70"
+      },
+      {
+       "video_s": 690.0,
+       "printed_time": "2026-08-04T15:07:47.20"
+      },
+      {
+       "video_s": 706.0,
+       "printed_time": "2026-08-04T16:39:40.16"
+      },
+      {
+       "video_s": 722.0,
+       "printed_time": "2026-08-04T18:23:12.723"
+      },
+      {
+       "video_s": 737.0,
+       "printed_time": "2026-08-04T19:59:45.57"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "timelapse": {
+  "source_image_cadence_s": 5,
+  "speed_min_real_per_video_s": "about 1.0-8.4, median ~5.5 (variable)",
+  "cuts": "hard cut between cameras; zoom/pan changes within segments (Z 1.0-11.1 valleysprings)",
+  "gaps": "no non-monotonic times found; OCR missed some samples; true source gaps not tested"
+ },
+ "rights": {
+  "license": "CC BY-NC-ND 4.0 (stated at https://alertcalifornia.org/terms/)",
+  "credit": "ALERTCalifornia | UC San Diego",
+  "notes": "non-commercial; no derivatives; screen capture for public/educational use allowed by images-and-video page; commercial use needs license from OIC; do not crop info bar (assumption: keep burned-in bar). Permission still needed: written confirmation for embedding/redistributing video in FireTrace, and any commercial use."
+ },
+ "weather": [
+  {
+   "station": "JAQ Jackson Airport",
+   "lat": 38.3742,
+   "lon": -120.7943,
+   "source": "IEM ASOS API",
+   "file": "samples/weather_IEM_JAQ_2026-08-03_to_05.csv"
+  },
+  {
+   "station": "O22 Columbia Airport",
+   "lat": 38.0304,
+   "lon": -120.4146,
+   "source": "IEM ASOS API",
+   "file": "samples/weather_IEM_O22_2026-08-03_to_05.csv"
+  }
+ ],
+ "perimeters": {
+  "wfigs": {
+   "category": "Wildfire Daily Fire Perimeter",
+   "polygon_datetime_utc": "2026-08-05T17:17:00Z",
+   "acres": 10339,
+   "map_method": "IR Image Interpretation",
+   "poly_date_current_utc": "2026-08-09T20:16:50Z",
+   "only_polygon_found": true
+  },
+  "dated_perimeter_during_common_interval": null
+ },
+ "firms": {
+  "status": "not retrieved",
+  "reason": "FIRMS API/archive requires MAP_KEY or request; none available"
+ },
+ "other_candidates": [
+  {
+   "name": "Little Fire",
+   "year": 2026,
+   "county": "Alameda",
+   "video": "https://www.youtube.com/watch?v=kEhM3KzDVag",
+   "published": null,
+   "cameras": [
+    {
+     "site": "sunolridge1",
+     "printed": [
+      "2026-07-21T14:44:44.61",
+      "2026-07-21T21:19:46.60"
+     ],
+     "coordinates": null
+    },
+    {
+     "site": "mtallison",
+     "printed": [
+      "2026-07-21T14:58:12.61",
+      "2026-07-21T21:13:28.52"
+     ],
+     "coordinates": null
+    }
+   ],
+   "common_interval_local_assumed_PDT": [
+    "2026-07-21T14:58:12",
+    "2026-07-21T21:13:28"
+   ],
+   "distinct_locations": 2
+  },
+  {
+   "name": "Vista Fire",
+   "year": 2024,
+   "county": "San Bernardino",
+   "video": "https://www.youtube.com/watch?v=K67cvWlVuRU (analysed file id not recorded; sibling 0YyYO-Q_BTk)",
+   "cameras": [
+    {
+     "site": "sansevaine1",
+     "printed": [
+      "2024-07-08T11:01:24.54",
+      "2024-07-08T15:57:47.10"
+     ]
+    },
+    {
+     "site": "baileypeak1",
+     "printed": [
+      "2024-07-08T11:00:57.33",
+      "2024-07-08T15:57:11.12"
+     ]
+    },
+    {
+     "site": "sunsetpeak1",
+     "printed": [
+      "2024-07-08T11:02:24.02",
+      "2024-07-08T16:00:06.26"
+     ]
+    }
+   ],
+   "common_interval_local_assumed_PDT": [
+    "2024-07-08T11:02:24",
+    "2024-07-08T15:57:11"
+   ],
+   "distinct_locations": 3,
+   "issue": "description says July 7, printed date 2024/07/08; unresolved",
+   "coordinates": null
+  }
+ ]
+}

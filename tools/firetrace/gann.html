@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>FireTrace · Gann Fire · Four cameras</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="./firetrace.css">
+  <link rel="stylesheet" href="./gann.css">
+  <script defer src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+  <script type="module" src="./gann.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./firetrace.html">FireTrace</a>
+    <div class="incident"><strong>Gann Fire</strong><span>Calaveras County, California · 3–4 Aug 2026</span></div>
+    <span class="badge badge-replay">FOUR CAMERA REPLAY</span>
+    <span class="spacer"></span>
+    <a href="./firetrace.html">Garnet Fire</a>
+    <a id="source-link" href="https://www.youtube.com/watch?v=N_C9qivAWfA" target="_blank" rel="noopener">Original on YouTube ↗</a>
+  </header>
+  <main class="gann-layout">
+    <section class="gann-map" aria-label="Gann terrain and camera locations">
+      <div id="map" role="application" aria-label="3D terrain map around the Gann Fire"></div>
+      <div class="gann-hud"><span class="eyebrow">HISTORICAL CAMERA TIME · PDT ASSUMED</span><h1 id="incident-clock">Loading evidence…</h1><p id="map-status" role="status">Loading real terrain…</p></div>
+      <div class="gann-map-controls"><button id="frame-map">Frame cameras</button><button id="tilt-map" aria-pressed="true">3D terrain</button><label><input id="later-perimeter" type="checkbox"> Show later perimeter · 5 Aug</label></div>
+      <div class="gann-map-note">Camera positions from the current public catalogue, unverified historically. The incident reference is not a fire location extracted from the videos.</div>
+    </section>
+    <section class="gann-cameras" aria-label="Four camera viewpoints">
+      <div class="gann-intro"><h2>One fire. Four viewpoints.</h2><p>The original ALERTCalifornia compilation, opened at each camera’s timestamp. Choose a clock camera; the other views follow approximately.</p><button id="load-youtube" disabled>Load YouTube cameras</button><p id="playback-status" role="status">Loading timestamp evidence…</p></div>
+      <div id="camera-wall" class="camera-wall"></div>
+      <details class="gann-evidence"><summary>Sources and limits</summary><p>ALERTCalifornia | UC San Diego · PG&amp;E. Original YouTube embeds retain the source player and credits. Ads, buffering, camera movements and compilation gaps can interrupt the comparison. Interpolated OCR times are approximate; camera clocks and PDT are unverified.</p><p id="range-note"></p><p>The optional outline is the published WFIGS perimeter dated 5 Aug 2026, 17:17 UTC, after this replay. Gann satellite reconstruction, damage classification and modelled spread have not been added.</p><a href="./evidence/gann/source-report.md">Research report</a> · <a href="./evidence/gann/youtube.json">Timestamp evidence</a> · <a href="https://alertcalifornia.org/terms/" target="_blank" rel="noopener">Source terms</a></details>
+    </section>
+    <section class="gann-timeline" aria-label="Shared camera timeline">
+      <div class="gann-transport"><button id="play-all" disabled>Play cameras</button><button id="pause-all" disabled>Pause</button><label for="shared-time">Shared incident time</label><output id="utc-clock"></output></div>
+      <input id="shared-time" type="range" min="0" max="1" step="any" value="0" disabled aria-label="Shared incident time">
+      <div class="gann-range"><span id="range-start"></span><span>Approximate sync · no fire geometry inferred</span><span id="range-end"></span></div>
+    </section>
+  </main>
+</body>
+</html>

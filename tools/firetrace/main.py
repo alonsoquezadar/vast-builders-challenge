@@ -328,6 +328,8 @@ class Handler(SimpleHTTPRequestHandler):
                             '/firetrace.html', '/firetrace.js', '/firetrace.css', '/firetrace_model.mjs',
                             '/tour.js', '/tour.css', '/data-client.mjs',
                             '/camera-player.js', '/video-clock.mjs',
+                            '/terrain-style.mjs', '/gann.html', '/gann.js', '/gann.css', '/multicam-clock.mjs',
+                            '/evidence/gann/youtube.json', '/evidence/gann/perimeter.geojson', '/evidence/gann/source-report.md',
                             '/video-scenario.mjs', '/evidence/garnet/video-scenario.json',
                             '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
                             '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',

@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {validateForecast} from './firetrace_model.mjs';
 import {readVideoScenario, videoScenarioFrame} from './video-scenario.mjs';
+import {readMulticam, incidentToVideo, videoToIncident} from './multicam-clock.mjs';
 
 const base = new URL(process.argv[2] || 'http://localhost:5184/');
 assert(base.pathname.endsWith('/'), 'The site URL must end with /.');
@@ -17,9 +18,16 @@ assert(html.includes('id="tour-start"'));
 assert(html.includes('id="camera-video"'));
 assert(html.includes('id="video-model-start"'));
 const build = await (await get('build-manifest.json')).json();
-for (const name of ['firetrace.js', 'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs', 'video-scenario.mjs', 'evidence/garnet/video-scenario.json']) {
+for (const name of ['firetrace.js', 'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs', 'video-scenario.mjs', 'evidence/garnet/video-scenario.json', 'terrain-style.mjs', 'gann.html', 'gann.js', 'gann.css', 'multicam-clock.mjs', 'evidence/gann/youtube.json', 'evidence/gann/perimeter.geojson']) {
   const bytes = Buffer.from(await (await get(name)).arrayBuffer());
   assert.equal(createHash('sha256').update(bytes).digest('hex'), build.sha256[name], name);
+}
+assert(html.includes('./gann.html'));
+const gann = readMulticam(await (await get('evidence/gann/youtube.json')).json());
+assert.equal(gann.cameras.length, 4);
+for (const camera of gann.cameras) {
+  const middle = (gann.start + gann.end) / 2;
+  assert(Math.abs(videoToIncident(camera, incidentToVideo(camera, middle)) - middle) < 0.001);
 }
 const arrival = await (await get('data/arrival.json')).json();
 assert(arrival.features.length > 0);

@@ -19,7 +19,9 @@ from satellite_bundle import FILES, load_satellite
 ROOT = Path(__file__).parent.resolve()
 ASSETS = ['firetrace.html', 'firetrace.js', 'firetrace.css', 'firetrace_model.mjs',
           'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs', 'video-scenario.mjs',
-          'evidence/garnet/video-scenario.json']
+          'evidence/garnet/video-scenario.json', 'terrain-style.mjs',
+          'gann.html', 'gann.css', 'gann.js', 'multicam-clock.mjs',
+          'evidence/gann/youtube.json', 'evidence/gann/perimeter.geojson', 'evidence/gann/source-report.md']
 
 
 def write_json(path, value):

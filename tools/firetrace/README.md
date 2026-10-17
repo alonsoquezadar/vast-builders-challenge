@@ -51,6 +51,16 @@ La exportación copia una lista explícita de archivos públicos, verifica las h
 
 La web incluye los fotogramas, vídeos y análisis guardados de las dos cámaras. No consulta Cosmos ni necesita credenciales del laboratorio. El mapa y las imágenes del relieve siguen necesitando internet. `build-manifest.json` registra las huellas SHA-256 de la exportación.
 
+## Gann Fire: cuatro cámaras de YouTube
+
+Abre `/gann.html` o pulsa **Gann · 4 cameras** en la cabecera de Garnet. **Load YouTube cameras** carga cuatro reproductores de la compilación original de ALERTCalifornia, uno por ubicación. **Play cameras** sigue el reloj de la cámara elegida; las otras vistas ajustan su posición en la compilación. El cursor compartido busca y pausa los cuatro vídeos. Cada tarjeta muestra la hora estimada y el desfase; anuncios, buffering y restricciones del navegador pueden impedir la reproducción o la sincronización.
+
+Las 530 lecturas OCR del primer tramo de cada cámara se conservan en `evidence/gann/youtube.json`, derivadas del paquete aportado por el usuario. El intervalo común conservador es del 4 de agosto de 2026 a las 00:47:24.70 UTC hasta las 07:53:31 UTC. La zona PDT es un supuesto y la correspondencia entre lecturas se interpola; no se han verificado los relojes ni todas las lecturas frente al vídeo completo. Las fuentes originales y sus huellas se conservan junto al archivo derivado. No se descarga ni modifica el vídeo de YouTube.
+
+El mapa reutiliza `terrain-style.mjs` con el mismo relieve y estilo que Garnet. Los marcadores usan posiciones del catálogo actual, no calibradas históricamente. El perímetro del 5 de agosto está oculto por defecto y se etiqueta como posterior al vídeo. Gann no reutiliza los datos, las previsiones ni la reconstrucción de Garnet. No incorpora aún FIRMS ni geometría del fuego extraída de las cámaras.
+
+Pruebas del reloj: `node --test tools/firetrace/multicam-clock.test.mjs`. La exportación estática incluye la nueva vista; `verify_pages.mjs` comprueba sus activos y la correspondencia temporal. YouTube requiere conexión y puede bloquear la incrustación o la reproducción en ciertos entornos; cada cámara tiene enlace al original.
+
 ## Abrir la demo local
 
 Desde la raíz del repositorio:
