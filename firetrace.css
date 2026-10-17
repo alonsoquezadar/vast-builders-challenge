@@ -86,6 +86,21 @@ a{color:var(--cyan)}
 .cam-pin{width:22px;height:22px;border-radius:50%;background:#0d1319;border:2px solid var(--cyan);display:grid;place-items:center;cursor:pointer;box-shadow:0 0 0 3px rgba(56,199,232,.2)}
 .cam-pin::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan)}
 .cam-pin[aria-pressed=true]{box-shadow:0 0 0 4px rgba(56,199,232,.5)}
+.camera-player{position:absolute;z-index:8;top:14px;right:14px;width:min(350px,calc(100% - 28px));max-height:calc(100% - 28px);overflow:auto;padding:12px;box-sizing:border-box;background:#101923f2;border:1px solid #4c6579;border-radius:12px;box-shadow:0 12px 40px #0008;scrollbar-width:thin}
+.camera-player[hidden]{display:none}
+.camera-player-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.camera-player-head label{font-size:10px;letter-spacing:.14em;color:#8bd7ff}
+.camera-player-head button{border:0;background:none;font-size:22px;line-height:1;padding:0 4px}
+.camera-player select{width:100%;margin-bottom:10px}
+.camera-player video{display:block;width:100%;aspect-ratio:16/9;background:#05090e;object-fit:contain;border-radius:5px}
+.video-sync-status{font-size:12px;line-height:1.4;color:#8bd7ff;margin:9px 0}
+.video-sync-status[data-state=outside]{color:#ffd08a}
+.camera-player #video-restart{width:100%;color:#ffd3b3;border-color:#8e5636}
+.video-range{font-size:10px;color:#a8b8c9;line-height:1.4;margin:9px 0}
+.video-note{font-size:10px;line-height:1.45;color:#a8b8c9;margin:8px 0}
+.camera-player small{font-size:9px;color:#8c9baa}
+.stage:has(.camera-player:not([hidden])) .maplibregl-ctrl-top-right{right:380px}
+@media(max-width:860px){.camera-player{width:min(300px,calc(100% - 28px))}.stage:has(.camera-player:not([hidden])) .maplibregl-ctrl-top-right{display:none}}
 .cam-label{position:absolute;left:28px;top:2px;white-space:nowrap;font-size:11px;color:#dff6fc;text-shadow:0 1px 6px #000}
 .maplibregl-popup-content{background:#10151b;color:var(--text);border:1px solid var(--line2);border-radius:8px;font-size:12px;padding:10px 12px}
 .maplibregl-popup-tip{display:none}
