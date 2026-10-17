@@ -1,0 +1,15 @@
+.tour-start{color:#ffd3b3;border-color:#9a562f;white-space:nowrap}
+.tour{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:transparent;color:#e8edf4;overflow:hidden}
+.tour::backdrop{background:transparent}
+.tour-highlight{position:fixed;pointer-events:none;border:2px solid #ffb36b;border-radius:8px;box-shadow:0 0 0 9999px #03070cbd;box-sizing:border-box}
+.tour-card{position:fixed;width:min(370px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;box-sizing:border-box;padding:22px;background:#141d28;border:1px solid #4c5f75;border-radius:14px;box-shadow:0 16px 64px #0009}
+.tour-heading,.tour-footer{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.tour-heading{color:#ffb36b;font-size:10px;letter-spacing:.13em}
+.tour-close{font-size:24px;line-height:1;padding:0 4px;background:transparent;border:0;color:#c7d3e2}
+.tour-card h2{font-size:22px;line-height:1.2;letter-spacing:-.02em;margin:18px 0 12px}
+.tour-card p{font-size:14px;line-height:1.65;color:#c1cddd;margin:0 0 24px}
+.tour-footer button{padding:9px 15px;border-radius:7px;font-size:13px}
+.tour-next{background:#ffb36b!important;color:#21140c!important;border-color:#ffb36b!important;font-weight:600}
+.tour-hint{color:#92a3b9;font-size:11px}
+.tour button:focus-visible,.tour-start:focus-visible{outline:3px solid #8bd7ff;outline-offset:3px}
+@media(max-width:600px){.tour-card{padding:18px}.tour-card h2{font-size:20px}.tour-card p{font-size:13px;line-height:1.55}.tour-start{font-size:11px;padding:6px 8px}.top{gap:8px}}

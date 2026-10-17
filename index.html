@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-GB" data-deployment="static">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FireTrace · Garnet Fire 2025</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="./firetrace.css">
+<link rel="stylesheet" href="./tour.css">
+<script defer src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+<script type="module" src="./firetrace.js"></script>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./firetrace.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 20 10 6l4 7 3-4 5 11z" fill="#ff6a1a"/><path d="M10 6l4 7-5 7H2z" fill="#c4350f"/></svg><b>FireTrace</b></a>
+  <div class="incident"><strong>Garnet Fire</strong><span>Sierra National Forest, California</span></div>
+  <span class="badge badge-replay" title="Historical incident data; this is not live tracking">HISTORICAL REPLAY · AUG–SEP 2025</span>
+  <span class="spacer"></span>
+  <button id="tour-start" class="tour-start" aria-haspopup="dialog">Take a tour</button>
+  <div class="zone" role="group" aria-label="Displayed time zone">
+    <button id="zone-utc" aria-pressed="true">UTC</button>
+    <button id="zone-pdt" aria-pressed="false" title="PDT = UTC−7. This is an assumption used to relate the printed camera times">PDT</button>
+  </div>
+</header>
+
+<main class="app">
+  <section class="stage" aria-label="Fire map">
+    <div id="map" role="application" aria-label="3D map of the Garnet Fire"></div>
+
+    <div class="hud" aria-live="off">
+      <div class="hud-date" id="hud-date">—</div>
+      <div class="hud-time"><span id="hud-time">—</span><em id="hud-zone">UTC</em></div>
+      <div class="hud-sub" id="hud-sub"></div>
+    </div>
+
+    <div class="map-chip-row">
+      <span class="map-chip map-chip-warn" id="tiles-chip" hidden></span>
+      <span class="map-chip map-chip-warn" id="data-chip" hidden></span>
+    </div>
+
+    <div class="legend collapsed" aria-label="Data class legend">
+      <div class="legend-title">Data class</div><button class="legend-toggle" id="legend-toggle" aria-expanded="false" aria-label="Expand legend">+</button>
+      <div class="legend-key"><b class="pill pill-obs">OBSERVED</b><b class="pill pill-rec">RECONSTRUCTED</b><b class="pill pill-mod">MODELLED</b></div>
+      <ul id="legend-list">
+        <li><i class="sw sw-burn"></i><span>Cumulative area</span><b class="pill pill-rec">RECONSTRUCTED</b></li>
+        <li><i class="sw sw-recent"></i><span id="legend-recent">RECONSTRUCTED recent activity</span><b class="pill pill-rec">RECONSTRUCTED</b></li>
+        <li><i class="sw sw-firms"></i><span>Hotspots from the current overpass</span><b class="pill pill-obs">OBSERVED</b></li>
+        <li class="legend-perimeter" hidden><i class="sw sw-perimeter"></i><span>FINAL perimeter (Dec 2025)</span><b class="pill pill-obs">OBSERVED</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-model"></i><span>Model projection</span><b class="pill pill-mod">MODELLED</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-over"></i><span>Overprediction (model, no reference)</span><b class="pill pill-mod">MODELLED</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-under"></i><span>Underprediction (reference, no model)</span><b class="pill pill-mod">MODELLED</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-overlap"></i><span>Model–reference overlap</span><b class="pill pill-mod">MODELLED</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-initial"></i><span>Initial front extent</span><b class="pill pill-rec">RECONSTRUCTED</b></li>
+        <li class="legend-forecast" hidden><i class="sw sw-ref"></i><span>Future reference (outline)</span><b class="pill pill-rec">RECONSTRUCTED</b></li>
+        <li class="legend-cones" hidden><i class="sw sw-cone"></i><span>Camera cones (hypothesis)</span><b class="pill pill-hyp">HYPOTHESIS</b></li>
+      </ul>
+    </div>
+
+    <div class="view-controls">
+      <button id="view-reset" title="Frame the fire">Frame</button>
+      <button id="view-flat" aria-pressed="false" title="Top-down / tilted view">2D</button>
+      <button id="view-tilt" aria-pressed="true">3D</button>
+    </div>
+  </section>
+
+  <aside class="side" aria-label="Analysis panels">
+    <section class="panel" id="panel-layers">
+      <h2>Layers</h2>
+      <ul class="layers" id="layer-list"></ul>
+      <label class="inline-field">Recent activity
+        <select id="recent-hours" aria-label="Hours counted as recent activity">
+          <option value="6">last 6 h</option><option value="12" selected>last 12 h</option><option value="24">last 24 h</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="panel" id="panel-state">
+      <h2>State at the cursor</h2>
+      <dl class="kv" id="state-kv"></dl>
+      <p class="muted small" id="state-note"></p>
+    </section>
+
+    <section class="panel" id="panel-weather">
+      <h2>Weather <b class="pill pill-model">MODELLED</b></h2>
+      <div id="weather-body"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section class="panel" id="panel-forecast">
+      <h2>Projection from this front <b class="pill pill-mod">MODELLED</b></h2>
+      <div class="horizon" role="group" aria-label="Projection horizon">
+        <button data-h="6" aria-pressed="false">6 h</button><button data-h="12" aria-pressed="true">12 h</button><button data-h="24" aria-pressed="false">24 h</button>
+      </div>
+      <button id="forecast-run" class="primary">Project from this front</button>
+      <p id="deployment-note" class="muted small" hidden></p>
+      <p class="forecast-status" id="forecast-status" role="status">Choose a moment and project. The starting point is the reconstruction at the cursor, never an operator-supplied seed.</p>
+      <div id="forecast-card"></div>
+    </section>
+
+    <section class="panel" id="panel-camera">
+      <h2>Cameras</h2>
+      <div id="camera-body"><p class="muted">Loading evidence…</p></div>
+    </section>
+
+    <section class="panel" id="panel-events">
+      <h2>Milestones</h2>
+      <ul class="events" id="event-list"></ul>
+    </section>
+
+    <section class="panel" id="panel-provenance">
+      <h2>Provenance and limitations</h2>
+      <div id="provenance-body"></div>
+    </section>
+  </aside>
+
+  <section class="timeline" aria-label="Timeline">
+    <div class="transport">
+      <button id="play" class="play" aria-label="Play" title="Play / pause (space bar)">▶</button>
+      <button id="step-back" aria-label="Step back 1 hour" title="−1 h">⏮</button>
+      <button id="step-fwd" aria-label="Step forward 1 hour" title="+1 h">⏭</button>
+      <label class="speed">Speed <select id="speed" aria-label="Playback speed"></select></label>
+      <div class="now"><b id="now-date">—</b> <span id="now-time">—</span> <em id="now-zone">UTC</em></div>
+      <span class="spacer"></span>
+      <span class="scope">24 Aug – 12 Sep 2025 · <span id="range-note">20 days</span></span>
+    </div>
+    <div class="scrub">
+      <div class="scrub-track" id="scrub-track">
+        <div class="scrub-events" id="scrub-events"></div>
+        <input type="range" id="slider" aria-label="Incident time" min="0" max="1" step="60" value="0">
+      </div>
+      <div class="scrub-axis" id="scrub-axis"></div>
+    </div>
+    <div class="charts" id="charts">
+      <figure class="chart" id="chart-area-wrap"><figcaption>Reconstructed area <small>acres · cumulative</small></figcaption><svg id="chart-area" role="img" aria-label="Cumulative reconstructed area"></svg></figure>
+      <figure class="chart" id="chart-frp-wrap"><figcaption>FRP per overpass <small>MW · observed</small></figcaption><svg id="chart-frp" role="img" aria-label="Total FRP per satellite overpass"></svg></figure>
+      <figure class="chart" id="chart-wind-wrap"><figcaption>Hourly wind <small>m/s · modelled</small></figcaption><svg id="chart-wind" role="img" aria-label="Modelled hourly wind"></svg></figure>
+    </div>
+  </section>
+</main>
+</body>
+</html>
