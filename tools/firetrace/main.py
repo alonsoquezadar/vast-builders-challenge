@@ -133,6 +133,17 @@ def analyze(data):
             'geolocation': 'unresolved', 'status': 'requires-review', 'imageSha256': hashlib.sha256(raw).hexdigest()}
 
 
+def scenario_grid(origin):
+    from terrain_grid import terrain_grid, validate_origin
+    origin = validate_origin(origin)
+    saved = ROOT / 'evidence/garnet/scenario-terrain.json'
+    if saved.is_file():
+        grid = json.loads(saved.read_text())
+        if all(abs(a - b) < 1e-7 for a, b in zip(origin, grid['origin'])):
+            return {**grid, 'terrainMode': 'recorded', 'origin': origin}
+    return terrain_grid(origin)
+
+
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -217,6 +228,9 @@ class Handler(SimpleHTTPRequestHandler):
             if path == '/api/incident':
                 from incident_bundle import load_incident
                 return self.send_json(load_incident(ROOT / 'evidence/garnet'))
+            if path == '/api/scenario-terrain':
+                params = parse_qs(urlparse(self.path).query)
+                return self.send_json(scenario_grid([float(params['lon'][0]), float(params['lat'][0])]))
             if REPLAY and path in ['/api/firms', '/api/cameras', '/api/perimeters']:
                 params = parse_qs(urlparse(self.path).query)
                 lon = float(params['lon'][0]) if 'lon' in params else None
@@ -255,6 +269,7 @@ class Handler(SimpleHTTPRequestHandler):
             if path not in ['/', '/index.html', '/style.css', '/app.js', '/geo.mjs',
                             '/alignment.html', '/alignment.js', '/alignment.css',
                             '/incident.html', '/incident.js', '/incident.css', '/incident_model.mjs',
+                            '/simulation.html', '/simulation.js', '/simulation.css',
                             '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
                             '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',
                             '/evidence/garnet/buckrock-244.jpg', '/evidence/garnet/buckrock-267.jpg',
@@ -276,7 +291,19 @@ class Handler(SimpleHTTPRequestHandler):
             if not 0 < length < 9 * 1024 * 1024:
                 return self.send_json({'error': 'Solicitud demasiado grande o vacía.'}, 413)
             data = json.loads(self.rfile.read(length))
+            if not isinstance(data, dict):
+                raise ValueError('La solicitud debe ser un objeto JSON.')
             path = urlparse(self.path).path
+            if path == '/api/simulate':
+                from simulation import simulate
+                grid = scenario_grid(data.get('origin'))
+                result = simulate({**data, 'grid': grid, 'terrain': {
+                    key: grid[key] for key in ['terrainSource', 'terrainFetchedAt', 'terrainStatus']}})
+                result.setdefault('properties', {}).update({
+                    'terrainSource': grid['terrainSource'], 'terrainStatus': grid['terrainStatus'],
+                    'terrainFetchedAt': grid['terrainFetchedAt'], 'terrainMode': grid['terrainMode'],
+                    'terrainTiles': grid['tiles'], 'seedStatus': 'operator-assumed-not-camera-detected'})
+                return self.send_json(result)
             if path == '/api/calibrate':
                 try:
                     from calibration import fit_camera

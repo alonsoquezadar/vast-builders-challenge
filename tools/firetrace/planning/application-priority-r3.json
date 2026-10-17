@@ -1,0 +1,10 @@
+{
+  "priority": "application-only; pitch cancelled by user",
+  "replacementTask": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-parallel-app-qa-sonnet-r3",
+  "activeWorkstreams": [
+    "application QA and fixes",
+    "geographic calibration",
+    "illustrative propagation scenario"
+  ],
+  "coordinator": "terrain_grid.py, main.py integration, tests and Git"
+}

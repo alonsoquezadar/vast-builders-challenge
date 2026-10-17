@@ -16,6 +16,16 @@ La demo de dos cámaras está en **http://localhost:5173/incident.html**. Selecc
 
 Las dos imágenes de cada momento tienen horas cercanas, no idénticas; la interfaz muestra la diferencia. No se ha verificado la sincronía de relojes ni la zona horaria. El marcador de CAL FIRE es una referencia del incidente, no una detección extraída del video. Las seis observaciones guardadas se muestran únicamente si corresponden a los bytes de su imagen. Las correcciones de procedencia se presentan junto al texto original del modelo.
 
+### Explorar un escenario de propagación
+
+Abre **http://localhost:5173/simulation.html**. Pulsa **Ejemplo Garnet · DEM guardado**, revisa los supuestos y pulsa **Ejecutar escenario**. La línea de tiempo muestra las celdas alcanzadas según el modelo ilustrativo. **Exportar GeoJSON** conserva los supuestos, la semilla y la procedencia del terreno.
+
+El relieve guardado contiene 41 × 41 muestras de elevación Terrarium, separadas 50 m, alrededor de la referencia del incidente Garnet. No describe el estado del incendio. Para otra semilla, el servidor consulta teselas reales de elevación. Si faltan, no inventa un plano. La carga de nuevas teselas requiere Pillow: `python3 -m pip install -r tools/firetrace/requirements-terrain.txt`.
+
+La semilla es hipotética y la elige el operador. El viento, la tasa base y el factor uniforme de combustible son supuestos. El modelo usa tiempos mínimos entre ocho vecinos, con factores heurísticos de viento y pendiente. No está ajustado ni validado contra incendios reales. Si alcanza el borde de la rejilla, la interfaz indica que termina el dominio de cálculo. Cambiar un supuesto invalida el resultado, incluso si hay una petición en curso.
+
+Este módulo todavía no recibe meteorología histórica ni perímetros del paquete satelital en preparación. La reconstrucción satelital, cuando se integre, se distinguirá de observaciones y escenarios modelados.
+
 Para ensayar sin conectar con Cosmos:
 
 ```sh

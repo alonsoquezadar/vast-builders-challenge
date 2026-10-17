@@ -104,6 +104,43 @@ class LocalDemoTests(unittest.TestCase):
             self.get('/evidence/garnet/manifest.json')
         self.assertEqual(error.exception.code, 404)
 
+    def test_scenario_uses_recorded_real_dem_and_rejects_invalid_seed(self):
+        data = self.get('/api/scenario-terrain?lon=-119.027914&lat=36.86508')
+        self.assertEqual(data['terrainStatus'], 'real-dem')
+        self.assertEqual(data['terrainMode'], 'recorded')
+        self.assertEqual(len(data['elevations']), 41)
+        values = [v for row in data['elevations'] for v in row]
+        self.assertGreater(max(values) - min(values), 100)
+        for path in ['/api/scenario-terrain?lon=nan&lat=37', '/api/scenario-terrain?lon=0&lat=0']:
+            with self.assertRaises(HTTPError) as error:
+                self.get(path)
+            self.assertEqual(error.exception.code, 400)
+
+    def test_simulation_uses_server_dem_and_cannot_claim_client_supplied_terrain(self):
+        payload = {'origin': [-119.027914, 36.86508], 'windFromDeg': 270, 'windSpeedMps': 6,
+                   'baseSpreadMMin': 4, 'fuelFactor': 1, 'durationMin': 45,
+                   'grid': {'origin': [0, 0], 'elevations': []},
+                   'terrain': {'terrainSource': 'client-forged-source'}}
+        request = Request(self.url + '/api/simulate', data=json.dumps(payload).encode(),
+                          headers={'Content-Type': 'application/json'})
+        with urlopen(request, timeout=3) as response:
+            data = json.load(response)
+        self.assertFalse(data['properties']['validated'])
+        self.assertEqual(data['properties']['terrainSource'], 'AWS Terrarium')
+        self.assertEqual(data['properties']['terrain']['terrainSource'], 'AWS Terrarium')
+        self.assertEqual(data['properties']['terrainMode'], 'recorded')
+        self.assertGreater(len(data['features']), 1)
+        self.assertLessEqual(max(f['properties']['arrivalMin'] for f in data['features']), 45)
+
+    def test_simulation_page_is_served_without_exposing_python_source(self):
+        for path in ['/simulation.html', '/simulation.js', '/simulation.css']:
+            with urlopen(self.url + path, timeout=3) as response:
+                self.assertEqual(response.status, 200)
+                response.read()
+        with self.assertRaises(HTTPError) as error:
+            self.get('/simulation.py')
+        self.assertEqual(error.exception.code, 404)
+
     def test_clip_supports_seeking_and_rejects_out_of_bounds_ranges(self):
         request = Request(self.url + '/evidence/plaskett/clip.mp4', headers={'Range': 'bytes=100-199'})
         clip = Path(__file__).with_name('evidence').joinpath('plaskett/clip.mp4').read_bytes()
