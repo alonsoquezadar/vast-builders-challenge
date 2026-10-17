@@ -7,6 +7,7 @@
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
 <link rel="stylesheet" href="./firetrace.css">
+<link rel="stylesheet" href="./tour.css">
 <script defer src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
 <script type="module" src="./firetrace.js"></script>
 </head>
@@ -16,6 +17,7 @@
   <div class="incident"><strong>Garnet Fire</strong><span>Sierra National Forest, California</span></div>
   <span class="badge badge-replay" title="Historical incident data; this is not live tracking">HISTORICAL REPLAY · AUG–SEP 2025</span>
   <span class="spacer"></span>
+  <button id="tour-start" class="tour-start" aria-haspopup="dialog">Take a tour</button>
   <div class="zone" role="group" aria-label="Displayed time zone">
     <button id="zone-utc" aria-pressed="true">UTC</button>
     <button id="zone-pdt" aria-pressed="false" title="PDT = UTC−7. This is an assumption used to relate the printed camera times">PDT</button>
@@ -90,6 +92,7 @@
         <button data-h="6" aria-pressed="false">6 h</button><button data-h="12" aria-pressed="true">12 h</button><button data-h="24" aria-pressed="false">24 h</button>
       </div>
       <button id="forecast-run" class="primary">Project from this front</button>
+      <p id="deployment-note" class="muted small" hidden></p>
       <p class="forecast-status" id="forecast-status" role="status">Choose a moment and project. The starting point is the reconstruction at the cursor, never an operator-supplied seed.</p>
       <div id="forecast-card"></div>
     </section>

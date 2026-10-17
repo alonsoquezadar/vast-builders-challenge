@@ -1,4 +1,6 @@
 import * as M from './firetrace_model.mjs';
+import {initTour} from './tour.js';
+import {STATIC, dataUrl, projectionCursor, forecastFetch} from './data-client.mjs';
 
 const $ = id => document.getElementById(id);
 const el = (tag, props = {}, ...kids) => {
@@ -45,7 +47,7 @@ function reportFailure(name, message) { failures.add(name); showData(`Unavailabl
 
 async function fetchJson(url, init) {
   let response;
-  try { response = await fetch(url, init); } catch { throw new Error('Could not contact the server.'); }
+  try { response = await fetch(dataUrl(url), init); } catch { throw new Error('Could not load the incident data.'); }
   let body = null;
   try { body = await response.json(); } catch { /* no JSON body */ }
   if (!response.ok) throw new Error(typeof body?.error === 'string' ? body.error : `HTTP ${response.status}`);
@@ -645,6 +647,10 @@ function bindForecast() {
 }
 async function runForecast() {
   if (state.playing) pause();
+  if (STATIC) {
+    try { setCursor(await projectionCursor(state.cursor)); }
+    catch (e) { setForecastStatus(e.message, 'err'); return; }
+  }
   let request;
   try { request = M.forecastBody(state.cursor, state.horizon); } catch (e) { setForecastStatus(e.message, 'err'); return; }
   const controller = new AbortController(), ticket = forecastTracker.begin(request, controller);
@@ -652,9 +658,9 @@ async function runForecast() {
   const when = M.formatStamp(state.cursor, state.zone);
   setForecastStatus(`Projecting ${request.horizonHours} h from ${when.date} ${when.time} ${when.zone}…`, 'busy');
   try {
-    const result = await M.requestForecast(request, (...a) => fetch(...a), controller.signal);
+    const result = await M.requestForecast(request, forecastFetch, controller.signal);
     if (!forecastTracker.accept(ticket, result)) return; // stale response
-    setForecastStatus(`${request.horizonHours} h projection ready. It is only valid for ${when.time} ${when.zone}; moving the cursor hides it.`);
+    setForecastStatus(`${STATIC ? 'Saved ' : ''}${request.horizonHours} h projection ready. It is only valid for ${when.date} ${when.time} ${when.zone}; moving the cursor hides it.`);
     renderForecastCard(result.top); mapForecast(); fitForecast(result.features);
   } catch (e) {
     if (e?.name === 'AbortError') return;
@@ -702,6 +708,11 @@ function start() {
   if (window.maplibregl) initMap(); else showData('The map engine could not be loaded; the timeline remains available.');
   loadData('overpasses'); loadData('arrival'); loadData('hotspots'); loadData('weather'); loadData('daily'); loadData('summary');
   loadIncident(); bindForecast(); observeCharts(); drawCharts();
+  initTour({pause});
+  if (STATIC) {
+    $('deployment-note').hidden = false;
+    $('deployment-note').textContent = 'Published replay: projections are saved at hourly starting times. Project moves the cursor to the nearest available hour. No live AI service is connected.';
+  }
   if (hash.get('play') === '1') play();
 }
 start();

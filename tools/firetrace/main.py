@@ -326,6 +326,7 @@ class Handler(SimpleHTTPRequestHandler):
                             '/satellite-view.mjs', '/satellite-view.css',
                             '/fusion.html', '/fusion.js', '/fusion.css',
                             '/firetrace.html', '/firetrace.js', '/firetrace.css', '/firetrace_model.mjs',
+                            '/tour.js', '/tour.css', '/data-client.mjs',
                             '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
                             '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',
                             '/evidence/garnet/buckrock-244.jpg', '/evidence/garnet/buckrock-267.jpg',

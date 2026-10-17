@@ -4,6 +4,31 @@ Demo de reconstrucción y modelación de incendios sobre relieve real, con un ga
 
 Todas las pantallas usan inglés británico (`en-GB`), con reloj de 24 horas, punto decimal y coma de millares. Los textos del servidor se traducen para su presentación mediante `localisation.py` y `locales/en-GB.json`. Las traducciones de respuestas guardadas de Cosmos llevan un aviso y la huella del texto original. Los archivos de evidencia, sus huellas y los datos numéricos permanecen intactos. Las claves de esquema y los identificadores internos conservan su formato original.
 
+## Tour guiado y GitHub Pages
+
+Pulsa **Take a tour** para recorrer las 15 explicaciones de la vista principal. Usa **Next**, **Back**, las flechas del teclado o **Escape** para salir. El tour pausa la reproducción y resalta el control o panel correspondiente.
+
+La web pública está en https://alonsoquezadar.github.io/vast-builders-challenge/. GitHub Pages sirve el contenido de la rama `gh-pages`. El código de esta entrega está en `firetrace/guided-tour-pages`.
+
+Para regenerar la web, instala las dependencias de `requirements-forecast.txt` en tu entorno Python y ejecuta desde la raíz del repositorio:
+
+```sh
+python3 tools/firetrace/build_pages.py --output /tmp/firetrace-pages
+python3 -m http.server 5184 --bind 127.0.0.1 --directory /tmp/firetrace-pages
+```
+
+El directorio de salida debe estar vacío. En otra terminal, comprueba la exportación:
+
+```sh
+node tools/firetrace/verify_pages.mjs http://localhost:5184/
+```
+
+Publica los archivos generados en la raíz de `gh-pages`. En **Settings → Pages**, selecciona **Deploy from a branch**, **gh-pages** y **/(root)**. Cada nuevo commit en esa rama actualiza la web.
+
+La exportación copia una lista explícita de archivos públicos, verifica las huellas de las fuentes y guarda las proyecciones de 6, 12 y 24 horas para cada hora disponible. Al solicitar una proyección en la web, el cursor se mueve a la hora guardada más cercana. La interfaz la identifica como **Saved**. El servidor local conserva los cálculos para cualquier minuto.
+
+La web incluye los fotogramas, vídeos y análisis guardados de las dos cámaras. No consulta Cosmos ni necesita credenciales del laboratorio. El mapa y las imágenes del relieve siguen necesitando internet. `build-manifest.json` registra las huellas SHA-256 de la exportación.
+
 ## Abrir la demo local
 
 Desde la raíz del repositorio:
