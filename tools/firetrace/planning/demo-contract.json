@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "status": "local-integrated-demo-with-geolocation-open",
   "presentationMinutesAssumption": 3,
   "deliveryDeadline": "2026-10-17T14:38:33Z",
@@ -14,19 +14,24 @@
       "recomendaciones operativas de evacuación",
       "triangulación validada de Garnet",
       "relojes de cámaras sincronizados",
-      "dominio público por etiqueta del mirror"
+      "dominio público por etiqueta del mirror",
+      "simulación iniciada desde un perímetro observado contemporáneo de Garnet"
     ],
     "primaryIncident": "Garnet Fire · 2025-08-27",
     "cameraCount": 2,
     "framesWithSavedCosmosAnalysis": 6,
     "entryPath": "/incident.html",
-    "calibrationWorkspace": "/alignment.html"
+    "calibrationWorkspace": "/alignment.html",
+    "satelliteDetections": 13883,
+    "reconstructedCells": 6073,
+    "simulationWorkspace": "/simulation.html",
+    "simulationStatus": "illustrative-not-validated-real-dem-optional-historical-model-wind"
   },
   "gates": [
     {
       "id": "data",
-      "requirement": "Mostrar solo evidencia de Garnet del día impreso; no mezclar FIRMS actuales con este incidente histórico.",
-      "status": "garnet-camera-evidence-reviewed-no-historical-firms",
+      "requirement": "Cámaras de Garnet del 27 agosto 2025 y capas históricas del mismo incidente; cursor satelital UTC independiente salvo supuesto PDT explícito.",
+      "status": "hash-checked-historical-firms-wfigs-weather-integrated",
       "cutAfterMinutesEstimate": 30
     },
     {
@@ -47,12 +52,12 @@
     {
       "id": "location",
       "requirement": "Identificar el rumbo como línea de visión. No dibujar una posición estimada sin supuestos y comprobación geométrica.",
-      "status": "camera-positions-and-incident-reference-only-fire-location-unresolved"
+      "status": "zero-valid-landmarks-camera-candidates-only-fire-geolocation-unresolved"
     },
     {
       "id": "rehearsal",
-      "requirement": "Completar dos ensayos de tres minutos y probar el caso sin una fuente externa.",
-      "status": "open"
+      "requirement": "El usuario pidió centrarse en la aplicación, sin ensayos de pitch.",
+      "status": "cancelled-by-user-application-only"
     }
   ],
   "cutoffPolicy": {

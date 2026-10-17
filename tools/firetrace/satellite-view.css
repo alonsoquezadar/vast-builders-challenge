@@ -1,0 +1,32 @@
+.satellite-panel{margin-top:20px;padding:16px 18px;background:#fafaf3;border:1px solid #c4cbb8;border-radius:8px;color:#263d34;font-size:13px}
+.satellite-title{font:20px Georgia,serif;margin:0 0 6px}
+.satellite-panel h4{margin:0 0 6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7a826c}
+.satellite-scope,.satellite-weather-note,.satellite-dependency,.satellite-assume-note{margin:6px 0;font-size:12px;line-height:1.5;color:#5f6b58}
+.satellite-dependency{padding:8px 10px;background:#eef0e3;border-left:3px solid #c57849}
+.satellite-layers{margin:12px 0;padding:8px 12px;border:1px solid #d6d9c9;border-radius:6px}
+.satellite-layers legend{padding:0 6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7a826c}
+.satellite-layer{padding:5px 0}
+.satellite-layer label{display:flex;gap:8px;align-items:center;cursor:pointer}
+.satellite-layer input:disabled+.satellite-layer-name{opacity:.6}
+.satellite-layer-status{display:block;margin:2px 0 0 24px;min-height:1em;font-size:11px;color:#7a826c}
+.satellite-layer-status.satellite-error{color:#a23b25}
+.satellite-time{margin:12px 0}
+.satellite-time-label{display:block;margin-bottom:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#7a826c}
+.satellite-time-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.satellite-time input[type=range]{width:100%;accent-color:#c57849}
+.satellite-date{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace}
+.satellite-badge{padding:2px 7px;border-radius:3px;background:#c57849;color:#fff;font-size:10px;letter-spacing:.08em}
+.satellite-badge[hidden]{display:none}
+.satellite-play{margin-left:auto;padding:6px 10px;font-size:12px}
+.satellite-assume{display:flex;gap:8px;align-items:flex-start;cursor:pointer;font-size:12px}
+.satellite-block{margin-top:12px}
+.satellite-counters,.satellite-weather-list,.satellite-legend-list{margin:0;padding:0;list-style:none}
+.satellite-counters li,.satellite-weather-list li{padding:2px 0;line-height:1.45}
+.satellite-legend-list li{display:flex;gap:8px;align-items:center;padding:2px 0;font-size:12px}
+.satellite-chip{flex:none;display:inline-block;width:14px;height:14px}
+.satellite-chip-hotspot{border-radius:50%;background:#e8741c;border:1px solid #fff1d6}
+.satellite-chip-arrival{background:#6b46a3;opacity:.7}
+.satellite-chip-interpolated{background:#b79ad6;opacity:.7}
+.satellite-chip-perimeter{height:0;border-top:2px dashed #b88a1f;margin:6px 0}
+.satellite-popup p{margin:2px 0;font-size:12px;line-height:1.4;color:#263d34}
+.satellite-panel input:focus-visible,.satellite-play:focus-visible{outline:3px solid #c57849;outline-offset:2px}

@@ -172,7 +172,7 @@ def simulate(data):
             'coefficients': {'KW': KW, 'KS': KS, 'S_MIN': S_MIN, 'S_MAX': S_MAX, 'status': 'heurísticos, no validados'},
             'geometry': 'celdas cuadradas en escala métrica local (%.0f m/° de latitud, longitud escalada por cos(lat))' % M_PER_DEG_LAT,
         },
-        'limitations': LIMITATIONS,
+        'limitations': list(LIMITATIONS),
     }
     if terrain:
         props['terrain'] = terrain

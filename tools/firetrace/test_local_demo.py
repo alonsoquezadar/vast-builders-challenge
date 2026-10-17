@@ -132,6 +132,27 @@ class LocalDemoTests(unittest.TestCase):
         self.assertGreater(len(data['features']), 1)
         self.assertLessEqual(max(f['properties']['arrivalMin'] for f in data['features']), 45)
 
+    def test_historical_weather_overrides_client_wind_and_remains_unvalidated(self):
+        payload = {'origin': [-119.027914, 36.86508], 'windFromDeg': 0, 'windSpeedMps': 29,
+                   'baseSpreadMMin': 4, 'fuelFactor': 1, 'durationMin': 45,
+                   'weatherTimeUtc': '2025-08-28T01:00:00Z'}
+        def post(body):
+            request = Request(self.url + '/api/simulate', data=json.dumps(body).encode(),
+                              headers={'Content-Type': 'application/json'})
+            with urlopen(request, timeout=3) as response:
+                return json.load(response)
+        data = post(payload)['properties']
+        weather = data['meteorology']
+        self.assertEqual(weather['dataClass'], 'historical-weather-model')
+        self.assertEqual(data['assumptions']['inputs']['windSpeedMps'], weather['windSpeedMps'])
+        self.assertNotEqual(weather['windSpeedMps'], 29)
+        self.assertFalse(data['validated'])
+        for bad in [{'origin': [-121.41472, 35.90356]}, {'weatherTimeUtc': '2026-08-28T01:00:00Z'}]:
+            with self.assertRaises(HTTPError) as error:
+                post({**payload, **bad})
+            self.assertEqual(error.exception.code, 400)
+        self.assertNotIn('FIRMS_MAP_KEY', json.dumps(self.get('/api/satellite?layer=summary')))
+
     def test_simulation_page_is_served_without_exposing_python_source(self):
         for path in ['/simulation.html', '/simulation.js', '/simulation.css']:
             with urlopen(self.url + path, timeout=3) as response:

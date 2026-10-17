@@ -231,6 +231,14 @@ class Handler(SimpleHTTPRequestHandler):
             if path == '/api/scenario-terrain':
                 params = parse_qs(urlparse(self.path).query)
                 return self.send_json(scenario_grid([float(params['lon'][0]), float(params['lat'][0])]))
+            if path == '/api/satellite':
+                from satellite_bundle import load_satellite
+                layer = parse_qs(urlparse(self.path).query).get('layer', ['summary'])[0]
+                return self.send_json(load_satellite(layer))
+            if path == '/api/scenario-weather':
+                from satellite_bundle import weather_at
+                value = parse_qs(urlparse(self.path).query).get('time', [''])[0]
+                return self.send_json(weather_at(value))
             if REPLAY and path in ['/api/firms', '/api/cameras', '/api/perimeters']:
                 params = parse_qs(urlparse(self.path).query)
                 lon = float(params['lon'][0]) if 'lon' in params else None
@@ -270,6 +278,7 @@ class Handler(SimpleHTTPRequestHandler):
                             '/alignment.html', '/alignment.js', '/alignment.css',
                             '/incident.html', '/incident.js', '/incident.css', '/incident_model.mjs',
                             '/simulation.html', '/simulation.js', '/simulation.css',
+                            '/satellite-view.mjs', '/satellite-view.css',
                             '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
                             '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',
                             '/evidence/garnet/buckrock-244.jpg', '/evidence/garnet/buckrock-267.jpg',
@@ -296,6 +305,11 @@ class Handler(SimpleHTTPRequestHandler):
             path = urlparse(self.path).path
             if path == '/api/simulate':
                 from simulation import simulate
+                weather = None
+                if data.get('weatherTimeUtc'):
+                    from satellite_bundle import scenario_weather
+                    weather = scenario_weather(data['weatherTimeUtc'], data.get('origin'))
+                    data = {**data, 'windFromDeg': weather['windFromDeg'], 'windSpeedMps': weather['windSpeedMps']}
                 grid = scenario_grid(data.get('origin'))
                 result = simulate({**data, 'grid': grid, 'terrain': {
                     key: grid[key] for key in ['terrainSource', 'terrainFetchedAt', 'terrainStatus']}})
@@ -303,6 +317,10 @@ class Handler(SimpleHTTPRequestHandler):
                     'terrainSource': grid['terrainSource'], 'terrainStatus': grid['terrainStatus'],
                     'terrainFetchedAt': grid['terrainFetchedAt'], 'terrainMode': grid['terrainMode'],
                     'terrainTiles': grid['tiles'], 'seedStatus': 'operator-assumed-not-camera-detected'})
+                result['properties']['meteorology'] = weather or {'dataClass': 'operator-assumed'}
+                if weather:
+                    result['properties']['assumptions']['wind'] = 'Viento DESDE, a 10 m, de un punto de modelo meteorológico histórico; no es una medición local.'
+                    result['properties']['limitations'].append('Viento de un punto de modelo histórico; la humedad relativa se conserva como referencia y no modifica el factor de combustible.')
                 return self.send_json(result)
             if path == '/api/calibrate':
                 try:
