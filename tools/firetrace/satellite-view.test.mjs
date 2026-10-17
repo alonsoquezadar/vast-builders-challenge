@@ -5,7 +5,7 @@ import {
   RANGE_START_SEC, RANGE_END_SEC, DEFAULT_CURSOR_SEC, clampCursor, formatUtc, formatCount, hotspotWindow, hotspotFilter, arrivalFilter,
   sortedTimes, countInRange, parsePrintedClockAsUtcSeconds, assumedUtcFromPrinted, cursorFromFrames, assumptionNote, cardinal,
   prepareWeather, nearestWeatherHour, weatherLines, fetchLayer, validateLayer, createLayerStore, provenanceText, classificationWarning,
-  createMapLayers, whenMapReady, popupLines, mapLayerId, SatelliteError
+  createMapLayers, whenMapReady, popupLines, mapLayerId, SatelliteError, evidenceWarnings
 } from './satellite-view.mjs';
 
 const dir = new URL('./evidence/garnet/satellite/', import.meta.url);
@@ -273,4 +273,14 @@ test('los popups rotulan lo observado y lo reconstruido y no afirman frente, ár
   assert.match(perimeter, /FINAL/);
   assert.match(perimeter, /2025-12-19T20:09:49Z/);
   assert.match(perimeter, /no es el perímetro de una fecha intermedia/);
+});
+
+test('las advertencias conservan la sobrestimación y distinguen detección de ignición', () => {
+  const lines = evidenceWarnings(summary).join(' ');
+  assert.match(lines, /25\/08: superficie reconstruida ×1,53/);
+  assert.match(lines, /31\/08: superficie reconstruida ×1,38/);
+  assert.match(lines, /07:10 UTC/);
+  assert.match(lines, /2025-08-24T09:26:00Z/);
+  assert.match(lines, /FIRMS es posterior a WFIGS/);
+  assert.match(lines, /Ninguna de estas horas establece la ignición exacta/);
 });

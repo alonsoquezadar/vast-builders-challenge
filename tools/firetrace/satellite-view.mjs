@@ -155,6 +155,18 @@ export function weatherLines(match, point) {
 
 // ---------- carga de capas ----------
 
+export function evidenceWarnings(summary) {
+  const comparisons = summary?.validationAgainstReportedAcres || [];
+  const areas = comparisons.map(row => {
+    const date = `${row.at.slice(8,10)}/${row.at.slice(5,7)}`;
+    return `${date}: superficie reconstruida ×${row.ratio.toFixed(2).replace('.',',')} respecto a la reportada`;
+  });
+  return [
+    areas.length ? `Sobrestimación de superficie: ${areas.join('; ')}. No usar como superficie oficial; la comparación del 31/08 procede de prensa local.` : 'Comparación de superficies todavía no disponible; la reconstrucción no es una superficie oficial.',
+    `Cronología sin resolver: WFIGS registra el descubrimiento el 24/08 a las 07:10 UTC; la primera detección FIRMS del paquete es ${summary?.firstDetectionUtc || 'todavía no disponible'}. La ficha CAL FIRE publica 14:13 del mismo día (zona horaria sin verificar aquí). FIRMS es posterior a WFIGS en este paquete. Ninguna de estas horas establece la ignición exacta.`
+  ];
+}
+
 export function validateLayer(name, data) {
   const bad = () => new SatelliteError(`Datos de «${LAYERS[name]?.label || name}» con formato inesperado.`);
   if (!LAYERS[name] || !data || typeof data !== 'object') throw bad();
@@ -350,11 +362,13 @@ export function createSatellite(map, container, options = {}) {
   const legendList = el(doc, 'ul', {class: 'satellite-legend-list'});
   for (const [cls, text] of LEGEND) legendList.append(el(doc, 'li', {}, el(doc, 'i', {class: `satellite-chip ${cls}`}), text));
   const dependency = el(doc, 'p', {class: 'satellite-dependency'});
+  const quality = el(doc, 'ul', {id: 'satellite-quality', class: 'satellite-counters'});
   panel.append(
     el(doc, 'div', {class: 'satellite-block'}, el(doc, 'h4', {}, 'En el cursor'), countersList),
     el(doc, 'div', {class: 'satellite-block'}, el(doc, 'h4', {}, 'Meteorología en el cursor'), weatherHead, weatherList),
     el(doc, 'div', {class: 'satellite-block'}, el(doc, 'h4', {}, 'Leyenda'), legendList),
-    dependency);
+    dependency,
+    el(doc, 'div', {class: 'satellite-block'}, el(doc, 'h4', {}, 'Limitaciones comprobadas de los datos'), quality));
   container.replaceChildren(panel);
 
   const setList = (list, lines) => list.replaceChildren(...lines.map(l => el(doc, 'li', {}, l)));
@@ -365,6 +379,7 @@ export function createSatellite(map, container, options = {}) {
   }
 
   function renderStatic() {
+    setList(quality, evidenceWarnings(summary));
     refs.perimeter.text.textContent = `${LAYERS.perimeter.label}, publicado ${perimeterDate()}`;
     const c = summary?.counts;
     const scope = Number.isFinite(c?.arrivalCells) && Number.isFinite(c?.cellsWithDetectionSupport) ? `${formatCount(c.arrivalCells)} celdas de 200 m, ${formatCount(c.cellsWithDetectionSupport)} con una detección cercana (≤ 400 m) y ${formatCount(c.arrivalCells - c.cellsWithDetectionSupport)} interpoladas; ` : 'Celdas de 200 m con detección cercana o interpoladas; ';
