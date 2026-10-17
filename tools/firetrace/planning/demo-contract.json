@@ -1,13 +1,13 @@
 {
-  "version": 4,
-  "status": "local-integrated-demo-with-geolocation-open",
+  "version": 5,
+  "status": "operations-view-in-development",
   "presentationMinutesAssumption": 3,
   "deliveryDeadline": null,
   "preserveExistingWorkshopApp": "pulse-corridor",
   "demoScope": {
     "incidentCount": 1,
     "cameraSource": "ALERTCalifornia",
-    "claim": "Observaciones con fecha y procedencia sobre relieve real, con asistencia visual pendiente de revisión humana.",
+    "claim": "Crecimiento reconstruido a partir de satélite sobre relieve real y modelación heurística desde su frente, comparada retrospectivamente con la reconstrucción posterior.",
     "excludedClaims": [
       "perímetro generado desde una columna de humo",
       "predicción validada del avance",
@@ -20,12 +20,12 @@
     "primaryIncident": "Garnet Fire · 2025-08-27",
     "cameraCount": 2,
     "framesWithSavedCosmosAnalysis": 6,
-    "entryPath": "/incident.html",
+    "entryPath": "/firetrace.html",
     "calibrationWorkspace": "/alignment.html",
     "satelliteDetections": 13883,
     "reconstructedCells": 6073,
-    "simulationWorkspace": "/simulation.html",
-    "simulationStatus": "illustrative-not-validated-real-dem-optional-historical-model-wind"
+    "simulationWorkspace": "/firetrace.html",
+    "simulationStatus": "reconstructed-front-forecast-in-development"
   },
   "gates": [
     {
@@ -70,6 +70,7 @@
   "deliveryMode": "local-confirmed-by-user",
   "externalPublicationRequiredNow": false,
   "frameAnalysisPermission": "User explicitly confirmed analysis with Cosmos is permitted",
-  "priority": "Best product possible, shortest practical development time; no fixed demo deadline; camera-driven simulation is the target.",
-  "cameraAssimilationContract": "camera_assimilation/CONTRACT.md"
+  "priority": "Single visual operations view: reconstructed wildfire growth over real terrain, then 6/12/24h retrospective modeling. Camera assimilation paused.",
+  "cameraAssimilationContract": "camera_assimilation/CONTRACT.md",
+  "cameraAssimilationStatus": "paused-next-phase: 11/11 hidden bases, 0 camera corrections"
 }

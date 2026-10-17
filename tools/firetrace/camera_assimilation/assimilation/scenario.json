@@ -1,12 +1,12 @@
 {
  "schema": "firetrace-camera-assimilation-scenario-v1",
  "status": "paused-next-phase",
- "statusReason": "Camera assimilation paused for the next phase (user priority change): 8 of 8 Cosmos calls reported base_visible=false by root/agent A; vision/observations.json was not available to this agent, so the count is not verified here. No correction is fabricated.",
+ "statusReason": "Prioridad cambiada por el usuario; 11 de 11 bases Cosmos ocultas; asimilaci\u00f3n reservada para fase siguiente",
  "outcome": "disabled",
  "retrospective": true,
  "operationalForecast": false,
  "generatedBy": "camera_assimilation/assimilation/run.py",
- "runSeconds": 4.8,
+ "runSeconds": 4.1,
  "dataClasses": [
   {
    "name": "FIRMS detections",
@@ -36,13 +36,13 @@
    "name": "camera observations",
    "class": "camera-observation (pending operator review)",
    "use": "bearing intervals only",
-   "source": "vision/observations.json"
+   "source": "../vision/observations.json"
   },
   {
    "name": "camera azimuth model",
    "class": "assumed",
    "use": "x_base -> bearing",
-   "source": "calibration/printed_model.json"
+   "source": "../calibration/printed_model.json"
   },
   {
    "name": "baseline / corrected / neutral ensemble",
@@ -117,9 +117,9 @@
   "parameterOrigin": [
    "printed-X-prior-not-fitted"
   ],
-  "calibrationStatus": "pending-observations",
-  "calibrationPath": "calibration/printed_model.json",
-  "calibrationSha256": "72df8e85988a348f1b9ca1f0804f816727469d0213d2afe4fde7e97a11360d6a",
+  "calibrationStatus": "experimental",
+  "calibrationPath": "../calibration/printed_model.json",
+  "calibrationSha256": "487f3e22425910e61d8c35be27bc87315226c94bd30c74683b1af2a94e1f8f79",
   "poses": [
    {
     "cameraId": "delilah",
@@ -1456,7 +1456,7 @@
    "weather-hourly.json": "7ccf94526c73a8d4081a0a8693eee36d00819ef441987dbbe3c05b936c24eb07",
    "arrival-reconstructed.geojson": "726dddb723f8ef11ef445626ce50c0f3ab6a52f5e0a08d8c95caf937f59680cc"
   },
-  "observationsSha256": null
+  "observationsSha256": "489180ca7ab08bf0759d1803ea544a075782b32b2488b899a266f3b6dfe8f2f0"
  },
  "baseline": {
   "description": "same initialization and model, neutral parameters, no camera; scored at every eligible pass time (lead measured from t0)",
@@ -1627,7 +1627,7 @@
  },
  "corrected": {
   "status": "disabled",
-  "reason": "Camera assimilation paused for the next phase (user priority change): 8 of 8 Cosmos calls reported base_visible=false by root/agent A; vision/observations.json was not available to this agent, so the count is not verified here. No correction is fabricated."
+  "reason": "Prioridad cambiada por el usuario; 11 de 11 bases Cosmos ocultas; asimilaci\u00f3n reservada para fase siguiente"
  },
  "forecasts": [],
  "metrics": {

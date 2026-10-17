@@ -1,0 +1,61 @@
+{
+  "priority": "one visual page, animation first, forecast second, cameras/meteo third",
+  "branch": "firetrace/local-demo-20261017-alonso",
+  "archiveCommit": "7b9d731",
+  "tasks": {
+    "ui": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-operations-view-sonnet-r6",
+    "forecast": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-reconstructed-front-forecast-sonnet-r6"
+  },
+  "cameraAssimilation": "paused-next-phase; 11/11 bases hidden; no additional Cosmos calls",
+  "entryPath": "/firetrace.html",
+  "workPartition": {
+    "ui": [
+      "firetrace.html",
+      "firetrace.js",
+      "firetrace.css",
+      "firetrace_model.mjs",
+      "firetrace_model.test.mjs"
+    ],
+    "forecast": [
+      "reconstruction_forecast.py",
+      "test_reconstruction_forecast.py",
+      "forecast_data/",
+      "requirements-forecast.txt"
+    ],
+    "root": [
+      "main.py",
+      "integration",
+      "Git",
+      "servers"
+    ]
+  },
+  "forecastContract": {
+    "request": {
+      "timeUtc": "ISO with timezone",
+      "horizonHours": [
+        6,
+        12,
+        24
+      ]
+    },
+    "featureRoles": [
+      "initial-extent",
+      "modeled-extent",
+      "reference-extent",
+      "overlap",
+      "overprediction",
+      "underprediction"
+    ],
+    "metrics": [
+      "iou",
+      "growthIou",
+      "intersectionHa",
+      "overpredictionHa",
+      "underpredictionHa",
+      "predictedHa",
+      "referenceHa",
+      "initialHa"
+    ],
+    "validated": false
+  }
+}

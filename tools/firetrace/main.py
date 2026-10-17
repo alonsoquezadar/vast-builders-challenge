@@ -311,6 +311,7 @@ class Handler(SimpleHTTPRequestHandler):
                             '/simulation.html', '/simulation.js', '/simulation.css',
                             '/satellite-view.mjs', '/satellite-view.css',
                             '/fusion.html', '/fusion.js', '/fusion.css',
+                            '/firetrace.html', '/firetrace.js', '/firetrace.css', '/firetrace_model.mjs',
                             '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
                             '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',
                             '/evidence/garnet/buckrock-244.jpg', '/evidence/garnet/buckrock-267.jpg',
@@ -335,6 +336,11 @@ class Handler(SimpleHTTPRequestHandler):
             if not isinstance(data, dict):
                 raise ValueError('La solicitud debe ser un objeto JSON.')
             path = urlparse(self.path).path
+            if path == '/api/forecast-reconstruction':
+                if not (ROOT / 'reconstruction_forecast.py').is_file():
+                    return self.send_json({'error': 'El modelo desde el frente reconstruido todavía se está preparando.'}, 503)
+                from reconstruction_forecast import forecast
+                return self.send_json(forecast(data))
             if path == '/api/simulate':
                 from simulation import simulate
                 weather = None

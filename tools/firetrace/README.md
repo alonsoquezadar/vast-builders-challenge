@@ -1,6 +1,6 @@
 # FireTrace
 
-Visor de observaciones de incendios sobre relieve real, con un gateway Python sin dependencias y MapLibre GL JS 5.6.1. La demo actual se mantiene local por decisión del usuario.
+Demo de reconstrucción y modelación de incendios sobre relieve real, con un gateway Python y MapLibre GL JS 5.6.1. Se mantiene local por decisión del usuario. La entrada principal se está preparando en `/firetrace.html`.
 
 ## Abrir la demo local
 
@@ -11,6 +11,12 @@ python3 tools/firetrace/run_local.py
 ```
 
 Abre **http://localhost:5173/**. El script carga las observaciones guardadas y abre una conexión privada por SSH al gateway del laboratorio para solicitar inferencias a Cosmos. Las credenciales permanecen en el laboratorio. No cambia Ingress ni el botón App.
+
+La nueva vista principal es **http://localhost:5173/firetrace.html**: crecimiento reconstruido a partir de detecciones satelitales del Garnet Fire (24 agosto–12 septiembre de 2025), línea de tiempo, meteorología histórica y cámaras de referencia. La proyección a 6/12/24 horas se inicializa desde la superficie reconstruida seleccionada; es una modelación heurística y su comparación posterior usa otra reconstrucción, sin validación independiente.
+
+La asimilación de cámaras queda pausada como fase siguiente: las 11 observaciones estructuradas de Cosmos tienen la base oculta y no producen correcciones. Los artefactos y el motivo se conservan en `camera_assimilation/vision/` y `camera_assimilation/assimilation/`.
+
+## Herramientas de investigación anteriores
 
 La demo de dos cámaras está en **http://localhost:5173/incident.html**. Selecciona uno de tres momentos de Garnet Fire y pulsa una cámara para consultar su fotograma, respuesta real guardada de Cosmos y posición pública sobre el relieve. **Ver secuencia** abre el tramo de video de esa cámara. **Analizar este fotograma ahora** solicita una inferencia nueva. **Exportar evidencia** descarga fuentes, horas impresas, huellas y respuestas.
 
@@ -24,7 +30,7 @@ El relieve guardado contiene 41 × 41 muestras de elevación Terrarium, separada
 
 La semilla es hipotética y la elige el operador. El viento, la tasa base y el factor uniforme de combustible son supuestos. El modelo usa tiempos mínimos entre ocho vecinos, con factores heurísticos de viento y pendiente. No está ajustado ni validado contra incendios reales. Si alcanza el borde de la rejilla, la interfaz indica que termina el dominio de cálculo. Cambiar un supuesto invalida el resultado, incluso si hay una petición en curso.
 
-Este módulo todavía no recibe meteorología histórica ni perímetros del paquete satelital en preparación. La reconstrucción satelital, cuando se integre, se distinguirá de observaciones y escenarios modelados.
+Este módulo de investigación mantiene una semilla hipotética. Admite viento histórico de un punto de modelo cerca de Garnet; la humedad relativa solo se muestra como contexto. La vista principal usa otro flujo, inicializado desde la reconstrucción satelital.
 
 Para ensayar sin conectar con Cosmos:
 
