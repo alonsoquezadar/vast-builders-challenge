@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "status": "reviewed-plan-with-open-data-and-publication-gates",
+  "presentationMinutesAssumption": 3,
+  "deliveryDeadline": "2026-10-17T14:38:33Z",
+  "preserveExistingWorkshopApp": "pulse-corridor",
+  "demoScope": {
+    "incidentCount": 1,
+    "cameraSource": "ALERTCalifornia",
+    "claim": "Observaciones con fecha y procedencia sobre relieve real, con asistencia visual pendiente de revisión humana.",
+    "excludedClaims": [
+      "perímetro generado desde una columna de humo",
+      "predicción validada del avance",
+      "recomendaciones operativas de evacuación"
+    ]
+  },
+  "gates": [
+    {
+      "id": "data",
+      "requirement": "Elegir un incidente y comprobar si cámara y satélite corresponden al mismo lugar y periodo.",
+      "status": "open",
+      "cutAfterMinutesEstimate": 30
+    },
+    {
+      "id": "footage",
+      "requirement": "Obtener una secuencia de prueba autorizada por las reglas del challenge. El video de referencia visual no es una prueba positiva de detección.",
+      "status": "frame-analysis-authorized-by-user-no-vast-ingestion"
+    },
+    {
+      "id": "vision",
+      "requirement": "Verificar un ejemplo positivo y un negativo, guardando entrada, salida, modelo y fecha sin declarar precisión estadística.",
+      "status": "open"
+    },
+    {
+      "id": "replay",
+      "requirement": "Congelar observaciones reales y mostrar explícitamente modo reproducción con fecha original.",
+      "status": "integrated-local-replay"
+    },
+    {
+      "id": "location",
+      "requirement": "Identificar el rumbo como línea de visión. No dibujar una posición estimada sin supuestos y comprobación geométrica.",
+      "status": "scope-limited"
+    },
+    {
+      "id": "rehearsal",
+      "requirement": "Completar dos ensayos de tres minutos y probar el caso sin una fuente externa.",
+      "status": "open"
+    }
+  ],
+  "cutoffPolicy": {
+    "freezeFeatureMinutesBeforeDemoEstimate": 45,
+    "fallback": "Presentar reconstrucción temporal con datos satelitales y relieve reales; mostrar visión como módulo separado si no se valida la correspondencia con la cámara.",
+    "fallbackIsNot": "una demostración validada de fusión cámara-terreno"
+  },
+  "deliveryDeadlineLondon": "2026-10-17T15:38:33+01:00",
+  "budgetMinutes": 120,
+  "deliveryMode": "local-confirmed-by-user",
+  "externalPublicationRequiredNow": false,
+  "frameAnalysisPermission": "User explicitly confirmed analysis with Cosmos is permitted"
+}

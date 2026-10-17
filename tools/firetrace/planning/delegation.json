@@ -1,0 +1,29 @@
+{
+  "provider": "claudeAgent",
+  "model": "claude-sonnet-5-5",
+  "effort": "high",
+  "isolation": "shared",
+  "tasks": [
+    {
+      "title": "Alcance",
+      "clientRequestId": "firetrace-demo-scope-sonnet-r1",
+      "status": "completed",
+      "artifact": "scope-review.md"
+    },
+    {
+      "title": "Reproducción",
+      "clientRequestId": "firetrace-demo-replay-sonnet-r1",
+      "status": "completed",
+      "artifacts": [
+        "../demo_bundle.py",
+        "../test_demo_bundle.py"
+      ]
+    },
+    {
+      "title": "Cámara",
+      "clientRequestId": "firetrace-demo-camera-sonnet-r1",
+      "status": "completed",
+      "artifact": "camera-feasibility.md"
+    }
+  ]
+}

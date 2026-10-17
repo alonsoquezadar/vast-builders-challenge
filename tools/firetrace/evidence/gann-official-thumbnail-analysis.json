@@ -1,0 +1,10 @@
+{
+  "content": "Esta imagen es una captura de pantalla de una compilación de incendios forestales. Se observa una escena de incendio forestal activo con llamas visibles en la parte inferior derecha y una gran columna de humo negro y gris que se eleva hacia el cielo. El humo es denso y cubre gran parte del cielo, ocultando parcialmente el fondo. Las llamas son intensas y brillantes, indicando una fuerte combustión. El terreno alrededor del incendio parece seco y montañoso. En la parte superior izquierda de la imagen, hay texto que indica \"Gann Fire Compilation\" y la fecha \"August 3-5, 2026\". También se menciona \"Calaveras County, CA\". La imagen incluye el logotipo de UC San Diego y el nombre \"ALERT California\". No se pueden determinar coordenadas geográficas o mediciones de temperatura a partir de esta imagen.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T12:54:36.750939+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "8599a5655650d0ecf7ae4257461bd13d5aa9ebb1194e39c95afe04c8bfe17481",
+  "testInput": "gann-official-thumbnail",
+  "notIngestedIntoVAST": true
+}

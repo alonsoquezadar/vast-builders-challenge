@@ -1,0 +1,10 @@
+{
+  "content": "Esta imagen es una captura de pantalla de un sistema de monitoreo de alerta de California. Muestra una vista nocturna de un paisaje montañoso con una silueta oscura de una montaña en el centro. En la esquina superior izquierda se ven los logotipos de ALERTCalifornia y UC San Diego. En la esquina superior derecha hay un recuadro azul con el texto \"IMAGE COURTESY OF PG&E\". En la parte inferior se muestra información técnica sobre la imagen, incluyendo coordenadas y fecha. No se observan llamas, humo ni evidencia de incendio forestal en la imagen. La escena está completamente oscura, lo que sugiere que la imagen fue tomada durante la noche o en condiciones de poca luz. No hay indicios de que esta sea una simulación o representación gráfica, sino una captura real de datos de monitoreo.",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T12:54:39.992226+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "1b0ee3dd71126bdf175a931a9da6bab659f0599f74a72e04fd21ab578e16059e",
+  "testInput": "grizzly-camera",
+  "notIngestedIntoVAST": true
+}

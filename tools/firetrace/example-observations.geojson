@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {"type": "Point", "coordinates": [-121.97, 41.38]},
+      "properties": {
+        "observedAt": "2026-10-17T10:00:00Z",
+        "source": "EJEMPLO SINTÉTICO para probar importación; no es una detección real"
+      }
+    }
+  ]
+}

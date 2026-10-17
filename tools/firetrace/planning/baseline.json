@@ -1,0 +1,20 @@
+{
+  "baselineCommit": "a770d207da66fe46cc40a85457dfa01082869bf8",
+  "includesUncommittedFiles": true,
+  "files": {
+    "main.py": "7241584cd18772f016dee5fd6d401e37d13a5d8a760c27be8456ff4eb87e731a",
+    "app.js": "950dcea195374b1fe3b4cae54051a318fd885e6390f1c67a7a576d7fcaa0e274",
+    "index.html": "9627b66cb5f8690ed653a663e92f2831374dac04c70370da2eb74e2bdae5eee9",
+    "style.css": "6eead8deb304326c35894f504061920cecd24e41df4a7fefa3cccd6b4ef7b1fa",
+    "geo.mjs": "ec58c27eb53a55034a411c00369c37f20731348abacf3f684fa78a766bafbac8",
+    "deploy.py": "512d5490f388d709f6cc81b4db494fa7eeb352907da6e15ad6906f5c783a5111"
+  },
+  "preserveWorkshopApp": "pulse-corridor",
+  "demoGoal": "One incident, real terrain, time-stamped observations, camera evidence, explicit uncertainty; a rehearsed three-minute live presentation.",
+  "notYetProven": [
+    "camera-to-ground geolocation",
+    "positive wildfire detection accuracy",
+    "spread prediction",
+    "same-incident camera and satellite evidence"
+  ]
+}

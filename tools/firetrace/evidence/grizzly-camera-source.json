@@ -1,0 +1,93 @@
+{
+  "source": "ALERTCalifornia | UC San Diego",
+  "sourceUrl": "https://cameras.alertcalifornia.org/public-camera-data/Axis-GrizzlyPeakShasta1/latest-frame.jpg",
+  "cameraId": "Axis-GrizzlyPeakShasta1",
+  "capturedAt": "2026-10-17T12:54:13.837833+00:00",
+  "metadataBefore": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -121.98,
+        41.14,
+        1901
+      ]
+    },
+    "properties": {
+      "id": "Axis-GrizzlyPeakShasta1",
+      "name": "Grizzly Peak Lookout (Shasta) 1",
+      "last_frame_ts": 1792241478,
+      "fov_lft": [
+        -122.27344693432222,
+        41.32646847405504
+      ],
+      "fov_rt": [
+        -121.88060391073056,
+        41.41929629809899
+      ],
+      "fov_center": [
+        -122.09494435681536,
+        41.41589177541557
+      ],
+      "fov": 65.1,
+      "ProdNbr": "Q6075-E",
+      "az_current": 342.5799865722656,
+      "tilt_current": 0.0,
+      "zoom_current": 1.0,
+      "is_patrol_mode": 0,
+      "is_currently_patrolling": 0,
+      "state": "CA",
+      "county": "shasta",
+      "isp": "digitalpath",
+      "sponsor": "pge",
+      "region": "SKU"
+    }
+  },
+  "metadataAfter": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -121.98,
+        41.14,
+        1901
+      ]
+    },
+    "properties": {
+      "id": "Axis-GrizzlyPeakShasta1",
+      "name": "Grizzly Peak Lookout (Shasta) 1",
+      "last_frame_ts": 1792241508,
+      "fov_lft": [
+        -122.27344693432222,
+        41.32646847405504
+      ],
+      "fov_rt": [
+        -121.88060391073056,
+        41.41929629809899
+      ],
+      "fov_center": [
+        -122.09494435681536,
+        41.41589177541557
+      ],
+      "fov": 65.1,
+      "ProdNbr": "Q6075-E",
+      "az_current": 342.5799865722656,
+      "tilt_current": 0.0,
+      "zoom_current": 1.0,
+      "is_patrol_mode": 0,
+      "is_currently_patrolling": 0,
+      "state": "CA",
+      "county": "shasta",
+      "isp": "digitalpath",
+      "sponsor": "pge",
+      "region": "SKU"
+    }
+  },
+  "modelUseAuthorizedByUser": true,
+  "notIngestedIntoVAST": true,
+  "calibrationStatus": "unverified",
+  "groundLocation": "unresolved",
+  "poseStableBetweenReads": true,
+  "metadataFrameAtAfter": "2026-10-17T12:51:48+00:00",
+  "note": "Imagen nocturna con visibilidad limitada. Las dos lecturas de pose coinciden, pero esto no valida calibración ni localización del fuego."
+}

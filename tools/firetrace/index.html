@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eceae1"><title>FireTrace · Observatorio de incendios</title>
+  <script>const base=document.createElement('base');base.href=location.pathname.endsWith('/index.html')?location.pathname.slice(0,-10):location.pathname.endsWith('/')?location.pathname:location.pathname+'/';document.head.append(base);</script>
+  <link rel="preconnect" href="https://unpkg.com"><link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js" defer></script>
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+ <header class="topbar">
+  <a class="brand" href="./" aria-label="Inicio FireTrace"><svg viewBox="0 0 32 32"><path d="M2 26 13 7l5 8 4-5 9 16Z" fill="#5e6654"/><path d="m12 26 6-18 4 9 4-4 6 13Z" fill="#d35b37"/><path d="m17 26 3-8 4 8Z" fill="#f1b26b"/></svg><strong>FireTrace<span>Observatorio de incendios</span></strong></a>
+  <div class="header-divider"></div>
+  <button class="incident-select" id="region-button"><span class="tiny-label">ZONA DE OBSERVACIÓN</span><span id="region-name">Cargando California…</span><span class="chevron">⌄</span></button>
+  <div class="header-spacer"></div>
+  <span class="status-label"><i class="status-dot"></i><span id="run-mode">FUENTES PÚBLICAS</span></span>
+  <button class="icon-button" id="refresh" title="Actualizar fuentes" aria-label="Actualizar fuentes"><span data-icon="refresh"></span></button>
+  <button class="outline-button" id="export"><span data-icon="download"></span> Exportar</button>
+ </header>
+ <main class="workspace">
+  <nav class="rail" aria-label="Herramientas">
+   <button class="rail-button active" data-panel="layers" title="Capas del mapa" aria-label="Capas del mapa"><span data-icon="layers"></span><small>Mapa</small></button>
+   <button class="rail-button" data-panel="cameras" title="Cámaras" aria-label="Cámaras"><span data-icon="camera"></span><small>Cámaras</small></button>
+   <button class="rail-button" data-panel="analysis" title="Análisis NVIDIA" aria-label="Análisis NVIDIA"><span data-icon="scan"></span><small>Analizar</small></button>
+   <div class="rail-bottom"><button class="rail-button" id="sources-button" title="Fuentes y metodología" aria-label="Fuentes y metodología"><span data-icon="info"></span></button><span class="rail-caption">VAST<br>BUILDERS</span></div>
+  </nav>
+  <section class="map-area" aria-label="Mapa tridimensional del incendio">
+   <div id="map"></div>
+   <div class="map-title"><span class="eyebrow">INTELIGENCIA TERRITORIAL</span><h1>El incendio,<br>en perspectiva.</h1><p>Relieve real. Evidencia situada.</p><div class="map-location"><span data-icon="pin"></span><span id="location-label">California, Estados Unidos</span></div></div>
+   <div class="map-badge" id="feed-state"><i class="status-dot"></i><span>Conectando con NASA FIRMS</span></div>
+   <div class="map-controls"><button id="home" title="Volver a la zona" aria-label="Volver a la zona"><span data-icon="focus"></span></button><button id="zoom-in" aria-label="Acercar">+</button><button id="zoom-out" aria-label="Alejar">−</button><span></span><button id="toggle-3d" class="selected" aria-pressed="true">3D</button><button id="rotate" title="Girar perspectiva" aria-label="Girar perspectiva"><span data-icon="rotate"></span></button></div>
+   <div class="map-legend"><span><i class="legend-fire"></i> Detección térmica</span><span><i class="legend-perimeter"></i> Perímetro publicado</span><span><i class="legend-camera"></i> Cámara</span></div>
+   <div class="terrain-note"><span data-icon="mountain"></span> Elevación real · Terrarium DEM <span id="terrain-state">/ cargando</span></div>
+   <div class="coordinates" id="coordinates">41.4000° N · 122.0000° W</div>
+   <div class="map-loading" id="map-loading"><span class="spinner"></span><strong>Preparando el terreno</strong><span>Relieve y observaciones geográficas reales</span></div>
+  </section>
+  <aside class="sidebar">
+   <div class="panel-tabs" role="tablist" aria-label="Panel de observación"><button role="tab" id="tab-layers" aria-controls="panel-layers" aria-selected="true" data-panel="layers" class="active">Capas</button><button role="tab" id="tab-cameras" aria-controls="panel-cameras" aria-selected="false" data-panel="cameras">Cámaras</button><button role="tab" id="tab-analysis" aria-controls="panel-analysis" aria-selected="false" data-panel="analysis">Análisis</button></div>
+   <div class="panel-content" id="panel-layers" role="tabpanel" aria-labelledby="tab-layers">
+    <div class="section-heading"><h2>Composición del mapa</h2><span data-icon="layers"></span></div>
+    <label class="layer-row"><span class="layer-swatch satellite"></span><span>Imagen satelital<small>Esri World Imagery</small></span><input type="checkbox" id="layer-satellite" checked></label>
+    <label class="layer-row"><span class="layer-swatch terrain"></span><span>Relieve 3D<small>Elevación geográfica real</small></span><input type="checkbox" id="layer-terrain" checked></label>
+    <label class="layer-row"><span class="layer-swatch thermal"></span><span>Detecciones térmicas<small>NASA FIRMS · VIIRS</small></span><input type="checkbox" id="layer-thermal" checked></label>
+    <label class="layer-row"><span class="layer-swatch perimeter"></span><span>Perímetros publicados<small>WFIGS · Interagency</small></span><input type="checkbox" id="layer-perimeter" checked></label>
+    <label class="layer-row"><span class="layer-swatch cameras"></span><span>Cámaras de observación<small>ALERTCalifornia</small></span><input type="checkbox" id="layer-cameras" checked></label>
+    <div class="exaggeration"><label for="exaggeration">Escala vertical <strong id="exaggeration-label">1,0×</strong></label><input type="range" id="exaggeration" min="1" max="2" step="0.1" value="1"><span>1× representa la elevación sin exageración.</span></div>
+    <div class="section-heading bordered"><h2>Situación observada</h2><span class="tag">VIIRS</span></div>
+    <div class="stats-pair"><div><span class="tiny-label">FOCOS / 24 H EN VISTA</span><strong id="local-count">—</strong></div><div><span class="tiny-label">POTENCIA RADIATIVA</span><strong id="frp-total">—<small> MW</small></strong></div></div>
+    <dl class="detail-list"><div><dt>Última observación visible</dt><dd id="last-observation">—</dd></div><div><dt>Ventana de detecciones</dt><dd>24 h anteriores al cursor</dd></div><div><dt>Resolución nominal VIIRS</dt><dd>375 m</dd></div><div><dt>Perímetros</dt><dd id="perimeter-status">Consultando…</dd></div></dl>
+    <div class="notice"><span data-icon="info"></span><p>Un foco térmico no delimita el frente del fuego. Los perímetros conservan su fecha de publicación y no se extrapolan.</p></div>
+    <button class="wide-button" id="import-button"><span data-icon="upload"></span> Importar observaciones GeoJSON</button><input type="file" id="geojson-file" accept=".geojson,.json" hidden>
+   </div>
+   <div class="panel-content" id="panel-cameras" role="tabpanel" aria-labelledby="tab-cameras" hidden>
+    <div class="section-heading"><h2>Ojos sobre el terreno</h2><span class="tag" id="camera-count">—</span></div><p class="panel-description">Cámaras públicas más cercanas al centro del mapa. Su orientación es una línea de visión, no la ubicación del fuego.</p>
+    <div id="camera-list" class="camera-list"><p class="empty-state">Consultando ALERTCalifornia…</p></div>
+    <a class="wide-button" href="https://cameras.alertcalifornia.org/" target="_blank" rel="noopener">Abrir red ALERTCalifornia ↗</a>
+   </div>
+   <div class="panel-content" id="panel-analysis" role="tabpanel" aria-labelledby="tab-analysis" hidden>
+    <div class="section-heading"><h2>De imagen a evidencia</h2><span class="nvidia-label">NVIDIA</span></div><p class="panel-description">Cosmos examina humo y llamas en una imagen. La observación requiere revisión y georreferenciación antes de situarse en el terreno.</p>
+    <button id="load-example" class="wide-button" hidden>Cargar imagen de referencia · Gann Fire</button>
+    <button id="load-night-example" class="wide-button" hidden>Comparar con cámara nocturna · Shasta</button>
+    <p id="image-source" class="panel-description" hidden></p>
+    <label class="upload-zone" for="image-file"><span data-icon="scan"></span><strong>Seleccionar imagen o video</strong><span>JPG / PNG · 6 MB · MP4 / WebM · 50 MB</span></label><input type="file" id="image-file" accept="image/jpeg,image/png,video/mp4,video/webm" hidden>
+    <video id="source-video" controls playsinline preload="metadata" hidden aria-label="Video del operador"></video><button id="capture-frame" class="wide-button" hidden><span data-icon="camera"></span> Capturar este fotograma</button>
+    <img id="analysis-preview" alt="Fotograma seleccionado para analizar" hidden><button id="analyze-button" class="primary-button" disabled><span data-icon="scan"></span> Analizar con Cosmos</button>
+    <div id="analysis-result" class="analysis-result" aria-live="polite"><span class="tiny-label">OBSERVACIÓN DEL MODELO</span><p>Selecciona un fotograma para comenzar.</p></div>
+    <button id="saved-analysis" class="wide-button" hidden>Ver respuesta de una ejecución anterior</button>
+    <button id="export-analysis" class="wide-button" hidden>Guardar observación y procedencia</button>
+    <div class="section-heading bordered"><h2>Buscar evidencia en VAST</h2><span class="tag" id="vast-state">—</span></div>
+    <form id="search-form"><label class="sr-only" for="search-query">Descripción de la evidencia</label><textarea id="search-query" rows="2" placeholder="Humo visible entre árboles, cerca de una carretera…" maxlength="500" required></textarea><button class="wide-button" type="submit"><span data-icon="search"></span> Buscar segmentos</button></form><div id="search-results" aria-live="polite"></div>
+   </div>
+   <div class="sidebar-footer"><span class="research-dot"></span> Prototipo de investigación <button id="method-button">Metodología ↗</button></div>
+  </aside>
+  <section class="timeline" aria-label="Evolución temporal">
+   <div class="timeline-header"><div><span class="eyebrow">RECONSTRUCCIÓN TEMPORAL</span><h2>Cada observación cuenta.</h2></div><div class="timeline-date" id="selected-date">—</div><button class="latest-button" id="latest"><i class="status-dot"></i> Última disponible</button></div>
+   <div class="timeline-track"><button id="play" class="play-button" aria-label="Reproducir timeline"><span data-icon="play"></span></button><button id="speed" class="speed-button" aria-label="Velocidad de reproducción">1×</button><div class="range-container"><label class="sr-only" for="time-slider">Momento de observación</label><input id="time-slider" type="range" min="0" max="1000" value="1000"><div class="time-ticks" id="time-ticks"></div></div><span class="utc-label">UTC</span></div>
+   <div class="chart-grid"><div class="chart-box"><div><span>Detecciones térmicas</span><span>California · por día</span></div><svg id="detections-chart" viewBox="0 0 500 46" preserveAspectRatio="none" aria-label="Detecciones por día"></svg></div><div class="chart-box"><div><span>Potencia radiativa observada</span><span>MW · suma diaria</span></div><svg id="power-chart" viewBox="0 0 500 46" preserveAspectRatio="none" aria-label="Potencia radiativa por día"></svg></div><div class="timeline-caption"><span class="tiny-label">LECTURA DEL MAPA</span><p>Desliza para comparar observaciones.<br>Sin interpolación ni predicción de avance.</p><span id="data-date">Esperando datos de la fuente</span></div></div>
+  </section>
+ </main>
+ <div id="toast" class="toast" role="status" hidden></div>
+ <dialog id="sources-dialog"><button class="dialog-close" id="close-dialog" aria-label="Cerrar">×</button><span class="eyebrow">FUENTES Y METODOLOGÍA</span><h2>La evidencia, antes que la certeza.</h2><p>FireTrace reúne observaciones sobre relieve real. Es un prototipo sin validación operativa: no recomienda rutas de evacuación ni predice la propagación.</p><dl><dt>Relieve</dt><dd>Tiles de elevación Terrarium de AWS Open Data. Escala vertical inicial 1×.</dd><dt>Base cartográfica</dt><dd>Esri World Imagery y OpenStreetMap. No es una imagen en directo.</dd><dt>Focos térmicos</dt><dd><a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener">NASA FIRMS</a> · VIIRS S-NPP, últimos 7 días. Se representa la detección, no la superficie quemada. La resolución nominal no equivale a precisión geográfica.</dd><dt>Perímetros</dt><dd>WFIGS Interagency: geometría y fecha de publicación originales. Se ocultan si son posteriores al cursor temporal.</dd><dt>Cámaras</dt><dd><a href="https://cameras.alertcalifornia.org/" target="_blank" rel="noopener">ALERTCalifornia</a>: posición, orientación y enlace a su visor. No descargamos ni ingerimos su video en VAST.</dd><dt>Visión NVIDIA</dt><dd>Cosmos analiza únicamente la imagen que selecciona el operador. El texto no constituye segmentación ni geolocalización. YOLO11 COCO no se utiliza como detector de incendios.</dd><dt>Referencias visuales</dt><dd>FireTrace de Dilum Sanjaya; World Wildfire Locator de nagix; fire-progression-NRTDV de J-mazz. Implementación propia.</dd></dl><p class="muted">Importación: FeatureCollection con Point, LineString, Polygon o MultiPolygon. Cada elemento requiere properties.observedAt (ISO 8601 con zona horaria) y puede incluir properties.source. Las importaciones se guardan solo durante la sesión.</p></dialog>
+</body></html>

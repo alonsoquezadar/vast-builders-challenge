@@ -1,0 +1,2051 @@
+{
+ "schema": "firetrace.demo-bundle/1",
+ "replay": true,
+ "notice": "REPLAY: datos congelados de una captura anterior. No son tiempo real ni una medición actual.",
+ "capturedAt": "2026-10-17T12:40:14Z",
+ "gateway": "http://localhost:5174",
+ "bbox": {
+  "west": -122.4,
+  "south": 41.1,
+  "east": -121.5,
+  "north": 41.6
+ },
+ "sources": {
+  "firms": {
+   "status": "ok",
+   "sourceUrl": "https://firms.modaps.eosdis.nasa.gov/data/active_fire/viirs/csv/SUOMI_VIIRS_C2_USA_contiguous_and_Hawaii_7d.csv",
+   "fetchedAt": "2026-10-17T12:33:28.447075+00:00",
+   "stale": false,
+   "capturedAt": "2026-10-17T12:40:14Z",
+   "total": 536,
+   "count": 89,
+   "outsideBboxOrMalformed": 447,
+   "redactions": 0,
+   "observedRange": {
+    "field": "observedAt",
+    "min": "2026-10-13T20:04:00Z",
+    "max": "2026-10-16T20:46:00Z"
+   },
+   "data": {
+    "type": "FeatureCollection",
+    "features": [
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96315,
+        41.35497
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 22.45,
+       "confidence": "high",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9555,
+        41.35751
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 22.45,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95124,
+        41.3665
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 121.14,
+       "confidence": "high",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96657,
+        41.36141
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 113.48,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96263,
+        41.3703
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 113.48,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95472,
+        41.37292
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 121.14,
+       "confidence": "low",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.94759,
+        41.36186
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 81.18,
+       "confidence": "high",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95536,
+        41.35923
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 81.18,
+       "confidence": "high",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96299,
+        41.35666
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 32.42,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.97058,
+        41.35409
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 32.42,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95112,
+        41.36826
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 81.18,
+       "confidence": "high",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95888,
+        41.36564
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 81.18,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9664,
+        41.3631
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 32.42,
+       "confidence": "low",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95444,
+        41.37474
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 7.14,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96244,
+        41.37203
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T20:04:00Z",
+       "frp": 7.14,
+       "confidence": "nominal",
+       "scanKm": 0.68,
+       "trackKm": 0.74,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9665,
+        41.35423
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 11.32,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96217,
+        41.35886
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 21.05,
+       "confidence": "high",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96723,
+        41.3584
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 18.07,
+       "confidence": "high",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95712,
+        41.35932
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 21.05,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.97231,
+        41.35793
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 18.07,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96794,
+        41.36255
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 18.07,
+       "confidence": "high",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.94778,
+        41.3644
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 23.83,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9528,
+        41.36395
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 23.83,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95781,
+        41.36348
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 21.05,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96285,
+        41.36302
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 21.05,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95348,
+        41.36811
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 46.1,
+       "confidence": "high",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.94849,
+        41.36856
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 46.1,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95848,
+        41.36765
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.18,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96353,
+        41.36718
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.18,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96863,
+        41.36672
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 27.29,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.94923,
+        41.37273
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 46.1,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95919,
+        41.37181
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.18,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96422,
+        41.37135
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.18,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96927,
+        41.37089
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 27.29,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95501,
+        41.37642
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 45.28,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95995,
+        41.37597
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.32,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96493,
+        41.37551
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.32,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96996,
+        41.37504
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 8.68,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96075,
+        41.38012
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.32,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96571,
+        41.37967
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 24.32,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.97069,
+        41.3792
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-13T21:44:00Z",
+       "frp": 8.68,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.45,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96616,
+        41.37624
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.23,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95528,
+        41.37491
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.39,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96697,
+        41.37267
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.23,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95613,
+        41.37134
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.39,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96852,
+        41.36551
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.82,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.95771,
+        41.36418
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.21,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9693,
+        41.36192
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 2.07,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9701,
+        41.35835
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 2.07,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96471,
+        41.35769
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T10:02:00Z",
+       "frp": 1.93,
+       "confidence": "nominal",
+       "scanKm": 0.45,
+       "trackKm": 0.39,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96635,
+        41.35622
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 3.5,
+       "confidence": "nominal",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96716,
+        41.35962
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 7.84,
+       "confidence": "nominal",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96467,
+        41.37047
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 6.17,
+       "confidence": "low",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96547,
+        41.37387
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 6.16,
+       "confidence": "nominal",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.78561,
+        41.42567
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 24.58,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79057,
+        41.42501
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 37.93,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79556,
+        41.42436
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 37.93,
+       "confidence": "low",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.7864,
+        41.42908
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 24.58,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79137,
+        41.42843
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 37.93,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79637,
+        41.42778
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 37.93,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.80138,
+        41.42711
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 82.48,
+       "confidence": "low",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.78223,
+        41.43316
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 47.49,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.78718,
+        41.4325
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 47.49,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79216,
+        41.43185
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 75.81,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79715,
+        41.43119
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 75.81,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79796,
+        41.43461
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 75.81,
+       "confidence": "high",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.80296,
+        41.43395
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 160.92,
+       "confidence": "high",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.78301,
+        41.43658
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 47.49,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79295,
+        41.43527
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 75.81,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79874,
+        41.43802
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 52.76,
+       "confidence": "nominal",
+       "scanKm": 0.42,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.80375,
+        41.43737
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-14T21:23:00Z",
+       "frp": 36.83,
+       "confidence": "nominal",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.80116,
+        41.43807
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.26,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.8018,
+        41.43359
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.26,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79611,
+        41.43312
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 2.09,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.7904,
+        41.43264
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 2.09,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.80239,
+        41.42911
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 2.35,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79677,
+        41.42864
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.39,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79107,
+        41.42817
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.39,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79739,
+        41.42416
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.39,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79176,
+        41.42369
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.39,
+       "confidence": "nominal",
+       "scanKm": 0.48,
+       "trackKm": 0.48,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9659,
+        41.35976
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T09:41:00Z",
+       "frp": 1.44,
+       "confidence": "nominal",
+       "scanKm": 0.49,
+       "trackKm": 0.49,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79229,
+        41.43088
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T11:21:00Z",
+       "frp": 3.3,
+       "confidence": "nominal",
+       "scanKm": 0.58,
+       "trackKm": 0.7,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79129,
+        41.42947
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T11:21:00Z",
+       "frp": 2.28,
+       "confidence": "nominal",
+       "scanKm": 0.58,
+       "trackKm": 0.7,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96687,
+        41.35819
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T21:06:00Z",
+       "frp": 6.61,
+       "confidence": "nominal",
+       "scanKm": 0.41,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.79432,
+        41.42718
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T21:06:00Z",
+       "frp": 11.08,
+       "confidence": "nominal",
+       "scanKm": 0.4,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.78587,
+        41.43217
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T21:06:00Z",
+       "frp": 2.47,
+       "confidence": "low",
+       "scanKm": 0.4,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.78689,
+        41.4355
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-15T21:06:00Z",
+       "frp": 2.47,
+       "confidence": "low",
+       "scanKm": 0.4,
+       "trackKm": 0.37,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.9682,
+        41.35763
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-16T11:04:00Z",
+       "frp": 0.36,
+       "confidence": "nominal",
+       "scanKm": 0.34,
+       "trackKm": 0.56,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.96661,
+        41.35822
+       ]
+      },
+      "properties": {
+       "observedAt": "2026-10-16T20:46:00Z",
+       "frp": 3.35,
+       "confidence": "nominal",
+       "scanKm": 0.4,
+       "trackKm": 0.44,
+       "satellite": "N",
+       "source": "NASA FIRMS · S-NPP VIIRS"
+      }
+     }
+    ]
+   }
+  },
+  "cameras": {
+   "status": "ok",
+   "sourceUrl": "https://cameras.alertcalifornia.org/",
+   "fetchedAt": "2026-10-17T12:39:27.840656+00:00",
+   "stale": false,
+   "capturedAt": "2026-10-17T12:40:14Z",
+   "total": 1314,
+   "count": 14,
+   "outsideBboxOrMalformed": 1300,
+   "redactions": 0,
+   "observedRange": {
+    "field": "last_frame_ts",
+    "min": 1792240666,
+    "max": 1792240714
+   },
+   "data": {
+    "type": "FeatureCollection",
+    "features": [
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.72,
+        41.3
+       ]
+      },
+      "properties": {
+       "id": "Axis-BearMtnLookout1",
+       "name": "Bear Mountain Lookout 1",
+       "last_frame_ts": 1792240700,
+       "az_current": 92.11000061035156,
+       "tilt_current": 0.0,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1774
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.72,
+        41.3
+       ]
+      },
+      "properties": {
+       "id": "Axis-BearMtnLookout2",
+       "name": "Bear Mountain Lookout 2",
+       "last_frame_ts": 1792240694,
+       "az_current": 236.05999755859375,
+       "tilt_current": 0.0,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1774
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.29,
+        41.13
+       ]
+      },
+      "properties": {
+       "id": "Axis-GirardRidge1",
+       "name": "Girard Ridge 1",
+       "last_frame_ts": 1792240690,
+       "az_current": 10.949999809265137,
+       "tilt_current": -0.33000001311302185,
+       "fov": 65.1,
+       "county": "shasta",
+       "elevationM": 1225
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.29,
+        41.13
+       ]
+      },
+      "properties": {
+       "id": "Axis-GirardRidge2",
+       "name": "Girard Ridge 2",
+       "last_frame_ts": 1792240686,
+       "az_current": 288.4800109863281,
+       "tilt_current": -0.75,
+       "fov": 65.1,
+       "county": "shasta",
+       "elevationM": 1225
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.98,
+        41.14
+       ]
+      },
+      "properties": {
+       "id": "Axis-GrizzlyPeakShasta1",
+       "name": "Grizzly Peak Lookout (Shasta) 1",
+       "last_frame_ts": 1792240699,
+       "az_current": 342.5799865722656,
+       "tilt_current": 0.0,
+       "fov": 65.1,
+       "county": "shasta",
+       "elevationM": 1901
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -121.98,
+        41.14
+       ]
+      },
+      "properties": {
+       "id": "Axis-GrizzlyPeakShasta2",
+       "name": "Grizzly Peak Lookout (Shasta) 2",
+       "last_frame_ts": 1792240700,
+       "az_current": 147.85000610351562,
+       "tilt_current": -0.4000000059604645,
+       "fov": 65.1,
+       "county": "shasta",
+       "elevationM": 1901
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.31,
+        41.22
+       ]
+      },
+      "properties": {
+       "id": "Axis-MtBradley1",
+       "name": "Mt. Bradley 1",
+       "last_frame_ts": 1792240693,
+       "az_current": 5.71999979019165,
+       "tilt_current": -0.6899999976158142,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1688
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.31,
+        41.22
+       ]
+      },
+      "properties": {
+       "id": "Axis-MtBradley2",
+       "name": "Mt. Bradley 2",
+       "last_frame_ts": 1792240714,
+       "az_current": 184.6300048828125,
+       "tilt_current": -1.1100000143051147,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1688
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.2,
+        41.33
+       ]
+      },
+      "properties": {
+       "id": "Axis-ShastaSkiPark",
+       "name": "Shasta Ski Park",
+       "last_frame_ts": 1792240701,
+       "az_current": 197.72000122070312,
+       "tilt_current": -1.0,
+       "fov": 62.8,
+       "county": "siskiyou",
+       "elevationM": 1977
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.24,
+        41.22
+       ]
+      },
+      "properties": {
+       "id": "Axis-SodaRidge1",
+       "name": "Soda Ridge 1",
+       "last_frame_ts": 1792240699,
+       "az_current": 70.38999938964844,
+       "tilt_current": -0.5,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1414
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.24,
+        41.22
+       ]
+      },
+      "properties": {
+       "id": "Axis-SodaRidge2",
+       "name": "Soda Ridge 2",
+       "last_frame_ts": 1792240701,
+       "az_current": 355.7900085449219,
+       "tilt_current": -1.0,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1414
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.37,
+        41.51
+       ]
+      },
+      "properties": {
+       "id": "Axis-Weed",
+       "name": "Lake Shastina",
+       "last_frame_ts": 1792240695,
+       "az_current": 29.18000030517578,
+       "tilt_current": -0.3400000035762787,
+       "fov": 62.8,
+       "county": "siskiyou",
+       "elevationM": 965
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.4,
+        41.44
+       ]
+      },
+      "properties": {
+       "id": "Axis-Weed1",
+       "name": "Weed 1",
+       "last_frame_ts": 1792240666,
+       "az_current": 237.33999633789062,
+       "tilt_current": -0.75,
+       "fov": 62.8,
+       "county": "siskiyou",
+       "elevationM": 1165
+      }
+     },
+     {
+      "type": "Feature",
+      "geometry": {
+       "type": "Point",
+       "coordinates": [
+        -122.4,
+        41.44
+       ]
+      },
+      "properties": {
+       "id": "Axis-Weed2",
+       "name": "Weed 2",
+       "last_frame_ts": 1792240688,
+       "az_current": 152.67999267578125,
+       "tilt_current": -0.5,
+       "fov": 65.1,
+       "county": "siskiyou",
+       "elevationM": 1165
+      }
+     }
+    ]
+   }
+  },
+  "perimeters": {
+   "status": "ok",
+   "sourceUrl": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters_YearToDate/FeatureServer/0",
+   "fetchedAt": null,
+   "stale": false,
+   "capturedAt": "2026-10-17T12:40:14Z",
+   "total": 0,
+   "count": 0,
+   "outsideBboxOrMalformed": 0,
+   "redactions": 0,
+   "observedRange": {
+    "field": "poly_DateCurrent",
+    "min": null,
+    "max": null
+   },
+   "data": {
+    "type": "FeatureCollection",
+    "features": []
+   },
+   "tiles": 4,
+   "truncated": false
+  }
+ },
+ "sha256": "c736a910bf3b5305ab6178d4e0e58d4e8a550a1de4c5fb5fe4aef775835fa945"
+}
