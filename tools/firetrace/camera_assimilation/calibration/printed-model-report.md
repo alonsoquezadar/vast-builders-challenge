@@ -1,6 +1,6 @@
 # Modelo principal: X impreso histórico como azimut supuesto
 
-Estado: **pending-observations** — pending-observations. `calibrationBasis = printed-x-unverified-historical`, `parameterOrigin = printed-X-prior-not-fitted`. Reproducir:
+Estado: **experimental** — printed-X assumed azimuth; visible observations checked against all pose passes without fitting. `calibrationBasis = printed-x-unverified-historical`, `parameterOrigin = printed-X-prior-not-fitted`. Reproducir:
 
 ```sh
 python3 tools/firetrace/camera_assimilation/calibration/printed_model.py \
@@ -13,19 +13,17 @@ python3 tools/firetrace/camera_assimilation/calibration/printed_model.py \
 
 Hoy (2026-10-17) X impreso y azimut de catálogo difieren menos de 0.3°; eso **no** prueba la pose, el reloj ni el FOV de 2025. Todas las pasadas FIRMS son solo comprobación (sin ajuste).
 
-## Pendiente de observaciones
-
-No existía `tools/firetrace/camera_assimilation/vision/observations.json` al generar este informe: los parámetros (supuestos) existen, pero no hay comprobación satelital ni resultados medidos.
+Entrada: `tools/firetrace/camera_assimilation/vision/observations.json` (11 observaciones, SHA-256 `489180ca7ab0…`, integridad de fotogramas: verified).
 
 ## Parámetros por pose
 
 | Pose | Método | Rol | X impreso (°) | yaw0 (°) | Zoom | FOV (°) | Estado satélite | Obs. evaluadas | Sesgo vs ajuste FIRMS (°) |
 |---|---|---|---|---|---|---|---|---|---|
-| G1 | cosmos | primary | 26.27 | 26.27 | 1.2 | 56.02 | pending-observations | 0 | pending-observations |
-| G2 | cosmos | primary | 25.27 | 25.27 | 1.0 | 65.10 | not-observed-in-pose-window | 0 | pending-observations |
-| G3 | cosmos | primary | -52.81 | 307.19 | 1.0 | 65.10 | not-observed-in-pose-window | 0 | pending-observations |
-| G3b | cosmos | primary | -39.19 | 320.81 | 1.0 | 65.10 | pending-observations | 0 | pending-observations |
-| G4 | cosmos | primary | -26.13 | 333.87 | 1.4 | 49.02 | pending-observations | 0 | pending-observations |
+| G1 | cosmos | primary | 26.27 | 26.27 | 1.2 | 56.02 | no-visible-observation-within-5min-of-any-pass | 0 | no-fitted-yaw |
+| G2 | cosmos | primary | 25.27 | 25.27 | 1.0 | 65.10 | not-observed-in-pose-window | 0 | no-fitted-yaw |
+| G3 | cosmos | primary | -52.81 | 307.19 | 1.0 | 65.10 | not-observed-in-pose-window | 0 | no-fit-entry-for-pose-method |
+| G3b | cosmos | primary | -39.19 | 320.81 | 1.0 | 65.10 | no-visible-observation-within-5min-of-any-pass | 0 | no-fitted-yaw |
+| G4 | cosmos | primary | -26.13 | 333.87 | 1.4 | 49.02 | no-visible-observation-within-5min-of-any-pass | 0 | no-fitted-yaw |
 
 ## Poses sin pasada en su ventana
 

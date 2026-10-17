@@ -1,0 +1,124 @@
+{
+ "budget": 30,
+ "attempts": [
+  {
+   "id": "delilah-G1-f00804",
+   "imageSha256": "0b7dbe06496cb7e2c745c596ba3ffd5ee24661095f69207b6f492180957c56df",
+   "startedUtc": "2026-10-17T14:32:24.463667+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.42,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "buckrock-G3b-f05091",
+   "imageSha256": "91d239e49ea0b0a2c9a5510c4f0d66cf78bb4ae61174b4981e39e86b20d5d8c3",
+   "startedUtc": "2026-10-17T14:32:25.891229+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.1,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "buckrock-G4-f05889",
+   "imageSha256": "7d2474f462ba919a713319bf6cb8c41fed73683c43068c090ace2b5726c9badd",
+   "startedUtc": "2026-10-17T14:32:26.995357+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.28,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "delilah-G1-f00963",
+   "imageSha256": "0a8bf7c258cecef4dbbbaac93138cd18cf214c140868f4ad69449a8e0b097015",
+   "startedUtc": "2026-10-17T14:32:28.280701+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.06,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "buckrock-G3b-f05256",
+   "imageSha256": "9f9c179e3fe535f6bb85f62c1ee6acb16a953acc18518e8cf45c60e6eb6c55da",
+   "startedUtc": "2026-10-17T14:32:29.346512+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.14,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "buckrock-G4-f06057",
+   "imageSha256": "e1da9d1456401a08d86f63421c3d8592574365b9fbf188d7b50270d1f76d80ba",
+   "startedUtc": "2026-10-17T14:32:30.491693+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.01,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "buckrock-G4-f06444",
+   "imageSha256": "3d5159268fd5b89aaf6238330635ccebfbe114554614771aa9c5ec157007d968",
+   "startedUtc": "2026-10-17T14:32:31.508954+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 0.99,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "delilah-G1-f01098",
+   "imageSha256": "fd0b87153e61abb106e232d4ff9f4df75fa193d0590c224b8ad4a3cb421ec6aa",
+   "startedUtc": "2026-10-17T14:32:32.499335+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 0.96,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "delilah-G2-f04020",
+   "imageSha256": "7650bfa5033d8b2e4fda42f290236be1ab2f9c0f1193aff162b0d14951688c5e",
+   "startedUtc": "2026-10-17T14:34:57.783534+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.15,
+   "httpOk": true,
+   "parsed": true
+  },
+  {
+   "id": "delilah-G2-f04065",
+   "imageSha256": "520089444d10c9f4cee126856f36d1c0157152a93678f7d3f2fbfa0aa092055e",
+   "startedUtc": "2026-10-17T14:35:09.148384+00:00",
+   "url": "http://localhost:5173/api/analyze",
+   "task": "smoke-base-v1",
+   "ok": true,
+   "seconds": 1.6,
+   "httpOk": true,
+   "parsed": true
+  }
+ ],
+ "externalAttempts": [
+  {
+   "id": "delilah-G2-ev134",
+   "executedBy": "root",
+   "imageSha256": "a66a134ab4f53031f90cb58aa88400a9cb78be15813d6cae96e9bdd486ceb9d8",
+   "analyzedAt": "2026-10-17T14:35:04.497476+00:00",
+   "note": "run by root on evidence/garnet/delilah-134.jpg; counted against the 30-call budget (10 vision + 1 root = 11)"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "task": "smoke-base-v1",
+ "observation": {
+  "smoke": true,
+  "base_visible": false,
+  "x_base": null,
+  "y_base": null,
+  "confidence": 0.98,
+  "reason": "The smoke plume is visible but its point of origin on the ground is obscured by distance and atmospheric haze, making it impossible to distinguish the base."
+ },
+ "content": "{\"smoke\": true, \"base_visible\": false, \"x_base\": null, \"y_base\": null, \"confidence\": 0.98, \"reason\": \"The smoke plume is visible but its point of origin on the ground is obscured by distance and atmospheric haze, making it impossible to distinguish the base.\"}",
+ "model": "nvidia/cosmos3-nano-reasoner",
+ "analyzedAt": "2026-10-17T14:32:28.204875+00:00",
+ "geolocation": "unresolved",
+ "status": "requires-review",
+ "imageSha256": "7d2474f462ba919a713319bf6cb8c41fed73683c43068c090ace2b5726c9badd"
+}

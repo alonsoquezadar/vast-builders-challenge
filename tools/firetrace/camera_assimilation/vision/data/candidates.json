@@ -1,0 +1,1379 @@
+{
+ "schema": "firetrace-vision-candidates-v1",
+ "sampleSeconds": 4.0,
+ "candidates": [
+  {
+   "frame": 0,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T10:30:12.89",
+   "videoSecond": 0.0,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00000",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00000.jpg",
+   "imageSha256": "ec905e88cf394a29e7565589013bf8d738153e23400434498dfcc69342e8c49f"
+  },
+  {
+   "frame": 165,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T11:00:12.66",
+   "videoSecond": 5.672,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00165",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00165.jpg",
+   "imageSha256": "75f92eb2a3872715f2178eb86b1f59d7a79570af84e268e7c316ebc5466a41d9"
+  },
+  {
+   "frame": 255,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "MODIS_SP",
+     "passUtc": "2025-08-27T18:17:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T11:17:00",
+     "gapSeconds": -67.9,
+     "within5min": true
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T11:15:52.09",
+   "videoSecond": 8.842,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00255",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00255.jpg",
+   "imageSha256": "917c4fb61981997a1517cb426927f5832e9f1f773313e8335ba435b37c94a37b"
+  },
+  {
+   "frame": 282,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T11:20:18.65",
+   "videoSecond": 9.743,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00282",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00282.jpg",
+   "imageSha256": "636d178fb8912d1d8bbbb7e2aaf8ff6a297f756c347c6b28d19170bed90dc305"
+  },
+  {
+   "frame": 405,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T11:40:59.29",
+   "videoSecond": 13.847,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00405",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00405.jpg",
+   "imageSha256": "5a2e299d5797a985cdb18dea83942f3b38348fcd9209e6a84a54ae175a4825b7"
+  },
+  {
+   "frame": 525,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T12:01:54.80",
+   "videoSecond": 17.985,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00525",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00525.jpg",
+   "imageSha256": "11a24e0a311bbbadf9755b9c08a558dae314465a2b1ad73d979caaf558848f68"
+  },
+  {
+   "frame": 645,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T12:22:34.69",
+   "videoSecond": 22.089,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00645",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00645.jpg",
+   "imageSha256": "949a21dbff12c22c5fcca815e8adc04d557815501debbd33949e2184c9fbb937"
+  },
+  {
+   "frame": 771,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T12:43:09.28",
+   "videoSecond": 26.36,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00771",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00771.jpg",
+   "imageSha256": "24a5e91f50b55e6b3de5a9b0cb905d924761d41a26378b748cd5de2def8feb1f"
+  },
+  {
+   "frame": 804,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_NOAA21_NRT",
+     "passUtc": "2025-08-27T19:49:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T12:49:00",
+     "gapSeconds": 12.3,
+     "within5min": true
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T12:49:12.27",
+   "videoSecond": 27.494,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00804",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00804.jpg",
+   "imageSha256": "0b7dbe06496cb7e2c745c596ba3ffd5ee24661095f69207b6f492180957c56df"
+  },
+  {
+   "frame": 915,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T13:07:38.99",
+   "videoSecond": 31.198,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00915",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00915.jpg",
+   "imageSha256": "6a4671c70d0d1073d9a3966b8a3cf914d2f5aa18cbd7006bcdb07159f7e0b918"
+  },
+  {
+   "frame": 963,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_SNPP_SP",
+     "passUtc": "2025-08-27T20:16:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T13:16:00",
+     "gapSeconds": -3.2,
+     "within5min": true
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T13:15:56.75",
+   "videoSecond": 32.799,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f00963",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f00963.jpg",
+   "imageSha256": "0a8bf7c258cecef4dbbbaac93138cd18cf214c140868f4ad69449a8e0b097015"
+  },
+  {
+   "frame": 1035,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T13:28:18.24",
+   "videoSecond": 35.202,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f01035",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f01035.jpg",
+   "imageSha256": "bf40d3a3dcb88430b6d610d6adcf6f813469ac68b6ee346651498d75b3fbdb5b"
+  },
+  {
+   "frame": 1098,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_NOAA20_SP",
+     "passUtc": "2025-08-27T20:38:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T13:38:00",
+     "gapSeconds": 42.6,
+     "within5min": true
+    }
+   ],
+   "pose": "G1",
+   "printedTime": "2025-08-27T13:38:42.63",
+   "videoSecond": 37.304,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "id": "delilah-G1-f01098",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G1-f01098.jpg",
+   "imageSha256": "fd0b87153e61abb106e232d4ff9f4df75fa193d0590c224b8ad4a3cb421ec6aa"
+  },
+  {
+   "frame": 2460,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T16:12:12.32",
+   "videoSecond": 82.816,
+   "xyz": [
+    25.27,
+    7.34,
+    1.0
+   ],
+   "id": "delilah-G2-f02460",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f02460.jpg",
+   "imageSha256": "7634ffd8c6ae38b0823f25ed3cafcea580dae71ed2a93d73b5f8e3aa72bcfe1f"
+  },
+  {
+   "frame": 2580,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T16:18:02.53",
+   "videoSecond": 86.82,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f02580",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f02580.jpg",
+   "imageSha256": "0dfc154f4de8adde7e5c60ff726154d8a78828821399599484a17de6bd191594"
+  },
+  {
+   "frame": 2700,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T16:37:22.94",
+   "videoSecond": 90.824,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f02700",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f02700.jpg",
+   "imageSha256": "a6b118271fe9618cf1724110ec33779fe84013c2a1a740ddd5c45bd6cfd17d9d"
+  },
+  {
+   "frame": 2820,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T16:57:45.95",
+   "videoSecond": 94.861,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f02820",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f02820.jpg",
+   "imageSha256": "558743de4459359867e15397a6829991af8f4365f95f450fda0b1dc34efbf951"
+  },
+  {
+   "frame": 2955,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T17:19:44.28",
+   "videoSecond": 99.399,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f02955",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f02955.jpg",
+   "imageSha256": "aed973dbbd1c426d9db412f7356853ed8702fa0a82918fcfd8b91d66611011c9"
+  },
+  {
+   "frame": 3075,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T17:40:25.14",
+   "videoSecond": 103.403,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f03075",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f03075.jpg",
+   "imageSha256": "a603c3f8e3c00bd3391a6e06f05093466ab9a34b2d0b346661bda15b48da957d"
+  },
+  {
+   "frame": 3195,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T18:00:29.12",
+   "videoSecond": 107.407,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f03195",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f03195.jpg",
+   "imageSha256": "01acc9feb546394f2a37c72e2f97f7c9db3b1de171d66ec3890b134261dc1bac"
+  },
+  {
+   "frame": 3315,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T18:20:16.44",
+   "videoSecond": 111.411,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f03315",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f03315.jpg",
+   "imageSha256": "6f43d482379ea471f76507fdd3f821ca12eedadbab188f1da5214fdc582e26c6"
+  },
+  {
+   "frame": 3435,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T18:40:34.20",
+   "videoSecond": 115.449,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f03435",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f03435.jpg",
+   "imageSha256": "1530cbd453016f10f0aadc2d0dd4e96ec7bfcfca169c1e8b0e2cf68bf31e4d28"
+  },
+  {
+   "frame": 3555,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T19:00:50.32",
+   "videoSecond": 119.453,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f03555",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f03555.jpg",
+   "imageSha256": "fe424c9abbb42330b0944d0f65a1466a074b1fd1b2bf2827901a5243cae89b0c"
+  },
+  {
+   "frame": 3675,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T19:22:55.73",
+   "videoSecond": 123.457,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f03675",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f03675.jpg",
+   "imageSha256": "0f957957d0306832c37d3b091f6bedb6e92f3c025ad8c8139e3fa2c456f6f72e"
+  },
+  {
+   "frame": 4020,
+   "roles": [
+    {
+     "role": "sample"
+    },
+    {
+     "role": "g2-night"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T20:21:44.09",
+   "videoSecond": 134.968,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f04020",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f04020.jpg",
+   "imageSha256": "7650bfa5033d8b2e4fda42f290236be1ab2f9c0f1193aff162b0d14951688c5e"
+  },
+  {
+   "frame": 4035,
+   "roles": [
+    {
+     "role": "g2-night"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T20:24:10.19",
+   "videoSecond": 135.469,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f04035",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f04035.jpg",
+   "imageSha256": "c75e45244e04a5c80932ef8e0e43b8a4345b6d687a06acc27cca7953a23c78aa"
+  },
+  {
+   "frame": 4065,
+   "roles": [
+    {
+     "role": "g2-night"
+    }
+   ],
+   "pose": "G2",
+   "printedTime": "2025-08-27T20:29:43.20",
+   "videoSecond": 136.47,
+   "xyz": [
+    25.27,
+    7.33,
+    1.0
+   ],
+   "id": "delilah-G2-f04065",
+   "cameraId": "delilah",
+   "imagePath": "camera_assimilation/vision/frames/delilah-G2-f04065.jpg",
+   "imageSha256": "520089444d10c9f4cee126856f36d1c0157152a93678f7d3f2fbfa0aa092055e"
+  },
+  {
+   "frame": 4425,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T11:26:58.67",
+   "videoSecond": 149.116,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f04425",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f04425.jpg",
+   "imageSha256": "cb50f8120bdabc8fe68ec05fb6fd39614405db1078c1c5f44e0eede80cc81fcf"
+  },
+  {
+   "frame": 4545,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T11:32:32.66",
+   "videoSecond": 153.12,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f04545",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f04545.jpg",
+   "imageSha256": "7b3034325653ccbc52953a9893aff9440b2e6a50bcf97af4b80e9b4ab347e3c7"
+  },
+  {
+   "frame": 4665,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T11:40:14.09",
+   "videoSecond": 157.19,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f04665",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f04665.jpg",
+   "imageSha256": "d82264c3a5f785db3671bb379ce98edb5a304dcb8908f0f3108dd5f31adaf7cd"
+  },
+  {
+   "frame": 4785,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T11:57:36.33",
+   "videoSecond": 161.261,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f04785",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f04785.jpg",
+   "imageSha256": "1b6b6b15b76770edaa0fdc1c92f086ba20d853d4ff9f3ae4b8ed56c01c72eff5"
+  },
+  {
+   "frame": 4920,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T12:20:24.96",
+   "videoSecond": 165.966,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f04920",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f04920.jpg",
+   "imageSha256": "5f3c85adbb223e090ec4bad4429da0d2a2aa0a5247fae0c073466511cbe82b34"
+  },
+  {
+   "frame": 5040,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T12:40:31.92",
+   "videoSecond": 170.037,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05040",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05040.jpg",
+   "imageSha256": "6fe6d0ebe78c279732f80a0594de844f46929f7de83920c34dfdd13fbd1af001"
+  },
+  {
+   "frame": 5091,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_NOAA21_NRT",
+     "passUtc": "2025-08-27T19:49:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T12:49:00",
+     "gapSeconds": -4.0,
+     "within5min": true
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T12:48:56.00",
+   "videoSecond": 171.738,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05091",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05091.jpg",
+   "imageSha256": "91d239e49ea0b0a2c9a5510c4f0d66cf78bb4ae61174b4981e39e86b20d5d8c3"
+  },
+  {
+   "frame": 5160,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T13:00:24.14",
+   "videoSecond": 174.041,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05160",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05160.jpg",
+   "imageSha256": "3ca0f9c503fc5a62f0dd810e74f4c984491d0cd41d5d764d7cd5fb0fd8d68bbc"
+  },
+  {
+   "frame": 5256,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_SNPP_SP",
+     "passUtc": "2025-08-27T20:16:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T13:16:00",
+     "gapSeconds": 13.3,
+     "within5min": true
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T13:16:13.28",
+   "videoSecond": 177.244,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05256",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05256.jpg",
+   "imageSha256": "9f9c179e3fe535f6bb85f62c1ee6acb16a953acc18518e8cf45c60e6eb6c55da"
+  },
+  {
+   "frame": 5280,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T13:19:31.25",
+   "videoSecond": 178.045,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05280",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05280.jpg",
+   "imageSha256": "8efa38999efc6af146095a9d3d46ffaecdbe35973a49e105eb67992ec9cb6b46"
+  },
+  {
+   "frame": 5394,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_NOAA20_SP",
+     "passUtc": "2025-08-27T20:38:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T13:38:00",
+     "gapSeconds": 41.8,
+     "within5min": true
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T13:38:41.79",
+   "videoSecond": 181.848,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05394",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05394.jpg",
+   "imageSha256": "adeb1372644b3529b6915401b2578d9bbe3d278047a04a7844f15326b9ccb168"
+  },
+  {
+   "frame": 5403,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T13:39:40.82",
+   "videoSecond": 182.149,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05403",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05403.jpg",
+   "imageSha256": "4d18e087e941b018b71120412adad3e77fedab1e08694b1354222a8040903295"
+  },
+  {
+   "frame": 5526,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G3b",
+   "printedTime": "2025-08-27T14:00:00.88",
+   "videoSecond": 186.286,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "id": "buckrock-G3b-f05526",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G3b-f05526.jpg",
+   "imageSha256": "994d13ef8d665c915a51cbb50b5e3509ae0ec2932a9ea630639027fe5713ea0b"
+  },
+  {
+   "frame": 5595,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:08:48.79",
+   "videoSecond": 188.622,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f05595",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f05595.jpg",
+   "imageSha256": "67462ca32f8a6f0281993e96b5bcc51d102bb24491acc5a0b3bfdeed5a1bbf2e"
+  },
+  {
+   "frame": 5715,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:14:27.39",
+   "videoSecond": 192.692,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f05715",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f05715.jpg",
+   "imageSha256": "92b484caf550f24f61ff3860aee5a81f64fe1ce18e7d84c6dd777083007a794d"
+  },
+  {
+   "frame": 5835,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:22:28.35",
+   "videoSecond": 196.696,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f05835",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f05835.jpg",
+   "imageSha256": "4a21abe724e0d3a6ab0a5c2c8b78a36b7f004cb9f3837cb0cdd17d37e40ee809"
+  },
+  {
+   "frame": 5889,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_NOAA21_NRT",
+     "passUtc": "2025-08-27T21:29:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T14:29:00",
+     "gapSeconds": 4.2,
+     "within5min": true
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:29:04.16",
+   "videoSecond": 198.498,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f05889",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f05889.jpg",
+   "imageSha256": "7d2474f462ba919a713319bf6cb8c41fed73683c43068c090ace2b5726c9badd"
+  },
+  {
+   "frame": 5955,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:39:49.73",
+   "videoSecond": 200.734,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f05955",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f05955.jpg",
+   "imageSha256": "5cc5b8d93e1f242071c3795f36f7bfaedbb41a62436996075a053884fd7f3bd0"
+  },
+  {
+   "frame": 6057,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "VIIRS_SNPP_SP",
+     "passUtc": "2025-08-27T21:57:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T14:57:00",
+     "gapSeconds": -19.3,
+     "within5min": true
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:56:40.74",
+   "videoSecond": 204.171,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06057",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06057.jpg",
+   "imageSha256": "e1da9d1456401a08d86f63421c3d8592574365b9fbf188d7b50270d1f76d80ba"
+  },
+  {
+   "frame": 6075,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T14:59:45.27",
+   "videoSecond": 204.771,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06075",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06075.jpg",
+   "imageSha256": "b8b18c0546e59508bb460485a84aa67414bfcb6f3d311914093a54738d66ecac"
+  },
+  {
+   "frame": 6195,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T15:19:06.87",
+   "videoSecond": 208.775,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06195",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06195.jpg",
+   "imageSha256": "5a98f19bd5ede867010799d8378f01f8cc8f11710cd53f9e6240e97163bf3536"
+  },
+  {
+   "frame": 6315,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T15:39:13.77",
+   "videoSecond": 212.779,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06315",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06315.jpg",
+   "imageSha256": "fc61ea5088b5219f585408c20b77e129354cad98fe1bbfd543d36d3afefe3cfd"
+  },
+  {
+   "frame": 6435,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T15:58:58.86",
+   "videoSecond": 216.783,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06435",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06435.jpg",
+   "imageSha256": "bf5dcb4acc0db4c7f1e96a734b42a6fdfacc80ac40275e433b6abf9f9a7c0c4a"
+  },
+  {
+   "frame": 6444,
+   "roles": [
+    {
+     "role": "pass-nearest",
+     "passSource": "MODIS_SP",
+     "passUtc": "2025-08-27T23:00:00Z",
+     "passPrintedAssumedPdt": "2025-08-27T16:00:00",
+     "gapSeconds": 13.9,
+     "within5min": true
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T16:00:13.88",
+   "videoSecond": 217.084,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06444",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06444.jpg",
+   "imageSha256": "3d5159268fd5b89aaf6238330635ccebfbe114554614771aa9c5ec157007d968"
+  },
+  {
+   "frame": 6555,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T16:18:25.14",
+   "videoSecond": 220.787,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06555",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06555.jpg",
+   "imageSha256": "636f71761340a42d83b5a3d45e34f2a2484e1d0472157cbca1e30c43b6a1208e"
+  },
+  {
+   "frame": 6675,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T16:42:06.50",
+   "videoSecond": 224.791,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06675",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06675.jpg",
+   "imageSha256": "00d73b135d3f68976da9b588144d01209c8282c2a4bc864b6491e533491344e0"
+  },
+  {
+   "frame": 6795,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T17:01:16.96",
+   "videoSecond": 228.795,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06795",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06795.jpg",
+   "imageSha256": "0baf703e8320dfd6de8ebb6000c728ecbd20011d02ca2484cb6312989e90ee7c"
+  },
+  {
+   "frame": 6915,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T17:21:18.20",
+   "videoSecond": 232.799,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f06915",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f06915.jpg",
+   "imageSha256": "a337402fd7e7cdfc4780d3d2c170e1a5f39f5c6d0a5b6959076c44a6d6d5ecf2"
+  },
+  {
+   "frame": 7035,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T17:41:25.81",
+   "videoSecond": 236.803,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07035",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07035.jpg",
+   "imageSha256": "1043c00a0949af84d21157ca6d7514ae467bf4553f035314cdbb8db7a4661df8"
+  },
+  {
+   "frame": 7155,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T18:00:33.72",
+   "videoSecond": 240.807,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07155",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07155.jpg",
+   "imageSha256": "c71b84b98fb050289e49154959b9f6312ed45b2f994c44ec0a50e80ae743c1db"
+  },
+  {
+   "frame": 7275,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T18:20:30.07",
+   "videoSecond": 244.811,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07275",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07275.jpg",
+   "imageSha256": "d895aae850fa25447eda3d4905b24652ec339b93e7cb34420d32536869e04dec"
+  },
+  {
+   "frame": 7395,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T18:39:40.43",
+   "videoSecond": 248.815,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07395",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07395.jpg",
+   "imageSha256": "4d25cb34dad5b40272d26463eaa207235ac413be82a5acc1dec4012c48d54949"
+  },
+  {
+   "frame": 7515,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T18:59:37.63",
+   "videoSecond": 252.819,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07515",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07515.jpg",
+   "imageSha256": "a51853666cb57068a7bc6c4305a0dd969d687e6522c504c175399054bc11d0d9"
+  },
+  {
+   "frame": 7635,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T19:19:28.57",
+   "videoSecond": 256.823,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07635",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07635.jpg",
+   "imageSha256": "3ec250ad767162f6e1b6740d23596fe65a697bc0addfb5122bf2b34270ec4545"
+  },
+  {
+   "frame": 7755,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T19:38:31.45",
+   "videoSecond": 260.827,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07755",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07755.jpg",
+   "imageSha256": "0ff6cfe2b67dd0388bea1671f66fe7c379532cb64ace16c17ac1936368058f16"
+  },
+  {
+   "frame": 7875,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T19:58:22.87",
+   "videoSecond": 264.831,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07875",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07875.jpg",
+   "imageSha256": "70ef0c0a61d5b5fcb862eba749a23e75d6081cc28cf3ed7a736448cb6d5d15bd"
+  },
+  {
+   "frame": 7995,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T20:18:26.01",
+   "videoSecond": 268.835,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f07995",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f07995.jpg",
+   "imageSha256": "490f9b1dc0cc6c6cdf50c5912d86ea03461c2ab10b24857d7ba8f140f7be0303"
+  },
+  {
+   "frame": 8115,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T20:38:21.76",
+   "videoSecond": 272.839,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f08115",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f08115.jpg",
+   "imageSha256": "c76943495e1b4cefc528ad3f16af5f5a9baa49c4a732d2fa3bc6084aba871677"
+  },
+  {
+   "frame": 8235,
+   "roles": [
+    {
+     "role": "sample"
+    }
+   ],
+   "pose": "G4",
+   "printedTime": "2025-08-27T20:58:41.76",
+   "videoSecond": 276.843,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "id": "buckrock-G4-f08235",
+   "cameraId": "buckrock",
+   "imagePath": "camera_assimilation/vision/frames/buckrock-G4-f08235.jpg",
+   "imageSha256": "bb30bcad3a077a573d905d794b6032d5ae7f28788ea4ff67f150154d4a7ee020"
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 # Calibración horizontal experimental (1 GDL) por cámara/pose
 
-Generado por `fit.py` a partir de `calibration.json` (estado: **no-calibration** — pending-observations). Reproducir:
+Generado por `fit.py` a partir de `calibration.json` (estado: **no-calibration** — no pose could be fitted from the supplied observations). Reproducir:
 
 ```sh
 python3 tools/firetrace/camera_assimilation/calibration/fit.py \
@@ -11,9 +11,7 @@ python3 tools/firetrace/camera_assimilation/calibration/fit.py \
 
 Split congelado antes de leer observaciones (SHA-256 `c08b34094debb8b4…`). Reloj PDT = hipótesis. FOV = 65.1° a zoom 1 (supuesto no verificado), escalado focal para zoom 1.2/1.4. Solo se ajusta `yaw0`.
 
-## Estado: pending-observations
-
-No existía `tools/firetrace/camera_assimilation/vision/observations.json` al generar este informe. Ninguna pose está calibrada; no hay resultados medidos. El CLI está listo y las funciones están probadas con datos sintéticos (que no son medición real).
+Entrada: `tools/firetrace/camera_assimilation/vision/observations.json` (11 observaciones, SHA-256 `489180ca7ab0…`).
 
 Contexto (solo fotogramas actuales, 2026-10-17; no verifica reloj ni pose de 2025): Axis-DelilahLookout2 X mod 360 = 308.01° vs azimut de catálogo 308.29° (residuo 0.28°); Axis-BuckRock1 X mod 360 = 301.74° vs azimut de catálogo 301.58° (residuo -0.16°)
 
@@ -35,13 +33,16 @@ Con posición candidata; rangos y sectores incluyen el semiancho del píxel. Las
 | G4 | heldOut | SNPP@2025-08-27T21:57:00Z | 55 | 322.69 | 26.19 | 314.1–331.9 | 17.8 | 1 | 0.28 | 0.11–0.46 |
 | G4 | heldOut | MODIS@2025-08-27T23:00:00Z | 10 | 314.26 | 26.34 | 303.2–324.4 | 21.2 | 4 | 0.11 | -0.15–0.32 |
 
-## delilah / G1
+## delilah / G1 / cosmos
 
-- Sin parámetros: observations file missing (pending-observations)
-- Excluidas: 0
+- Sin parámetros: no usable observation matched the pre-registered fit pass NOAA21@2025-08-27T19:49:00Z within 5 min; no parameters are fitted
+- Excluidas: 3
 
+  - `delilah-G1-f00804-cosmos`: base-hidden — base_visible=False
+  - `delilah-G1-f00963-cosmos`: base-hidden — base_visible=False
+  - `delilah-G1-f01098-cosmos`: base-hidden — base_visible=False
 
-## delilah / G2
+## delilah / G2 / cosmos
 
 - Sin parámetros: no FIRMS pass inside this pose window under the PDT hypothesis; poses are not transferred (printed pan X is not a validated azimuth)
 - Excluidas: 0
@@ -53,17 +54,22 @@ Con posición candidata; rangos y sectores incluyen el semiancho del píxel. Las
 - Excluidas: 0
 
 
-## buckrock / G3b
+## buckrock / G3b / cosmos
 
-- Sin parámetros: observations file missing (pending-observations)
-- Excluidas: 0
+- Sin parámetros: no usable observation matched the pre-registered fit pass NOAA21@2025-08-27T19:49:00Z within 5 min; no parameters are fitted
+- Excluidas: 2
 
+  - `buckrock-G3b-f05091-cosmos`: base-hidden — base_visible=False
+  - `buckrock-G3b-f05256-cosmos`: base-hidden — base_visible=False
 
-## buckrock / G4
+## buckrock / G4 / cosmos
 
-- Sin parámetros: observations file missing (pending-observations)
-- Excluidas: 0
+- Sin parámetros: no usable observation matched the pre-registered fit pass NOAA21@2025-08-27T21:29:00Z within 5 min; no parameters are fitted
+- Excluidas: 3
 
+  - `buckrock-G4-f05889-cosmos`: base-hidden — base_visible=False
+  - `buckrock-G4-f06057-cosmos`: base-hidden — base_visible=False
+  - `buckrock-G4-f06444-cosmos`: base-hidden — base_visible=False
 
 ## Límites
 
@@ -80,4 +86,3 @@ Con posición candidata; rangos y sectores incluyen el semiancho del píxel. Las
 - Not an operational or absolute geolocation product; errors are angular / cross-track at FIRMS range.
 - PDT is not verified; clock sensitivity does not prove any clock.
 - G2 and G3 have no FIRMS pass in their windows: null parameters by design.
-- vision/observations.json not available when this file was generated: every pose is uncalibrated.

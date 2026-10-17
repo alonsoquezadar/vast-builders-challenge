@@ -1,0 +1,5146 @@
+{
+ "schema": "firetrace-vision-timeline-ocr-v1",
+ "windowMin": 5.0,
+ "rows": [
+  {
+   "frame": 213,
+   "videoSecond": 7.341,
+   "rawFull": "axis-delilahlookout2 elev:3151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:08:35.26",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:08:35:26",
+   "rawCamCrop": "axis-delilahlookout2 elev:3151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:08:35.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 216,
+   "videoSecond": 7.474,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:09:05.46",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:09:05.46",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:09:05.46",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 219,
+   "videoSecond": 7.574,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:09:35.54",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:09:35:54",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:09:35.54",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 222,
+   "videoSecond": 7.674,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:09:50.51",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:09:50.51",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:09:50.51",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 228,
+   "videoSecond": 7.908,
+   "rawFull": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE_sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:11:35.92",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 35:92",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 231,
+   "videoSecond": 8.041,
+   "rawFull": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:11:40.51",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 40.51",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 234,
+   "videoSecond": 8.141,
+   "rawFull": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE_sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:12:45.24",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:12:46.24",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 237,
+   "videoSecond": 8.242,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:13:01:22",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:13:01:22",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:13:01.22",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 243,
+   "videoSecond": 8.442,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE_sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:13:46:23",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:13:46:23",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:13:46.23",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 246,
+   "videoSecond": 8.542,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0,70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:14:52.08",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:14:52.08",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0,70 Z:1.2.PGE.sstrenfel.08-27T07:44 O ALER",
+   "printedTime": "2025-08-27T11:14:52.08",
+   "timeReadsAgree": true,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 249,
+   "videoSecond": 8.642,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0,70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:15:07.33",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:15:07.33",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0,70 Z:1.2.PGE.sstrenfel.08-27T07:44 O ALER",
+   "printedTime": "2025-08-27T11:15:07.33",
+   "timeReadsAgree": true,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 252,
+   "videoSecond": 8.742,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:15:37.54",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:15:37.14",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:15:37.54",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": false,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 258,
+   "videoSecond": 8.942,
+   "rawFull": "axis-delifahfookout2 efev:S151^ X+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:16:07:22",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:15:07:22",
+   "rawCamCrop": "axis-delifahfookout2 efev:S151^ X+26.27 Y:-0.70 Z:1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 261,
+   "videoSecond": 9.042,
+   "rawFull": "axis-delilahlookout2 elev:S151* X+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:17:12.49",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:1 7:12.49",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X.+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 264,
+   "videoSecond": 9.142,
+   "rawFull": "axis-delilahlookout2 elev:S151* X.+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:17:27.55",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:17:27.55",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X.+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:17:27.55",
+   "timeReadsAgree": true,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 267,
+   "videoSecond": 9.243,
+   "rawFull": "axis-delifahfookout2 elev:S151* X+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:17:57.30",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:17:57.30",
+   "rawCamCrop": "axis-delifahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:17:57.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 273,
+   "videoSecond": 9.443,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 14 0 ALERTCalifornia 2025/08/27 11:19:18.65",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:19:18.65",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:19:18.65",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 276,
+   "videoSecond": 9.543,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:19:33.65",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:19:33.65",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:19:33.65",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 279,
+   "videoSecond": 9.643,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:19:49:20",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:19:49:20",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:19:49.20",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 282,
+   "videoSecond": 9.743,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:20:18.65",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:20:18.65",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:20:18.65",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 288,
+   "videoSecond": 9.943,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 11:21:38.79",
+   "rawTimestampCrop": ":RTCalifornia 2025/08/27 11:21:38.73",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:21:38.79",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 291,
+   "videoSecond": 10.043,
+   "rawFull": "axis-deliahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:21:53.26",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:21:53.70",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T11:21:53.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 294,
+   "videoSecond": 10.143,
+   "rawFull": "axis-deflahlookout2 elev:S15T* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:22:03.43",
+   "rawTimestampCrop": ":RTCalifornia 2025/08/27 11:22:03 43",
+   "rawCamCrop": "axis-delilahlookout2 elev:S15T* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 297,
+   "videoSecond": 10.244,
+   "rawFull": "axis-defilahlookout2 elev:S15T* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 11:22:32.08",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 11:22:02.08",
+   "rawCamCrop": "axis-defilahlookout2 elev:S15T* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 768,
+   "videoSecond": 26.26,
+   "rawFull": "axis-defilahfookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:42:58.02",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:42:54.02",
+   "rawCamCrop": "axis-defilahfookout2 elev:S151*X:+26.27 Y:-0.70 Z:1.2.PGE.sstrenfel.08-27T07:44 G ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 771,
+   "videoSecond": 26.36,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:43:09.28",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:43:09.28",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z:1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:43:09.28",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 774,
+   "videoSecond": 26.46,
+   "rawFull": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:44:15.31",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:44:15.31",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:44:15.31",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 777,
+   "videoSecond": 26.56,
+   "rawFull": "axas-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:44:30.26",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:44 30.26",
+   "rawCamCrop": "axis-delilahlookout2 elev:$151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 783,
+   "videoSecond": 26.793,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:45:15.30",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:45:15.30",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z:1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:45:15.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 786,
+   "videoSecond": 26.894,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 12:46:21:32",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:46:21:42",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:46:21.32",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 789,
+   "videoSecond": 26.994,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 12:46:36.29",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:46:36:29",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:46:36.29",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 792,
+   "videoSecond": 27.094,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:47:06.26",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:47:06.26",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z:1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:47:06.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 798,
+   "videoSecond": 27.294,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:48:25.30",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:48:25.30",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:48:25.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 801,
+   "videoSecond": 27.394,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:48:41.30",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:48:41.30",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:48:41.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 804,
+   "videoSecond": 27.494,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 O ALERTCalifornia 2025/08/27 12:49:12.27",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:49:12.77",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:49:12.27",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 807,
+   "videoSecond": 27.594,
+   "rawFull": "axes-delilahlookout2 elev:3151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:49:26.87",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:49:26.87",
+   "rawCamCrop": "axas-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:49:26.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 813,
+   "videoSecond": 27.794,
+   "rawFull": "axis-delilahlookoutz elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:50:47.17",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:50:47.17",
+   "rawCamCrop": "axis-delilahlookoutZ elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:50:47.17",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 816,
+   "videoSecond": 27.895,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:51:02:24",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:51:02:24",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:51:02.24",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 819,
+   "videoSecond": 27.995,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGEsstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:51:32.32",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:51:32.32",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:51:32.32",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 822,
+   "videoSecond": 28.095,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:52:22.68",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:52:22:68",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:52:22.68",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 828,
+   "videoSecond": 28.295,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 12:53:02.67",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:53:02.67",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:53:02.67",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 831,
+   "videoSecond": 28.395,
+   "rawFull": "axis-delifahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:53:22.73",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:53:22.73",
+   "rawCamCrop": "axis-delifahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:53:22.73",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 834,
+   "videoSecond": 28.495,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 12:54:30.05",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:54:30.05",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 @ ALER",
+   "printedTime": "2025-08-27T12:54:30.05",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 837,
+   "videoSecond": 28.595,
+   "rawFull": "axis-defilahfookout2 efev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 12:54:45.32",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:54:45.32",
+   "rawCamCrop": "axis-defilahlookout2 efev:S151* X+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:54:45.32",
+   "timeReadsAgree": true,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 843,
+   "videoSecond": 28.795,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:55:30.09",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:59:30.09",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 846,
+   "videoSecond": 28.896,
+   "rawFull": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:56:35:56",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:56:35:56",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0,70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:56:35.56",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 849,
+   "videoSecond": 28.996,
+   "rawFull": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:56:50.45",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:56:50.45",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0,70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T12:56:50.45",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 852,
+   "videoSecond": 29.096,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 12:57:20.48",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 12:52:20.46",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 918,
+   "videoSecond": 31.298,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:08:03.95",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:08:03.95",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:08:03.95",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 921,
+   "videoSecond": 31.398,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCaifornia 2025/08/27 13:09:10.09",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:09:10.09",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:09:10.09",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 924,
+   "videoSecond": 31.498,
+   "rawFull": "axis-delilahlookout2 elev:$151- X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCaifornia 2025/08/27 13:09:25.28",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:09:25.28",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:09:25.28",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 927,
+   "videoSecond": 31.598,
+   "rawFull": "D ALERTCalifornia 2025/08/27 13:09:55.02",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:09:55.02",
+   "rawCamCrop": "axis-delilahlookoutz eiev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:09:55.02",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 933,
+   "videoSecond": 31.798,
+   "rawFull": "axis-defitaniookoutz efev:5151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:10:25.19",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:10:25.19",
+   "rawCamCrop": "axis-delitahlookoutz efev:S15T* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:10:25.19",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 936,
+   "videoSecond": 31.899,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 @ ALERTCalifornia 2025/08/27 13:11:31.68",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:11:31.68",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:11:31.68",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 939,
+   "videoSecond": 31.999,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:11:46.20",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:11:46.20",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:11:46.20",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 942,
+   "videoSecond": 32.099,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:12:16.80",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:12:16.80",
+   "rawCamCrop": "axis-deliiahlookout2 elev:S151' X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:12:16.80",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 948,
+   "videoSecond": 32.299,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 O ALERTCalifornia 2025/08/27 13:13:35.84",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:13:35.84",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:13:35.84",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 951,
+   "videoSecond": 32.399,
+   "rawFull": "axis-delilahlookout2 elev:S151* X.+ 26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:13:50.88",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:13:50.88",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:13:50.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 954,
+   "videoSecond": 32.499,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:14:25.00",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:14:21.00",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 957,
+   "videoSecond": 32.599,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:14:35.98",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:14:35.98",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:14:35.98",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 963,
+   "videoSecond": 32.799,
+   "rawFull": "axis-delilahlookout2 elev:3151* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:15:56,75",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:15:56.75",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:15:56.75",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 966,
+   "videoSecond": 32.9,
+   "rawFull": "axis-delilahlookout2 elev:$151* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:16:11.72",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:16:11.72",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:16:11.72",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 969,
+   "videoSecond": 33.0,
+   "rawFull": "axis-delilahlookout2 elev:$151* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:16:41.73",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:16:41.73",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:16:41.73",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 972,
+   "videoSecond": 33.1,
+   "rawFull": "axis-deflahlookout2 elev:S151*X:+26.27 \u00dd:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:17:31.93",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:17:31.93",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:17:31.93",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 978,
+   "videoSecond": 33.3,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:*26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:18:16.92",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:18:16.92",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:18:16.92",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 981,
+   "videoSecond": 33.4,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:18:47.12",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:18:47.12",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:18:47.12",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 984,
+   "videoSecond": 33.5,
+   "rawFull": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:19:40.30",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:19:40.30:",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:19:40.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 987,
+   "videoSecond": 33.6,
+   "rawFull": "axs-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:20:10.40",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:20:10.40",
+   "rawCamCrop": "axs-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:20:10.40",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 993,
+   "videoSecond": 33.8,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 13:20:40.49",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:20:40:45",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:20:40.49",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 996,
+   "videoSecond": 33.901,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:21:45.00",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:21:46.08",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 999,
+   "videoSecond": 34.001,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:22:01.14",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:22:01.14",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:22:01.14",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1002,
+   "videoSecond": 34.101,
+   "rawFull": "axis-defilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:22:31.21",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:22:31.21",
+   "rawCamCrop": "axis-defilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:22:31.21",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1008,
+   "videoSecond": 34.301,
+   "rawFull": "O ALERTCalifornia 2025/08/27 13:23:61.56",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:23:51.56",
+   "rawCamCrop": "axis-delilahlookout2 elev:$151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 1011,
+   "videoSecond": 34.401,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:24:06.23",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:24:06.23",
+   "rawCamCrop": "axis-delifahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:24:06.23",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1014,
+   "videoSecond": 34.501,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:24:36.35",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:24:36.35",
+   "rawCamCrop": "axis-defilahlookout2 elev:S151\u00b0 X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:24:36.35",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1017,
+   "videoSecond": 34.601,
+   "rawFull": "O ALERTCalifornia 2025/08/27 13:24:51.21",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:24:51.21",
+   "rawCamCrop": "axis-delilahlookout2 efev:S151^ X:+ 26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u20ac ALER",
+   "printedTime": "2025-08-27T13:24:51.21",
+   "timeReadsAgree": true,
+   "xyz": null,
+   "xyzReadsAgree": false,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 1053,
+   "videoSecond": 35.802,
+   "rawFull": "axis-defilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:30:52.92",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:30:52.92",
+   "rawCamCrop": "axis-defilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:30:52.92",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1056,
+   "videoSecond": 35.903,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:31:22.21",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:31:22.21",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:31:22.21",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1059,
+   "videoSecond": 36.003,
+   "rawFull": "axis-delilahlookout2 elev:3131* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27707:44 \u00a9 ALERTCalifornia 2025/08/27 13:32:12.60",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:32:12.60",
+   "rawCamCrop": "axis-delilahlookout2 elev:313 1* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27707:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:32:12.60",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1062,
+   "videoSecond": 36.103,
+   "rawFull": "axis-deffahlookoutZ efev:5151^X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 ALERTCalifornia 2025/08/27 13:32:43.43",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:32:43.43",
+   "rawCamCrop": "axis-defifahlookoutZ efev:S151^ X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:32:43.43",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1068,
+   "videoSecond": 36.303,
+   "rawFull": "axis-delilanlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 @ ALERTCalifornia 2025/08/27 13:33:13.44",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:33:23.44",
+   "rawCamCrop": "axis-delilantookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1071,
+   "videoSecond": 36.403,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:34:12.82",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:34:12.82",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:34:12.82",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1074,
+   "videoSecond": 36.503,
+   "rawFull": "O ALERTCalifornia 2025/08/27 13:34:32:84",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:34:32:84",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:34:32.84",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1077,
+   "videoSecond": 36.603,
+   "rawFull": "axis-delifahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:35:02.29",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:35:02.79",
+   "rawCamCrop": "axis-delifahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:35:02.29",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1083,
+   "videoSecond": 36.803,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:36:23.08",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:36:23.08",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 @ ALER",
+   "printedTime": "2025-08-27T13:36:23.08",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1086,
+   "videoSecond": 36.904,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:36:38.08",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:36:38.08",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 @ ALER",
+   "printedTime": "2025-08-27T13:36:38.08",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1089,
+   "videoSecond": 37.004,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:37:08.12",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:32:08.12",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 1092,
+   "videoSecond": 37.104,
+   "rawFull": "axis-delifahlookout2 efev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:32:23.12",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:37:23.12",
+   "rawCamCrop": "axis-delifahlookout2 efev:5151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1098,
+   "videoSecond": 37.304,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:38:42.63",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:38:42.63",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:38:42.63",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1101,
+   "videoSecond": 37.404,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:38:57.61",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:38:57.61",
+   "rawCamCrop": "axis-delilahlookout2 efev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:38:57.61",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1104,
+   "videoSecond": 37.504,
+   "rawFull": "axis-delilahlookout2 efev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 @ ALERTCalifornia 2025/08/27 13:39:27.60",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:39:27.60",
+   "rawCamCrop": "axis-delilahlookout2 efev:S151*X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:39:27.60",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1107,
+   "videoSecond": 37.604,
+   "rawFull": "axis-delilahlookout2 efev:S151*X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:39:42.67",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:39:42.67",
+   "rawCamCrop": "axis-delilahlookout2 efev:S151\u00b0X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:39:42.67",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1113,
+   "videoSecond": 37.804,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:41:04.89",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:41:04.89",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 @ ALER",
+   "printedTime": "2025-08-27T13:41:04.89",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1116,
+   "videoSecond": 37.905,
+   "rawFull": "axis-defifahfookout2 efev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:41:33.69",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:41:33.69",
+   "rawCamCrop": "axis-defifahlookout2 efev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:41:33.69",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 1119,
+   "videoSecond": 38.005,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:41:48.65",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:41:48.65",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:41:48.65",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1122,
+   "videoSecond": 38.105,
+   "rawFull": "axis-delilahlookout2 eiev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:42:39.5S",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:42:39.5$",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 1128,
+   "videoSecond": 38.305,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:43:24.66",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:43:24,66",
+   "rawCamCrop": "axis-delif\u00e4hlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:43:24.66",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1131,
+   "videoSecond": 38.405,
+   "rawFull": "axis-delifahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:43:54.37",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:43:54.37",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:43:54.37",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1134,
+   "videoSecond": 38.505,
+   "rawFull": "axis-delilahlookout2 elev:51S1* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalfornia 2025/08/27 13:44:43.57",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:44:43.52",
+   "rawCamCrop": "axis-delilahlookout2 elev:5151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:44:43.57",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1137,
+   "videoSecond": 38.605,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:45:53.55*",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:45:33.55",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": null
+  },
+  {
+   "frame": 1143,
+   "videoSecond": 38.805,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:45:43.52",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:45:43.52",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:45:43.52",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1146,
+   "videoSecond": 38.906,
+   "rawFull": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 \u00a9 ALERTCalifornia 2025/08/27 13:45:48.26",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:45:48.26",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:45:48.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1149,
+   "videoSecond": 39.006,
+   "rawFull": "axis-defilahlookout2 elev: S151* X:+26.27 Y:-0 O ALERTCalifornia 2025/08/27 13:47:03.66",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:47:03.66",
+   "rawCamCrop": "axis-delilahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2 .PGE.sstrenfel.08-27T07:44 \u00a9 ALER",
+   "printedTime": "2025-08-27T13:47:03.66",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": "delilahlookout2",
+   "pose": "G1"
+  },
+  {
+   "frame": 1152,
+   "videoSecond": 39.106,
+   "rawFull": "axis-delifahlookout2 elev:S151^ X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 O ALERTCalifornia 2025/08/27 13:47:33.66",
+   "rawTimestampCrop": "RTCalifornia 2025/08/27 13:47:33.66",
+   "rawCamCrop": "axis-delifahlookout2 elev:S151* X:+26.27 Y:-0.70 Z: 1.2.PGE.sstrenfel.08-27T07:44 O ALER",
+   "printedTime": "2025-08-27T13:47:33.66",
+   "timeReadsAgree": true,
+   "xyz": [
+    26.27,
+    -0.7,
+    1.2
+   ],
+   "xyzReadsAgree": true,
+   "camera": null,
+   "pose": null
+  },
+  {
+   "frame": 5043,
+   "videoSecond": 170.137,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:41:35.44",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:41:35.44",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z:1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T12:41:35.44",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5046,
+   "videoSecond": 170.237,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:41:50.16",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:41:50.16",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z:1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T12:41:50.16",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5049,
+   "videoSecond": 170.337,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:42:20:14",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:42:20:14",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z:1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T12:42:20.14",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5052,
+   "videoSecond": 170.437,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:42:35.18",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:42:35.18",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z:1.0.PGE.sstrenfel08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T12:42:35.18",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5058,
+   "videoSecond": 170.637,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:43:52.22",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:43:52.22",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z:1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T12:43:52.22",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5061,
+   "videoSecond": 170.737,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL08-27T11:26 O ALERTCalifornia 2025/08/27 12:44:07.25",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:44:07.25",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T12:44:07.25",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5064,
+   "videoSecond": 170.837,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:44:37.21",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:44:37.21",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 O ALERTCalif",
+   "printedTime": "2025-08-27T12:44:37.21",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5067,
+   "videoSecond": 170.937,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0_PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:44:52.17",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:44:52.17",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 O ALERTCalif",
+   "printedTime": "2025-08-27T12:44:52.17",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5073,
+   "videoSecond": 171.138,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:46:08.93",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:46:08.93",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:46:08.93",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5076,
+   "videoSecond": 171.238,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:46:23.95",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:46:23.95",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:46:23.95",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5079,
+   "videoSecond": 171.338,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:46:53.97",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:46:53.97",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:46:53.97",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5082,
+   "videoSecond": 171.438,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:47:41.01",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:47:41.01",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:47:41.01",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5088,
+   "videoSecond": 171.638,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:48:26.00",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:48:26.00",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:48:26.00",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5091,
+   "videoSecond": 171.738,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:48:56.00",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:48:56.00",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:48:56.00",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5094,
+   "videoSecond": 171.838,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:49:42.88",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:49:42.88",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:49:42.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5097,
+   "videoSecond": 171.938,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:50:12.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:50:12.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:50:12.90",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5103,
+   "videoSecond": 172.139,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:50:42.89",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:50:42.89",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:50:42.89",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5106,
+   "videoSecond": 172.239,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:51:45.07",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:51:45.07",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:51:45.07",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5109,
+   "videoSecond": 172.339,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:52:00.11",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:52:00.11",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:52:00.11",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5112,
+   "videoSecond": 172.439,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:52:30.06",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:52:30.06",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:52:30.06",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5118,
+   "videoSecond": 172.639,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:53:47.29",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:53:47.29",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 O ALERTCalif",
+   "printedTime": "2025-08-27T12:53:47.29",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5121,
+   "videoSecond": 172.739,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:54:02.26",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:54:02.26",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 O ALERTCalif",
+   "printedTime": "2025-08-27T12:54:02.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5124,
+   "videoSecond": 172.839,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 12:54:32.30",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:54:32.30",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T12:54:32.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5127,
+   "videoSecond": 172.939,
+   "rawFull": "axis-buckrock1 elev:8468^ X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalifornia 2025/08/27 12:54:47:58",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 12:54:47:58",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T12:54:47.58",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5208,
+   "videoSecond": 175.642,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:08:12.87;",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:08:72.87:",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5211,
+   "videoSecond": 175.742,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:08:32.95",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:08:32.95",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:08:32.95",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5214,
+   "videoSecond": 175.842,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:09:02.87",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:09:02.87",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:09:02.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5217,
+   "videoSecond": 175.942,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:09:17.85",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:09:17.85",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:09:17.85",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5223,
+   "videoSecond": 176.143,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:10:35.86",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:10:35.86",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:10:35.86",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5226,
+   "videoSecond": 176.243,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:10:50.80",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:10:50.80",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:10:50.80",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5229,
+   "videoSecond": 176.343,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:11:20.80",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:11:20.80",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:11:20.80",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5232,
+   "videoSecond": 176.443,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:12:08.79",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:12:08.79",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 @ ALERTCalit",
+   "printedTime": "2025-08-27T13:12:08.79",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5238,
+   "videoSecond": 176.643,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:12:53.71",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:12:53.71",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 @ ALERTCalit",
+   "printedTime": "2025-08-27T13:12:53.71",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5241,
+   "videoSecond": 176.743,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:13:23.76",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:13:23.76",
+   "rawCamCrop": "axis-buckrock1 elev.8468^ X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:13:23.76",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5244,
+   "videoSecond": 176.843,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:14:11.26",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:14:11.26",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 @ ALERTCalit",
+   "printedTime": "2025-08-27T13:14:11.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5247,
+   "videoSecond": 176.943,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:14:41.25",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:14:41.25",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 @ ALERTCalit",
+   "printedTime": "2025-08-27T13:14:41.25",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5253,
+   "videoSecond": 177.144,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:15:11.29",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:15:11.29",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 @ ALERTCalit",
+   "printedTime": "2025-08-27T13:15:11.29",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5256,
+   "videoSecond": 177.244,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:16:13.28",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:16:13.28",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0_PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T13:16:13.28",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5259,
+   "videoSecond": 177.344,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:16:28.50",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:16:28.50",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0_PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T13:16:28.50",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5262,
+   "videoSecond": 177.444,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:16:58:48",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:16:58:48",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0_PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T13:16:58.48",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5268,
+   "videoSecond": 177.644,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:18:16.22",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:18:16.22",
+   "rawCamCrop": "axis-buckrock1 elev:8468'X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel08-27T11:26 O ALERTCalif",
+   "printedTime": "2025-08-27T13:18:16.22",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5271,
+   "videoSecond": 177.744,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:18:31.26",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:18:31.26",
+   "rawCamCrop": "axis-buckrock1 elev:8468'X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T13:18:31.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5274,
+   "videoSecond": 177.844,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:19:01.23",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:19:01.23",
+   "rawCamCrop": "axis-buckrock1 elev:8468'X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T13:19:01.23",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5277,
+   "videoSecond": 177.944,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:19:16:31",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:19:16:31",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:19:16.31",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5283,
+   "videoSecond": 178.145,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:20:34.92",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:20:34.92",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:20:34.92",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5286,
+   "videoSecond": 178.245,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:20:49.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:20:49.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:20:49.90",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5289,
+   "videoSecond": 178.345,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:21:19.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:21:19.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:21:19.90",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5292,
+   "videoSecond": 178.445,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:21:34.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:21:34.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468'X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:21:34.90",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5298,
+   "videoSecond": 178.645,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalifornia 2025/08/27 13:22:51.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:22:51.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468\u00b0 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:22:51.90",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5301,
+   "videoSecond": 178.745,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalifornia 2025/08/27 13:23:06.87",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:23:06.87",
+   "rawCamCrop": "axis-buckrock1 elev:8468\u00b0 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:23:06.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5304,
+   "videoSecond": 178.845,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:23:36.87",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:23:36.87",
+   "rawCamCrop": "axis-buckrock1 elev:8468\u00b0 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:23:36.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5307,
+   "videoSecond": 178.945,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel08-27T11:26 O ALERTCaliforn\u00eda 2025/08/27 13:24:24.16",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:24:24.16",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:24:24.16",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5343,
+   "videoSecond": 180.147,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:30:32:22.",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:30:32:22.",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:30:32.22",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5346,
+   "videoSecond": 180.247,
+   "rawFull": "axis-buckrock1 elev.8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:30:47.19",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:30:47.19",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:30:47.19",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5349,
+   "videoSecond": 180.347,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:31:17.19",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:31:17.19",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:31:17.19",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5352,
+   "videoSecond": 180.447,
+   "rawFull": "axis-buckrock1 elev.8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:31:32.15",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:31:32.15",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:31:32.15",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5358,
+   "videoSecond": 180.647,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:32:49.53",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:32:49.53",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:32:49.53",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5361,
+   "videoSecond": 180.747,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:33:09.53",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:33:03.53",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5364,
+   "videoSecond": 180.847,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:33:34.55",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:33:34.5$",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z:1.0 .PGE.sstrenfel08-27T11:26 O ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5367,
+   "videoSecond": 180.947,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 O ALERTCalifornia 2025/08/27 13:33:49.50",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:33:49.58",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z:1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:33:49.50",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5373,
+   "videoSecond": 181.148,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:36:06.53",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:36:06.53",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": "2025-08-27T13:36:06.53",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5376,
+   "videoSecond": 181.248,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:35:21.5$",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:35:21.5$",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalif",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5379,
+   "videoSecond": 181.348,
+   "rawFull": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:35:51.52",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:35:51.52",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:35:51.52",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5382,
+   "videoSecond": 181.448,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:36:39.08",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:36:39.08",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalif",
+   "printedTime": "2025-08-27T13:36:39.08",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5388,
+   "videoSecond": 181.648,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:37:29.08",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:37:24.08",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalif",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5391,
+   "videoSecond": 181.748,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:37:58.11",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:37:54.11",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalif",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5394,
+   "videoSecond": 181.848,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:38:41.79:",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:38:41.79",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:38:41.79",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5397,
+   "videoSecond": 181.948,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:39:10.74",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:39:10.24",
+   "rawCamCrop": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0 _PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:39:10.74",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5403,
+   "videoSecond": 182.149,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:39:40.82",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:39:40.82",
+   "rawCamCrop": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0 _PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:39:40.82",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5406,
+   "videoSecond": 182.249,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:40:42.27",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:40:42.27",
+   "rawCamCrop": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0 _PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:40:42.27",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5409,
+   "videoSecond": 182.349,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:40:52.27",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:40:52.27",
+   "rawCamCrop": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0 _PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:40:52.27",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5412,
+   "videoSecond": 182.449,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:41:22.69",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:41:22.69",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:41:22.69",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5418,
+   "videoSecond": 182.649,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:42:44.84",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:42:44.84",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:42:44.84",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5421,
+   "videoSecond": 182.749,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:42:59.82",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:42:59.82",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:42:59.82",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5424,
+   "videoSecond": 182.849,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:43:29.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:43:29.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:43:29.90",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5427,
+   "videoSecond": 182.949,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:43:44.87",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:43:44.87",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:43:44.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5433,
+   "videoSecond": 183.15,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:45:01.58",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:45:01.58",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:45:01.58",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5436,
+   "videoSecond": 183.25,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:45:16.53",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:45:16.53",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:45:16.53",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5439,
+   "videoSecond": 183.383,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:45:46.52",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:45:46.52",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfeL08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:45:46.52",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5442,
+   "videoSecond": 183.483,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:46:42.86.",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:46:42.86",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": "2025-08-27T13:46:42.86",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5448,
+   "videoSecond": 183.684,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:47:32.86.",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:47:32.86.",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:47:32.86",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5451,
+   "videoSecond": 183.784,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:47:42.85",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:47:42.85",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:47:42.85",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5454,
+   "videoSecond": 183.884,
+   "rawFull": "axis-buckrock1 elev.8468 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:48:49.94",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:48:49.94",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:48:49.94",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5457,
+   "videoSecond": 183.984,
+   "rawFull": "axis-buckrock1 elev.8468 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:49:09.93",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:49:09.93",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:49:09.93",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5463,
+   "videoSecond": 184.184,
+   "rawFull": "axis-buckrock1 elev.8468 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:49:50.00.",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:49:50.00.",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:49:50.00",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5466,
+   "videoSecond": 184.284,
+   "rawFull": "axis-buckrock1 elev.8468 X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:50:03.94",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:50:03.94",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:50:03.94",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5469,
+   "videoSecond": 184.384,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:51:07.06:",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:51:07.06:",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:51:07.06",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5472,
+   "videoSecond": 184.484,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:51:21.26:",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:51:21.26",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:51:21.26",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5478,
+   "videoSecond": 184.685,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:52:08.85",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:52:08.83",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:52:08.85",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5481,
+   "videoSecond": 184.785,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:53:09.16",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:53:09.16",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:53:09.16",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5484,
+   "videoSecond": 184.885,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:53:24.14",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:53:24.14",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:53:24.14",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5487,
+   "videoSecond": 184.985,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:53:39.12",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:53:39.12",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:53:39.12",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5493,
+   "videoSecond": 185.185,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL.08-27T11:26 O ALERTCalifornia 2025/08/27 13:54:56.06",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:54:56.06",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:54:56.06",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5496,
+   "videoSecond": 185.285,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL.08-27T11:26 O ALERTCalifornia 2025/08/27 13:55:25.98",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:5S:25.98",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5499,
+   "videoSecond": 185.385,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL.08-27T11:26 O ALERTCalifornia 2025/08/27 13:55:45.01",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:55:45.01",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:55:45.01",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5502,
+   "videoSecond": 185.485,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfeL.08-27T11:26 O ALERTCalifornia 2025/08/27 13:55:51.05",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:55:51,01",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:55:51.05",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5508,
+   "videoSecond": 185.685,
+   "rawFull": "axis-buckrock1 elev.8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:57:22.56",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:57:27.56",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5511,
+   "videoSecond": 185.786,
+   "rawFull": "axis-buckrock1 elev.8468^ X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:32:47.57.",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:52:47.57.",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5514,
+   "videoSecond": 185.886,
+   "rawFull": "axis-buckrock1 elev.8468^ X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:32:57.57.",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:52:57.57.",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalit",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5517,
+   "videoSecond": 185.986,
+   "rawFull": "axis-buckrock1 elev.8468^ X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 \u00a9 ALERTCalifornia 2025/08/27 13:39:00:88",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:39:00:88",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalil",
+   "printedTime": "2025-08-27T13:39:00.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5523,
+   "videoSecond": 186.186,
+   "rawFull": "axis-buckrock1 elev.8468^ X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 13:39:45:87",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 13:39:45.87",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T13:39:45.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5526,
+   "videoSecond": 186.286,
+   "rawFull": "axis-buckrock1 elev.8468^ X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 14:00:00:88",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:00:00,88",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0.PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T14:00:00.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5529,
+   "videoSecond": 186.386,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 14:01:03.69",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:01:03.85",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T14:01:03.69",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5532,
+   "videoSecond": 186.486,
+   "rawFull": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalifornia 2025/08/27 14:01:18.57",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:01:18.57",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-39.19 Y:-0.94 Z: 1.0 .PGE.sstrenfel.08-27T11:26 O ALERTCalit",
+   "printedTime": "2025-08-27T14:01:18.57",
+   "timeReadsAgree": true,
+   "xyz": [
+    -39.19,
+    -0.94,
+    1.0
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G3b"
+  },
+  {
+   "frame": 5808,
+   "videoSecond": 195.796,
+   "rawFull": "axis-buckrock1 elev.8468' X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:20:40.14",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:20:40.14",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:20:40.14",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5811,
+   "videoSecond": 195.896,
+   "rawFull": "axis-buckrock1 elev.8468' X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:20:45.11",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:20:45.1$",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5814,
+   "videoSecond": 195.996,
+   "rawFull": "axis-buckrock1 elev.8468' X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:20:55.21",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:20:55.21",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:20:55.21",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5817,
+   "videoSecond": 196.096,
+   "rawFull": "axis-buckrock1 elev.8468' X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:21:00.12",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:21:00.12",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:21:00.12",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5823,
+   "videoSecond": 196.296,
+   "rawFull": "axis-buckrock1 elev.8468' X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:21:15.11",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:21:15.11",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:21:15.11",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5826,
+   "videoSecond": 196.396,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:21:25.14",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:21:25.14",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:*7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:21:25.14",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": false,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5829,
+   "videoSecond": 196.496,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:13.38",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:13.38",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:*7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:13.38",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": false,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5832,
+   "videoSecond": 196.596,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:23.40",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:23.40",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:23.40",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5838,
+   "videoSecond": 196.797,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:33.33",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:33.33",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:33.33",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5841,
+   "videoSecond": 196.897,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:43.35",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:43.35",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:43.35",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5844,
+   "videoSecond": 196.997,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:48.34",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:48.34",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:48.34",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5847,
+   "videoSecond": 197.097,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:58.37",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:58.37",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:58.37",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5853,
+   "videoSecond": 197.297,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:23:14.50",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:23:14.50",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:23:14.50",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5856,
+   "videoSecond": 197.397,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:23:28.30",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:23:28.30",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:23:28.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5859,
+   "videoSecond": 197.497,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:24:14.99",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:24:14.99",
+   "rawCamCrop": "axis-buckrock1 elev:8468^ X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:24:14.99",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5862,
+   "videoSecond": 197.597,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:24:44.95",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:24:44.95",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:24:44.95",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5868,
+   "videoSecond": 197.798,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:25:30.03",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:25:30.03",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:25:30.03",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5871,
+   "videoSecond": 197.898,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:26:19:24",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:26:19:24",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:26:19.24",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5874,
+   "videoSecond": 197.998,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:26:48.91",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:26:48.91",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:26:48.91",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5877,
+   "videoSecond": 198.098,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:22:03.84",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:22:03.88",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:22:03.84",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5883,
+   "videoSecond": 198.298,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:28:20.52",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:28:20.52",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:28:20.52",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5886,
+   "videoSecond": 198.398,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:28:35.51-",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:28:39.51",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5889,
+   "videoSecond": 198.498,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:29:04,16",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:29:04.16",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:29:04.16",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5892,
+   "videoSecond": 198.598,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:29:19.16",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:29:19.16",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:29:19.16",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5898,
+   "videoSecond": 198.799,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:30:06.60",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:30:06.60",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:30:06.60",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5901,
+   "videoSecond": 198.899,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:31:08.22",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:31:08.22",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:31:08.22",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5904,
+   "videoSecond": 198.999,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:31:23.81",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:31:23.81",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:31:23.81",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5907,
+   "videoSecond": 199.099,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:31:53.82",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:31:53.82",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:31:53.82",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5913,
+   "videoSecond": 199.299,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:32:54.67",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:32:54.67",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:32:54.67",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5916,
+   "videoSecond": 199.399,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:33:24.27",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:33:24.27",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:33:24.27",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5919,
+   "videoSecond": 199.499,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:33:42.12",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:33:42.12",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:33:42.12",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5922,
+   "videoSecond": 199.599,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:34:11.12",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:34 .12)",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5928,
+   "videoSecond": 199.8,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:35:30.97",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:35:30.97",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:35:30.97",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5931,
+   "videoSecond": 199.9,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:35:56.00",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:35:36.00",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5934,
+   "videoSecond": 200.0,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:36:01.0$",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:36:01.05",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5937,
+   "videoSecond": 200.1,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:32:02.80",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:32:02.80",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:32:02.80",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5943,
+   "videoSecond": 200.333,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:38:02.39",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:38:02.39",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:38:02.39",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5946,
+   "videoSecond": 200.434,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:38:12.82",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:38:12.82",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T14:38:12.82",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 5949,
+   "videoSecond": 200.534,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:39:02.71",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:39:04.71",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 5952,
+   "videoSecond": 200.634,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:39:38.22",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:39:30.72",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 6003,
+   "videoSecond": 202.335,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:47:44.88",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:47:44.88",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:47:44.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6006,
+   "videoSecond": 202.436,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:48:14.94",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:48:14.94",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:48:14.94",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6009,
+   "videoSecond": 202.536,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:48:29.89",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:48:29.89",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:48:29.89",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6012,
+   "videoSecond": 202.636,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:49:33.41",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:49:33.41",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:49:33.41",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6018,
+   "videoSecond": 202.869,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:50:18.31",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:50:18.33",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:50:18.31",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6021,
+   "videoSecond": 202.969,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:50:33.30",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:50:33.30",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:50:33.30",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6024,
+   "videoSecond": 203.07,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:51:35.96",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:51:35.96",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:51:35.96",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6027,
+   "videoSecond": 203.17,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:51:50.90",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:51:30.90",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 6033,
+   "videoSecond": 203.37,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:52:35.92",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:52:35.92",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:52:35.92",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6036,
+   "videoSecond": 203.47,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:53:38.37",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:53:38.37",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:53:38.37",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6039,
+   "videoSecond": 203.57,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:53:53.35",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:53:53.35,",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:53:53.35",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6042,
+   "videoSecond": 203.67,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:54:23.38",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:54:23.38",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:54:23.38",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6048,
+   "videoSecond": 203.87,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:55:25.76",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:55:25.76",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:55:25.76",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6051,
+   "videoSecond": 203.97,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:55:55.74",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:55:5S.74",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 6054,
+   "videoSecond": 204.071,
+   "rawFull": "axis-buckrock1 elev:8468\u00b0 X.-26.13 Y:+ 7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:56:10.75",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:56:10.75",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:56:10.75",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6057,
+   "videoSecond": 204.171,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:56:40.74",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:56:40.74",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:56:40.74",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6063,
+   "videoSecond": 204.371,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:52:52.38",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:52:52.38",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:52:52.38",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6066,
+   "videoSecond": 204.471,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:58:12.40",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:58:12.40",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:58:12.40",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6069,
+   "videoSecond": 204.571,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:58:27:39",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:58:27:39",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:58:27.39",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6072,
+   "videoSecond": 204.671,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 14:59:30.27",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 14:59:30.27",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T14:59:30.27",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6078,
+   "videoSecond": 204.871,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:00:15.35",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:00:15.35",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:00:15.35",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6081,
+   "videoSecond": 204.971,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:00:30.35",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:00:30.35",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:00:30.35",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6084,
+   "videoSecond": 205.072,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:01:31.87",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:01:31.83",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:01:31.87",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6087,
+   "videoSecond": 205.172,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:01:46.80",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:01:46.80",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:01:46.80",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6093,
+   "videoSecond": 205.372,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:02:35.76",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:02:35.76",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:02:35.76",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6096,
+   "videoSecond": 205.472,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:02:46.80",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:02:46.80",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:02:46.80",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6099,
+   "videoSecond": 205.572,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:03:50.09",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:03:50.09",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:03:50.09",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6102,
+   "videoSecond": 205.672,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:08:05.05",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:02:05.05",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z:1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 6393,
+   "videoSecond": 215.382,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:51:48.58",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:51:48.58",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:51:48.58",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6396,
+   "videoSecond": 215.482,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:52:03.52",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:52:03.52",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:52:03.52",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6399,
+   "videoSecond": 215.582,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:53:06.51",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:53:06.51",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:53:06.51",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6402,
+   "videoSecond": 215.682,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:53:21.53",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:53:21.53",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T15:53:21.53",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6408,
+   "videoSecond": 215.882,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:54:06.58",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:54:06.58",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T15:54:06.58",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6411,
+   "videoSecond": 215.982,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:55:09.41",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:55:09.41",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T15:55:09.41",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6414,
+   "videoSecond": 216.083,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:55:24.42",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:55:24.42",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T15:55:24.42",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6417,
+   "videoSecond": 216.183,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:55:54.45",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:55:54.45",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T15:55:54.45",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6423,
+   "videoSecond": 216.383,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:56:56.50",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:56:56.50",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T15:56:56.50",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6426,
+   "videoSecond": 216.483,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:57:26.62",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:57:26.62",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:57:26.62",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6429,
+   "videoSecond": 216.583,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:57:41.5$",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:57:41.55",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 6432,
+   "videoSecond": 216.683,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:58:11.54",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:58:11.54",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:58:11.54",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6438,
+   "videoSecond": 216.883,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:59:28.86",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:59:28.86",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:59:28.86",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6441,
+   "videoSecond": 216.983,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 15:59:43.88",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 15:59:43.88",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T15:59:43.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6444,
+   "videoSecond": 217.084,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:00:13.88",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:00:13.88",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:00:13.88",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6447,
+   "videoSecond": 217.184,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:01:00.25",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:01:00.75",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:01:00.25",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6453,
+   "videoSecond": 217.384,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:01:45.71",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:01:45.71",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:01:45.71",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6456,
+   "videoSecond": 217.484,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:02:00.74",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:02:00.74",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:02:00.74",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6459,
+   "videoSecond": 217.584,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:03:03.13",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:03:03.13",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:03:03.13",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6462,
+   "videoSecond": 217.684,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:03:18.19",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:03:18.19",
+   "rawCamCrop": "axis-buckrock1 elev:8468' X:-26.13 Y:+7.89 Z:1.4 .PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:03:18.19",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6468,
+   "videoSecond": 217.884,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:04:03.06",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:04:03.06",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:04:03.06",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6471,
+   "videoSecond": 217.984,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:05:05.35",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:05:05.35",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:05:05.35",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6474,
+   "videoSecond": 218.085,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:05:20.43",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:05:20.43",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": "2025-08-27T16:05:20.43",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6477,
+   "videoSecond": 218.185,
+   "rawFull": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:05:50.45",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:05:S0.45",
+   "rawCamCrop": "axis-buckrock1 elev:8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCali",
+   "printedTime": null,
+   "timeReadsAgree": false,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": null
+  },
+  {
+   "frame": 6483,
+   "videoSecond": 218.385,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:06:20.40",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:06:20.40",
+   "rawCamCrop": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T16:06:20.40",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6486,
+   "videoSecond": 218.485,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:07:22.49",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:07:22.49",
+   "rawCamCrop": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T16:07:22.49",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6489,
+   "videoSecond": 218.585,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:07:32.48",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:07:32.48",
+   "rawCamCrop": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T16:07:32.48",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  },
+  {
+   "frame": 6492,
+   "videoSecond": 218.685,
+   "rawFull": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 \u00a9 ALERTCalifornia 2025/08/27 16:08:02.45",
+   "rawTimestampCrop": "ERTCalifornia 2025/08/27 16:08:02.45",
+   "rawCamCrop": "axis-buckrock1 elev.8468* X:-26.13 Y:+7.89 Z: 1.4.PGE.sstrenfel.08-27T14:08 O ALERTCali",
+   "printedTime": "2025-08-27T16:08:02.45",
+   "timeReadsAgree": true,
+   "xyz": [
+    -26.13,
+    7.89,
+    1.4
+   ],
+   "xyzReadsAgree": true,
+   "camera": "buckrock1",
+   "pose": "G4"
+  }
+ ]
+}

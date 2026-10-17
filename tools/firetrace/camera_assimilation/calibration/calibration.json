@@ -129,26 +129,169 @@
   },
   "inputs": {
     "observations": {
+      "count": 11,
+      "frameIntegrity": "verified",
+      "limitations": [
+        "Agent visual reading of the printed bar is not human review; hundredths of a second are blurred and not verified. reviewStatus stays pending-operator-review.",
+        "PDT is a hypothesis; a 2026-10-17 current-frame check (root, camera_assimilation/clock-check) does not verify the 2025 clock.",
+        "Rows are single frames chosen at the printed times nearest the satellite passes (time only; no FIRMS geography informed any choice); 10 + 1 frames are not a statistical sample.",
+        "Cosmos confidence is uncalibrated and some answers are template echoes. A hidden base is a null coordinate, never a forced point.",
+        "The printed time of delilah-G2-ev134 comes from the already-saved evidence JPEG (root receipt) and the agent reading its bar; the video decode of that second could not be OCR-ed (bar truncated at the frame edge in decoded frames 126-134 s)."
+      ],
       "path": "tools/firetrace/camera_assimilation/vision/observations.json",
-      "present": false
+      "present": true,
+      "receipts": {
+        "buckrock-G3b-f05091-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:26.920474+00:00",
+          "elapsedSeconds": 1.1,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "91d239e49ea0b0a2c9a5510c4f0d66cf78bb4ae61174b4981e39e86b20d5d8c3",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/buckrock-G3b-f05091.json",
+          "task": "smoke-base-v1"
+        },
+        "buckrock-G3b-f05256-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:30.414889+00:00",
+          "elapsedSeconds": 1.14,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "9f9c179e3fe535f6bb85f62c1ee6acb16a953acc18518e8cf45c60e6eb6c55da",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/buckrock-G3b-f05256.json",
+          "task": "smoke-base-v1"
+        },
+        "buckrock-G4-f05889-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:28.204875+00:00",
+          "elapsedSeconds": 1.28,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "7d2474f462ba919a713319bf6cb8c41fed73683c43068c090ace2b5726c9badd",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/buckrock-G4-f05889.json",
+          "task": "smoke-base-v1"
+        },
+        "buckrock-G4-f06057-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:31.428404+00:00",
+          "elapsedSeconds": 1.01,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "e1da9d1456401a08d86f63421c3d8592574365b9fbf188d7b50270d1f76d80ba",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/buckrock-G4-f06057.json",
+          "task": "smoke-base-v1"
+        },
+        "buckrock-G4-f06444-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:32.418921+00:00",
+          "elapsedSeconds": 0.99,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "3d5159268fd5b89aaf6238330635ccebfbe114554614771aa9c5ec157007d968",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/buckrock-G4-f06444.json",
+          "task": "smoke-base-v1"
+        },
+        "delilah-G1-f00804-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:25.810473+00:00",
+          "elapsedSeconds": 1.42,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "0b7dbe06496cb7e2c745c596ba3ffd5ee24661095f69207b6f492180957c56df",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/delilah-G1-f00804.json",
+          "task": "smoke-base-v1"
+        },
+        "delilah-G1-f00963-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:29.271838+00:00",
+          "elapsedSeconds": 1.06,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "0a8bf7c258cecef4dbbbaac93138cd18cf214c140868f4ad69449a8e0b097015",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/delilah-G1-f00963.json",
+          "task": "smoke-base-v1"
+        },
+        "delilah-G1-f01098-cosmos": {
+          "analyzedAt": "2026-10-17T14:32:33.369558+00:00",
+          "elapsedSeconds": 0.96,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "fd0b87153e61abb106e232d4ff9f4df75fa193d0590c224b8ad4a3cb421ec6aa",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/delilah-G1-f01098.json",
+          "task": "smoke-base-v1"
+        },
+        "delilah-G2-ev134-cosmos": {
+          "analyzedAt": "2026-10-17T14:35:04.497476+00:00",
+          "elapsedSeconds": null,
+          "executedBy": "root (external, not counted in vision ledger)",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "a66a134ab4f53031f90cb58aa88400a9cb78be15813d6cae96e9bdd486ceb9d8",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/delilah-G2-ev134.json",
+          "task": "smoke-base-v1"
+        },
+        "delilah-G2-f04020-cosmos": {
+          "analyzedAt": "2026-10-17T14:34:58.859876+00:00",
+          "elapsedSeconds": 1.15,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "7650bfa5033d8b2e4fda42f290236be1ab2f9c0f1193aff162b0d14951688c5e",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/delilah-G2-f04020.json",
+          "task": "smoke-base-v1"
+        },
+        "delilah-G2-f04065-cosmos": {
+          "analyzedAt": "2026-10-17T14:35:10.669429+00:00",
+          "elapsedSeconds": 1.6,
+          "executedBy": "vision pipeline",
+          "gatewayGeolocation": "unresolved",
+          "gatewayImageSha256": "520089444d10c9f4cee126856f36d1c0157152a93678f7d3f2fbfa0aa092055e",
+          "model": "nvidia/cosmos3-nano-reasoner",
+          "raw": "camera_assimilation/vision/cosmos/raw/delilah-G2-f04065.json",
+          "task": "smoke-base-v1"
+        }
+      },
+      "sha256": "489180ca7ab08bf0759d1803ea544a075782b32b2488b899a266f3b6dfe8f2f0"
+    },
+    "satellite": {
+      "hotspots.geojson": "b6e37b355ac83a9fe20a60ae794dd6f1d457e7cbf3a69e2c652e828d956c1dd7",
+      "overpasses.json": "c0a6b8d258d6da8b7e60ffc1a52e35572fe42045bc2e160f5e375c4c27d9526c"
     }
   },
   "limitations": [
     "Not an operational or absolute geolocation product; errors are angular / cross-track at FIRMS range.",
     "PDT is not verified; clock sensitivity does not prove any clock.",
-    "G2 and G3 have no FIRMS pass in their windows: null parameters by design.",
-    "vision/observations.json not available when this file was generated: every pose is uncalibrated."
+    "G2 and G3 have no FIRMS pass in their windows: null parameters by design."
   ],
   "poses": [
     {
       "cameraId": "delilah",
       "errors": null,
-      "excluded": [],
+      "excluded": [
+        {
+          "detail": "base_visible=False",
+          "id": "delilah-G1-f00804-cosmos",
+          "reason": "base-hidden"
+        },
+        {
+          "detail": "base_visible=False",
+          "id": "delilah-G1-f00963-cosmos",
+          "reason": "base-hidden"
+        },
+        {
+          "detail": "base_visible=False",
+          "id": "delilah-G1-f01098-cosmos",
+          "reason": "base-hidden"
+        }
+      ],
       "extraCheckIds": [],
+      "extraCheckPassIds": [],
       "flags": [
         "no-fit"
       ],
       "fovDeg": 56.01834703092465,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
       "frozenSplit": {
         "extraCheck": [
           "MODIS@2025-08-27T18:17:00Z"
@@ -162,12 +305,14 @@
         ]
       },
       "heldOutIds": [],
+      "heldOutPassIds": [],
       "matched": [],
-      "method": null,
+      "method": "cosmos",
       "poseId": "G1",
-      "reason": "observations file missing (pending-observations)",
+      "reason": "no usable observation matched the pre-registered fit pass NOAA21@2025-08-27T19:49:00Z within 5 min; no parameters are fitted",
       "status": "no-calibration",
       "trainingIds": [],
+      "trainingPassIds": [],
       "uncertainty": null,
       "yaw0Deg": null,
       "zoom": 1.2
@@ -177,22 +322,26 @@
       "errors": null,
       "excluded": [],
       "extraCheckIds": [],
+      "extraCheckPassIds": [],
       "flags": [
-        "no-fit"
+        "no-pass-in-pose-window"
       ],
       "fovDeg": 65.1,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
       "frozenSplit": {
         "extraCheck": [],
         "fit": [],
         "heldOut": []
       },
       "heldOutIds": [],
+      "heldOutPassIds": [],
       "matched": [],
-      "method": null,
+      "method": "cosmos",
       "poseId": "G2",
       "reason": "no FIRMS pass inside this pose window under the PDT hypothesis; poses are not transferred (printed pan X is not a validated azimuth)",
       "status": "no-calibration",
       "trainingIds": [],
+      "trainingPassIds": [],
       "uncertainty": null,
       "yaw0Deg": null,
       "zoom": 1.0
@@ -202,22 +351,26 @@
       "errors": null,
       "excluded": [],
       "extraCheckIds": [],
+      "extraCheckPassIds": [],
       "flags": [
-        "no-fit"
+        "no-pass-in-pose-window"
       ],
       "fovDeg": 65.1,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
       "frozenSplit": {
         "extraCheck": [],
         "fit": [],
         "heldOut": []
       },
       "heldOutIds": [],
+      "heldOutPassIds": [],
       "matched": [],
       "method": null,
       "poseId": "G3",
       "reason": "no FIRMS pass inside this pose window under the PDT hypothesis; poses are not transferred (printed pan X is not a validated azimuth)",
       "status": "no-calibration",
       "trainingIds": [],
+      "trainingPassIds": [],
       "uncertainty": null,
       "yaw0Deg": null,
       "zoom": 1.0
@@ -225,12 +378,25 @@
     {
       "cameraId": "buckrock",
       "errors": null,
-      "excluded": [],
+      "excluded": [
+        {
+          "detail": "base_visible=False",
+          "id": "buckrock-G3b-f05091-cosmos",
+          "reason": "base-hidden"
+        },
+        {
+          "detail": "base_visible=False",
+          "id": "buckrock-G3b-f05256-cosmos",
+          "reason": "base-hidden"
+        }
+      ],
       "extraCheckIds": [],
+      "extraCheckPassIds": [],
       "flags": [
         "no-fit"
       ],
       "fovDeg": 65.1,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
       "frozenSplit": {
         "extraCheck": [
           "MODIS@2025-08-27T18:17:00Z"
@@ -244,12 +410,14 @@
         ]
       },
       "heldOutIds": [],
+      "heldOutPassIds": [],
       "matched": [],
-      "method": null,
+      "method": "cosmos",
       "poseId": "G3b",
-      "reason": "observations file missing (pending-observations)",
+      "reason": "no usable observation matched the pre-registered fit pass NOAA21@2025-08-27T19:49:00Z within 5 min; no parameters are fitted",
       "status": "no-calibration",
       "trainingIds": [],
+      "trainingPassIds": [],
       "uncertainty": null,
       "yaw0Deg": null,
       "zoom": 1.0
@@ -257,12 +425,30 @@
     {
       "cameraId": "buckrock",
       "errors": null,
-      "excluded": [],
+      "excluded": [
+        {
+          "detail": "base_visible=False",
+          "id": "buckrock-G4-f05889-cosmos",
+          "reason": "base-hidden"
+        },
+        {
+          "detail": "base_visible=False",
+          "id": "buckrock-G4-f06057-cosmos",
+          "reason": "base-hidden"
+        },
+        {
+          "detail": "base_visible=False",
+          "id": "buckrock-G4-f06444-cosmos",
+          "reason": "base-hidden"
+        }
+      ],
       "extraCheckIds": [],
+      "extraCheckPassIds": [],
       "flags": [
         "no-fit"
       ],
       "fovDeg": 49.019045323641464,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
       "frozenSplit": {
         "extraCheck": [],
         "fit": [
@@ -274,12 +460,14 @@
         ]
       },
       "heldOutIds": [],
+      "heldOutPassIds": [],
       "matched": [],
-      "method": null,
+      "method": "cosmos",
       "poseId": "G4",
-      "reason": "observations file missing (pending-observations)",
+      "reason": "no usable observation matched the pre-registered fit pass NOAA21@2025-08-27T21:29:00Z within 5 min; no parameters are fitted",
       "status": "no-calibration",
       "trainingIds": [],
+      "trainingPassIds": [],
       "uncertainty": null,
       "yaw0Deg": null,
       "zoom": 1.4
@@ -680,5 +868,5 @@
   ],
   "schema": "firetrace-camera-calibration-v1",
   "status": "no-calibration",
-  "statusDetail": "pending-observations"
+  "statusDetail": "no pose could be fitted from the supplied observations"
 }

@@ -1,0 +1,1746 @@
+{
+ "schema": "firetrace-camera-assimilation-scenario-v1",
+ "status": "paused-next-phase",
+ "statusReason": "Camera assimilation paused for the next phase (user priority change): 8 of 8 Cosmos calls reported base_visible=false by root/agent A; vision/observations.json was not available to this agent, so the count is not verified here. No correction is fabricated.",
+ "outcome": "disabled",
+ "retrospective": true,
+ "operationalForecast": false,
+ "generatedBy": "camera_assimilation/assimilation/run.py",
+ "runSeconds": 4.8,
+ "dataClasses": [
+  {
+   "name": "FIRMS detections",
+   "class": "observed",
+   "use": "validation only (never assimilated); passes <= t0 initialization only",
+   "source": "hotspots.geojson"
+  },
+  {
+   "name": "Open-Meteo wind",
+   "class": "modeled-reanalysis",
+   "use": "hourly wind of ONE grid point, nearest hour",
+   "source": "weather-hourly.json"
+  },
+  {
+   "name": "arrival-reconstructed",
+   "class": "reconstructed",
+   "use": "initial footprint <= t0 (support-only); retrospective leakage",
+   "source": "arrival-reconstructed.geojson"
+  },
+  {
+   "name": "DEM",
+   "class": "observed-terrain-model",
+   "use": "200 m mean of AWS Terrarium z12",
+   "source": "assimilation/dem/receipt.json"
+  },
+  {
+   "name": "camera observations",
+   "class": "camera-observation (pending operator review)",
+   "use": "bearing intervals only",
+   "source": "vision/observations.json"
+  },
+  {
+   "name": "camera azimuth model",
+   "class": "assumed",
+   "use": "x_base -> bearing",
+   "source": "calibration/printed_model.json"
+  },
+  {
+   "name": "baseline / corrected / neutral ensemble",
+   "class": "modeled",
+   "use": "heuristic minimum-travel-time spread; uniform fuel assumed",
+   "source": "run.py"
+  }
+ ],
+ "initialization": {
+  "t0": "2025-08-27T10:00:00-07:00",
+  "t0Utc": "2025-08-27T17:00:00Z",
+  "source": "evidence/garnet/satellite/arrival-reconstructed.geojson",
+  "mode": "observed-support-le-t0",
+  "cells": 1056,
+  "cellAreaHaTotal": 4224.0,
+  "dataClass": "reconstructed",
+  "retrospectiveLeakage": true,
+  "operationalForecast": false,
+  "restrictedToSupportObservedLeT0": true,
+  "leakage": [
+   "The reconstruction exists only inside the FINAL WFIGS perimeter (known in hindsight) and hotspots.geojson only holds detections within ~1 km of it.",
+   "Cells keep only their own first VIIRS detection <= t0 (kind=observed-support); interpolated cells (filled from neighbours, possibly later detections) are excluded from the primary run.",
+   "Each detection burns a 400 m radius, so the footprint overestimates early extent (published-acre ratios 1.4-1.5).",
+   "Initial front = every footprint cell with a free neighbour starts spreading at t0: activity is assumed uniform around the perimeter."
+  ],
+  "alternativeWithInterpolatedCells": {
+   "cells": 1193,
+   "extraCells": 137,
+   "effect": "not run (use --sensitivity)"
+  },
+  "passesAtOrBeforeT0": [
+   "NOAA21@2025-08-24T09:26:00Z",
+   "SNPP@2025-08-24T09:52:00Z",
+   "NOAA20@2025-08-24T10:14:00Z",
+   "MODIS@2025-08-24T11:41:00Z",
+   "MODIS@2025-08-24T17:57:00Z",
+   "NOAA20@2025-08-24T19:55:00Z",
+   "NOAA21@2025-08-24T20:46:00Z",
+   "SNPP@2025-08-24T21:12:00Z",
+   "NOAA20@2025-08-24T21:35:00Z",
+   "MODIS@2025-08-24T22:42:00Z",
+   "MODIS@2025-08-25T04:59:00Z",
+   "NOAA21@2025-08-25T09:05:00Z",
+   "SNPP@2025-08-25T09:33:00Z",
+   "NOAA20@2025-08-25T09:55:00Z",
+   "MODIS@2025-08-25T10:42:00Z",
+   "NOAA21@2025-08-25T10:45:00Z",
+   "MODIS@2025-08-25T16:58:00Z",
+   "NOAA21@2025-08-25T20:27:00Z",
+   "SNPP@2025-08-25T20:53:00Z",
+   "SNPP@2025-08-25T20:54:00Z",
+   "NOAA20@2025-08-25T21:16:00Z",
+   "NOAA21@2025-08-26T08:48:00Z",
+   "SNPP@2025-08-26T09:14:00Z",
+   "NOAA20@2025-08-26T09:37:00Z",
+   "NOAA21@2025-08-26T10:28:00Z",
+   "SNPP@2025-08-26T10:54:00Z",
+   "MODIS@2025-08-26T11:20:00Z",
+   "NOAA20@2025-08-26T20:57:00Z",
+   "NOAA21@2025-08-26T21:50:00Z",
+   "MODIS@2025-08-26T22:21:00Z",
+   "MODIS@2025-08-27T04:39:00Z",
+   "SNPP@2025-08-27T08:55:00Z",
+   "NOAA20@2025-08-27T09:18:00Z",
+   "NOAA21@2025-08-27T10:11:00Z",
+   "SNPP@2025-08-27T10:36:00Z"
+  ],
+  "dailyExtentNote": "Daily reconstructed extent is not used as truth anywhere; validation is FIRMS only."
+ },
+ "cameraModel": {
+  "calibrationBasis": "printed-x-unverified-historical",
+  "parameterOrigin": [
+   "printed-X-prior-not-fitted"
+  ],
+  "calibrationStatus": "pending-observations",
+  "calibrationPath": "calibration/printed_model.json",
+  "calibrationSha256": "72df8e85988a348f1b9ca1f0804f816727469d0213d2afe4fde7e97a11360d6a",
+  "poses": [
+   {
+    "cameraId": "delilah",
+    "poseId": "G1",
+    "method": "cosmos",
+    "status": "experimental",
+    "yaw0Deg": 26.27,
+    "fovDeg": 56.01834703092465,
+    "calibrationBasis": "printed-x-unverified-historical",
+    "parameterOrigin": "printed-X-prior-not-fitted",
+    "reason": null,
+    "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)"
+   },
+   {
+    "cameraId": "delilah",
+    "poseId": "G2",
+    "method": "cosmos",
+    "status": "experimental",
+    "yaw0Deg": 25.27,
+    "fovDeg": 65.1,
+    "calibrationBasis": "printed-x-unverified-historical",
+    "parameterOrigin": "printed-X-prior-not-fitted",
+    "reason": null,
+    "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)"
+   },
+   {
+    "cameraId": "buckrock",
+    "poseId": "G3",
+    "method": "cosmos",
+    "status": "experimental",
+    "yaw0Deg": 307.19,
+    "fovDeg": 65.1,
+    "calibrationBasis": "printed-x-unverified-historical",
+    "parameterOrigin": "printed-X-prior-not-fitted",
+    "reason": null,
+    "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)"
+   },
+   {
+    "cameraId": "buckrock",
+    "poseId": "G3b",
+    "method": "cosmos",
+    "status": "experimental",
+    "yaw0Deg": 320.81,
+    "fovDeg": 65.1,
+    "calibrationBasis": "printed-x-unverified-historical",
+    "parameterOrigin": "printed-X-prior-not-fitted",
+    "reason": null,
+    "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)"
+   },
+   {
+    "cameraId": "buckrock",
+    "poseId": "G4",
+    "method": "cosmos",
+    "status": "experimental",
+    "yaw0Deg": 333.87,
+    "fovDeg": 49.019045323641464,
+    "calibrationBasis": "printed-x-unverified-historical",
+    "parameterOrigin": "printed-X-prior-not-fitted",
+    "reason": null,
+    "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)"
+   }
+  ],
+  "angularSigmaDegByRow": {},
+  "angularSigmaSource": [],
+  "clock": {
+   "status": "assumed-PDT",
+   "sigmaMin": 5.0,
+   "verified": false,
+   "note": "printed time read as PDT is a hypothesis; the clock uncertainty widens the model active window, it does not correct the clock"
+  },
+  "historicalXStatus": "printed X is read as an ASSUMED azimuth from 2025 video overlays; it is unverified for 2025 and today's camera error is not historical precision",
+  "fittedToFirms": false,
+  "bearingFormula": "bearingDeg = (yaw0Deg + degrees(atan((2*x_base - 1) * tan(radians(fovDeg)/2)))) mod 360",
+  "experimentalAccepted": "printed-X basis accepted by design"
+ },
+ "cameraUseCount": 0,
+ "cameraEffectiveCount": 0,
+ "cameraUseNote": "cameraUseCount = distinct observation ids that entered a cycle likelihood; cameraEffectiveCount = ids of cycles that passed the ESS/information/identifiability gates and changed parameters",
+ "idList": {
+  "t0Id": "t0-2025-08-27T10:00:00-07:00",
+  "configSha256": "4ee3c516c2353a58567218d69dc07da05249966514588e7728934bca7dce9794",
+  "assimilatedObservationIds": [],
+  "effectiveObservationIds": [],
+  "excludedObservations": [],
+  "reservedByCalibrationSplit": [],
+  "observationsUsedInCalibrationFit": [],
+  "cycles": [],
+  "passRoles": {
+   "NOAA20@2025-08-26T20:57:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-26T20:57:00Z"
+   },
+   "NOAA21@2025-08-26T21:50:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-26T21:50:00Z"
+   },
+   "MODIS@2025-08-26T22:21:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-26T22:21:00Z"
+   },
+   "MODIS@2025-08-27T04:39:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-27T04:39:00Z"
+   },
+   "SNPP@2025-08-27T08:55:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-27T08:55:00Z"
+   },
+   "NOAA20@2025-08-27T09:18:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-27T09:18:00Z"
+   },
+   "NOAA21@2025-08-27T10:11:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-27T10:11:00Z"
+   },
+   "SNPP@2025-08-27T10:36:00Z": {
+    "role": "initialization-not-scored",
+    "reason": "pass at or before t0: its detections are initialization data",
+    "utc": "2025-08-27T10:36:00Z"
+   },
+   "MODIS@2025-08-27T18:17:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T18:17:00Z"
+   },
+   "NOAA21@2025-08-27T19:49:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T19:49:00Z"
+   },
+   "SNPP@2025-08-27T20:16:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T20:16:00Z"
+   },
+   "NOAA20@2025-08-27T20:38:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T20:38:00Z"
+   },
+   "NOAA21@2025-08-27T21:29:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T21:29:00Z"
+   },
+   "SNPP@2025-08-27T21:57:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T21:57:00Z"
+   },
+   "MODIS@2025-08-27T23:00:00Z": {
+    "role": "validation",
+    "reason": null,
+    "utc": "2025-08-27T23:00:00Z"
+   },
+   "MODIS@2025-08-28T05:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T05:19:00Z"
+   },
+   "NOAA20@2025-08-28T08:59:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T08:59:00Z"
+   },
+   "NOAA21@2025-08-28T09:49:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T09:49:00Z"
+   },
+   "SNPP@2025-08-28T10:17:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T10:17:00Z"
+   },
+   "NOAA20@2025-08-28T10:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T10:39:00Z"
+   },
+   "MODIS@2025-08-28T10:59:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T10:59:00Z"
+   },
+   "MODIS@2025-08-28T11:00:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T11:00:00Z"
+   },
+   "MODIS@2025-08-28T17:18:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T17:18:00Z"
+   },
+   "SNPP@2025-08-28T19:57:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T19:57:00Z"
+   },
+   "NOAA20@2025-08-28T20:20:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T20:20:00Z"
+   },
+   "NOAA21@2025-08-28T21:12:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T21:12:00Z"
+   },
+   "SNPP@2025-08-28T21:38:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T21:38:00Z"
+   },
+   "NOAA20@2025-08-28T22:00:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T22:00:00Z"
+   },
+   "MODIS@2025-08-28T22:01:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-28T22:01:00Z"
+   },
+   "NOAA20@2025-08-29T08:40:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T08:40:00Z"
+   },
+   "NOAA21@2025-08-29T09:32:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T09:32:00Z"
+   },
+   "SNPP@2025-08-29T09:58:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T09:58:00Z"
+   },
+   "NOAA20@2025-08-29T10:20:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T10:20:00Z"
+   },
+   "MODIS@2025-08-29T11:38:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T11:38:00Z"
+   },
+   "MODIS@2025-08-29T17:57:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T17:57:00Z"
+   },
+   "NOAA20@2025-08-29T20:01:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T20:01:00Z"
+   },
+   "NOAA21@2025-08-29T20:51:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T20:51:00Z"
+   },
+   "SNPP@2025-08-29T21:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T21:19:00Z"
+   },
+   "NOAA20@2025-08-29T21:41:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T21:41:00Z"
+   },
+   "MODIS@2025-08-29T22:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-29T22:39:00Z"
+   },
+   "MODIS@2025-08-30T04:59:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T04:59:00Z"
+   },
+   "NOAA21@2025-08-30T09:11:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T09:11:00Z"
+   },
+   "SNPP@2025-08-30T09:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T09:39:00Z"
+   },
+   "NOAA20@2025-08-30T10:02:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T10:02:00Z"
+   },
+   "MODIS@2025-08-30T10:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T10:39:00Z"
+   },
+   "NOAA21@2025-08-30T10:51:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T10:51:00Z"
+   },
+   "MODIS@2025-08-30T16:59:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T16:59:00Z"
+   },
+   "NOAA21@2025-08-30T20:34:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T20:34:00Z"
+   },
+   "SNPP@2025-08-30T21:00:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T21:00:00Z"
+   },
+   "NOAA20@2025-08-30T21:22:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T21:22:00Z"
+   },
+   "MODIS@2025-08-30T21:40:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-30T21:40:00Z"
+   },
+   "MODIS@2025-08-31T04:01:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T04:01:00Z"
+   },
+   "MODIS@2025-08-31T05:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T05:39:00Z"
+   },
+   "NOAA21@2025-08-31T08:54:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T08:54:00Z"
+   },
+   "SNPP@2025-08-31T09:20:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T09:20:00Z"
+   },
+   "NOAA20@2025-08-31T09:43:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T09:43:00Z"
+   },
+   "NOAA21@2025-08-31T10:34:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T10:34:00Z"
+   },
+   "SNPP@2025-08-31T11:01:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T11:01:00Z"
+   },
+   "MODIS@2025-08-31T11:17:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T11:17:00Z"
+   },
+   "MODIS@2025-08-31T17:38:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T17:38:00Z"
+   },
+   "NOAA21@2025-08-31T20:14:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T20:14:00Z"
+   },
+   "SNPP@2025-08-31T20:41:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T20:41:00Z"
+   },
+   "NOAA20@2025-08-31T21:03:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T21:03:00Z"
+   },
+   "NOAA21@2025-08-31T21:55:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T21:55:00Z"
+   },
+   "MODIS@2025-08-31T22:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-08-31T22:19:00Z"
+   },
+   "MODIS@2025-09-01T04:40:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T04:40:00Z"
+   },
+   "SNPP@2025-09-01T09:02:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T09:02:00Z"
+   },
+   "NOAA20@2025-09-01T09:24:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T09:24:00Z"
+   },
+   "NOAA21@2025-09-01T10:15:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T10:15:00Z"
+   },
+   "SNPP@2025-09-01T10:42:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T10:42:00Z"
+   },
+   "MODIS@2025-09-01T11:56:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T11:56:00Z"
+   },
+   "MODIS@2025-09-01T18:17:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T18:17:00Z"
+   },
+   "NOAA21@2025-09-01T19:55:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T19:55:00Z"
+   },
+   "SNPP@2025-09-01T20:22:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T20:22:00Z"
+   },
+   "NOAA20@2025-09-01T20:45:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T20:45:00Z"
+   },
+   "NOAA21@2025-09-01T21:36:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T21:36:00Z"
+   },
+   "SNPP@2025-09-01T22:03:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T22:03:00Z"
+   },
+   "MODIS@2025-09-01T22:57:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-01T22:57:00Z"
+   },
+   "MODIS@2025-09-02T05:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T05:19:00Z"
+   },
+   "SNPP@2025-09-02T08:43:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T08:43:00Z"
+   },
+   "NOAA20@2025-09-02T09:05:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T09:05:00Z"
+   },
+   "NOAA21@2025-09-02T09:56:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T09:56:00Z"
+   },
+   "SNPP@2025-09-02T10:23:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T10:23:00Z"
+   },
+   "NOAA20@2025-09-02T10:45:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T10:45:00Z"
+   },
+   "MODIS@2025-09-02T10:57:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T10:57:00Z"
+   },
+   "MODIS@2025-09-02T17:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T17:19:00Z"
+   },
+   "SNPP@2025-09-02T20:04:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T20:04:00Z"
+   },
+   "NOAA20@2025-09-02T20:26:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T20:26:00Z"
+   },
+   "NOAA21@2025-09-02T21:18:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T21:18:00Z"
+   },
+   "MODIS@2025-09-02T21:58:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-02T21:58:00Z"
+   },
+   "MODIS@2025-09-03T04:20:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T04:20:00Z"
+   },
+   "MODIS@2025-09-03T04:21:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T04:21:00Z"
+   },
+   "NOAA20@2025-09-03T08:46:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T08:46:00Z"
+   },
+   "NOAA21@2025-09-03T09:37:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T09:37:00Z"
+   },
+   "SNPP@2025-09-03T10:04:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T10:04:00Z"
+   },
+   "SNPP@2025-09-03T10:05:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T10:05:00Z"
+   },
+   "NOAA20@2025-09-03T10:26:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T10:26:00Z"
+   },
+   "NOAA20@2025-09-03T10:27:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T10:27:00Z"
+   },
+   "MODIS@2025-09-03T11:35:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T11:35:00Z"
+   },
+   "MODIS@2025-09-03T17:58:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T17:58:00Z"
+   },
+   "SNPP@2025-09-03T19:45:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T19:45:00Z"
+   },
+   "NOAA20@2025-09-03T20:07:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T20:07:00Z"
+   },
+   "NOAA21@2025-09-03T20:57:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T20:57:00Z"
+   },
+   "SNPP@2025-09-03T21:25:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T21:25:00Z"
+   },
+   "NOAA20@2025-09-03T21:48:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T21:48:00Z"
+   },
+   "MODIS@2025-09-03T22:37:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-03T22:37:00Z"
+   },
+   "MODIS@2025-09-04T05:00:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T05:00:00Z"
+   },
+   "NOAA21@2025-09-04T09:20:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T09:20:00Z"
+   },
+   "SNPP@2025-09-04T09:46:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T09:46:00Z"
+   },
+   "NOAA20@2025-09-04T10:08:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T10:08:00Z"
+   },
+   "NOAA20@2025-09-04T19:48:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T19:48:00Z"
+   },
+   "NOAA21@2025-09-04T20:40:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T20:40:00Z"
+   },
+   "SNPP@2025-09-04T21:06:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T21:06:00Z"
+   },
+   "NOAA20@2025-09-04T21:29:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-04T21:29:00Z"
+   },
+   "MODIS@2025-09-05T04:01:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T04:01:00Z"
+   },
+   "MODIS@2025-09-05T05:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T05:39:00Z"
+   },
+   "SNPP@2025-09-05T09:27:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T09:27:00Z"
+   },
+   "NOAA20@2025-09-05T09:49:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T09:49:00Z"
+   },
+   "MODIS@2025-09-05T11:14:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T11:14:00Z"
+   },
+   "MODIS@2025-09-05T11:15:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T11:15:00Z"
+   },
+   "MODIS@2025-09-05T17:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T17:39:00Z"
+   },
+   "NOAA21@2025-09-05T20:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T20:19:00Z"
+   },
+   "NOAA21@2025-09-05T20:21:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T20:21:00Z"
+   },
+   "SNPP@2025-09-05T20:48:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T20:48:00Z"
+   },
+   "NOAA20@2025-09-05T21:10:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T21:10:00Z"
+   },
+   "NOAA21@2025-09-05T22:01:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T22:01:00Z"
+   },
+   "MODIS@2025-09-05T22:16:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-05T22:16:00Z"
+   },
+   "MODIS@2025-09-06T04:40:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T04:40:00Z"
+   },
+   "NOAA21@2025-09-06T08:39:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T08:39:00Z"
+   },
+   "SNPP@2025-09-06T09:08:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T09:08:00Z"
+   },
+   "NOAA20@2025-09-06T09:30:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T09:30:00Z"
+   },
+   "NOAA21@2025-09-06T10:21:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T10:21:00Z"
+   },
+   "SNPP@2025-09-06T10:48:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T10:48:00Z"
+   },
+   "MODIS@2025-09-06T11:53:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T11:53:00Z"
+   },
+   "MODIS@2025-09-06T18:18:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T18:18:00Z"
+   },
+   "NOAA21@2025-09-06T20:02:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T20:02:00Z"
+   },
+   "SNPP@2025-09-06T20:29:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T20:29:00Z"
+   },
+   "NOAA20@2025-09-06T20:51:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T20:51:00Z"
+   },
+   "NOAA21@2025-09-06T21:42:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T21:42:00Z"
+   },
+   "MODIS@2025-09-06T22:54:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-06T22:54:00Z"
+   },
+   "MODIS@2025-09-07T05:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T05:19:00Z"
+   },
+   "SNPP@2025-09-07T08:49:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T08:49:00Z"
+   },
+   "NOAA20@2025-09-07T09:11:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T09:11:00Z"
+   },
+   "NOAA21@2025-09-07T10:02:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T10:02:00Z"
+   },
+   "SNPP@2025-09-07T10:30:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T10:30:00Z"
+   },
+   "NOAA20@2025-09-07T10:51:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T10:51:00Z"
+   },
+   "MODIS@2025-09-07T10:54:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T10:54:00Z"
+   },
+   "MODIS@2025-09-07T17:19:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T17:19:00Z"
+   },
+   "SNPP@2025-09-07T20:10:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T20:10:00Z"
+   },
+   "NOAA20@2025-09-07T20:32:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T20:32:00Z"
+   },
+   "NOAA21@2025-09-07T21:25:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T21:25:00Z"
+   },
+   "SNPP@2025-09-07T21:51:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T21:51:00Z"
+   },
+   "MODIS@2025-09-07T21:55:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-07T21:55:00Z"
+   },
+   "MODIS@2025-09-08T04:21:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T04:21:00Z"
+   },
+   "NOAA20@2025-09-08T08:52:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T08:52:00Z"
+   },
+   "NOAA21@2025-09-08T09:43:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T09:43:00Z"
+   },
+   "SNPP@2025-09-08T10:11:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T10:11:00Z"
+   },
+   "NOAA20@2025-09-08T10:33:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T10:33:00Z"
+   },
+   "MODIS@2025-09-08T11:32:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T11:32:00Z"
+   },
+   "MODIS@2025-09-08T17:58:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T17:58:00Z"
+   },
+   "SNPP@2025-09-08T19:52:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T19:52:00Z"
+   },
+   "NOAA20@2025-09-08T20:13:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T20:13:00Z"
+   },
+   "NOAA21@2025-09-08T21:04:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T21:04:00Z"
+   },
+   "SNPP@2025-09-08T21:32:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T21:32:00Z"
+   },
+   "NOAA20@2025-09-08T21:54:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T21:54:00Z"
+   },
+   "MODIS@2025-09-08T22:34:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-08T22:34:00Z"
+   },
+   "MODIS@2025-09-09T05:00:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T05:00:00Z"
+   },
+   "NOAA21@2025-09-09T09:26:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T09:26:00Z"
+   },
+   "SNPP@2025-09-09T09:52:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T09:52:00Z"
+   },
+   "NOAA20@2025-09-09T10:14:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T10:14:00Z"
+   },
+   "NOAA21@2025-09-09T20:46:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T20:46:00Z"
+   },
+   "SNPP@2025-09-09T21:13:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T21:13:00Z"
+   },
+   "NOAA20@2025-09-09T21:35:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-09T21:35:00Z"
+   },
+   "NOAA21@2025-09-10T09:05:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T09:05:00Z"
+   },
+   "SNPP@2025-09-10T09:33:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T09:33:00Z"
+   },
+   "NOAA20@2025-09-10T09:55:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T09:55:00Z"
+   },
+   "NOAA21@2025-09-10T10:45:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T10:45:00Z"
+   },
+   "MODIS@2025-09-10T11:12:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T11:12:00Z"
+   },
+   "NOAA21@2025-09-10T20:27:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T20:27:00Z"
+   },
+   "SNPP@2025-09-10T20:54:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T20:54:00Z"
+   },
+   "NOAA20@2025-09-10T21:16:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-10T21:16:00Z"
+   },
+   "MODIS@2025-09-11T04:41:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T04:41:00Z"
+   },
+   "NOAA21@2025-09-11T08:48:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T08:48:00Z"
+   },
+   "SNPP@2025-09-11T09:14:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T09:14:00Z"
+   },
+   "NOAA20@2025-09-11T09:36:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T09:36:00Z"
+   },
+   "NOAA21@2025-09-11T10:28:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T10:28:00Z"
+   },
+   "SNPP@2025-09-11T10:55:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T10:55:00Z"
+   },
+   "SNPP@2025-09-11T20:35:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T20:35:00Z"
+   },
+   "NOAA20@2025-09-11T20:57:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-11T20:57:00Z"
+   },
+   "MODIS@2025-09-12T05:20:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T05:20:00Z"
+   },
+   "SNPP@2025-09-12T08:56:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T08:56:00Z"
+   },
+   "NOAA20@2025-09-12T09:17:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T09:17:00Z"
+   },
+   "NOAA20@2025-09-12T09:18:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T09:18:00Z"
+   },
+   "NOAA21@2025-09-12T10:11:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T10:11:00Z"
+   },
+   "SNPP@2025-09-12T10:36:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T10:36:00Z"
+   },
+   "NOAA20@2025-09-12T10:58:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T10:58:00Z"
+   },
+   "NOAA20@2025-09-12T20:38:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T20:38:00Z"
+   },
+   "NOAA21@2025-09-12T21:29:00Z": {
+    "role": "beyond-horizon-not-scored",
+    "reason": "later than the evaluation horizon",
+    "utc": "2025-09-12T21:29:00Z"
+   }
+  },
+  "splitSource": "printed-x-model: no FIRMS pass fitted; all passes eligible",
+  "calibrationFitPassIds": [],
+  "validationPassIds": [
+   "MODIS@2025-08-27T18:17:00Z",
+   "MODIS@2025-08-27T23:00:00Z",
+   "NOAA20@2025-08-27T20:38:00Z",
+   "NOAA21@2025-08-27T19:49:00Z",
+   "NOAA21@2025-08-27T21:29:00Z",
+   "SNPP@2025-08-27T20:16:00Z",
+   "SNPP@2025-08-27T21:57:00Z"
+  ],
+  "diagnosticPassIds": [],
+  "unmatchedNominalLeads": [
+   {
+    "passId": "MODIS@2025-08-27T18:17:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "MODIS@2025-08-27T18:17:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T19:49:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T19:49:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T20:16:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T20:16:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA20@2025-08-27T20:38:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA20@2025-08-27T20:38:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T21:29:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T21:29:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T21:57:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T21:57:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "MODIS@2025-08-27T23:00:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "MODIS@2025-08-27T23:00:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   }
+  ]
+ },
+ "preregistration": {
+  "configSha256": "4ee3c516c2353a58567218d69dc07da05249966514588e7728934bca7dce9794",
+  "matchesPreregistrationFile": true,
+  "file": "assimilation/preregistration.json",
+  "config": {
+   "version": "firetrace-assimilation-config-v1",
+   "day": "2025-08-27",
+   "clock": {
+    "hypothesis": "assumed-PDT",
+    "clockSigmaMin": 5.0,
+    "sensitivityMin": [
+     2,
+     5,
+     10
+    ]
+   },
+   "t0": {
+    "primary": "2025-08-27T10:00:00-07:00",
+    "sensitivity": [
+     "2025-08-27T04:00:00-07:00"
+    ],
+    "why": "No FIRMS pass exists between 03:36 and 11:17 PDT on 27/08, so support observed <= t0 is identical for any t0 in that gap; 10:00 precedes the first camera frame (printed 10:30) and keeps the uniform-rate integration short."
+   },
+   "initialization": {
+    "primary": "observed-support-le-t0",
+    "alternatives": [
+     "arrival-reconstructed-with-interpolated-le-t0"
+    ]
+   },
+   "model": {
+    "baseSpreadMMin": 4.0,
+    "fuelFactor": 1.0,
+    "baseSource": "simulation.html default (4 m/min); not fitted to any fire",
+    "coefficientsFrom": "simulation.py (KW, KS, S_MIN, S_MAX) imported read-only",
+    "sectors": 12,
+    "windTimeInterpolation": "nearest hourly Open-Meteo value (single reanalysis point)"
+   },
+   "prior": {
+    "windBiasDegSd": 20.0,
+    "windBiasDegClip": 50.0,
+    "lnSpeedMultSd": 0.3,
+    "lnSectorMultSd": 0.5,
+    "lnSectorClip": 1.2,
+    "note": "dispersion of the uncertain inputs, not knowledge: unvalidated, no fuel map, no tuning"
+   },
+   "ensemble": {
+    "members": 300,
+    "seed": 20250827,
+    "composite": "resample identified parameters by posterior weight, redraw the others from the prior"
+   },
+   "observationModel": {
+    "activeWindowMin": 90,
+    "headFraction": 0.7,
+    "headFractionSensitivity": [
+     0.5,
+     0.85
+    ],
+    "outlierFloor": 0.05,
+    "pixelSigmaX": 0.02,
+    "calibrationSigmaFromEnvelope": 0.5,
+    "sigmaFloorDeg": 1.0,
+    "sigmaGateDeg": 12.0,
+    "printedPriorSigmaDeg": 3.0,
+    "printedPriorSensitivityDeg": [
+     1.0,
+     3.0,
+     5.0,
+     10.0
+    ],
+    "wedgeSigmaFactor": 2.0,
+    "wedgeMinSigmaDeg": 3.0,
+    "halfCellM": 100.0,
+    "poseTempering": "likelihood of each pose within a cycle raised to 1/n_frames (frames of one pose are correlated)",
+    "headDefinition": "model-spread cells with arrival in [T-clock-activeWindow, T+clock] and local rate >= headFraction*max rate"
+   },
+   "cycles": {
+    "clusterGapMin": 10.0,
+    "maxObservationAgeMin": 0.0,
+    "nominalLeadsMin": [
+     30,
+     60
+    ],
+    "leadToleranceMin": 20.0,
+    "forecastLeadsMin": [
+     30,
+     60
+    ]
+   },
+   "identifiability": {
+    "permutations": 400,
+    "alpha": 0.01,
+    "minEffectSd": 0.25,
+    "minEssFraction": 0.1,
+    "minKlNats": 0.05
+   },
+   "validation": {
+    "activeBandMin": 60,
+    "tolM": {
+     "VIIRS": 500.0,
+     "MODIS": 1000.0
+    },
+    "tolSensitivityFactor": [
+     0.6,
+     1.0,
+     2.0
+    ],
+    "primaryMetric": "medianNearestActiveBandM (lower is better)",
+    "verdictDeltaM": 100.0,
+    "validationPasses": "printed-X model: every FIRMS pass after t0 (none fitted); fitted contrast: B held-out passes only. Passes at or before t0 are initialization data and are never scored. A pass is verified by a cycle only if issue < pass time.",
+    "maxEvalLeadFromT0Min": 390,
+    "maxEvalLeadFromLastObsMin": 90,
+    "defaultHeldOutPassIds": [
+     "SNPP@2025-08-27T20:16:00Z",
+     "NOAA20@2025-08-27T20:38:00Z",
+     "SNPP@2025-08-27T21:57:00Z",
+     "MODIS@2025-08-27T23:00:00Z"
+    ],
+    "defaultFitPassIds": [
+     "NOAA21@2025-08-27T19:49:00Z",
+     "NOAA21@2025-08-27T21:29:00Z"
+    ],
+    "defaultExtraCheckPassIds": [
+     "MODIS@2025-08-27T18:17:00Z"
+    ]
+   }
+  },
+  "causalRule": "rows with timestamp <= cycle issue time; pass strictly after issue time",
+  "noTuningOnValidation": true,
+  "statement": "Configuration is fixed in code; no value was chosen after seeing any validation score. A file hash is not an external timestamp."
+ },
+ "model": {
+  "grid": {
+   "cellM": 200.0,
+   "nx": 149,
+   "ny": 158,
+   "x0": -17433.1,
+   "y0": 16173.5,
+   "projection": {
+    "lat0": 36.95,
+    "lon0": -119.05,
+    "mPerDegLat": 111320.0,
+    "mPerDegLon": 88962.534
+   }
+  },
+  "dem": {
+   "source": "AWS Terrarium (Mapzen) z12 tiles",
+   "status": "real-dem",
+   "stats": {
+    "minM": 290.8,
+    "maxM": 3101.1,
+    "meanM": 1570.5
+   },
+   "npzSha256": "7175b10443930f519838b443d973337ddeffdde9bbf112cfc833ad83ffa595d2"
+  },
+  "demTiles": 25,
+  "weather": {
+   "point": {
+    "lon": -118.89473,
+    "lat": 36.871704,
+    "elevationM": 1862.0
+   },
+   "status": "observed-model"
+  },
+  "members": 300,
+  "seed": 20250827,
+  "baselineTheta": "windBias 0, speedMult 1, all sector multipliers 1",
+  "inputSha256": {
+   "hotspots.geojson": "b6e37b355ac83a9fe20a60ae794dd6f1d457e7cbf3a69e2c652e828d956c1dd7",
+   "overpasses.json": "c0a6b8d258d6da8b7e60ffc1a52e35572fe42045bc2e160f5e375c4c27d9526c",
+   "weather-hourly.json": "7ccf94526c73a8d4081a0a8693eee36d00819ef441987dbbe3c05b936c24eb07",
+   "arrival-reconstructed.geojson": "726dddb723f8ef11ef445626ce50c0f3ab6a52f5e0a08d8c95caf937f59680cc"
+  },
+  "observationsSha256": null
+ },
+ "baseline": {
+  "description": "same initialization and model, neutral parameters, no camera; scored at every eligible pass time (lead measured from t0)",
+  "leadFromT0": "see rows",
+  "passes": [
+   {
+    "passId": "MODIS@2025-08-27T18:17:00Z",
+    "role": "validation",
+    "source": "MODIS_SP",
+    "passUtc": "2025-08-27T18:17:00Z",
+    "leadFromT0Min": 77.0,
+    "toleranceM": 1000.0,
+    "metrics": {
+     "detections": 2,
+     "growthDetections": 0,
+     "activeBandCells": 444,
+     "newBurnedCells": 505,
+     "modelNewAreaHaCellCount": 2020.0,
+     "medianNearestActiveBandM": 438.4,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 1.0,
+     "recallGrowth": null,
+     "recallActive": 1.0,
+     "precisionActive": 0.09234234234234234,
+     "f1Active": 0.1690721649484536,
+     "p90NearestActiveBandM": 542.0
+    }
+   },
+   {
+    "passId": "NOAA21@2025-08-27T19:49:00Z",
+    "role": "validation",
+    "source": "VIIRS_NOAA21_NRT",
+    "passUtc": "2025-08-27T19:49:00Z",
+    "leadFromT0Min": 169.0,
+    "toleranceM": 500.0,
+    "metrics": {
+     "detections": 12,
+     "growthDetections": 2,
+     "activeBandCells": 353,
+     "newBurnedCells": 1067,
+     "modelNewAreaHaCellCount": 4268.0,
+     "medianNearestActiveBandM": 1131.3,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 1.0,
+     "recallGrowth": 1.0,
+     "recallActive": 0.08333333333333333,
+     "precisionActive": 0.0028328611898017,
+     "f1Active": 0.0054794520547945215,
+     "p90NearestActiveBandM": 1659.7
+    }
+   },
+   {
+    "passId": "SNPP@2025-08-27T20:16:00Z",
+    "role": "validation",
+    "source": "VIIRS_SNPP_SP",
+    "passUtc": "2025-08-27T20:16:00Z",
+    "leadFromT0Min": 196.0,
+    "toleranceM": 500.0,
+    "metrics": {
+     "detections": 8,
+     "growthDetections": 1,
+     "activeBandCells": 350,
+     "newBurnedCells": 1227,
+     "modelNewAreaHaCellCount": 4908.0,
+     "medianNearestActiveBandM": 1717.9,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 1.0,
+     "recallGrowth": 1.0,
+     "recallActive": 0.0,
+     "precisionActive": 0.0,
+     "f1Active": null,
+     "p90NearestActiveBandM": 2145.9
+    }
+   },
+   {
+    "passId": "NOAA20@2025-08-27T20:38:00Z",
+    "role": "validation",
+    "source": "VIIRS_NOAA20_SP",
+    "passUtc": "2025-08-27T20:38:00Z",
+    "leadFromT0Min": 218.0,
+    "toleranceM": 500.0,
+    "metrics": {
+     "detections": 1,
+     "growthDetections": 0,
+     "activeBandCells": 373,
+     "newBurnedCells": 1375,
+     "modelNewAreaHaCellCount": 5500.0,
+     "medianNearestActiveBandM": 1796.3,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 1.0,
+     "recallGrowth": null,
+     "recallActive": 0.0,
+     "precisionActive": 0.0,
+     "f1Active": null,
+     "p90NearestActiveBandM": 1796.3
+    }
+   },
+   {
+    "passId": "NOAA21@2025-08-27T21:29:00Z",
+    "role": "validation",
+    "source": "VIIRS_NOAA21_NRT",
+    "passUtc": "2025-08-27T21:29:00Z",
+    "leadFromT0Min": 269.0,
+    "toleranceM": 500.0,
+    "metrics": {
+     "detections": 72,
+     "growthDetections": 30,
+     "activeBandCells": 427,
+     "newBurnedCells": 1744,
+     "modelNewAreaHaCellCount": 6976.0,
+     "medianNearestActiveBandM": 1188.4,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 0.8333333333333334,
+     "recallGrowth": 0.6,
+     "recallActive": 0.16666666666666666,
+     "precisionActive": 0.03981264637002342,
+     "f1Active": 0.06427221172022685,
+     "p90NearestActiveBandM": 2169.9
+    }
+   },
+   {
+    "passId": "SNPP@2025-08-27T21:57:00Z",
+    "role": "validation",
+    "source": "VIIRS_SNPP_SP",
+    "passUtc": "2025-08-27T21:57:00Z",
+    "leadFromT0Min": 297.0,
+    "toleranceM": 500.0,
+    "metrics": {
+     "detections": 55,
+     "growthDetections": 35,
+     "activeBandCells": 434,
+     "newBurnedCells": 1943,
+     "modelNewAreaHaCellCount": 7772.0,
+     "medianNearestActiveBandM": 1333.6,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 0.6,
+     "recallGrowth": 0.37142857142857144,
+     "recallActive": 0.18181818181818182,
+     "precisionActive": 0.06221198156682028,
+     "f1Active": 0.09270386266094421,
+     "p90NearestActiveBandM": 2105.8
+    }
+   },
+   {
+    "passId": "MODIS@2025-08-27T23:00:00Z",
+    "role": "validation",
+    "source": "MODIS_SP",
+    "passUtc": "2025-08-27T23:00:00Z",
+    "leadFromT0Min": 360.0,
+    "toleranceM": 1000.0,
+    "metrics": {
+     "detections": 10,
+     "growthDetections": 2,
+     "activeBandCells": 408,
+     "newBurnedCells": 2365,
+     "modelNewAreaHaCellCount": 9460.0,
+     "medianNearestActiveBandM": 1629.3,
+     "detectionsWithoutActiveBand": 0,
+     "recallAnyFootprint": 1.0,
+     "recallGrowth": 1.0,
+     "recallActive": 0.3,
+     "precisionActive": 0.07107843137254902,
+     "f1Active": 0.11492734478203433,
+     "p90NearestActiveBandM": 2442.5
+    }
+   }
+  ]
+ },
+ "corrected": {
+  "status": "disabled",
+  "reason": "Camera assimilation paused for the next phase (user priority change): 8 of 8 Cosmos calls reported base_visible=false by root/agent A; vision/observations.json was not available to this agent, so the count is not verified here. No correction is fabricated."
+ },
+ "forecasts": [],
+ "metrics": {
+  "primaryMetric": "medianNearestActiveBandM (lower is better)",
+  "verdictDeltaM": 100.0,
+  "toleranceM": {
+   "VIIRS": 500.0,
+   "MODIS": 1000.0
+  },
+  "activeBandMin": 60,
+  "definitions": {
+   "medianNearestActiveBandM": "median distance from each FIRMS detection of the pass to the nearest modelled cell that burned in the last 60 min before the pass",
+   "recallGrowth": "fraction of detections farther than tol from the initial footprint that lie within tol of a modelled newly burned cell",
+   "precisionActive/recallActive": "active-band cells with a detection within tol / detections within tol of an active-band cell",
+   "lead": "actualLeadMin = pass time - cycle issue time (issue = latest camera frame in the cycle)"
+  },
+  "verifications": [],
+  "aggregate": {
+   "verifications": 0,
+   "verdictCounts": {},
+   "medianDeltaPrimaryM": null,
+   "worsened": 0,
+   "improved": 0,
+   "note": "unit = (pass, camera cycle); few non-independent passes: descriptive only, no statistical significance"
+  },
+  "unmatchedNominalLeads": [
+   {
+    "passId": "MODIS@2025-08-27T18:17:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "MODIS@2025-08-27T18:17:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T19:49:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T19:49:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T20:16:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T20:16:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA20@2025-08-27T20:38:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA20@2025-08-27T20:38:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T21:29:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "NOAA21@2025-08-27T21:29:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T21:57:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "SNPP@2025-08-27T21:57:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "MODIS@2025-08-27T23:00:00Z",
+    "nominalLeadMin": 30,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   },
+   {
+    "passId": "MODIS@2025-08-27T23:00:00Z",
+    "nominalLeadMin": 60,
+    "reason": "no camera cycle issued before the pass with lead within +-20 min of nominal"
+   }
+  ],
+  "worsenedDisclosure": []
+ },
+ "sensitivity": "not run (use --sensitivity)",
+ "excludedObservations": [],
+ "limitations": [
+  "Retrospective research, not an operational forecast: the initial state is reconstructed from detections inside the final perimeter (retrospective leakage).",
+  "Heuristic spread law from simulation.py (not Rothermel/FARSITE); coefficients and the 4 m/min base rate are unvalidated and were not tuned to this fire.",
+  "Fuel is uniform and hypothetical; humidity is not fuel moisture; wind is one reanalysis point ~15 km from the fire; no spotting, suppression, plume dynamics.",
+  "A single bearing is a set-valued angular constraint, not a location: range along the line of sight is unidentified; two different plumes are never triangulated.",
+  "Camera clock (assumed PDT) is a hypothesis; clock sigma widens the model active window but does not verify the clock.",
+  "Printed X read as an assumed azimuth is unverified for 2025; the angular prior (default 3 deg) is declared, not measured.",
+  "FIRMS pixel centres are not fire area/front/speed; absence of a detection is not absence of fire. Precision is dominated by pass sparsity: read only baseline-vs-corrected differences.",
+  "Passes are not independent of each other or of the cameras (same fire, same day). Few verifications: no statistical significance is claimed.",
+  "Baseline and corrected both integrate from t0; the camera changes ensemble parameters retroactively. Lead is time from camera issue to the pass, not from t0.",
+  "Camera cadence in this footage is irregular; the experiment does not show corrections every minute.",
+  "Agent-read camera rows are not human review (reviewStatus pending-operator-review)."
+ ],
+ "geojson": "scenario.geojson"
+}

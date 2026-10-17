@@ -1,0 +1,17 @@
+{
+ "task": "smoke-base-v1",
+ "observation": {
+  "smoke": true,
+  "base_visible": false,
+  "x_base": null,
+  "y_base": null,
+  "confidence": 0.0,
+  "reason": "brief visible evidence and obstruction"
+ },
+ "content": "```json\n{\n  \"smoke\": true,\n  \"base_visible\": false,\n  \"x_base\": null,\n  \"y_base\": null,\n  \"confidence\": 0.0,\n  \"reason\": \"brief visible evidence and obstruction\"\n}\n```",
+ "model": "nvidia/cosmos3-nano-reasoner",
+ "analyzedAt": "2026-10-17T14:34:58.859876+00:00",
+ "geolocation": "unresolved",
+ "status": "requires-review",
+ "imageSha256": "7650bfa5033d8b2e4fda42f290236be1ab2f9c0f1193aff162b0d14951688c5e"
+}

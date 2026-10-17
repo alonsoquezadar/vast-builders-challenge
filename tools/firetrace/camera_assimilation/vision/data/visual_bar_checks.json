@@ -1,0 +1,47 @@
+{
+ "checks": {
+  "804": {
+   "agentReadPrintedTime": "2025-08-27T12:49:12"
+  },
+  "963": {
+   "agentReadPrintedTime": "2025-08-27T13:15:56"
+  },
+  "1098": {
+   "agentReadPrintedTime": "2025-08-27T13:38:42"
+  },
+  "4020": {
+   "agentReadPrintedTime": "2025-08-27T20:21:44"
+  },
+  "4065": {
+   "agentReadPrintedTime": "2025-08-27T20:29:43"
+  },
+  "5091": {
+   "agentReadPrintedTime": "2025-08-27T12:48:56"
+  },
+  "5256": {
+   "agentReadPrintedTime": "2025-08-27T13:16:13"
+  },
+  "5889": {
+   "agentReadPrintedTime": "2025-08-27T14:29:04"
+  },
+  "6057": {
+   "agentReadPrintedTime": "2025-08-27T14:56:40"
+  },
+  "6444": {
+   "agentReadPrintedTime": "2025-08-27T16:00:13"
+  }
+ },
+ "method": "Agent viewed contact/bars-answered-1.jpg (enlarged bar crops; camera/X/Y/Z and timestamp) and transcribed whole seconds. Hundredths of a second are blurred by the codec and were NOT verified. Agent reading is not operator review.",
+ "sheetRows": {
+  "804": 1,
+  "963": 2,
+  "1098": 3,
+  "4020": 4,
+  "4065": 5,
+  "5091": 6,
+  "5256": 7,
+  "5889": 8,
+  "6057": 9,
+  "6444": 10
+ }
+}

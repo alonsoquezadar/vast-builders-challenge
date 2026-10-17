@@ -1,0 +1,136 @@
+{
+ "schema": "firetrace-assimilation-preregistration-v1",
+ "configSha256": "4ee3c516c2353a58567218d69dc07da05249966514588e7728934bca7dce9794",
+ "config": {
+  "version": "firetrace-assimilation-config-v1",
+  "day": "2025-08-27",
+  "clock": {
+   "hypothesis": "assumed-PDT",
+   "clockSigmaMin": 5.0,
+   "sensitivityMin": [
+    2,
+    5,
+    10
+   ]
+  },
+  "t0": {
+   "primary": "2025-08-27T10:00:00-07:00",
+   "sensitivity": [
+    "2025-08-27T04:00:00-07:00"
+   ],
+   "why": "No FIRMS pass exists between 03:36 and 11:17 PDT on 27/08, so support observed <= t0 is identical for any t0 in that gap; 10:00 precedes the first camera frame (printed 10:30) and keeps the uniform-rate integration short."
+  },
+  "initialization": {
+   "primary": "observed-support-le-t0",
+   "alternatives": [
+    "arrival-reconstructed-with-interpolated-le-t0"
+   ]
+  },
+  "model": {
+   "baseSpreadMMin": 4.0,
+   "fuelFactor": 1.0,
+   "baseSource": "simulation.html default (4 m/min); not fitted to any fire",
+   "coefficientsFrom": "simulation.py (KW, KS, S_MIN, S_MAX) imported read-only",
+   "sectors": 12,
+   "windTimeInterpolation": "nearest hourly Open-Meteo value (single reanalysis point)"
+  },
+  "prior": {
+   "windBiasDegSd": 20.0,
+   "windBiasDegClip": 50.0,
+   "lnSpeedMultSd": 0.3,
+   "lnSectorMultSd": 0.5,
+   "lnSectorClip": 1.2,
+   "note": "dispersion of the uncertain inputs, not knowledge: unvalidated, no fuel map, no tuning"
+  },
+  "ensemble": {
+   "members": 300,
+   "seed": 20250827,
+   "composite": "resample identified parameters by posterior weight, redraw the others from the prior"
+  },
+  "observationModel": {
+   "activeWindowMin": 90,
+   "headFraction": 0.7,
+   "headFractionSensitivity": [
+    0.5,
+    0.85
+   ],
+   "outlierFloor": 0.05,
+   "pixelSigmaX": 0.02,
+   "calibrationSigmaFromEnvelope": 0.5,
+   "sigmaFloorDeg": 1.0,
+   "sigmaGateDeg": 12.0,
+   "printedPriorSigmaDeg": 3.0,
+   "printedPriorSensitivityDeg": [
+    1.0,
+    3.0,
+    5.0,
+    10.0
+   ],
+   "wedgeSigmaFactor": 2.0,
+   "wedgeMinSigmaDeg": 3.0,
+   "halfCellM": 100.0,
+   "poseTempering": "likelihood of each pose within a cycle raised to 1/n_frames (frames of one pose are correlated)",
+   "headDefinition": "model-spread cells with arrival in [T-clock-activeWindow, T+clock] and local rate >= headFraction*max rate"
+  },
+  "cycles": {
+   "clusterGapMin": 10.0,
+   "maxObservationAgeMin": 0.0,
+   "nominalLeadsMin": [
+    30,
+    60
+   ],
+   "leadToleranceMin": 20.0,
+   "forecastLeadsMin": [
+    30,
+    60
+   ]
+  },
+  "identifiability": {
+   "permutations": 400,
+   "alpha": 0.01,
+   "minEffectSd": 0.25,
+   "minEssFraction": 0.1,
+   "minKlNats": 0.05
+  },
+  "validation": {
+   "activeBandMin": 60,
+   "tolM": {
+    "VIIRS": 500.0,
+    "MODIS": 1000.0
+   },
+   "tolSensitivityFactor": [
+    0.6,
+    1.0,
+    2.0
+   ],
+   "primaryMetric": "medianNearestActiveBandM (lower is better)",
+   "verdictDeltaM": 100.0,
+   "validationPasses": "printed-X model: every FIRMS pass after t0 (none fitted); fitted contrast: B held-out passes only. Passes at or before t0 are initialization data and are never scored. A pass is verified by a cycle only if issue < pass time.",
+   "maxEvalLeadFromT0Min": 390,
+   "maxEvalLeadFromLastObsMin": 90,
+   "defaultHeldOutPassIds": [
+    "SNPP@2025-08-27T20:16:00Z",
+    "NOAA20@2025-08-27T20:38:00Z",
+    "SNPP@2025-08-27T21:57:00Z",
+    "MODIS@2025-08-27T23:00:00Z"
+   ],
+   "defaultFitPassIds": [
+    "NOAA21@2025-08-27T19:49:00Z",
+    "NOAA21@2025-08-27T21:29:00Z"
+   ],
+   "defaultExtraCheckPassIds": [
+    "MODIS@2025-08-27T18:17:00Z"
+   ]
+  }
+ },
+ "rules": [
+  "Camera rows enter a forecast cycle only if their timestamp is at or before the cycle issue time; the verified pass must be strictly after the issue time.",
+  "FIRMS detections are never assimilated. Passes at or before t0 are initialization data and are never scored. A pass consumed by a calibration fit is never scored.",
+  "Printed-X model (no FIRMS fitted): every FIRMS pass after t0 is validation-eligible. Fitted contrast model: only B held-out passes.",
+  "No parameter, width, threshold or gate is chosen by looking at any validation score. Sensitivities are reported, not selected from.",
+  "Baseline = same model, same initialization, neutral parameters, no camera. It is always retained and always scored at the same pass time.",
+  "Verdict on the primary metric only (median nearest active-band distance, tolerance verdictDeltaM); worse results are reported as worse."
+ ],
+ "status": "frozen in code before any camera observation (vision/observations.json) existed and before any real validation score was computed",
+ "limitation": "A hash in a file is not an external timestamp: commit this file before running the real data to make the order auditable."
+}

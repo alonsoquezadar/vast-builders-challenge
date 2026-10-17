@@ -1,0 +1,10 @@
+{
+  "imagePath": "evidence/garnet/delilah-134.jpg",
+  "imageSha256": "a66a134ab4f53031f90cb58aa88400a9cb78be15813d6cae96e9bdd486ceb9d8",
+  "sourceVideoSecond": 134,
+  "cameraId": "delilah",
+  "poseId": "G2",
+  "printedTime": "2025-08-27T20:16:58.11",
+  "printedTimeStatus": "verified-by-agent",
+  "reviewStatus": "pending-operator-review"
+}

@@ -1,0 +1,17 @@
+{
+ "task": "smoke-base-v1",
+ "observation": {
+  "smoke": true,
+  "base_visible": false,
+  "x_base": null,
+  "y_base": null,
+  "confidence": 0.0,
+  "reason": "smoke plume obscures ground contact"
+ },
+ "content": "{\"smoke\":true,\"base_visible\":false,\"x_base\":null,\"y_base\":null,\"confidence\":0.0,\"reason\":\"smoke plume obscures ground contact\"}",
+ "model": "nvidia/cosmos3-nano-reasoner",
+ "analyzedAt": "2026-10-17T14:32:31.428404+00:00",
+ "geolocation": "unresolved",
+ "status": "requires-review",
+ "imageSha256": "e1da9d1456401a08d86f63421c3d8592574365b9fbf188d7b50270d1f76d80ba"
+}

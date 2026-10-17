@@ -1,0 +1,17 @@
+{
+  "task": "smoke-base-v1",
+  "observation": {
+    "smoke": true,
+    "base_visible": false,
+    "x_base": null,
+    "y_base": null,
+    "confidence": 0.9,
+    "reason": "The image shows a large, dense plume of smoke rising from a distant area, but the specific point where the smoke contacts the ground is obscured by the plume itself and the terrain features. The base of the fire is not clearly distinguishable from the surrounding smoke and landscape."
+  },
+  "content": "```json\n{\n  \"smoke\": true,\n  \"base_visible\": false,\n  \"x_base\": null,\n  \"y_base\": null,\n  \"confidence\": 0.9,\n  \"reason\": \"The image shows a large, dense plume of smoke rising from a distant area, but the specific point where the smoke contacts the ground is obscured by the plume itself and the terrain features. The base of the fire is not clearly distinguishable from the surrounding smoke and landscape.\"\n}\n```",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T14:35:04.497476+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "a66a134ab4f53031f90cb58aa88400a9cb78be15813d6cae96e9bdd486ceb9d8"
+}
