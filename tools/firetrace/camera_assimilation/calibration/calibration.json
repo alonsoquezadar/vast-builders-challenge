@@ -1,0 +1,684 @@
+{
+  "assumptions": [
+    "Clock: printed time is read as PDT (UTC = print + 7 h). This is a hypothesis; PST and UTC are shown for sensitivity only and the error minimum is never used to choose a clock.",
+    "Camera positions are candidates (tower coordinates from public lookout sources), not surveyed; CAL FIRE incident point is not used anywhere.",
+    "Horizontal FOV = 65.1 deg at zoom 1 (catalog value, unverified) scaled by focal length for zoom 1.2/1.4 (printed Z read as zoom: unverified). FOV is never fitted.",
+    "Pinhole model, zero roll, tilt neglected (bound in uncertainty.neglectedTiltBoundDeg); lens distortion ignored.",
+    "yaw0Deg = true azimuth of the image centre. Printed pan X is never an input of the fit; it is compared afterwards as an external check (externalCheck). Poses are never transferred (G1 is not G2).",
+    "FIRMS time is the overpass time; the per-pixel scan time inside a granule can differ by minutes.",
+    "FIRMS detections of a pass are several pixels in several groups: the pass centroid is not an observed smoke base. Centroid residual and nearest-group distance are reported separately.",
+    "Cross-track metres = satellite range x sin(angular error): compatibility with an independent satellite direction, not 2D fire localization and not absolute geographic error.",
+    "Temporal holdout (other overpasses of the same fire) is not independent physical truth: the fire front moves, and the detections may not include the visible base.",
+    "One-degree-of-freedom experiment with a prior; it is not equivalent to calibration.py with verified pixel-to-world pairs."
+  ],
+  "currentFrameCheck": {
+    "file": "camera_assimilation/clock-check/comparison.json",
+    "historicalClockVerified": false,
+    "historicalPoseVerified": false,
+    "limitations": [
+      "One pose per camera cannot validate a motion/zoom transfer function.",
+      "A current clock match does not prove historical camera configuration.",
+      "Public catalog azimuth is an external consistency check, not a surveyed ground-truth calibration."
+    ],
+    "results": [
+      {
+        "azimuthResidualDeg": 0.28,
+        "cameraId": "Axis-DelilahLookout2",
+        "catalogAzimuthDeg": 308.2900085449219,
+        "printedXWrappedDeg": 308.01,
+        "reviewStatus": "agent-read-not-operator-reviewed"
+      },
+      {
+        "azimuthResidualDeg": -0.16,
+        "cameraId": "Axis-BuckRock1",
+        "catalogAzimuthDeg": 301.5799865722656,
+        "printedXWrappedDeg": 301.74,
+        "reviewStatus": "agent-read-not-operator-reviewed"
+      }
+    ],
+    "scope": "current frames on 2026-10-17 only",
+    "sha256": "e8996339fb169c3c3e5df29332a4a343726e2ee46657154928e408268ba913f1"
+  },
+  "description": "Experimental one-DOF horizontal camera calibration (yaw0 per camera/pose); not a verified calibration.",
+  "excluded": [],
+  "fovPrior": {
+    "scaling": "focal length / zoom",
+    "status": "unverified catalog value",
+    "zoom1Deg": 65.1
+  },
+  "frozenSplit": {
+    "gapLimitSeconds": 300,
+    "passes": {
+      "MODIS@2025-08-27T18:17:00Z": {
+        "epoch": 1756318620,
+        "source": "MODIS_SP"
+      },
+      "MODIS@2025-08-27T23:00:00Z": {
+        "epoch": 1756335600,
+        "source": "MODIS_SP"
+      },
+      "NOAA20@2025-08-27T20:38:00Z": {
+        "epoch": 1756327080,
+        "source": "VIIRS_NOAA20_SP"
+      },
+      "NOAA21@2025-08-27T19:49:00Z": {
+        "epoch": 1756324140,
+        "source": "VIIRS_NOAA21_NRT"
+      },
+      "NOAA21@2025-08-27T21:29:00Z": {
+        "epoch": 1756330140,
+        "source": "VIIRS_NOAA21_NRT"
+      },
+      "SNPP@2025-08-27T20:16:00Z": {
+        "epoch": 1756325760,
+        "source": "VIIRS_SNPP_SP"
+      },
+      "SNPP@2025-08-27T21:57:00Z": {
+        "epoch": 1756331820,
+        "source": "VIIRS_SNPP_SP"
+      }
+    },
+    "poses": {
+      "G1": {
+        "extraCheck": [
+          "MODIS@2025-08-27T18:17:00Z"
+        ],
+        "fit": [
+          "NOAA21@2025-08-27T19:49:00Z"
+        ],
+        "heldOut": [
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "G2": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "G3": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "G3b": {
+        "extraCheck": [
+          "MODIS@2025-08-27T18:17:00Z"
+        ],
+        "fit": [
+          "NOAA21@2025-08-27T19:49:00Z"
+        ],
+        "heldOut": [
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "G4": {
+        "extraCheck": [],
+        "fit": [
+          "NOAA21@2025-08-27T21:29:00Z"
+        ],
+        "heldOut": [
+          "SNPP@2025-08-27T21:57:00Z",
+          "MODIS@2025-08-27T23:00:00Z"
+        ]
+      }
+    },
+    "rule": "Split by whole source/time pass, registered in code before any observation was read; roles are never reassigned from results. PDT assumed.",
+    "sha256": "c08b34094debb8b43111a69c673723c0325b9ce3ed9e452bb1c0cfe51cc5769f"
+  },
+  "inputs": {
+    "observations": {
+      "path": "tools/firetrace/camera_assimilation/vision/observations.json",
+      "present": false
+    }
+  },
+  "limitations": [
+    "Not an operational or absolute geolocation product; errors are angular / cross-track at FIRMS range.",
+    "PDT is not verified; clock sensitivity does not prove any clock.",
+    "G2 and G3 have no FIRMS pass in their windows: null parameters by design.",
+    "vision/observations.json not available when this file was generated: every pose is uncalibrated."
+  ],
+  "poses": [
+    {
+      "cameraId": "delilah",
+      "errors": null,
+      "excluded": [],
+      "extraCheckIds": [],
+      "flags": [
+        "no-fit"
+      ],
+      "fovDeg": 56.01834703092465,
+      "frozenSplit": {
+        "extraCheck": [
+          "MODIS@2025-08-27T18:17:00Z"
+        ],
+        "fit": [
+          "NOAA21@2025-08-27T19:49:00Z"
+        ],
+        "heldOut": [
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "heldOutIds": [],
+      "matched": [],
+      "method": null,
+      "poseId": "G1",
+      "reason": "observations file missing (pending-observations)",
+      "status": "no-calibration",
+      "trainingIds": [],
+      "uncertainty": null,
+      "yaw0Deg": null,
+      "zoom": 1.2
+    },
+    {
+      "cameraId": "delilah",
+      "errors": null,
+      "excluded": [],
+      "extraCheckIds": [],
+      "flags": [
+        "no-fit"
+      ],
+      "fovDeg": 65.1,
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "heldOutIds": [],
+      "matched": [],
+      "method": null,
+      "poseId": "G2",
+      "reason": "no FIRMS pass inside this pose window under the PDT hypothesis; poses are not transferred (printed pan X is not a validated azimuth)",
+      "status": "no-calibration",
+      "trainingIds": [],
+      "uncertainty": null,
+      "yaw0Deg": null,
+      "zoom": 1.0
+    },
+    {
+      "cameraId": "buckrock",
+      "errors": null,
+      "excluded": [],
+      "extraCheckIds": [],
+      "flags": [
+        "no-fit"
+      ],
+      "fovDeg": 65.1,
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "heldOutIds": [],
+      "matched": [],
+      "method": null,
+      "poseId": "G3",
+      "reason": "no FIRMS pass inside this pose window under the PDT hypothesis; poses are not transferred (printed pan X is not a validated azimuth)",
+      "status": "no-calibration",
+      "trainingIds": [],
+      "uncertainty": null,
+      "yaw0Deg": null,
+      "zoom": 1.0
+    },
+    {
+      "cameraId": "buckrock",
+      "errors": null,
+      "excluded": [],
+      "extraCheckIds": [],
+      "flags": [
+        "no-fit"
+      ],
+      "fovDeg": 65.1,
+      "frozenSplit": {
+        "extraCheck": [
+          "MODIS@2025-08-27T18:17:00Z"
+        ],
+        "fit": [
+          "NOAA21@2025-08-27T19:49:00Z"
+        ],
+        "heldOut": [
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "heldOutIds": [],
+      "matched": [],
+      "method": null,
+      "poseId": "G3b",
+      "reason": "observations file missing (pending-observations)",
+      "status": "no-calibration",
+      "trainingIds": [],
+      "uncertainty": null,
+      "yaw0Deg": null,
+      "zoom": 1.0
+    },
+    {
+      "cameraId": "buckrock",
+      "errors": null,
+      "excluded": [],
+      "extraCheckIds": [],
+      "flags": [
+        "no-fit"
+      ],
+      "fovDeg": 49.019045323641464,
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [
+          "NOAA21@2025-08-27T21:29:00Z"
+        ],
+        "heldOut": [
+          "SNPP@2025-08-27T21:57:00Z",
+          "MODIS@2025-08-27T23:00:00Z"
+        ]
+      },
+      "heldOutIds": [],
+      "matched": [],
+      "method": null,
+      "poseId": "G4",
+      "reason": "observations file missing (pending-observations)",
+      "status": "no-calibration",
+      "trainingIds": [],
+      "uncertainty": null,
+      "yaw0Deg": null,
+      "zoom": 1.4
+    }
+  ],
+  "positions": {
+    "buckrock": {
+      "assumption": "The camera is on the Buck Rock lookout summit. Supported by: the database coordinate and an independent DEM summit search agreeing within ~25 m, and the elevation match. No source states camera mounting.",
+      "coordinates": [
+        -118.86067,
+        36.73727,
+        2578
+      ],
+      "file": "calibration/garnet-references-sonnet-r2.json",
+      "sha256": "09f81d019d522771873542f3c308a6e5c3fdb577f403554e81904601ffd96b20",
+      "shiftFromManifest": {
+        "bearingDeg": 191.1,
+        "meters": 309
+      },
+      "status": "candidate"
+    },
+    "delilah": {
+      "assumption": "The camera 'Delilah Lookout 2' is mounted on, or at the summit of, the Delilah fire lookout. Not stated by any source consulted; supported only by the elevation match (printed 5151 ft = 1570 m vs 3DEP 1572.1 m at the lookout point) and by the name.",
+      "coordinates": [
+        -119.1175,
+        36.80417,
+        1570
+      ],
+      "file": "calibration/garnet-references-sonnet-r2.json",
+      "sha256": "09f81d019d522771873542f3c308a6e5c3fdb577f403554e81904601ffd96b20",
+      "shiftFromManifest": {
+        "bearingDeg": 25.6,
+        "meters": 514
+      },
+      "status": "candidate"
+    }
+  },
+  "satelliteTargets": [
+    {
+      "cameraId": "delilah",
+      "centroidBearingDeg": 18.30895212964216,
+      "centroidRangeM": 13224.016903573733,
+      "fovDeg": 56.01834703092465,
+      "groupsBearingDeg": [
+        [
+          9.117094205640937,
+          15.460372243550733
+        ],
+        [
+          16.73719189372043,
+          18.31849870645174
+        ],
+        [
+          19.343687748377818,
+          25.481977364119896
+        ]
+      ],
+      "nDetections": 12,
+      "nGroups": 3,
+      "passId": "NOAA21@2025-08-27T19:49:00Z",
+      "poseId": "G1",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.36854321027943826,
+        "ifYaw0EqualsPrintedXDeg": 26.27,
+        "sectorHiX": 0.4870708088165761,
+        "sectorLoX": 0.2098678062567247
+      },
+      "role": "fit",
+      "sectorBearingDeg": [
+        9.117094205640937,
+        25.481977364119896
+      ],
+      "sectorWidthDeg": 16.36488315847896,
+      "source": "VIIRS_NOAA21_NRT"
+    },
+    {
+      "cameraId": "delilah",
+      "centroidBearingDeg": 21.355097461566565,
+      "centroidRangeM": 13359.26476962003,
+      "fovDeg": 56.01834703092465,
+      "groupsBearingDeg": [
+        [
+          17.543242467962923,
+          23.36415790633533
+        ],
+        [
+          23.753167968629903,
+          25.611086182022525
+        ]
+      ],
+      "nDetections": 8,
+      "nGroups": 2,
+      "passId": "SNPP@2025-08-27T20:16:00Z",
+      "poseId": "G1",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.4191672669665003,
+        "ifYaw0EqualsPrintedXDeg": 26.27,
+        "sectorHiX": 0.48918931928031023,
+        "sectorLoX": 0.3557104699276561
+      },
+      "role": "heldOut",
+      "sectorBearingDeg": [
+        17.543242467962923,
+        25.611086182022525
+      ],
+      "sectorWidthDeg": 8.067843714059604,
+      "source": "VIIRS_SNPP_SP"
+    },
+    {
+      "cameraId": "delilah",
+      "centroidBearingDeg": 23.90553086827677,
+      "centroidRangeM": 11792.189467172877,
+      "fovDeg": 56.01834703092465,
+      "groupsBearingDeg": [
+        [
+          22.994584391682878,
+          24.816477344870663
+        ]
+      ],
+      "nDetections": 1,
+      "nGroups": 1,
+      "passId": "NOAA20@2025-08-27T20:38:00Z",
+      "poseId": "G1",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.46118625351420156,
+        "ifYaw0EqualsPrintedXDeg": 26.27,
+        "sectorHiX": 0.47614824906913855,
+        "sectorLoX": 0.4462045986062538
+      },
+      "role": "heldOut",
+      "sectorBearingDeg": [
+        22.994584391682878,
+        24.816477344870663
+      ],
+      "sectorWidthDeg": 1.8218929531877837,
+      "source": "VIIRS_NOAA20_SP"
+    },
+    {
+      "cameraId": "delilah",
+      "centroidBearingDeg": 21.69490765247601,
+      "centroidRangeM": 13683.720005114728,
+      "fovDeg": 56.01834703092465,
+      "groupsBearingDeg": [
+        [
+          17.873477145975443,
+          21.830096473491906
+        ],
+        [
+          21.543745165279972,
+          25.980272148705964
+        ]
+      ],
+      "nDetections": 2,
+      "nGroups": 2,
+      "passId": "MODIS@2025-08-27T18:17:00Z",
+      "poseId": "G1",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.4247806539216124,
+        "ifYaw0EqualsPrintedXDeg": 26.27,
+        "sectorHiX": 0.4952466562029453,
+        "sectorLoX": 0.3612511476964887
+      },
+      "role": "extraCheck",
+      "sectorBearingDeg": [
+        17.873477145975443,
+        25.980272148705964
+      ],
+      "sectorWidthDeg": 8.106795002730522,
+      "source": "MODIS_SP"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 316.97574475444316,
+      "centroidRangeM": 27375.158064685522,
+      "fovDeg": 65.1,
+      "groupsBearingDeg": [
+        [
+          313.0297926354522,
+          315.3320389600115
+        ],
+        [
+          316.64235170998256,
+          319.16958646074795
+        ],
+        [
+          320.44617769367056,
+          321.79292240524165
+        ]
+      ],
+      "nDetections": 12,
+      "nGroups": 3,
+      "passId": "NOAA21@2025-08-27T19:49:00Z",
+      "poseId": "G3b",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.4475006365215774,
+        "ifYaw0EqualsPrintedXDeg": -39.19,
+        "sectorHiX": 0.5134395855369069,
+        "sectorLoX": 0.39297233092219325
+      },
+      "role": "fit",
+      "sectorBearingDeg": [
+        313.0297926354522,
+        321.79292240524165
+      ],
+      "sectorWidthDeg": 8.763129769789435,
+      "source": "VIIRS_NOAA21_NRT"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 317.91853082537267,
+      "centroidRangeM": 26810.52982214978,
+      "fovDeg": 65.1,
+      "groupsBearingDeg": [
+        [
+          314.5265801006349,
+          321.18563782256183
+        ]
+      ],
+      "nDetections": 8,
+      "nGroups": 1,
+      "passId": "SNPP@2025-08-27T20:16:00Z",
+      "poseId": "G3b",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.46043496957474633,
+        "ifYaw0EqualsPrintedXDeg": -39.19,
+        "sectorHiX": 0.5051356990980891,
+        "sectorLoX": 0.41374861773428984
+      },
+      "role": "heldOut",
+      "sectorBearingDeg": [
+        314.5265801006349,
+        321.18563782256183
+      ],
+      "sectorWidthDeg": 6.659057721926974,
+      "source": "VIIRS_SNPP_SP"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 315.2820182775081,
+      "centroidRangeM": 25665.51838355931,
+      "fovDeg": 65.1,
+      "groupsBearingDeg": [
+        [
+          314.8634501666004,
+          315.7005863884158
+        ]
+      ],
+      "nDetections": 1,
+      "nGroups": 1,
+      "passId": "NOAA20@2025-08-27T20:38:00Z",
+      "poseId": "G3b",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.42418744461124425,
+        "ifYaw0EqualsPrintedXDeg": -39.19,
+        "sectorHiX": 0.42995962554191125,
+        "sectorLoX": 0.4184070955474768
+      },
+      "role": "heldOut",
+      "sectorBearingDeg": [
+        314.8634501666004,
+        315.7005863884158
+      ],
+      "sectorWidthDeg": 0.8371362218154031,
+      "source": "VIIRS_NOAA20_SP"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 318.6143407053479,
+      "centroidRangeM": 26884.031902022605,
+      "fovDeg": 65.1,
+      "groupsBearingDeg": [
+        [
+          316.44202708065734,
+          318.6353312811808
+        ],
+        [
+          318.5945472547293,
+          320.6659665029984
+        ]
+      ],
+      "nDetections": 2,
+      "nGroups": 2,
+      "passId": "MODIS@2025-08-27T18:17:00Z",
+      "poseId": "G3b",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.4699667971557892,
+        "ifYaw0EqualsPrintedXDeg": -39.19,
+        "sectorHiX": 0.4980308062285144,
+        "sectorLoX": 0.44016621654280275
+      },
+      "role": "extraCheck",
+      "sectorBearingDeg": [
+        316.44202708065734,
+        320.6659665029984
+      ],
+      "sectorWidthDeg": 4.223939422341024,
+      "source": "MODIS_SP"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 319.27441183549,
+      "centroidRangeM": 26560.850541578493,
+      "fovDeg": 49.019045323641464,
+      "groupsBearingDeg": [
+        [
+          312.20558201861223,
+          328.6979127498637
+        ]
+      ],
+      "nDetections": 72,
+      "nGroups": 1,
+      "passId": "NOAA21@2025-08-27T21:29:00Z",
+      "poseId": "G4",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.2144298639191745,
+        "ifYaw0EqualsPrintedXDeg": -26.13,
+        "sectorHiX": 0.40073416507566406,
+        "sectorLoX": 0.0643719851796708
+      },
+      "role": "fit",
+      "sectorBearingDeg": [
+        312.20558201861223,
+        328.6979127498637
+      ],
+      "sectorWidthDeg": 16.49233073125143,
+      "source": "VIIRS_NOAA21_NRT"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 322.69413608942205,
+      "centroidRangeM": 26190.818488622233,
+      "fovDeg": 49.019045323641464,
+      "groupsBearingDeg": [
+        [
+          314.06605720293896,
+          331.86559911581287
+        ]
+      ],
+      "nDetections": 55,
+      "nGroups": 1,
+      "passId": "SNPP@2025-08-27T21:57:00Z",
+      "poseId": "G4",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.2833341711663132,
+        "ifYaw0EqualsPrintedXDeg": -26.13,
+        "sectorHiX": 0.4616192131405683,
+        "sectorLoX": 0.10509040165380112
+      },
+      "role": "heldOut",
+      "sectorBearingDeg": [
+        314.06605720293896,
+        331.86559911581287
+      ],
+      "sectorWidthDeg": 17.79954191287389,
+      "source": "VIIRS_SNPP_SP"
+    },
+    {
+      "cameraId": "buckrock",
+      "centroidBearingDeg": 314.2594389402469,
+      "centroidRangeM": 26339.500666957138,
+      "fovDeg": 49.019045323641464,
+      "groupsBearingDeg": [
+        [
+          303.2458012027023,
+          305.6382005631291
+        ],
+        [
+          311.80744542627167,
+          315.8669870831134
+        ],
+        [
+          315.98389037509,
+          319.62679295260114
+        ],
+        [
+          322.1567851119193,
+          324.39803893437596
+        ]
+      ],
+      "nDetections": 10,
+      "nGroups": 4,
+      "passId": "MODIS@2025-08-27T23:00:00Z",
+      "poseId": "G4",
+      "predictionIfPrintedXIsAzimuth": {
+        "centroidX": 0.109266723833577,
+        "ifYaw0EqualsPrintedXDeg": -26.13,
+        "sectorHiX": 0.31703257552062997,
+        "sectorLoX": -0.14919227454735107
+      },
+      "role": "heldOut",
+      "sectorBearingDeg": [
+        303.2458012027023,
+        324.39803893437596
+      ],
+      "sectorWidthDeg": 21.1522377316737,
+      "source": "MODIS_SP"
+    }
+  ],
+  "schema": "firetrace-camera-calibration-v1",
+  "status": "no-calibration",
+  "statusDetail": "pending-observations"
+}

@@ -40,9 +40,13 @@ def checked_observations(root=None):
 def load_camera_bundle(root=None):
     root=Path(root) if root else ROOT
     experiment=root/'camera_assimilation'
+    vision=checked_observations(root)
+    calibration=_document(experiment/'calibration/calibration.json')
+    inputs=calibration.get('inputs',{}).get('observations',{})
+    current=bool(vision.get('artifactSha256') and inputs.get('sha256')==vision['artifactSha256'] and not vision['integrityIssues'])
     return {'schema':'firetrace-camera-fusion-v1','mode':'retrospective-experiment','operationallyValidated':False,
-            'clockStatus':'assumed-PDT-not-verified','vision':checked_observations(root),
-            'calibration':_document(experiment/'calibration/calibration.json'),
+            'clockStatus':'assumed-PDT-not-verified','vision':vision,
+            'calibrationArtifactCurrent':current, 'calibration':calibration,
             'assimilation':_document(experiment/'assimilation/scenario.json'),
             'limitations':['Reloj y posiciones de torre aún no verificados.',
                            'La inicialización reconstruida incorpora conocimiento posterior del incendio.',

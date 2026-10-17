@@ -6,7 +6,8 @@ const state={fusion:null,layers:{},weather:[],summary:null,ready:false,layerCont
 const map=new maplibregl.Map({container:'map',center:[-119.035,36.87],zoom:10.8,pitch:55,bearing:-20,style:{version:8,sources:{imagery:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Imagery © Esri & contributors'},terrain:{type:'raster-dem',tiles:['https://elevation-tiles-prod.s3.amazonaws.com/terrarium/{z}/{x}/{y}.png'],tileSize:256,encoding:'terrarium',maxzoom:15,attribution:'Elevation: AWS Terrain Tiles'}},layers:[{id:'imagery',type:'raster',source:'imagery'}]}});
 map.addControl(new maplibregl.NavigationControl());map.addControl(new maplibregl.ScaleControl());
 map.on('load',()=>{state.ready=true;map.setTerrain({source:'terrain',exaggeration:1});state.layerControl=createMapLayers(map);
- for(const id of ['rays','baseline','corrected'])map.addSource('fusion-'+id,{type:'geojson',data:empty()});
+ for(const id of ['rays','cones','baseline','corrected'])map.addSource('fusion-'+id,{type:'geojson',data:empty()});
+ map.addLayer({id:'fusion-cones',type:'fill',source:'fusion-cones',paint:{'fill-color':'#faf0ae','fill-opacity':.10}});
  map.addLayer({id:'fusion-rays',type:'line',source:'fusion-rays',paint:{'line-color':'#faf0ae','line-width':2,'line-dasharray':[3,2]}});
  for(const [id,color] of [['baseline','#4aaf9b'],['corrected','#d25a9e']])map.addLayer({id:'fusion-'+id,type:'fill',source:'fusion-'+id,paint:{'fill-color':color,'fill-opacity':.35,'fill-outline-color':color}});
  for(const [id,coordinates] of Object.entries(positions))new maplibregl.Marker({color:'#7773a5'}).setLngLat(coordinates).setPopup(new maplibregl.Popup().setText(names[id]+' · posición candidata, montaje y datum pendientes de verificar')).addTo(map);
@@ -32,32 +33,40 @@ function card(camera){const article=node('article',undefined,'camera'),row=selec
 function endpoint(origin,bearing,metres){const angle=metres/6371000,br=bearing*Math.PI/180,lat=origin[1]*Math.PI/180,lon=origin[0]*Math.PI/180;
  const y=Math.asin(Math.sin(lat)*Math.cos(angle)+Math.cos(lat)*Math.sin(angle)*Math.cos(br));
  const x=lon+Math.atan2(Math.sin(br)*Math.sin(angle)*Math.cos(lat),Math.cos(angle)-Math.sin(lat)*Math.sin(y));return[x*180/Math.PI,y*180/Math.PI];}
-function visualRays(){if(!$('assume-pdt').checked||!$('rays').checked)return empty();const poses=state.fusion?.calibration?.poses||[];const features=[];
- for(const camera of Object.keys(positions)){const row=selected(camera);if(!row?.base_visible||!Number.isFinite(row.x_base)||row.printedTimeStatus==='uncertain')continue;
- const pose=poses.find(p=>p.poseId===row.poseId&&p.cameraId===camera);
+function visualRays(){if(!$('assume-pdt').checked||!$('rays').checked||!state.fusion?.calibrationArtifactCurrent)return empty();const poses=state.fusion?.calibration?.poses||[];const features=[];
+ for(const camera of Object.keys(positions)){const row=selected(camera);if(row?.base_visible!==true||!Number.isFinite(row.x_base)||row.x_base<0||row.x_base>1||row.printedTimeStatus!=='verified-by-agent'||row.clockStatus!=='assumed-PDT')continue;
+ const pose=poses.find(p=>p.poseId===row.poseId&&p.cameraId===camera&&p.method===row.method&&p.status==='experimental');
  if(!pose||!Number.isFinite(pose.yaw0Deg)||!Number.isFinite(pose.fovDeg))continue;
  const bearing=pose.yaw0Deg+Math.atan((row.x_base-.5)*2*Math.tan(pose.fovDeg*Math.PI/360))*180/Math.PI;
- features.push({type:'Feature',geometry:{type:'LineString',coordinates:[positions[camera],endpoint(positions[camera],bearing,30000)]},properties:{cameraId:camera,observationId:row.id,dataClass:'experimental-camera-bearing',bearingDeg:bearing,displayLengthM:30000,note:'Longitud de dibujo; no es una distancia estimada al fuego.'}});
+ features.push({type:'Feature',geometry:{type:'LineString',coordinates:[positions[camera],endpoint(positions[camera],bearing,30000)]},properties:{cameraId:camera,observationId:row.id,dataClass:'experimental-camera-bearing',bearingDeg:bearing,angularHalfWidthDeg:pose.uncertainty?.suggestedAngularHalfWidthDeg,displayLengthM:30000,note:'Longitud de dibujo; no es una distancia estimada al fuego.'}});
  }return{type:'FeatureCollection',features};}
-function forecastData(kind){const doc=state.fusion?.assimilation;if(!$('forecast').checked||!$('assume-pdt').checked||!doc)return empty();
+function cones(rays){return{type:'FeatureCollection',features:rays.features.filter(f=>Number.isFinite(f.properties.angularHalfWidthDeg)).map(f=>{const origin=f.geometry.coordinates[0],{bearingDeg,angularHalfWidthDeg}=f.properties;const arc=[];for(let i=0;i<=20;i++)arc.push(endpoint(origin,bearingDeg-angularHalfWidthDeg+2*angularHalfWidthDeg*i/20,30000));return{type:'Feature',properties:{...f.properties,dataClass:'experimental-angular-envelope-not-confidence-interval'},geometry:{type:'Polygon',coordinates:[[origin,...arc,origin]]}};})};}
+function forecastData(kind){const doc=state.fusion?.assimilation;if(!$('forecast').checked||!doc||(kind==='corrected'&&(!$('assume-pdt').checked||!state.fusion?.calibrationArtifactCurrent)))return empty();
  const lead=Number($('lead').value),branch=doc[kind];
  const candidates=[...(Array.isArray(branch?.forecasts)?branch.forecasts:[]),...(Array.isArray(doc.forecasts)?doc.forecasts:[])];
  const match=candidates.find(f=>Number(f.leadMin??f.horizonMin)===lead&&(!f.variant||f.variant===kind));
  const geo=match?.geojson||match?.geometry||branch?.geojson;
  return geo?.type==='FeatureCollection'?geo:empty();}
+function calibrationMetrics(pose){const wrapper=node('div');const half=pose.uncertainty?.suggestedAngularHalfWidthDeg;
+ if(Number.isFinite(half))wrapper.append(node('p',`Banda angular experimental ±${half.toFixed(2)}°; no es un intervalo de confianza y excluye los errores reservados.`));
+ const held=pose.errors?.heldOut||[];if(!held.length){wrapper.append(node('p','Sin observaciones utilizables en las pasadas reservadas.'));return wrapper;}
+ const table=node('table'),head=node('tr');for(const label of ['Reserva UTC','Error centroide','Transversal','Dist. grupo'])head.append(node('th',label));table.append(head);
+ const num=(x,d=0)=>Number.isFinite(x)?Number(x).toFixed(d):'—';
+ for(const pass of held){const row=node('tr');for(const text of [pass.passId?.split('@')[1]||pass.passId,`${num(pass.centroid?.absResidualDeg?.mean,2)}°`,`${num(pass.centroid?.crossTrackM?.mean)} m`,`${num(pass.nearestGroup?.crossTrackM?.mean)} m`])row.append(node('td',text));table.append(row);}
+ wrapper.append(table,node('p','Compatibilidad con detecciones satelitales, no precisión absoluta de geolocalización. Los sectores amplios pueden producir distancias a grupo pequeñas sin identificar la misma base.'));return wrapper;}
 function renderEvaluation(){const fusion=state.fusion;if(!fusion)return;
  const cal=fusion.calibration,sim=fusion.assimilation;const visible=rows().filter(o=>o.method==='cosmos'&&o.base_visible).length;
  $('gates').replaceChildren(...[
  `Observaciones: ${rows().filter(o=>o.method==='cosmos').length} · bases visibles declaradas: ${visible} · revisión por operador pendiente.`,
- `Calibración: ${cal.status||'sin estado'}. ${cal.reason||''}`,
+ `Calibración: ${cal.status||'sin estado'}. ${cal.statusDetail||cal.reason||''}${cal.status==='experimental'&&!fusion.calibrationArtifactCurrent?' Artefacto desactualizado o sin integridad: visuales desactivadas.':''}`,
  `Asimilación: ${sim.status||'sin estado'} · observaciones utilizadas: ${sim.cameraUseCount??'sin resultado'}.`,
  $('assume-pdt').checked?'Exploración con reloj PDT supuesto; no sincronizado.':'Las visuales y el escenario con cámaras están desactivados hasta elegir explícitamente la hipótesis de reloj.'
  ].map(t=>node('span',t,'pill')));
  const poses=cal.poses||[];$('calibration').replaceChildren();
  if(!poses.length)$('calibration').append(node('p',cal.reason||'El ajuste todavía no está disponible.'));
- for(const pose of poses){const section=node('div');section.append(node('strong',`${names[pose.cameraId]||pose.cameraId} · ${pose.poseId} · ${pose.status||'experimental'}`));
+ for(const pose of poses){const section=node('div');section.append(node('strong',`${names[pose.cameraId]||pose.cameraId} · ${pose.poseId} · ${pose.method||'sin observaciones'} · ${pose.status==='experimental'?'ajuste experimental':'sin ajuste'}`));
  if(Number.isFinite(pose.yaw0Deg))section.append(node('p',`Rumbo base ${pose.yaw0Deg.toFixed(2)}° · FOV ${Number(pose.fovDeg).toFixed(2)}° (prior sin verificar).`));
- if(pose.reason)section.append(node('p',pose.reason));if(pose.errors)section.append(node('pre',JSON.stringify(pose.errors,null,2)));$('calibration').append(section);}
+ if(pose.reason)section.append(node('p',pose.reason));if(pose.errors)section.append(calibrationMetrics(pose));$('calibration').append(section);}
  $('prediction').replaceChildren(node('p',sim.reason||'Se conserva la referencia sin cámaras; una corrección solo se muestra cuando existe soporte.'));
  if(sim.metrics)$('prediction').append(node('pre',JSON.stringify(sim.metrics,null,2)));
  if(Array.isArray(sim.limitations))for(const limitation of sim.limitations)$('prediction').append(node('p',limitation));
@@ -68,7 +77,7 @@ function render(){ $('clock').textContent=formatUtc(state.cursor);$('time').valu
  $('weather').replaceChildren(...weatherLines(nearestWeatherHour(state.weather,state.cursor),state.weatherPoint).map(t=>node('div',t)));
  if(!state.ready)return;
  state.layerControl.setCursor(state.cursor);for(const name of ['hotspots','arrival','perimeter']){if($(name).checked&&state.layers[name])state.layerControl.show(name,state.layers[name]);else state.layerControl.hide(name);}
- map.getSource('fusion-rays').setData(visualRays());map.getSource('fusion-baseline').setData(forecastData('baseline'));map.getSource('fusion-corrected').setData(forecastData('corrected'));
+ const rays=visualRays();map.getSource('fusion-rays').setData(rays);map.getSource('fusion-cones').setData(cones(rays));map.getSource('fusion-baseline').setData(forecastData('baseline'));map.getSource('fusion-corrected').setData(forecastData('corrected'));
 }
 async function refresh(){ $('refresh').disabled=true;try{state.fusion=await get('/api/camera-fusion');render();}catch(e){$('gates').textContent=e.message;}finally{$('refresh').disabled=false;}}
 $('refresh').onclick=refresh;for(const id of ['assume-pdt','hotspots','arrival','perimeter','rays','forecast','lead'])$(id).addEventListener('change',render);
