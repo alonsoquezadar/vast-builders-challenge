@@ -1,0 +1,918 @@
+{
+  "schema": "firetrace-camera-feasibility-v1",
+  "date": "2025-08-27",
+  "clockStatus": "PDT-hypothesis-not-verified",
+  "positionStatus": "candidate",
+  "poseBoundsSource": "planning/video-selection-shared-r1.md; minute bounds approximate, OCR must check each frame",
+  "inputs": {
+    "overpasses.json": "c0a6b8d258d6da8b7e60ffc1a52e35572fe42045bc2e160f5e375c4c27d9526c",
+    "hotspots.geojson": "b6e37b355ac83a9fe20a60ae794dd6f1d457e7cbf3a69e2c652e828d956c1dd7"
+  },
+  "poses": [
+    {
+      "id": "G1",
+      "cameraId": "delilah",
+      "videoStart": 0,
+      "videoEnd": 39.5,
+      "printedStart": "10:30",
+      "printedEnd": "13:44",
+      "zoom": 1.2
+    },
+    {
+      "id": "G2",
+      "cameraId": "delilah",
+      "videoStart": 82,
+      "videoEnd": 136,
+      "printedStart": "16:11",
+      "printedEnd": "20:16",
+      "zoom": 1.0
+    },
+    {
+      "id": "G3",
+      "cameraId": "buckrock",
+      "videoStart": 137,
+      "videoEnd": 148,
+      "printedStart": "10:32",
+      "printedEnd": "10:41",
+      "zoom": 1.0
+    },
+    {
+      "id": "G3b",
+      "cameraId": "buckrock",
+      "videoStart": 149,
+      "videoEnd": 188,
+      "printedStart": "11:27",
+      "printedEnd": "13:59",
+      "zoom": 1.0
+    },
+    {
+      "id": "G4",
+      "cameraId": "buckrock",
+      "videoStart": 188,
+      "videoEnd": 279.6,
+      "printedStart": "14:08",
+      "printedEnd": "20:54",
+      "zoom": 1.4
+    }
+  ],
+  "hypotheses": {
+    "PDT": [
+      {
+        "poseId": "G1",
+        "cameraId": "delilah",
+        "passes": [
+          {
+            "source": "MODIS_SP",
+            "t": 1756318620,
+            "acquiredUtc": "2025-08-27T18:17:00Z",
+            "acquiredPdt": "2025-08-27T11:17:00-07:00",
+            "detections": 2,
+            "totalFrpMW": 251.1,
+            "centroid": [
+              -119.0606,
+              36.9185
+            ],
+            "printedTimeHypothesis": "2025-08-27T11:17:00-07:00",
+            "centroidBearingDeg": 21.69490765247601,
+            "pointBearingMinDeg": 19.85178680973367,
+            "pointBearingMaxDeg": 23.762008656992958
+          },
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756324140,
+            "acquiredUtc": "2025-08-27T19:49:00Z",
+            "acquiredPdt": "2025-08-27T12:49:00-07:00",
+            "detections": 12,
+            "totalFrpMW": 1160.5,
+            "centroid": [
+              -119.07077,
+              36.91707
+            ],
+            "printedTimeHypothesis": "2025-08-27T12:49:00-07:00",
+            "centroidBearingDeg": 18.309056269186428,
+            "pointBearingMinDeg": 9.974865051209992,
+            "pointBearingMaxDeg": 24.62875151523879
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756325760,
+            "acquiredUtc": "2025-08-27T20:16:00Z",
+            "acquiredPdt": "2025-08-27T13:16:00-07:00",
+            "detections": 8,
+            "totalFrpMW": 1842.6,
+            "centroid": [
+              -119.06278,
+              36.91605
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:16:00-07:00",
+            "centroidBearingDeg": 21.355314858161044,
+            "pointBearingMinDeg": 18.3224922068364,
+            "pointBearingMaxDeg": 24.820769880760462
+          },
+          {
+            "source": "VIIRS_NOAA20_SP",
+            "t": 1756327080,
+            "acquiredUtc": "2025-08-27T20:38:00Z",
+            "acquiredPdt": "2025-08-27T13:38:00-07:00",
+            "detections": 1,
+            "totalFrpMW": 99.6,
+            "centroid": [
+              -119.06376,
+              36.90111
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:38:00-07:00",
+            "centroidBearingDeg": 23.90553086827677,
+            "pointBearingMinDeg": 23.90553086827677,
+            "pointBearingMaxDeg": 23.90553086827677
+          }
+        ],
+        "hasTemporalHoldout": true
+      },
+      {
+        "poseId": "G2",
+        "cameraId": "delilah",
+        "passes": [],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G3",
+        "cameraId": "buckrock",
+        "passes": [],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G3b",
+        "cameraId": "buckrock",
+        "passes": [
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756324140,
+            "acquiredUtc": "2025-08-27T19:49:00Z",
+            "acquiredPdt": "2025-08-27T12:49:00-07:00",
+            "detections": 12,
+            "totalFrpMW": 1160.5,
+            "centroid": [
+              -119.07077,
+              36.91707
+            ],
+            "printedTimeHypothesis": "2025-08-27T12:49:00-07:00",
+            "centroidBearingDeg": 316.976501556254,
+            "pointBearingMinDeg": 313.4221150259722,
+            "pointBearingMaxDeg": 321.40217330734004
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756325760,
+            "acquiredUtc": "2025-08-27T20:16:00Z",
+            "acquiredPdt": "2025-08-27T13:16:00-07:00",
+            "detections": 8,
+            "totalFrpMW": 1842.6,
+            "centroid": [
+              -119.06278,
+              36.91605
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:16:00-07:00",
+            "centroidBearingDeg": 317.9183312870685,
+            "pointBearingMinDeg": 314.9322632002044,
+            "pointBearingMaxDeg": 320.7973913334838
+          },
+          {
+            "source": "VIIRS_NOAA20_SP",
+            "t": 1756327080,
+            "acquiredUtc": "2025-08-27T20:38:00Z",
+            "acquiredPdt": "2025-08-27T13:38:00-07:00",
+            "detections": 1,
+            "totalFrpMW": 99.6,
+            "centroid": [
+              -119.06376,
+              36.90111
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:38:00-07:00",
+            "centroidBearingDeg": 315.2820182775081,
+            "pointBearingMinDeg": 315.2820182775081,
+            "pointBearingMaxDeg": 315.2820182775081
+          }
+        ],
+        "hasTemporalHoldout": true
+      },
+      {
+        "poseId": "G4",
+        "cameraId": "buckrock",
+        "passes": [
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756330140,
+            "acquiredUtc": "2025-08-27T21:29:00Z",
+            "acquiredPdt": "2025-08-27T14:29:00-07:00",
+            "detections": 72,
+            "totalFrpMW": 7068.2,
+            "centroid": [
+              -119.0556,
+              36.91813
+            ],
+            "printedTimeHypothesis": "2025-08-27T14:29:00-07:00",
+            "centroidBearingDeg": 319.2736476358371,
+            "pointBearingMinDeg": 312.5964924273132,
+            "pointBearingMaxDeg": 328.2435331415319
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756331820,
+            "acquiredUtc": "2025-08-27T21:57:00Z",
+            "acquiredPdt": "2025-08-27T14:57:00-07:00",
+            "detections": 55,
+            "totalFrpMW": 6862.9,
+            "centroid": [
+              -119.03924,
+              36.92449
+            ],
+            "printedTimeHypothesis": "2025-08-27T14:57:00-07:00",
+            "centroidBearingDeg": 322.69437186344265,
+            "pointBearingMinDeg": 314.4462184636897,
+            "pointBearingMaxDeg": 331.43877816498707
+          },
+          {
+            "source": "MODIS_SP",
+            "t": 1756335600,
+            "acquiredUtc": "2025-08-27T23:00:00Z",
+            "acquiredPdt": "2025-08-27T16:00:00-07:00",
+            "detections": 10,
+            "totalFrpMW": 17901.1,
+            "centroid": [
+              -119.07282,
+              36.9024
+            ],
+            "printedTimeHypothesis": "2025-08-27T16:00:00-07:00",
+            "centroidBearingDeg": 314.2594389402458,
+            "pointBearingMinDeg": 304.32929084512585,
+            "pointBearingMaxDeg": 323.27741202314763
+          }
+        ],
+        "hasTemporalHoldout": true
+      }
+    ],
+    "PST": [
+      {
+        "poseId": "G1",
+        "cameraId": "delilah",
+        "passes": [
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756324140,
+            "acquiredUtc": "2025-08-27T19:49:00Z",
+            "acquiredPdt": "2025-08-27T12:49:00-07:00",
+            "detections": 12,
+            "totalFrpMW": 1160.5,
+            "centroid": [
+              -119.07077,
+              36.91707
+            ],
+            "printedTimeHypothesis": "2025-08-27T11:49:00-08:00",
+            "centroidBearingDeg": 18.309056269186428,
+            "pointBearingMinDeg": 9.974865051209992,
+            "pointBearingMaxDeg": 24.62875151523879
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756325760,
+            "acquiredUtc": "2025-08-27T20:16:00Z",
+            "acquiredPdt": "2025-08-27T13:16:00-07:00",
+            "detections": 8,
+            "totalFrpMW": 1842.6,
+            "centroid": [
+              -119.06278,
+              36.91605
+            ],
+            "printedTimeHypothesis": "2025-08-27T12:16:00-08:00",
+            "centroidBearingDeg": 21.355314858161044,
+            "pointBearingMinDeg": 18.3224922068364,
+            "pointBearingMaxDeg": 24.820769880760462
+          },
+          {
+            "source": "VIIRS_NOAA20_SP",
+            "t": 1756327080,
+            "acquiredUtc": "2025-08-27T20:38:00Z",
+            "acquiredPdt": "2025-08-27T13:38:00-07:00",
+            "detections": 1,
+            "totalFrpMW": 99.6,
+            "centroid": [
+              -119.06376,
+              36.90111
+            ],
+            "printedTimeHypothesis": "2025-08-27T12:38:00-08:00",
+            "centroidBearingDeg": 23.90553086827677,
+            "pointBearingMinDeg": 23.90553086827677,
+            "pointBearingMaxDeg": 23.90553086827677
+          },
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756330140,
+            "acquiredUtc": "2025-08-27T21:29:00Z",
+            "acquiredPdt": "2025-08-27T14:29:00-07:00",
+            "detections": 72,
+            "totalFrpMW": 7068.2,
+            "centroid": [
+              -119.0556,
+              36.91813
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:29:00-08:00",
+            "centroidBearingDeg": 23.470635715229548,
+            "pointBearingMinDeg": 8.261523136967492,
+            "pointBearingMaxDeg": 39.369234236642654
+          }
+        ],
+        "hasTemporalHoldout": true
+      },
+      {
+        "poseId": "G2",
+        "cameraId": "delilah",
+        "passes": [],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G3",
+        "cameraId": "buckrock",
+        "passes": [],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G3b",
+        "cameraId": "buckrock",
+        "passes": [
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756324140,
+            "acquiredUtc": "2025-08-27T19:49:00Z",
+            "acquiredPdt": "2025-08-27T12:49:00-07:00",
+            "detections": 12,
+            "totalFrpMW": 1160.5,
+            "centroid": [
+              -119.07077,
+              36.91707
+            ],
+            "printedTimeHypothesis": "2025-08-27T11:49:00-08:00",
+            "centroidBearingDeg": 316.976501556254,
+            "pointBearingMinDeg": 313.4221150259722,
+            "pointBearingMaxDeg": 321.40217330734004
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756325760,
+            "acquiredUtc": "2025-08-27T20:16:00Z",
+            "acquiredPdt": "2025-08-27T13:16:00-07:00",
+            "detections": 8,
+            "totalFrpMW": 1842.6,
+            "centroid": [
+              -119.06278,
+              36.91605
+            ],
+            "printedTimeHypothesis": "2025-08-27T12:16:00-08:00",
+            "centroidBearingDeg": 317.9183312870685,
+            "pointBearingMinDeg": 314.9322632002044,
+            "pointBearingMaxDeg": 320.7973913334838
+          },
+          {
+            "source": "VIIRS_NOAA20_SP",
+            "t": 1756327080,
+            "acquiredUtc": "2025-08-27T20:38:00Z",
+            "acquiredPdt": "2025-08-27T13:38:00-07:00",
+            "detections": 1,
+            "totalFrpMW": 99.6,
+            "centroid": [
+              -119.06376,
+              36.90111
+            ],
+            "printedTimeHypothesis": "2025-08-27T12:38:00-08:00",
+            "centroidBearingDeg": 315.2820182775081,
+            "pointBearingMinDeg": 315.2820182775081,
+            "pointBearingMaxDeg": 315.2820182775081
+          },
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756330140,
+            "acquiredUtc": "2025-08-27T21:29:00Z",
+            "acquiredPdt": "2025-08-27T14:29:00-07:00",
+            "detections": 72,
+            "totalFrpMW": 7068.2,
+            "centroid": [
+              -119.0556,
+              36.91813
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:29:00-08:00",
+            "centroidBearingDeg": 319.2736476358371,
+            "pointBearingMinDeg": 312.5964924273132,
+            "pointBearingMaxDeg": 328.2435331415319
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756331820,
+            "acquiredUtc": "2025-08-27T21:57:00Z",
+            "acquiredPdt": "2025-08-27T14:57:00-07:00",
+            "detections": 55,
+            "totalFrpMW": 6862.9,
+            "centroid": [
+              -119.03924,
+              36.92449
+            ],
+            "printedTimeHypothesis": "2025-08-27T13:57:00-08:00",
+            "centroidBearingDeg": 322.69437186344265,
+            "pointBearingMinDeg": 314.4462184636897,
+            "pointBearingMaxDeg": 331.43877816498707
+          }
+        ],
+        "hasTemporalHoldout": true
+      },
+      {
+        "poseId": "G4",
+        "cameraId": "buckrock",
+        "passes": [
+          {
+            "source": "MODIS_SP",
+            "t": 1756335600,
+            "acquiredUtc": "2025-08-27T23:00:00Z",
+            "acquiredPdt": "2025-08-27T16:00:00-07:00",
+            "detections": 10,
+            "totalFrpMW": 17901.1,
+            "centroid": [
+              -119.07282,
+              36.9024
+            ],
+            "printedTimeHypothesis": "2025-08-27T15:00:00-08:00",
+            "centroidBearingDeg": 314.2594389402458,
+            "pointBearingMinDeg": 304.32929084512585,
+            "pointBearingMaxDeg": 323.27741202314763
+          }
+        ],
+        "hasTemporalHoldout": false
+      }
+    ],
+    "UTC": [
+      {
+        "poseId": "G1",
+        "cameraId": "delilah",
+        "passes": [
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756290960,
+            "acquiredUtc": "2025-08-27T10:36:00Z",
+            "acquiredPdt": "2025-08-27T03:36:00-07:00",
+            "detections": 22,
+            "totalFrpMW": 47.3,
+            "centroid": [
+              -119.06834,
+              36.91606
+            ],
+            "printedTimeHypothesis": "2025-08-27T10:36:00+00:00",
+            "centroidBearingDeg": 19.35352075002316,
+            "pointBearingMinDeg": 8.505000601096722,
+            "pointBearingMaxDeg": 59.87705711009819
+          }
+        ],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G2",
+        "cameraId": "delilah",
+        "passes": [
+          {
+            "source": "MODIS_SP",
+            "t": 1756318620,
+            "acquiredUtc": "2025-08-27T18:17:00Z",
+            "acquiredPdt": "2025-08-27T11:17:00-07:00",
+            "detections": 2,
+            "totalFrpMW": 251.1,
+            "centroid": [
+              -119.0606,
+              36.9185
+            ],
+            "printedTimeHypothesis": "2025-08-27T18:17:00+00:00",
+            "centroidBearingDeg": 21.69490765247601,
+            "pointBearingMinDeg": 19.85178680973367,
+            "pointBearingMaxDeg": 23.762008656992958
+          },
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756324140,
+            "acquiredUtc": "2025-08-27T19:49:00Z",
+            "acquiredPdt": "2025-08-27T12:49:00-07:00",
+            "detections": 12,
+            "totalFrpMW": 1160.5,
+            "centroid": [
+              -119.07077,
+              36.91707
+            ],
+            "printedTimeHypothesis": "2025-08-27T19:49:00+00:00",
+            "centroidBearingDeg": 18.309056269186428,
+            "pointBearingMinDeg": 9.974865051209992,
+            "pointBearingMaxDeg": 24.62875151523879
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756325760,
+            "acquiredUtc": "2025-08-27T20:16:00Z",
+            "acquiredPdt": "2025-08-27T13:16:00-07:00",
+            "detections": 8,
+            "totalFrpMW": 1842.6,
+            "centroid": [
+              -119.06278,
+              36.91605
+            ],
+            "printedTimeHypothesis": "2025-08-27T20:16:00+00:00",
+            "centroidBearingDeg": 21.355314858161044,
+            "pointBearingMinDeg": 18.3224922068364,
+            "pointBearingMaxDeg": 24.820769880760462
+          }
+        ],
+        "hasTemporalHoldout": true
+      },
+      {
+        "poseId": "G3",
+        "cameraId": "buckrock",
+        "passes": [
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756290960,
+            "acquiredUtc": "2025-08-27T10:36:00Z",
+            "acquiredPdt": "2025-08-27T03:36:00-07:00",
+            "detections": 22,
+            "totalFrpMW": 47.3,
+            "centroid": [
+              -119.06834,
+              36.91606
+            ],
+            "printedTimeHypothesis": "2025-08-27T10:36:00+00:00",
+            "centroidBearingDeg": 317.1470574323997,
+            "pointBearingMinDeg": 315.3363050628456,
+            "pointBearingMaxDeg": 319.71608548761117
+          }
+        ],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G3b",
+        "cameraId": "buckrock",
+        "passes": [],
+        "hasTemporalHoldout": false
+      },
+      {
+        "poseId": "G4",
+        "cameraId": "buckrock",
+        "passes": [
+          {
+            "source": "MODIS_SP",
+            "t": 1756318620,
+            "acquiredUtc": "2025-08-27T18:17:00Z",
+            "acquiredPdt": "2025-08-27T11:17:00-07:00",
+            "detections": 2,
+            "totalFrpMW": 251.1,
+            "centroid": [
+              -119.0606,
+              36.9185
+            ],
+            "printedTimeHypothesis": "2025-08-27T18:17:00+00:00",
+            "centroidBearingDeg": 318.6143407053479,
+            "pointBearingMinDeg": 317.5386791809191,
+            "pointBearingMaxDeg": 319.63025687886386
+          },
+          {
+            "source": "VIIRS_NOAA21_NRT",
+            "t": 1756324140,
+            "acquiredUtc": "2025-08-27T19:49:00Z",
+            "acquiredPdt": "2025-08-27T12:49:00-07:00",
+            "detections": 12,
+            "totalFrpMW": 1160.5,
+            "centroid": [
+              -119.07077,
+              36.91707
+            ],
+            "printedTimeHypothesis": "2025-08-27T19:49:00+00:00",
+            "centroidBearingDeg": 316.976501556254,
+            "pointBearingMinDeg": 313.4221150259722,
+            "pointBearingMaxDeg": 321.40217330734004
+          },
+          {
+            "source": "VIIRS_SNPP_SP",
+            "t": 1756325760,
+            "acquiredUtc": "2025-08-27T20:16:00Z",
+            "acquiredPdt": "2025-08-27T13:16:00-07:00",
+            "detections": 8,
+            "totalFrpMW": 1842.6,
+            "centroid": [
+              -119.06278,
+              36.91605
+            ],
+            "printedTimeHypothesis": "2025-08-27T20:16:00+00:00",
+            "centroidBearingDeg": 317.9183312870685,
+            "pointBearingMinDeg": 314.9322632002044,
+            "pointBearingMaxDeg": 320.7973913334838
+          },
+          {
+            "source": "VIIRS_NOAA20_SP",
+            "t": 1756327080,
+            "acquiredUtc": "2025-08-27T20:38:00Z",
+            "acquiredPdt": "2025-08-27T13:38:00-07:00",
+            "detections": 1,
+            "totalFrpMW": 99.6,
+            "centroid": [
+              -119.06376,
+              36.90111
+            ],
+            "printedTimeHypothesis": "2025-08-27T20:38:00+00:00",
+            "centroidBearingDeg": 315.2820182775081,
+            "pointBearingMinDeg": 315.2820182775081,
+            "pointBearingMaxDeg": 315.2820182775081
+          }
+        ],
+        "hasTemporalHoldout": true
+      }
+    ]
+  },
+  "adjacentDayPasses": [
+    {
+      "source": "VIIRS_NOAA21_NRT",
+      "t": 1756198080,
+      "acquiredUtc": "2025-08-26T08:48:00Z",
+      "acquiredPdt": "2025-08-26T01:48:00-07:00",
+      "detections": 16,
+      "totalFrpMW": 275.3,
+      "centroid": [
+        -119.05519,
+        36.90473
+      ]
+    },
+    {
+      "source": "VIIRS_SNPP_SP",
+      "t": 1756199640,
+      "acquiredUtc": "2025-08-26T09:14:00Z",
+      "acquiredPdt": "2025-08-26T02:14:00-07:00",
+      "detections": 16,
+      "totalFrpMW": 73.3,
+      "centroid": [
+        -119.06812,
+        36.8965
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "t": 1756201020,
+      "acquiredUtc": "2025-08-26T09:37:00Z",
+      "acquiredPdt": "2025-08-26T02:37:00-07:00",
+      "detections": 42,
+      "totalFrpMW": 304.6,
+      "centroid": [
+        -119.07413,
+        36.90872
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA21_NRT",
+      "t": 1756204080,
+      "acquiredUtc": "2025-08-26T10:28:00Z",
+      "acquiredPdt": "2025-08-26T03:28:00-07:00",
+      "detections": 53,
+      "totalFrpMW": 591.3,
+      "centroid": [
+        -119.05627,
+        36.89907
+      ]
+    },
+    {
+      "source": "VIIRS_SNPP_SP",
+      "t": 1756205640,
+      "acquiredUtc": "2025-08-26T10:54:00Z",
+      "acquiredPdt": "2025-08-26T03:54:00-07:00",
+      "detections": 88,
+      "totalFrpMW": 845.0,
+      "centroid": [
+        -119.0523,
+        36.90011
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756207200,
+      "acquiredUtc": "2025-08-26T11:20:00Z",
+      "acquiredPdt": "2025-08-26T04:20:00-07:00",
+      "detections": 6,
+      "totalFrpMW": 225.6,
+      "centroid": [
+        -119.06527,
+        36.91643
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "t": 1756241820,
+      "acquiredUtc": "2025-08-26T20:57:00Z",
+      "acquiredPdt": "2025-08-26T13:57:00-07:00",
+      "detections": 2,
+      "totalFrpMW": 10.9,
+      "centroid": [
+        -119.07853,
+        36.92355
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA21_NRT",
+      "t": 1756245000,
+      "acquiredUtc": "2025-08-26T21:50:00Z",
+      "acquiredPdt": "2025-08-26T14:50:00-07:00",
+      "detections": 6,
+      "totalFrpMW": 102.7,
+      "centroid": [
+        -119.07845,
+        36.92517
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756246860,
+      "acquiredUtc": "2025-08-26T22:21:00Z",
+      "acquiredPdt": "2025-08-26T15:21:00-07:00",
+      "detections": 1,
+      "totalFrpMW": 36.1,
+      "centroid": [
+        -119.0747,
+        36.9211
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756269540,
+      "acquiredUtc": "2025-08-27T04:39:00Z",
+      "acquiredPdt": "2025-08-26T21:39:00-07:00",
+      "detections": 6,
+      "totalFrpMW": 128.5,
+      "centroid": [
+        -119.07137,
+        36.91905
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "t": 1756371540,
+      "acquiredUtc": "2025-08-28T08:59:00Z",
+      "acquiredPdt": "2025-08-28T01:59:00-07:00",
+      "detections": 182,
+      "totalFrpMW": 855.9,
+      "centroid": [
+        -119.04909,
+        36.92526
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA21_NRT",
+      "t": 1756374540,
+      "acquiredUtc": "2025-08-28T09:49:00Z",
+      "acquiredPdt": "2025-08-28T02:49:00-07:00",
+      "detections": 156,
+      "totalFrpMW": 908.1,
+      "centroid": [
+        -119.04874,
+        36.92256
+      ]
+    },
+    {
+      "source": "VIIRS_SNPP_SP",
+      "t": 1756376220,
+      "acquiredUtc": "2025-08-28T10:17:00Z",
+      "acquiredPdt": "2025-08-28T03:17:00-07:00",
+      "detections": 127,
+      "totalFrpMW": 694.5,
+      "centroid": [
+        -119.05021,
+        36.9225
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "t": 1756377540,
+      "acquiredUtc": "2025-08-28T10:39:00Z",
+      "acquiredPdt": "2025-08-28T03:39:00-07:00",
+      "detections": 75,
+      "totalFrpMW": 507.3,
+      "centroid": [
+        -119.05135,
+        36.92058
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756378740,
+      "acquiredUtc": "2025-08-28T10:59:00Z",
+      "acquiredPdt": "2025-08-28T03:59:00-07:00",
+      "detections": 20,
+      "totalFrpMW": 960.2,
+      "centroid": [
+        -119.04078,
+        36.93067
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756378800,
+      "acquiredUtc": "2025-08-28T11:00:00Z",
+      "acquiredPdt": "2025-08-28T04:00:00-07:00",
+      "detections": 3,
+      "totalFrpMW": 70.2,
+      "centroid": [
+        -119.04723,
+        36.9035
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756401480,
+      "acquiredUtc": "2025-08-28T17:18:00Z",
+      "acquiredPdt": "2025-08-28T10:18:00-07:00",
+      "detections": 8,
+      "totalFrpMW": 1129.0,
+      "centroid": [
+        -119.04981,
+        36.91876
+      ]
+    },
+    {
+      "source": "VIIRS_SNPP_SP",
+      "t": 1756411020,
+      "acquiredUtc": "2025-08-28T19:57:00Z",
+      "acquiredPdt": "2025-08-28T12:57:00-07:00",
+      "detections": 62,
+      "totalFrpMW": 3625.9,
+      "centroid": [
+        -119.04088,
+        36.92991
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "t": 1756412400,
+      "acquiredUtc": "2025-08-28T20:20:00Z",
+      "acquiredPdt": "2025-08-28T13:20:00-07:00",
+      "detections": 77,
+      "totalFrpMW": 6881.3,
+      "centroid": [
+        -119.03835,
+        36.92915
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA21_NRT",
+      "t": 1756415520,
+      "acquiredUtc": "2025-08-28T21:12:00Z",
+      "acquiredPdt": "2025-08-28T14:12:00-07:00",
+      "detections": 44,
+      "totalFrpMW": 3383.3,
+      "centroid": [
+        -119.04268,
+        36.92439
+      ]
+    },
+    {
+      "source": "VIIRS_SNPP_SP",
+      "t": 1756417080,
+      "acquiredUtc": "2025-08-28T21:38:00Z",
+      "acquiredPdt": "2025-08-28T14:38:00-07:00",
+      "detections": 56,
+      "totalFrpMW": 2616.9,
+      "centroid": [
+        -119.04517,
+        36.91433
+      ]
+    },
+    {
+      "source": "VIIRS_NOAA20_SP",
+      "t": 1756418400,
+      "acquiredUtc": "2025-08-28T22:00:00Z",
+      "acquiredPdt": "2025-08-28T15:00:00-07:00",
+      "detections": 32,
+      "totalFrpMW": 2892.7,
+      "centroid": [
+        -119.04306,
+        36.91664
+      ]
+    },
+    {
+      "source": "MODIS_SP",
+      "t": 1756418460,
+      "acquiredUtc": "2025-08-28T22:01:00Z",
+      "acquiredPdt": "2025-08-28T15:01:00-07:00",
+      "detections": 8,
+      "totalFrpMW": 2213.9,
+      "centroid": [
+        -119.02475,
+        36.91542
+      ]
+    }
+  ],
+  "limitations": [
+    "Temporal overlap is necessary but not proof a camera smoke base corresponds to a satellite hotspot.",
+    "A centroid of a multi-front fire is not a measured smoke base. Preserve clusters and angular extent.",
+    "One matched direction cannot identify yaw and FOV together; fix FOV to an explicit prior unless additional spread identifies it.",
+    "Camera footage covers August 27 only; adjacent-day passes cannot calibrate this video directly.",
+    "Under PDT G1 and G3b permit temporal holdouts; Delilah G2 has no exact pass and cannot inherit G1 pose calibration unchecked.",
+    "Both cameras can be explored together during G1/G3b, but synchrony and same-plume identity remain unverified.",
+    "All arrival reconstruction uses final footprint and future support: retrospective initialization must disclose leakage; validate against held-out observed detections, not reconstructed daily truth.",
+    "Camera cadence is irregular; this video cannot substantiate minute-by-minute corrections. Satellite cadence is actual overpass availability, not fixed twice daily."
+  ]
+}

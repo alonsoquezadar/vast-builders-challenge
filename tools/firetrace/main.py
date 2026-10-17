@@ -106,8 +106,13 @@ def analyze(data):
     raw = base64.b64decode(match[2], validate=True)
     if len(raw) > 6 * 1024 * 1024 or not (raw.startswith(b'\xff\xd8\xff') or raw.startswith(b'\x89PNG\r\n\x1a\n')):
         raise ValueError('La imagen debe ser JPEG/PNG y ocupar menos de 6 MB.')
+    task = data.get('task', 'describe')
+    if task not in ('describe', 'smoke-base-v1'):
+        raise ValueError('Tarea visual no disponible.')
     if BACKEND_PROXY:
-        result = json.loads(remote(BACKEND_PROXY + '/api/analyze', {'image': image}, timeout=160))
+        result = json.loads(remote(BACKEND_PROXY + '/api/analyze', {'image': image, 'task': task}, timeout=160))
+        if task == 'smoke-base-v1' and result.get('task') != task:
+            raise ValueError('El gateway todavía no admite observaciones estructuradas.')
         return {**result, 'imageSha256': hashlib.sha256(raw).hexdigest()}
     token = os.environ.get('GPU_BEARER_TOKEN')
     if not token:
@@ -122,6 +127,9 @@ def analyze(data):
               'and alternative explanations such as clouds or fog. Do not infer geographic coordinates, '
               'temperature, ground area, fire perimeter, speed, or future spread from this single RGB image. '
               'Keep the response under 180 words. This is an unvalidated research observation for operator review.')
+    if task == 'smoke-base-v1':
+        from observation_schema import PROMPT
+        prompt = PROMPT
     result = json.loads(remote(COSMOS + '/v1/chat/completions', {
         'model': model, 'messages': [{'role': 'system', 'content': 'Responde exclusivamente en español. Describe solo evidencia visible; no conviertas gráficos o simulaciones en mediciones físicas.'}, {'role': 'user', 'content': [
             {'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': image}}]}],
@@ -129,7 +137,16 @@ def analyze(data):
     content = result['choices'][0]['message'].get('content')
     if not content:
         raise ValueError('Cosmos no devolvió una observación. Inténtalo de nuevo.')
-    return {'content': content, 'model': model, 'analyzedAt': datetime.now(timezone.utc).isoformat(),
+    structured = {}
+    if task == 'smoke-base-v1':
+        from observation_schema import parse_observation
+        structured = {'task': task}
+        try:
+            structured['observation'] = parse_observation(content)
+        except (ValueError, TypeError):
+            structured['observation'] = None
+            structured['structuredError'] = 'La respuesta no cumple el esquema; requiere revisión, no se usa para localizar.'
+    return {**structured, 'content': content, 'model': model, 'analyzedAt': datetime.now(timezone.utc).isoformat(),
             'geolocation': 'unresolved', 'status': 'requires-review', 'imageSha256': hashlib.sha256(raw).hexdigest()}
 
 
