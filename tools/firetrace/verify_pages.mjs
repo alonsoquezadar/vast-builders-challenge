@@ -13,8 +13,9 @@ async function get(path) {
 const html = await (await get('index.html')).text();
 assert(html.includes('data-deployment="static"'));
 assert(html.includes('id="tour-start"'));
+assert(html.includes('id="camera-video"'));
 const build = await (await get('build-manifest.json')).json();
-for (const name of ['firetrace.js', 'tour.js', 'tour.css', 'data-client.mjs']) {
+for (const name of ['firetrace.js', 'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs']) {
   const bytes = Buffer.from(await (await get(name)).arrayBuffer());
   assert.equal(createHash('sha256').update(bytes).digest('hex'), build.sha256[name], name);
 }
@@ -34,6 +35,11 @@ for (const camera of incident.cameras) {
   const response = await get(camera.clipPath);
   assert(response.headers.get('content-type')?.includes('video/mp4'));
   await response.arrayBuffer();
+  if (base.hostname.endsWith('.github.io')) {
+    const partial = await fetch(new URL(camera.clipPath, base), {headers: {Range: 'bytes=100-199'}});
+    assert.equal(partial.status, 206, 'The published video must support seeking.');
+    assert.equal((await partial.arrayBuffer()).byteLength, 100);
+  }
 }
 const catalogue = await (await get('data/projections.json')).json();
 assert(catalogue.times.length > 400);

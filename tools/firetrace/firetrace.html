@@ -6,10 +6,10 @@
 <title>FireTrace · Garnet Fire 2025</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="./firetrace.css">
+<link rel="stylesheet" href="./firetrace.css?v=video-sync-1">
 <link rel="stylesheet" href="./tour.css">
 <script defer src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
-<script type="module" src="./firetrace.js"></script>
+<script type="module" src="./firetrace.js?v=video-sync-1"></script>
 </head>
 <body>
 <header class="top">
@@ -17,6 +17,7 @@
   <div class="incident"><strong>Garnet Fire</strong><span>Sierra National Forest, California</span></div>
   <span class="badge badge-replay" title="Historical incident data; this is not live tracking">HISTORICAL REPLAY · AUG–SEP 2025</span>
   <span class="spacer"></span>
+  <button id="footage-open" aria-controls="camera-player" aria-expanded="false" disabled>Real footage</button>
   <button id="tour-start" class="tour-start" aria-haspopup="dialog">Take a tour</button>
   <div class="zone" role="group" aria-label="Displayed time zone">
     <button id="zone-utc" aria-pressed="true">UTC</button>
@@ -27,6 +28,16 @@
 <main class="app">
   <section class="stage" aria-label="Fire map">
     <div id="map" role="application" aria-label="3D map of the Garnet Fire"></div>
+    <aside id="camera-player" class="camera-player" aria-label="Real camera footage synced to the timeline" hidden>
+      <div class="camera-player-head"><label for="video-camera">REAL FOOTAGE</label><button id="video-close" aria-label="Close video">×</button></div>
+      <select id="video-camera" aria-label="Video camera"></select>
+      <video id="camera-video" controls playsinline muted preload="metadata" aria-label="Historical fire camera video"></video>
+      <p id="video-sync-status" class="video-sync-status" role="status"></p>
+      <button id="video-restart">Start synced sequence</button>
+      <p id="video-range" class="video-range"></p>
+      <p class="video-note">Approximate sync between printed timestamps · PDT assumed. Video playback moves the timeline; moving the timeline seeks the video. The map shows the satellite reconstruction, not a reconstruction derived from this video.</p>
+      <small>ALERTCalifornia | UC San Diego · PG&amp;E</small>
+    </aside>
 
     <div class="hud" aria-live="off">
       <div class="hud-date" id="hud-date">—</div>

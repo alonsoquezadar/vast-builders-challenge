@@ -6,7 +6,11 @@ Todas las pantallas usan inglés británico (`en-GB`), con reloj de 24 horas, pu
 
 ## Tour guiado y GitHub Pages
 
-Pulsa **Take a tour** para recorrer las 15 explicaciones de la vista principal. Usa **Next**, **Back**, las flechas del teclado o **Escape** para salir. El tour pausa la reproducción y resalta el control o panel correspondiente.
+Pulsa **Take a tour** para recorrer las 16 explicaciones de la vista principal. Usa **Next**, **Back**, las flechas del teclado o **Escape** para salir. El tour pausa la reproducción y resalta el control o panel correspondiente.
+
+Pulsa **Real footage** para abrir el vídeo de una cámara en la esquina derecha del mapa. **Start synced sequence** reproduce el tramo con horas conocidas y mueve el timeline con el vídeo. Arrastrar el timeline busca el momento correspondiente del vídeo y lo pausa. El reproductor permite cambiar entre Delilah y Buck Rock. **Watch synced clip**, en la ficha de una cámara, abre el mismo reproductor en la hora del fotograma.
+
+La sincronización interpola entre las tres horas impresas revisadas de cada cámara, con PDT asumido. Fuera de ese tramo muestra un aviso y no extrapola. El mapa sigue mostrando la reconstrucción satelital. Esta comparación no convierte el vídeo en una reconstrucción automática ni valida la sincronía de los relojes.
 
 La web pública está en https://alonsoquezadar.github.io/vast-builders-challenge/. GitHub Pages sirve el contenido de la rama `gh-pages`. El código de esta entrega está en `firetrace/guided-tour-pages`.
 
@@ -22,6 +26,8 @@ El directorio de salida debe estar vacío. En otra terminal, comprueba la export
 ```sh
 node tools/firetrace/verify_pages.mjs http://localhost:5184/
 ```
+
+El servidor estático de Python permite comprobar la exportación, pero no admite solicitudes HTTP Range para buscar dentro del vídeo. Comprueba la sincronización con `run_local.py --saved-only` o con la web de GitHub Pages, que sí admiten esas solicitudes.
 
 Publica los archivos generados en la raíz de `gh-pages`. En **Settings → Pages**, selecciona **Deploy from a branch**, **gh-pages** y **/(root)**. Cada nuevo commit en esa rama actualiza la web.
 

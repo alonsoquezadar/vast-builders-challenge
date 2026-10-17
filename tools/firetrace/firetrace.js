@@ -1,6 +1,7 @@
 import * as M from './firetrace_model.mjs';
-import {initTour} from './tour.js';
+import {initTour} from './tour.js?v=video-sync-1';
 import {STATIC, dataUrl, projectionCursor, forecastFetch} from './data-client.mjs';
+import {initCameraPlayer} from './camera-player.js';
 
 const $ = id => document.getElementById(id);
 const el = (tag, props = {}, ...kids) => {
@@ -36,6 +37,7 @@ const dataStatus = {};
 const derived = {areaSeries: null, edges: null, overpasses: [], weatherHours: []};
 const forecastTracker = M.createForecastTracker();
 let map = null;
+let cameraPlayback = null;
 const pendingSources = new Map();
 
 // ---------- utilities ----------
@@ -81,7 +83,7 @@ async function loadData(name) {
 }
 async function loadIncident() {
   dataStatus.incident = 'loading';
-  try { data.incident = await fetchJson('./api/incident'); dataStatus.incident = 'ready'; addCameraPins(); }
+  try { data.incident = await fetchJson('./api/incident'); dataStatus.incident = 'ready'; cameraPlayback.setIncident(data.incident); addCameraPins(); }
   catch (e) { dataStatus.incident = 'error:' + e.message; reportFailure('cameras'); }
   cameraKey = ''; paintAll(); if (data.incident) paintProvenance();
 }
@@ -267,8 +269,9 @@ function paintState(pass) {
 
 // ---------- playback and timeline ----------
 
-function setCursor(sec, {fromPlay = false} = {}) {
+function setCursor(sec, {fromPlay = false, fromVideo = false} = {}) {
   const c = M.clampCursor(sec);
+  if (!fromVideo) cameraPlayback?.syncCursor(c);
   if (!fromPlay) state.playPos = sec;
   if (c === state.cursor) return;
   state.cursor = c;
@@ -286,6 +289,7 @@ function tick(ts) {
   rafId = requestAnimationFrame(tick);
 }
 function play() {
+  cameraPlayback?.pause();
   if (state.playing) return;
   if (state.cursor >= M.RANGE_END_SEC) { state.playPos = M.RANGE_START_SEC; setCursor(M.RANGE_START_SEC); }
   state.playing = true; lastTs = performance.now(); rafId = requestAnimationFrame(tick);
@@ -311,7 +315,7 @@ function buildTimeline() {
   $('step-back').addEventListener('click', () => { if (state.playing) pause(); setCursor(state.cursor - 3600); });
   $('step-fwd').addEventListener('click', () => { if (state.playing) pause(); setCursor(state.cursor + 3600); });
   document.addEventListener('keydown', e => {
-    if (e.code === 'Space' && !/^(INPUT|SELECT|BUTTON|TEXTAREA)$/.test(document.activeElement?.tagName || '')) { e.preventDefault(); togglePlay(); }
+    if (e.code === 'Space' && !/^(INPUT|SELECT|BUTTON|TEXTAREA|VIDEO)$/.test(document.activeElement?.tagName || '') && !e.target.closest?.('.camera-player')) { e.preventDefault(); togglePlay(); }
   });
   const span = M.RANGE_END_SEC - M.RANGE_START_SEC, pos = t => `calc(8px + (100% - 16px) * ${(t - M.RANGE_START_SEC) / span})`;
   const events = $('scrub-events'); events.replaceChildren();
@@ -356,6 +360,7 @@ function bindView() {
 }
 function setZone(zone) {
   state.zone = zone;
+  cameraPlayback?.refreshLabels();
   $('zone-utc').setAttribute('aria-pressed', String(zone === 'UTC')); $('zone-pdt').setAttribute('aria-pressed', String(zone === 'PDT'));
   paintAll();
 }
@@ -559,13 +564,8 @@ function paintCameras() {
   if (a?.translationNote) detail.append(el('p', {class: 'tiny translation-note', text: a.translationNote}));
   if (sel.frame.reviewNotes?.length) detail.append(el('p', {class: 'review-notes', text: sel.frame.reviewNotes.join(' ')}));
   detail.append(el('div', {class: 'tiny', text: a ? `Saved NVIDIA Cosmos description (${a.model}, ${a.analyzedAt}); requires review. The camera time zone is not verified.` : 'The camera time zone is not verified.'}));
-  const video = el('div'), actions = el('div', {class: 'cam-actions'}, el('button', {text: 'Watch clip', onclick: ev => {
-    const v = el('video', {controls: true, playsinline: true, preload: 'metadata', src: cam.clipPath});
-    v.addEventListener('error', () => { video.replaceChildren(el('p', {class: 'tiny', text: 'The clip is not available on this server.'})); });
-    v.addEventListener('loadedmetadata', () => { v.currentTime = Math.max(0, sel.frame.sourceVideoSecond - cam.sourceClipStart); });
-    video.replaceChildren(v); ev.target.disabled = true;
-  }}), el('button', {text: 'Go to its time', onclick: () => { if (state.playing) pause(); setCursor(sel.utcSec); }}));
-  detail.append(actions, video);
+  const actions = el('div', {class: 'cam-actions'}, el('button', {text: 'Watch synced clip', onclick: () => cameraPlayback.open(cam.id, sel.utcSec)}), el('button', {text: 'Go to its time', onclick: () => { if (state.playing) pause(); setCursor(sel.utcSec); }}));
+  detail.append(actions);
   body.append(detail);
 }
 function addCameraPins() {
@@ -704,11 +704,13 @@ function paintCursorExtras() { paintChartCursor(); paintWeather(); paintCameras(
 // ---------- start-up ----------
 
 function start() {
+  cameraPlayback = initCameraPlayer({getCursor: () => state.cursor, getZone: () => state.zone,
+    setCursor: sec => setCursor(sec, {fromVideo: true}), pauseTimeline: pause});
   renderLayerRows(); buildTimeline(); buildEventList(); bindView(); paintNow();
   if (window.maplibregl) initMap(); else showData('The map engine could not be loaded; the timeline remains available.');
   loadData('overpasses'); loadData('arrival'); loadData('hotspots'); loadData('weather'); loadData('daily'); loadData('summary');
   loadIncident(); bindForecast(); observeCharts(); drawCharts();
-  initTour({pause});
+  initTour({pause: () => { pause(); cameraPlayback.pause(); }});
   if (STATIC) {
     $('deployment-note').hidden = false;
     $('deployment-note').textContent = 'Published replay: projections are saved at hourly starting times. Project moves the cursor to the nearest available hour. No live AI service is connected.';

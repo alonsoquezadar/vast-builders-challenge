@@ -18,7 +18,7 @@ from satellite_bundle import FILES, load_satellite
 
 ROOT = Path(__file__).parent.resolve()
 ASSETS = ['firetrace.html', 'firetrace.js', 'firetrace.css', 'firetrace_model.mjs',
-          'tour.js', 'tour.css', 'data-client.mjs']
+          'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs']
 
 
 def write_json(path, value):
