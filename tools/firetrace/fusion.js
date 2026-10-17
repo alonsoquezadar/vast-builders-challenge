@@ -51,8 +51,8 @@ function forecastData(kind){const doc=selectedScenario(),model=selectedModel();i
  return geo?.type==='FeatureCollection'?geo:empty();}
 function calibrationMetrics(pose){const wrapper=node('div');const half=pose.uncertainty?.suggestedAngularHalfWidthDeg;
  if(Number.isFinite(half))wrapper.append(node('p',selectedModel().printed?`Amplitud de exploración ±${half.toFixed(2)}°; prior supuesto, no precisión histórica ni intervalo de confianza.`:`Banda angular experimental ±${half.toFixed(2)}°; no es un intervalo de confianza y excluye los errores reservados.`));
- const held=pose.errors?.heldOut||[];if(!held.length){wrapper.append(node('p','Sin observaciones utilizables en las pasadas reservadas.'));return wrapper;}
- const table=node('table'),head=node('tr');for(const label of ['Reserva UTC','Error centroide','Transversal','Dist. grupo'])head.append(node('th',label));table.append(head);
+ const held=pose.errors?.heldOut||[];if(!held.length){wrapper.append(node('p',selectedModel().printed?'Sin observaciones utilizables en las pasadas de comprobación.':'Sin observaciones utilizables en las pasadas reservadas.'));return wrapper;}
+ const table=node('table'),head=node('tr');for(const label of [selectedModel().printed?'Comprobación UTC':'Reserva UTC','Error centroide','Transversal','Dist. grupo'])head.append(node('th',label));table.append(head);
  const num=(x,d=0)=>Number.isFinite(x)?Number(x).toFixed(d):'—';
  for(const pass of held){const row=node('tr');for(const text of [pass.passId?.split('@')[1]||pass.passId,`${num(pass.centroid?.absResidualDeg?.mean,2)}°`,`${num(pass.centroid?.crossTrackM?.mean)} m`,`${num(pass.nearestGroup?.crossTrackM?.mean)} m`])row.append(node('td',text));table.append(row);}
  wrapper.append(table,node('p','Compatibilidad con detecciones satelitales, no precisión absoluta de geolocalización. Los sectores amplios pueden producir distancias a grupo pequeñas sin identificar la misma base.'));return wrapper;}
@@ -71,7 +71,7 @@ function renderEvaluation(){const fusion=state.fusion;if(!fusion)return;
  for(const pose of poses){const section=node('div');section.append(node('strong',`${names[pose.cameraId]||pose.cameraId} · ${pose.poseId} · ${pose.method||'sin observaciones'} · ${pose.status==='experimental'?(model.printed?'hipótesis sin ajuste':'ajuste experimental'):'sin parámetros utilizables'}`));
  if(Number.isFinite(pose.yaw0Deg))section.append(node('p',`Rumbo base ${pose.yaw0Deg.toFixed(2)}° · FOV ${Number(pose.fovDeg).toFixed(2)}° (prior sin verificar).`));
  if(model.printed&&pose.satelliteValidationStatus==='not-observed-in-pose-window')section.append(node('p','Sin pasada satelital en esta pose: rumbo hipotético sin validación satelital.'));
- if(Number.isFinite(pose.comparisonWithFitted?.yawDifferenceDeg))section.append(node('p',`Diferencia frente al yaw ajustado: ${pose.comparisonWithFitted.yawDifferenceDeg.toFixed(2)}°.`));
+ if(Number.isFinite(pose.comparisonWithFit?.printedMinusFitDeg))section.append(node('p',`Diferencia X − yaw ajustado: ${pose.comparisonWithFit.printedMinusFitDeg.toFixed(2)}°.`));
  if(pose.reason)section.append(node('p',pose.reason));if(pose.errors)section.append(calibrationMetrics(pose));$('calibration').append(section);}
  $('prediction').replaceChildren(node('p',sim.reason||'Se conserva la referencia sin cámaras; una corrección solo se muestra cuando existe soporte.'));
  if(sim.metrics)$('prediction').append(node('pre',JSON.stringify(sim.metrics,null,2)));

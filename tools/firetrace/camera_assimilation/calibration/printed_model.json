@@ -1,0 +1,587 @@
+{
+  "angularPrior": {
+    "basis": "predefined prior; no FIRMS pass, held-out error or fitted value contributes. Not a confidence interval; not a measured historical error.",
+    "holdoutEvaluated": false,
+    "priorAngularHalfWidthDeg": 3.0,
+    "sensitivityHalfWidthsDeg": [
+      0.3,
+      1.0,
+      3.0,
+      5.0,
+      10.0
+    ],
+    "suggestedAngularHalfWidthDeg": 3.0,
+    "todayAgreementNote": "Agreement of printed X with the catalog azimuth today (< 0.3 deg) does not prove the 2025 pose; the prior is not derived from it.",
+    "validated": false
+  },
+  "assumptions": [
+    "Printed pan X is ASSUMED to be the true-north azimuth of the image centre in 2025. This is an assumption: it is not fitted to FIRMS and not verified for 2025.",
+    "Printed X comes from agent-read frames and is not operator-reviewed; poses are never transferred (each pose uses only its own X).",
+    "Today (2026-10-17) printed X mod 360 agreed with the public catalog azimuth within 0.28 and 0.16 deg and the printed clock matched PDT; this does not prove the 2025 pose, clock, zoom mapping or FOV.",
+    "Horizontal FOV = 65.1 deg at zoom 1 (catalog value, unverified) scaled by focal length for the printed zoom (zoom reading unverified). Not fitted.",
+    "Camera positions are candidates (same as fit.py); CAL FIRE incident point is not used. PDT is a hypothesis for frame/pass matching only.",
+    "The angular band is a predefined prior (3.0 deg half-width) with sensitivity [0.3, 1.0, 3.0, 5.0, 10.0] deg; it is not a confidence interval and not a measured historical error. FIRMS never selects it.",
+    "FIRMS passes are a compatibility check only: detections form several groups, the pass centroid is not an observed smoke base, and temporal agreement is not independent physical truth.",
+    "Cross-track metres = satellite range x sin(angle): compatibility with a satellite direction, not 2D localization nor absolute geographic error."
+  ],
+  "calibrationBasis": "printed-x-unverified-historical",
+  "condition": "historical-x-unverified",
+  "contrast": {
+    "file": "camera_assimilation/calibration/calibration.json",
+    "meaning": "satellite-fitted yaw (fit.py) shown as printedMinusFit only; never an input",
+    "sha256": "409c2f5ae99796d8d73eac3129c0d189ef44d5d9885a2f57c1ed7f0deb572bd2"
+  },
+  "currentFrameCheck": {
+    "file": "camera_assimilation/clock-check/comparison.json",
+    "historicalClockVerified": false,
+    "historicalPoseVerified": false,
+    "limitations": [
+      "One pose per camera cannot validate a motion/zoom transfer function.",
+      "A current clock match does not prove historical camera configuration.",
+      "Public catalog azimuth is an external consistency check, not a surveyed ground-truth calibration."
+    ],
+    "results": [
+      {
+        "azimuthResidualDeg": 0.28,
+        "cameraId": "Axis-DelilahLookout2",
+        "catalogAzimuthDeg": 308.2900085449219,
+        "printedXWrappedDeg": 308.01,
+        "reviewStatus": "agent-read-not-operator-reviewed"
+      },
+      {
+        "azimuthResidualDeg": -0.16,
+        "cameraId": "Axis-BuckRock1",
+        "catalogAzimuthDeg": 301.5799865722656,
+        "printedXWrappedDeg": 301.74,
+        "reviewStatus": "agent-read-not-operator-reviewed"
+      }
+    ],
+    "scope": "current frames on 2026-10-17 only",
+    "sha256": "e8996339fb169c3c3e5df29332a4a343726e2ee46657154928e408268ba913f1"
+  },
+  "description": "Primary azimuth model: historical printed pan X assumed to be the pose azimuth. Nothing fitted to FIRMS. Contrast with calibration.json is a separate column.",
+  "excluded": [],
+  "fovPrior": {
+    "scaling": "focal length / zoom",
+    "status": "unverified catalog value",
+    "zoom1Deg": 65.1
+  },
+  "frozenSplit": {
+    "gapLimitSeconds": 300,
+    "passes": {
+      "MODIS@2025-08-27T18:17:00Z": {
+        "epoch": 1756318620,
+        "source": "MODIS_SP"
+      },
+      "MODIS@2025-08-27T23:00:00Z": {
+        "epoch": 1756335600,
+        "source": "MODIS_SP"
+      },
+      "NOAA20@2025-08-27T20:38:00Z": {
+        "epoch": 1756327080,
+        "source": "VIIRS_NOAA20_SP"
+      },
+      "NOAA21@2025-08-27T19:49:00Z": {
+        "epoch": 1756324140,
+        "source": "VIIRS_NOAA21_NRT"
+      },
+      "NOAA21@2025-08-27T21:29:00Z": {
+        "epoch": 1756330140,
+        "source": "VIIRS_NOAA21_NRT"
+      },
+      "SNPP@2025-08-27T20:16:00Z": {
+        "epoch": 1756325760,
+        "source": "VIIRS_SNPP_SP"
+      },
+      "SNPP@2025-08-27T21:57:00Z": {
+        "epoch": 1756331820,
+        "source": "VIIRS_SNPP_SP"
+      }
+    },
+    "poses": {
+      "G1": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": [
+          "MODIS@2025-08-27T18:17:00Z",
+          "NOAA21@2025-08-27T19:49:00Z",
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "G2": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "G3": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "G3b": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": [
+          "MODIS@2025-08-27T18:17:00Z",
+          "NOAA21@2025-08-27T19:49:00Z",
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "G4": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": [
+          "NOAA21@2025-08-27T21:29:00Z",
+          "SNPP@2025-08-27T21:57:00Z",
+          "MODIS@2025-08-27T23:00:00Z"
+        ]
+      }
+    },
+    "rule": "No pass is a fit pass: every pass of a pose is check-only (heldOut). PDT assumed for matching. Pass sources/epochs are those of fit.py.",
+    "sha256": "c08b34094debb8b43111a69c673723c0325b9ce3ed9e452bb1c0cfe51cc5769f"
+  },
+  "inputs": {
+    "observations": {
+      "path": "tools/firetrace/camera_assimilation/vision/observations.json",
+      "present": false
+    }
+  },
+  "limitations": [
+    "The azimuth is an assumption (historical printed X); no FIRMS fit or held-out validation supports it.",
+    "Compatibility with FIRMS is angular / cross-track at satellite range, not geographic error; sectors can be many degrees wide.",
+    "PDT is not verified; a 2026 clock/azimuth agreement does not carry to 2025.",
+    "G2 and G3 have no FIRMS pass in their windows (not-observed-in-pose-window): their parameters are assumptions without any satellite check."
+  ],
+  "parameterOrigin": "printed-X-prior-not-fitted",
+  "poses": [
+    {
+      "bearingModel": {
+        "angularHalfWidthDeg": 3.0,
+        "calibrationBasis": "printed-x-unverified-historical",
+        "cameraId": "delilah",
+        "formula": "bearingDeg = (yaw0Deg + degrees(atan((2*x_base - 1) * tan(radians(fovDeg)/2)))) mod 360",
+        "fovDeg": 56.01834703092465,
+        "method": "cosmos",
+        "parameterOrigin": "printed-X-prior-not-fitted",
+        "poseId": "G1",
+        "usable": false,
+        "validOnlyFor": "visible-base observations of this pose and method; a bearing alone is not a location; assumption, not validated",
+        "yaw0Deg": 26.27
+      },
+      "calibrationBasis": "printed-x-unverified-historical",
+      "cameraId": "delilah",
+      "comparisonWithFit": {
+        "status": "pending-observations"
+      },
+      "condition": "historical-x-unverified",
+      "diagnostics": null,
+      "errors": {
+        "extraCheck": [],
+        "fitInSample": [],
+        "heldOut": [],
+        "note": "check only: no pass is a fit pass; heldOut lists every pose pass that had a visible observation within 5 min",
+        "unit": "degrees (azimuth) and metres cross-track at FIRMS range; NOT absolute geographic error"
+      },
+      "excluded": [],
+      "extraCheckIds": [],
+      "extraCheckPassIds": [],
+      "flags": [
+        "assumed-historical-azimuth-not-validated"
+      ],
+      "fovDeg": 56.01834703092465,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": [
+          "MODIS@2025-08-27T18:17:00Z",
+          "NOAA21@2025-08-27T19:49:00Z",
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "heldOutIds": [],
+      "heldOutPassIds": [],
+      "matched": [],
+      "method": "cosmos",
+      "observationsBound": false,
+      "parameterOrigin": "printed-X-prior-not-fitted",
+      "poseId": "G1",
+      "printedXDeg": 26.27,
+      "printedXSource": "planning/video-selection-shared-r1.md pose table, agent-read (not operator-reviewed); G3 from root review",
+      "reason": null,
+      "role": "primary",
+      "satelliteValidationStatus": "pending-observations",
+      "status": "experimental",
+      "trainingIds": [],
+      "trainingPassIds": [],
+      "uncertainty": {
+        "basis": "predefined prior; no FIRMS pass, held-out error or fitted value contributes. Not a confidence interval; not a measured historical error.",
+        "holdoutEvaluated": false,
+        "priorAngularHalfWidthDeg": 3.0,
+        "sensitivityHalfWidthsDeg": [
+          0.3,
+          1.0,
+          3.0,
+          5.0,
+          10.0
+        ],
+        "suggestedAngularHalfWidthDeg": 3.0,
+        "todayAgreementNote": "Agreement of printed X with the catalog azimuth today (< 0.3 deg) does not prove the 2025 pose; the prior is not derived from it.",
+        "validated": false
+      },
+      "visibleNotNearAnyPassIds": [],
+      "yaw0Deg": 26.27,
+      "zoom": 1.2
+    },
+    {
+      "bearingModel": {
+        "angularHalfWidthDeg": 3.0,
+        "calibrationBasis": "printed-x-unverified-historical",
+        "cameraId": "delilah",
+        "formula": "bearingDeg = (yaw0Deg + degrees(atan((2*x_base - 1) * tan(radians(fovDeg)/2)))) mod 360",
+        "fovDeg": 65.1,
+        "method": "cosmos",
+        "parameterOrigin": "printed-X-prior-not-fitted",
+        "poseId": "G2",
+        "usable": false,
+        "validOnlyFor": "visible-base observations of this pose and method; a bearing alone is not a location; assumption, not validated",
+        "yaw0Deg": 25.27
+      },
+      "calibrationBasis": "printed-x-unverified-historical",
+      "cameraId": "delilah",
+      "comparisonWithFit": {
+        "status": "pending-observations"
+      },
+      "condition": "historical-x-unverified",
+      "diagnostics": null,
+      "errors": {
+        "extraCheck": [],
+        "fitInSample": [],
+        "heldOut": [],
+        "note": "check only: no pass is a fit pass; heldOut lists every pose pass that had a visible observation within 5 min",
+        "unit": "degrees (azimuth) and metres cross-track at FIRMS range; NOT absolute geographic error"
+      },
+      "excluded": [],
+      "extraCheckIds": [],
+      "extraCheckPassIds": [],
+      "flags": [
+        "assumed-historical-azimuth-not-validated",
+        "no FIRMS pass inside this pose window: parameters are an unvalidated assumption"
+      ],
+      "fovDeg": 65.1,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "heldOutIds": [],
+      "heldOutPassIds": [],
+      "matched": [],
+      "method": "cosmos",
+      "observationsBound": false,
+      "parameterOrigin": "printed-X-prior-not-fitted",
+      "poseId": "G2",
+      "printedXDeg": 25.27,
+      "printedXSource": "planning/video-selection-shared-r1.md pose table, agent-read (not operator-reviewed); G3 from root review",
+      "reason": null,
+      "role": "primary",
+      "satelliteValidationStatus": "not-observed-in-pose-window",
+      "status": "experimental",
+      "trainingIds": [],
+      "trainingPassIds": [],
+      "uncertainty": {
+        "basis": "predefined prior; no FIRMS pass, held-out error or fitted value contributes. Not a confidence interval; not a measured historical error.",
+        "holdoutEvaluated": false,
+        "priorAngularHalfWidthDeg": 3.0,
+        "sensitivityHalfWidthsDeg": [
+          0.3,
+          1.0,
+          3.0,
+          5.0,
+          10.0
+        ],
+        "suggestedAngularHalfWidthDeg": 3.0,
+        "todayAgreementNote": "Agreement of printed X with the catalog azimuth today (< 0.3 deg) does not prove the 2025 pose; the prior is not derived from it.",
+        "validated": false
+      },
+      "visibleNotNearAnyPassIds": [],
+      "yaw0Deg": 25.27,
+      "zoom": 1.0
+    },
+    {
+      "bearingModel": {
+        "angularHalfWidthDeg": 3.0,
+        "calibrationBasis": "printed-x-unverified-historical",
+        "cameraId": "buckrock",
+        "formula": "bearingDeg = (yaw0Deg + degrees(atan((2*x_base - 1) * tan(radians(fovDeg)/2)))) mod 360",
+        "fovDeg": 65.1,
+        "method": "cosmos",
+        "parameterOrigin": "printed-X-prior-not-fitted",
+        "poseId": "G3",
+        "usable": false,
+        "validOnlyFor": "visible-base observations of this pose and method; a bearing alone is not a location; assumption, not validated",
+        "yaw0Deg": 307.19
+      },
+      "calibrationBasis": "printed-x-unverified-historical",
+      "cameraId": "buckrock",
+      "comparisonWithFit": {
+        "status": "pending-observations"
+      },
+      "condition": "historical-x-unverified",
+      "diagnostics": null,
+      "errors": {
+        "extraCheck": [],
+        "fitInSample": [],
+        "heldOut": [],
+        "note": "check only: no pass is a fit pass; heldOut lists every pose pass that had a visible observation within 5 min",
+        "unit": "degrees (azimuth) and metres cross-track at FIRMS range; NOT absolute geographic error"
+      },
+      "excluded": [],
+      "extraCheckIds": [],
+      "extraCheckPassIds": [],
+      "flags": [
+        "assumed-historical-azimuth-not-validated",
+        "no FIRMS pass inside this pose window: parameters are an unvalidated assumption"
+      ],
+      "fovDeg": 65.1,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": []
+      },
+      "heldOutIds": [],
+      "heldOutPassIds": [],
+      "matched": [],
+      "method": "cosmos",
+      "observationsBound": false,
+      "parameterOrigin": "printed-X-prior-not-fitted",
+      "poseId": "G3",
+      "printedXDeg": -52.81,
+      "printedXSource": "planning/video-selection-shared-r1.md pose table, agent-read (not operator-reviewed); G3 from root review",
+      "reason": null,
+      "role": "primary",
+      "satelliteValidationStatus": "not-observed-in-pose-window",
+      "status": "experimental",
+      "trainingIds": [],
+      "trainingPassIds": [],
+      "uncertainty": {
+        "basis": "predefined prior; no FIRMS pass, held-out error or fitted value contributes. Not a confidence interval; not a measured historical error.",
+        "holdoutEvaluated": false,
+        "priorAngularHalfWidthDeg": 3.0,
+        "sensitivityHalfWidthsDeg": [
+          0.3,
+          1.0,
+          3.0,
+          5.0,
+          10.0
+        ],
+        "suggestedAngularHalfWidthDeg": 3.0,
+        "todayAgreementNote": "Agreement of printed X with the catalog azimuth today (< 0.3 deg) does not prove the 2025 pose; the prior is not derived from it.",
+        "validated": false
+      },
+      "visibleNotNearAnyPassIds": [],
+      "yaw0Deg": 307.19,
+      "zoom": 1.0
+    },
+    {
+      "bearingModel": {
+        "angularHalfWidthDeg": 3.0,
+        "calibrationBasis": "printed-x-unverified-historical",
+        "cameraId": "buckrock",
+        "formula": "bearingDeg = (yaw0Deg + degrees(atan((2*x_base - 1) * tan(radians(fovDeg)/2)))) mod 360",
+        "fovDeg": 65.1,
+        "method": "cosmos",
+        "parameterOrigin": "printed-X-prior-not-fitted",
+        "poseId": "G3b",
+        "usable": false,
+        "validOnlyFor": "visible-base observations of this pose and method; a bearing alone is not a location; assumption, not validated",
+        "yaw0Deg": 320.81
+      },
+      "calibrationBasis": "printed-x-unverified-historical",
+      "cameraId": "buckrock",
+      "comparisonWithFit": {
+        "status": "pending-observations"
+      },
+      "condition": "historical-x-unverified",
+      "diagnostics": null,
+      "errors": {
+        "extraCheck": [],
+        "fitInSample": [],
+        "heldOut": [],
+        "note": "check only: no pass is a fit pass; heldOut lists every pose pass that had a visible observation within 5 min",
+        "unit": "degrees (azimuth) and metres cross-track at FIRMS range; NOT absolute geographic error"
+      },
+      "excluded": [],
+      "extraCheckIds": [],
+      "extraCheckPassIds": [],
+      "flags": [
+        "assumed-historical-azimuth-not-validated"
+      ],
+      "fovDeg": 65.1,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": [
+          "MODIS@2025-08-27T18:17:00Z",
+          "NOAA21@2025-08-27T19:49:00Z",
+          "SNPP@2025-08-27T20:16:00Z",
+          "NOAA20@2025-08-27T20:38:00Z"
+        ]
+      },
+      "heldOutIds": [],
+      "heldOutPassIds": [],
+      "matched": [],
+      "method": "cosmos",
+      "observationsBound": false,
+      "parameterOrigin": "printed-X-prior-not-fitted",
+      "poseId": "G3b",
+      "printedXDeg": -39.19,
+      "printedXSource": "planning/video-selection-shared-r1.md pose table, agent-read (not operator-reviewed); G3 from root review",
+      "reason": null,
+      "role": "primary",
+      "satelliteValidationStatus": "pending-observations",
+      "status": "experimental",
+      "trainingIds": [],
+      "trainingPassIds": [],
+      "uncertainty": {
+        "basis": "predefined prior; no FIRMS pass, held-out error or fitted value contributes. Not a confidence interval; not a measured historical error.",
+        "holdoutEvaluated": false,
+        "priorAngularHalfWidthDeg": 3.0,
+        "sensitivityHalfWidthsDeg": [
+          0.3,
+          1.0,
+          3.0,
+          5.0,
+          10.0
+        ],
+        "suggestedAngularHalfWidthDeg": 3.0,
+        "todayAgreementNote": "Agreement of printed X with the catalog azimuth today (< 0.3 deg) does not prove the 2025 pose; the prior is not derived from it.",
+        "validated": false
+      },
+      "visibleNotNearAnyPassIds": [],
+      "yaw0Deg": 320.81,
+      "zoom": 1.0
+    },
+    {
+      "bearingModel": {
+        "angularHalfWidthDeg": 3.0,
+        "calibrationBasis": "printed-x-unverified-historical",
+        "cameraId": "buckrock",
+        "formula": "bearingDeg = (yaw0Deg + degrees(atan((2*x_base - 1) * tan(radians(fovDeg)/2)))) mod 360",
+        "fovDeg": 49.019045323641464,
+        "method": "cosmos",
+        "parameterOrigin": "printed-X-prior-not-fitted",
+        "poseId": "G4",
+        "usable": false,
+        "validOnlyFor": "visible-base observations of this pose and method; a bearing alone is not a location; assumption, not validated",
+        "yaw0Deg": 333.87
+      },
+      "calibrationBasis": "printed-x-unverified-historical",
+      "cameraId": "buckrock",
+      "comparisonWithFit": {
+        "status": "pending-observations"
+      },
+      "condition": "historical-x-unverified",
+      "diagnostics": null,
+      "errors": {
+        "extraCheck": [],
+        "fitInSample": [],
+        "heldOut": [],
+        "note": "check only: no pass is a fit pass; heldOut lists every pose pass that had a visible observation within 5 min",
+        "unit": "degrees (azimuth) and metres cross-track at FIRMS range; NOT absolute geographic error"
+      },
+      "excluded": [],
+      "extraCheckIds": [],
+      "extraCheckPassIds": [],
+      "flags": [
+        "assumed-historical-azimuth-not-validated"
+      ],
+      "fovDeg": 49.019045323641464,
+      "fovStatus": "explicit-prior-unverified: 65.1 deg at zoom 1, focal scaling (printed Z read as zoom: unverified)",
+      "frozenSplit": {
+        "extraCheck": [],
+        "fit": [],
+        "heldOut": [
+          "NOAA21@2025-08-27T21:29:00Z",
+          "SNPP@2025-08-27T21:57:00Z",
+          "MODIS@2025-08-27T23:00:00Z"
+        ]
+      },
+      "heldOutIds": [],
+      "heldOutPassIds": [],
+      "matched": [],
+      "method": "cosmos",
+      "observationsBound": false,
+      "parameterOrigin": "printed-X-prior-not-fitted",
+      "poseId": "G4",
+      "printedXDeg": -26.13,
+      "printedXSource": "planning/video-selection-shared-r1.md pose table, agent-read (not operator-reviewed); G3 from root review",
+      "reason": null,
+      "role": "primary",
+      "satelliteValidationStatus": "pending-observations",
+      "status": "experimental",
+      "trainingIds": [],
+      "trainingPassIds": [],
+      "uncertainty": {
+        "basis": "predefined prior; no FIRMS pass, held-out error or fitted value contributes. Not a confidence interval; not a measured historical error.",
+        "holdoutEvaluated": false,
+        "priorAngularHalfWidthDeg": 3.0,
+        "sensitivityHalfWidthsDeg": [
+          0.3,
+          1.0,
+          3.0,
+          5.0,
+          10.0
+        ],
+        "suggestedAngularHalfWidthDeg": 3.0,
+        "todayAgreementNote": "Agreement of printed X with the catalog azimuth today (< 0.3 deg) does not prove the 2025 pose; the prior is not derived from it.",
+        "validated": false
+      },
+      "visibleNotNearAnyPassIds": [],
+      "yaw0Deg": 333.87,
+      "zoom": 1.4
+    }
+  ],
+  "positions": {
+    "buckrock": {
+      "assumption": "The camera is on the Buck Rock lookout summit. Supported by: the database coordinate and an independent DEM summit search agreeing within ~25 m, and the elevation match. No source states camera mounting.",
+      "coordinates": [
+        -118.86067,
+        36.73727,
+        2578
+      ],
+      "file": "calibration/garnet-references-sonnet-r2.json",
+      "sha256": "09f81d019d522771873542f3c308a6e5c3fdb577f403554e81904601ffd96b20",
+      "shiftFromManifest": {
+        "bearingDeg": 191.1,
+        "meters": 309
+      },
+      "status": "candidate"
+    },
+    "delilah": {
+      "assumption": "The camera 'Delilah Lookout 2' is mounted on, or at the summit of, the Delilah fire lookout. Not stated by any source consulted; supported only by the elevation match (printed 5151 ft = 1570 m vs 3DEP 1572.1 m at the lookout point) and by the name.",
+      "coordinates": [
+        -119.1175,
+        36.80417,
+        1570
+      ],
+      "file": "calibration/garnet-references-sonnet-r2.json",
+      "sha256": "09f81d019d522771873542f3c308a6e5c3fdb577f403554e81904601ffd96b20",
+      "shiftFromManifest": {
+        "bearingDeg": 25.6,
+        "meters": 514
+      },
+      "status": "candidate"
+    }
+  },
+  "primaryMethod": "cosmos",
+  "schema": "firetrace-camera-calibration-v1",
+  "status": "pending-observations",
+  "statusDetail": "pending-observations"
+}
