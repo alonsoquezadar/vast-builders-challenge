@@ -1,0 +1,94 @@
+{
+  "schema": "firetrace-garnet-calibration-research-v1",
+  "author": "sonnet-r2 research sub-agent",
+  "date": "2026-10-17",
+  "baseSha": "f9ff0ac82db5ba7515bcb345dfeceda8aca4277a",
+  "status": "research-only-not-validated",
+  "image": {"width": 640, "height": 360},
+  "calibrationReady": false,
+  "calibrationRequirement": "6 fit + 2 check independent image-world pairs per camera (calibration.py). Verified/candidate pairs available: 0 of 8 for each camera.",
+  "cameras": [
+    {
+      "id": "delilah",
+      "catalogId": "Axis-DelilahLookout2",
+      "manifestPosition": {"coordinates": [-119.12, 36.80, 1570], "status": "rounded-public-catalog-unverified"},
+      "refinedPositionCandidate": {
+        "coordinates": [-119.1175, 36.80417, 1570],
+        "elevationNote": "Camera elevation kept at the printed/catalog 1570 m (5151 ft). 3DEP 1 m ground at this point is 1572.1 m; this is a local summit.",
+        "status": "candidate",
+        "assumption": "The camera 'Delilah Lookout 2' is mounted on, or at the summit of, the Delilah fire lookout. Not stated by any source consulted; supported only by the elevation match (printed 5151 ft = 1570 m vs 3DEP 1572.1 m at the lookout point) and by the name.",
+        "shiftFromManifest": {"meters": 514, "bearingDeg": 25.6},
+        "sources": [
+          {"label": "USFS Sequoia NF, Delilah Lookout page (lat 36.80416667, lon -119.1175 = 36°48'15\"N 119°07'03\"W)", "url": "https://www.fs.usda.gov/r05/sequoia/recreation/delilah-lookout", "access": "Read through search-result summary only; direct fetch returned 403.", "precision": "whole arc-seconds (~30 m); datum not stated"},
+          {"label": "Fire Lookout database (NHLR US 379, CA 40): Delilah, Fresno, 36.80418, -119.11758, Tower, Standing", "url": "https://firelookout.org/lookouts/us/ca/", "precision": "datum and accuracy not stated"},
+          {"label": "USGS 3DEP EPQS 1 m DEM point query", "url": "https://epqs.nationalmap.gov/v1/json", "result": "1572.13 m at (-119.1175, 36.80417); local max of a 0.003 deg window scan; 1511.58 m at the rounded catalog point (-119.12, 36.80)", "datum": "NAD83/NAVD88 per USGS; not converted to WGS84/ellipsoid"}
+        ],
+        "conflictingSource": {"label": "Living New Deal: 36.802862, -119.11872, elevation 5176 ft", "url": "https://livingnewdeal.org/projects/delilah-forest-ccc-fire-lookout-dunlap-ca/", "note": "Seen only through search summary. 3DEP at that point is 1530.2 m, 40 m below printed elevation; rejected as camera position."}
+      },
+      "references": [],
+      "demHorizonCheck": {
+        "source": "OpenTopoData ned10m (USGS NED 1/3 arc-sec, bilinear), 1 deg azimuth x 500 m rays 1-40 km from the refined position, k=0.13 refraction, camera z=1570",
+        "finding": "Terrain skyline from azimuth 0-110 deg stays between +1.5 and +3.3 deg elevation with no sharp unique feature; it cannot pin down yaw or tilt by eye. Printed Y (+7.33) cannot be a geometric tilt-up: the visible ridge would then sit at or below y~217 and the frame ridge is at y~193-250 with the upper ridge at the right edge near y~195.",
+        "conclusion": "No pixel-to-world pair was identified."
+      }
+    },
+    {
+      "id": "buckrock",
+      "catalogId": "Axis-BuckRock1",
+      "manifestPosition": {"coordinates": [-118.86, 36.74, 2578], "status": "rounded-public-catalog-unverified"},
+      "refinedPositionCandidate": {
+        "coordinates": [-118.86067, 36.73727, 2578],
+        "elevationNote": "Kept catalog 2578 m. Printed 8468 ft = 2581.0 m. 3DEP summit near (-118.8608, 36.7370) = 2582.9 m. Buck Rock lookout summit is quoted at 8,502 ft (2591 m) by news and the Forest Service, so the camera would sit ~10 m under that figure.",
+        "status": "candidate",
+        "assumption": "The camera is on the Buck Rock lookout summit. Supported by: the database coordinate and an independent DEM summit search agreeing within ~25 m, and the elevation match. No source states camera mounting.",
+        "shiftFromManifest": {"meters": 309, "bearingDeg": 191.1},
+        "sources": [
+          {"label": "Fire Lookout database (NHLR US 284, CA 18): Buck Rock, Tulare, 36.73727, -118.86067, Ground, Standing", "url": "https://firelookout.org/lookouts/us/ca/", "precision": "datum and accuracy not stated"},
+          {"label": "USGS 3DEP EPQS 1 m DEM scan 0.0004 deg step", "url": "https://epqs.nationalmap.gov/v1/json", "result": "local max 2582.9 m at (-118.8608, 36.7370); 2440.4 m at the rounded catalog point (-118.86, 36.74)", "datum": "NAD83/NAVD88 per USGS; not converted"},
+          {"label": "Elevation 8,502 ft quoted by news and USFS", "url": "https://abc30.com/post/buck-rock-fire-lookout-sequoia-national-forest-now/15089633/", "note": "Not an official coordinate source"}
+        ],
+        "notFound": "No official USFS or NRHP coordinate for Buck Rock was read (USFS page returned 403). The database position is secondary."
+      },
+      "references": [],
+      "hypothesesNotForFitting": [
+        {
+          "id": "buckrock-pointed-peak-hypothesis",
+          "cameraId": "buckrock",
+          "frameIds": ["buckrock-222", "buckrock-244", "buckrock-267"],
+          "pixel": [150, 293],
+          "pixelUncertaintyPx": 10,
+          "world": [-118.9447, 36.7408, 2340],
+          "status": "hypothesis-rejected-by-consistency-check",
+          "identificationMethod": "Visual reading of the dark pointed foreground peak in the lower left, matched to the DEM skyline local maximum at azimuth ~273-275 deg, 7.5 km (-1.85 deg elevation). Visual only.",
+          "whyNotUsable": "With the printed Z 1.4 and catalog FOV 65.1 deg at zoom 1, the rising massif at the right edge would sit ~1.5-3 deg higher than this peak, but the image shows ~4.9 deg (48 px). Printed zoom is not verified to map to FOV. Treat as unresolved; do not feed to calibration.py."
+        }
+      ],
+      "demHorizonCheck": {
+        "source": "OpenTopoData ned10m, azimuth 255-345 deg, 1-40 km, k=0.13",
+        "finding": "Skyline rises smoothly from about -3 deg (azimuth 255) to +0.3 deg (azimuth 345). The near ridge at 7-8.5 km (azimuth 255-295) sits at -1.8 to -3.0 deg.",
+        "conclusion": "No pixel-to-world pair was identified."
+      }
+    }
+  ],
+  "catalogMetadataLeads": {
+    "source": "https://cameras.alertcalifornia.org/public-camera-data/all_cameras-v3.json (read 2026-10-17 ~14:5x local clock; live snapshot)",
+    "delilah": {"fov": 65.1, "ProdNbr": "Q6075-E", "az_current": 308.29, "tilt_current": 0.0, "zoom_current": 1.0, "last_frame_ts": 1792245204},
+    "buckrock": {"fov": 65.1, "ProdNbr": "Q6075-E", "az_current": 301.58, "tilt_current": -0.69, "zoom_current": 1.0, "last_frame_ts": 1792245199},
+    "meaning": "The 65.1 deg field is the catalog horizontal FOV at zoom 1 (unverified). az_current is the live pan at the snapshot time, not the Garnet frame pose. Its datum (true vs magnetic vs relative) is not documented. How printed X maps to az_current is NOT established.",
+    "suggestedTest": "Read the printed X/Y/Z of one current frame of each camera and compare with az_current/tilt_current at the same timestamp. Two poses per camera would give offset and scale. Not done here (it would mean downloading live imagery; left to the coordinator)."
+  },
+  "overlayAxes": {
+    "garnetPrinted": {
+      "delilah": "X +25.27, Y +7.33, Z 1.0 (G2); elev 5151 ft",
+      "buckrock": "X -26.13, Y +7.89, Z 1.4 (G4); elev 8468 ft"
+    },
+    "finding": "X cannot be used as true azimuth. Using the origin bearing as a stand-in gives incompatible offsets between cameras, and the fire is not at the origin on 2025-08-27 anyway. Y does not behave as a geometric tilt (see demHorizonCheck). Z may be zoom; unverified."
+  },
+  "limitations": [
+    "Both refined positions are candidates, not surveyed antenna positions.",
+    "Camera-on-lookout mounting is an assumption.",
+    "No reference pairs were verified; the CAL FIRE origin point was not used for fitting or validation.",
+    "DEM heights are bare earth (3DEP/NED), datum NAD83/NAVD88; no geoid or WGS84 conversion applied. Tower height above ground unknown.",
+    "calibration.py assumes camera at the given origin with no position fit; a 300-500 m position error is large against a 10-20 km baseline."
+  ]
+}
