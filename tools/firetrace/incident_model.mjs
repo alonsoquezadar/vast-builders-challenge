@@ -17,3 +17,34 @@ export function resolveMoment(bundle, index) {
   const times = frames.map(f => printedClockSeconds(f.printedTime));
   return {frames, printedOffsetSeconds: Math.max(...times) - Math.min(...times), synchronized: false};
 }
+export class InferenceError extends Error {}
+// Apply the target when metadata is ready; a later call replaces an earlier pending target.
+export function seekWhenReady(video, seconds) {
+  if (video.readyState >= 1) video.currentTime = seconds;
+  else video.onloadedmetadata = () => { video.currentTime = seconds; };
+}
+// Keep the reviewed response alongside a new one so the export never loses it.
+export function acceptLiveAnalysis(frame, data) {
+  if (!data || typeof data.content !== 'string' || !data.content || data.imageSha256 !== frame.imageSha256) throw new InferenceError('La respuesta no corresponde al fotograma seleccionado.');
+  if (!('savedAnalysis' in frame)) frame.savedAnalysis = frame.analysis;
+  frame.analysis = data;
+  frame.presentationMode = 'live';
+}
+export async function requestAnalysis(frame, image, fetchFn = fetch) {
+  let result, data = null;
+  try { result = await fetchFn('./api/analyze', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({image})}); }
+  catch { throw new InferenceError('No se pudo contactar con el servicio de análisis.'); }
+  try { data = await result.json(); } catch { /* non-JSON error body */ }
+  if (!result.ok) throw new InferenceError(typeof data?.error === 'string' && data.error ? data.error : `El servicio de análisis respondió HTTP ${result.status}.`);
+  acceptLiveAnalysis(frame, data);
+}
+export function inferenceFailureNotice(error, frame) {
+  const detail = error instanceof InferenceError ? error.message : 'No se pudo completar la inferencia.';
+  return `No se completó la inferencia. ${/[.!?]$/.test(detail) ? detail : detail + '.'}${frame.analysis ? ' Se conserva la respuesta anterior.' : ''}`;
+}
+// Review notes correct the saved response; they must not be attached to a new one.
+export function reviewNotesFor(frame) {
+  const notes = frame.reviewNotes || [];
+  if (!notes.length) return '';
+  return frame.presentationMode === 'live' ? 'Esta respuesta nueva no está revisada. Las correcciones de procedencia se refieren a la respuesta guardada, que se conserva en la exportación.' : notes.join(' ');
+}
