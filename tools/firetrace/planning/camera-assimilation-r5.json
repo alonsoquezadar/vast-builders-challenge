@@ -18,6 +18,11 @@
       "role": "assimilation",
       "taskId": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-camera-assimilation-sonnet-r5",
       "writeScope": "camera_assimilation/assimilation/"
+    },
+    {
+      "role": "printed-X-model-implementation-followup",
+      "taskId": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Athread-send%3Afiretrace-r5-printed-model-implementation-followup",
+      "writeScope": "camera_assimilation/calibration/printed_model.* and test_printed_model.py only"
     }
   ],
   "integration": {
@@ -38,5 +43,7 @@
     "actualCosmosProbe": "camera_assimilation/probe/response.json",
     "gatewayUpdateDryRunChanged": false,
     "humanReview": "pending"
-  }
+  },
+  "primaryCameraModel": "printed-X-prior-not-fitted; historical configuration unverified",
+  "contrastCameraModel": "satellite-fitted-yaw"
 }

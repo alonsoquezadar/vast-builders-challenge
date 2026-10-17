@@ -44,10 +44,15 @@ def load_camera_bundle(root=None):
     calibration=_document(experiment/'calibration/calibration.json')
     inputs=calibration.get('inputs',{}).get('observations',{})
     current=bool(vision.get('artifactSha256') and inputs.get('sha256')==vision['artifactSha256'] and not vision['integrityIssues'])
+    printed=_document(experiment/'calibration/printed_model.json')
+    printed_input=printed.get('inputs',{}).get('observations',{})
+    printed_current=bool(vision.get('artifactSha256') and printed_input.get('sha256')==vision['artifactSha256'] and not vision['integrityIssues'])
     return {'schema':'firetrace-camera-fusion-v1','mode':'retrospective-experiment','operationallyValidated':False,
             'clockStatus':'assumed-PDT-not-verified','vision':vision,
             'calibrationArtifactCurrent':current, 'calibration':calibration,
+            'printedModelArtifactCurrent':printed_current, 'printedModel':printed,
             'assimilation':_document(experiment/'assimilation/scenario.json'),
+            'assimilationContrast':_document(experiment/'assimilation/scenario-fitted.json'),
             'limitations':['Reloj y posiciones de torre aún no verificados.',
                            'La inicialización reconstruida incorpora conocimiento posterior del incendio.',
                            'La revisión por operador está pendiente salvo que conste explícitamente en cada observación.']}
