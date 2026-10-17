@@ -6,10 +6,10 @@
 <title>FireTrace · Garnet Fire 2025</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
-<link rel="stylesheet" href="./firetrace.css?v=video-sync-1">
+<link rel="stylesheet" href="./firetrace.css?v=video-model-1">
 <link rel="stylesheet" href="./tour.css">
 <script defer src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
-<script type="module" src="./firetrace.js?v=video-sync-1"></script>
+<script type="module" src="./firetrace.js?v=video-model-3"></script>
 </head>
 <body>
 <header class="top">
@@ -35,7 +35,7 @@
       <p id="video-sync-status" class="video-sync-status" role="status"></p>
       <button id="video-restart">Start synced sequence</button>
       <p id="video-range" class="video-range"></p>
-      <p class="video-note">Approximate sync between printed timestamps · PDT assumed. Video playback moves the timeline; moving the timeline seeks the video. The map shows the satellite reconstruction, not a reconstruction derived from this video.</p>
+      <p class="video-note">Approximate sync between printed timestamps · PDT assumed. Video playback moves the timeline; moving the timeline seeks the video. Magenta growth on the map is an experimental wind-and-terrain simulation, not a fire boundary measured from this video.</p>
       <small>ALERTCalifornia | UC San Diego · PG&amp;E</small>
     </aside>
 
@@ -65,6 +65,7 @@
         <li class="legend-forecast" hidden><i class="sw sw-initial"></i><span>Initial front extent</span><b class="pill pill-rec">RECONSTRUCTED</b></li>
         <li class="legend-forecast" hidden><i class="sw sw-ref"></i><span>Future reference (outline)</span><b class="pill pill-rec">RECONSTRUCTED</b></li>
         <li class="legend-cones" hidden><i class="sw sw-cone"></i><span>Camera cones (hypothesis)</span><b class="pill pill-hyp">HYPOTHESIS</b></li>
+        <li class="legend-video-model"><i class="sw sw-model"></i><span>Video-linked modelled growth</span><b class="pill pill-mod">MODELLED</b></li>
       </ul>
     </div>
 
@@ -95,6 +96,15 @@
     <section class="panel" id="panel-weather">
       <h2>Weather <b class="pill pill-model">MODELLED</b></h2>
       <div id="weather-body"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section class="panel video-model-panel" id="panel-video-model">
+      <h2>Video-linked growth <b class="pill pill-mod">MODELLED</b></h2>
+      <button id="video-model-start" class="primary" disabled>Play video + model</button>
+      <p id="video-model-status" class="muted small" role="status">Loading the wind-and-terrain scenario…</p>
+      <dl id="video-model-stats" class="kv"></dl>
+      <p class="small muted">The satellite reconstruction is unchanged during this video. Magenta cells show simulated growth between passes, driven by historical wind and terrain. Fuel is uniform and assumed.</p>
+      <details><summary>Sources and comparison</summary><div id="video-model-provenance" class="small muted"></div></details>
     </section>
 
     <section class="panel" id="panel-forecast">

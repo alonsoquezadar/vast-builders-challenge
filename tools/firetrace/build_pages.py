@@ -18,7 +18,8 @@ from satellite_bundle import FILES, load_satellite
 
 ROOT = Path(__file__).parent.resolve()
 ASSETS = ['firetrace.html', 'firetrace.js', 'firetrace.css', 'firetrace_model.mjs',
-          'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs']
+          'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs', 'video-scenario.mjs',
+          'evidence/garnet/video-scenario.json']
 
 
 def write_json(path, value):
@@ -26,16 +27,36 @@ def write_json(path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
 
 
+def copy_assets(output):
+    for name in ASSETS:
+        (output / name).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / name, output / name)
+    html = (output / 'firetrace.html').read_text().replace('<html lang="en-GB">', '<html lang="en-GB" data-deployment="static">')
+    (output / 'firetrace.html').write_text(html)
+    (output / 'index.html').write_text(html)
+
+
+def refresh_assets(output):
+    """Reuse an export only when hourly forecast behaviour and inputs have not changed."""
+    output = output.resolve()
+    manifest = json.loads((output / 'build-manifest.json').read_text())
+    replaced = set(ASSETS) | {'index.html'}
+    for name, digest in manifest['sha256'].items():
+        if name not in replaced and hashlib.sha256((output / name).read_bytes()).hexdigest() != digest:
+            raise ValueError(f'The retained export asset does not match its manifest: {name}')
+    copy_assets(output)
+    for name in replaced:
+        manifest['sha256'][name] = hashlib.sha256((output / name).read_bytes()).hexdigest()
+    write_json(output / 'build-manifest.json', manifest)
+    print(f'Refreshed public assets; retained {manifest["projectionCount"]} verified hourly projections.', flush=True)
+
+
 def build(output):
     output = output.resolve()
     if output.exists() and any(output.iterdir()):
         raise ValueError('Choose an empty output directory to avoid overwriting other files.')
     output.mkdir(parents=True, exist_ok=True)
-    for name in ASSETS:
-        shutil.copyfile(ROOT / name, output / name)
-    html = (output / 'firetrace.html').read_text().replace('<html lang="en-GB">', '<html lang="en-GB" data-deployment="static">')
-    (output / 'firetrace.html').write_text(html)
-    (output / 'index.html').write_text(html)
+    copy_assets(output)
     (output / '.nojekyll').touch()
     for layer in FILES:
         write_json(output / 'data' / f'{layer}.json', localise_payload(load_satellite(layer)))
@@ -75,4 +96,6 @@ def build(output):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, required=True)
-    build(parser.parse_args().output)
+    parser.add_argument('--refresh-assets', action='store_true', help='Refresh UI and the video scenario in an existing export. Only use when hourly forecast inputs and behaviour are unchanged.')
+    args = parser.parse_args()
+    (refresh_assets if args.refresh_assets else build)(args.output)

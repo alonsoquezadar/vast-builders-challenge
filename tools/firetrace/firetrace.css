@@ -99,6 +99,9 @@ a{color:var(--cyan)}
 .video-range{font-size:10px;color:#a8b8c9;line-height:1.4;margin:9px 0}
 .video-note{font-size:10px;line-height:1.45;color:#a8b8c9;margin:8px 0}
 .camera-player small{font-size:9px;color:#8c9baa}
+.video-model-panel{border-left:3px solid #e656b8}
+.video-model-panel summary{font-size:11px;color:#e5a2d3;cursor:pointer;margin-top:8px}
+.video-model-hud{display:inline-block;margin-top:5px;color:#ffc0eb}
 .stage:has(.camera-player:not([hidden])) .maplibregl-ctrl-top-right{right:380px}
 @media(max-width:860px){.camera-player{width:min(300px,calc(100% - 28px))}.stage:has(.camera-player:not([hidden])) .maplibregl-ctrl-top-right{display:none}}
 .cam-label{position:absolute;left:28px;top:2px;white-space:nowrap;font-size:11px;color:#dff6fc;text-shadow:0 1px 6px #000}

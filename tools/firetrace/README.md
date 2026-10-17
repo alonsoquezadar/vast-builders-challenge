@@ -1,16 +1,30 @@
 # FireTrace
 
-Demo de reconstrucción y modelación de incendios sobre relieve real, con un gateway Python y MapLibre GL JS 5.6.1. Se mantiene local por decisión del usuario. La entrada principal es `/firetrace.html`; `/` redirige a esa vista.
+Demo de reconstrucción y modelación de incendios sobre relieve real, con un gateway Python y MapLibre GL JS 5.6.1. Tiene una versión local y una exportación pública en GitHub Pages. La entrada principal es `/firetrace.html`; `/` redirige a esa vista.
 
 Todas las pantallas usan inglés británico (`en-GB`), con reloj de 24 horas, punto decimal y coma de millares. Los textos del servidor se traducen para su presentación mediante `localisation.py` y `locales/en-GB.json`. Las traducciones de respuestas guardadas de Cosmos llevan un aviso y la huella del texto original. Los archivos de evidencia, sus huellas y los datos numéricos permanecen intactos. Las claves de esquema y los identificadores internos conservan su formato original.
 
 ## Tour guiado y GitHub Pages
 
-Pulsa **Take a tour** para recorrer las 16 explicaciones de la vista principal. Usa **Next**, **Back**, las flechas del teclado o **Escape** para salir. El tour pausa la reproducción y resalta el control o panel correspondiente.
+Pulsa **Take a tour** para recorrer las 17 explicaciones de la vista principal. Usa **Next**, **Back**, las flechas del teclado o **Escape** para salir. El tour pausa la reproducción y resalta el control o panel correspondiente.
 
 Pulsa **Real footage** para abrir el vídeo de una cámara en la esquina derecha del mapa. **Start synced sequence** reproduce el tramo con horas conocidas y mueve el timeline con el vídeo. Arrastrar el timeline busca el momento correspondiente del vídeo y lo pausa. El reproductor permite cambiar entre Delilah y Buck Rock. **Watch synced clip**, en la ficha de una cámara, abre el mismo reproductor en la hora del fotograma.
 
-La sincronización interpola entre las tres horas impresas revisadas de cada cámara, con PDT asumido. Fuera de ese tramo muestra un aviso y no extrapola. El mapa sigue mostrando la reconstrucción satelital. Esta comparación no convierte el vídeo en una reconstrucción automática ni valida la sincronía de los relojes.
+La sincronización interpola entre las tres horas impresas revisadas de cada cámara, con PDT asumido. Fuera de ese tramo muestra un aviso y no extrapola. La comparación no convierte el vídeo en una reconstrucción automática ni valida la sincronía de los relojes.
+
+**Play video + model**, en el panel **Video-linked growth**, reproduce la cámara y activa una capa magenta que crece con la misma hora del vídeo. La capa naranja conserva la reconstrucción satelital. La nueva capa calcula la propagación desde las 23:00 UTC del 27 de agosto hasta las 07:00 UTC del día siguiente, con relieve real y viento histórico horario. Usa 178 celdas recientes del borde como puntos de propagación y mantiene el combustible uniforme como supuesto.
+
+El escenario es experimental. No está ajustado al vídeo y sobreestima la reconstrucción posterior. **Sources and comparison** muestra el resultado a las 05:19 UTC, hora exacta de la siguiente pasada satelital. La referencia no añade celdas nuevas en esa pasada, de modo que la comparación no permite validar el crecimiento real. Las limitaciones de la reconstrucción inicial, recortada con el perímetro final, siguen vigentes.
+
+Para regenerar el escenario y comprobarlo:
+
+```sh
+python3 tools/firetrace/video_scenario.py
+python3 -m unittest discover -s tools/firetrace -p test_video_scenario.py
+node --test tools/firetrace/video-scenario.test.mjs
+```
+
+El archivo `evidence/garnet/video-scenario.json` guarda las horas de llegada por celda y las huellas de las entradas. La investigación de GOES confirmó archivos de NOAA en las horas consultadas, pero no extrajo detecciones sobre Garnet. GOES no participa en este escenario.
 
 La web pública está en https://alonsoquezadar.github.io/vast-builders-challenge/. GitHub Pages sirve el contenido de la rama `gh-pages`. El código de esta entrega está en `firetrace/guided-tour-pages`.
 
@@ -26,6 +40,8 @@ El directorio de salida debe estar vacío. En otra terminal, comprueba la export
 ```sh
 node tools/firetrace/verify_pages.mjs http://localhost:5184/
 ```
+
+Si solo cambian la interfaz o el escenario del vídeo, puedes actualizar una exportación existente con `python3 tools/firetrace/build_pages.py --output /tmp/firetrace-pages --refresh-assets`. Esta opción verifica y conserva las proyecciones horarias ya generadas. No la uses si cambian sus entradas o el comportamiento del motor de pronóstico.
 
 El servidor estático de Python permite comprobar la exportación, pero no admite solicitudes HTTP Range para buscar dentro del vídeo. Comprueba la sincronización con `run_local.py --saved-only` o con la web de GitHub Pages, que sí admiten esas solicitudes.
 

@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {validateForecast} from './firetrace_model.mjs';
+import {readVideoScenario, videoScenarioFrame} from './video-scenario.mjs';
 
 const base = new URL(process.argv[2] || 'http://localhost:5184/');
 assert(base.pathname.endsWith('/'), 'The site URL must end with /.');
@@ -14,13 +15,18 @@ const html = await (await get('index.html')).text();
 assert(html.includes('data-deployment="static"'));
 assert(html.includes('id="tour-start"'));
 assert(html.includes('id="camera-video"'));
+assert(html.includes('id="video-model-start"'));
 const build = await (await get('build-manifest.json')).json();
-for (const name of ['firetrace.js', 'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs']) {
+for (const name of ['firetrace.js', 'tour.js', 'tour.css', 'data-client.mjs', 'camera-player.js', 'video-clock.mjs', 'video-scenario.mjs', 'evidence/garnet/video-scenario.json']) {
   const bytes = Buffer.from(await (await get(name)).arrayBuffer());
   assert.equal(createHash('sha256').update(bytes).digest('hex'), build.sha256[name], name);
 }
 const arrival = await (await get('data/arrival.json')).json();
 assert(arrival.features.length > 0);
+const scenario = readVideoScenario(await (await get('evidence/garnet/video-scenario.json')).json());
+const modelGrowth = ['2025-08-27T23:17:00Z', '2025-08-28T01:13:00Z', '2025-08-28T03:17:00Z']
+  .map(time => videoScenarioFrame(scenario, Date.parse(time) / 1000).newAreaHa);
+assert(modelGrowth[0] < modelGrowth[1] && modelGrowth[1] < modelGrowth[2], 'The model must evolve across the real video.');
 for (const layer of ['hotspots', 'weather', 'daily', 'summary', 'overpasses', 'perimeter']) {
   await (await get(`data/${layer}.json`)).json();
 }
@@ -54,5 +60,6 @@ for (const seconds of sampleTimes) {
   }
 }
 console.log(JSON.stringify({site: base.href, tour: true, verifiedFrames: incident.frames.length,
+  videoModelGrowthHa: modelGrowth,
   hourlyStartingTimes: catalogue.times.length, savedProjections: build.projectionCount,
   checkedProjectionSamples: sampleTimes.length * 3}, null, 2));

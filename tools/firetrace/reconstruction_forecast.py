@@ -198,12 +198,14 @@ def wind_factors(wind_from_deg, wind_speed_mps, cell):
 
 
 def propagate(elevation, cell, initial_mask, hourly_wind, phase_min, horizon_min,
-              base_spread=BASE_SPREAD_M_MIN, fuel_factor=FUEL_FACTOR):
+              base_spread=BASE_SPREAD_M_MIN, fuel_factor=FUEL_FACTOR, seed_mask=None):
     """Minutes after the initial instant at which each cell burns (0 inside the mask, inf if not reached in time).
 
     ``hourly_wind[i]`` = (windFromDeg, windSpeedMps) for the i-th UTC hour; the initial instant lies ``phase_min``
     minutes after the start of hour 0. Crossing an edge integrates distance hour by hour, so travel time is FIFO and
     Dijkstra is exact. Rows run north to south.
+
+    ``seed_mask`` (optional, subset of the mask) restricts which boundary cells start spreading; default: the whole boundary.
     """
     elevation = np.asarray(elevation, float)
     mask = np.asarray(initial_mask, bool)
@@ -236,7 +238,13 @@ def propagate(elevation, cell, initial_mask, hourly_wind, phase_min, horizon_min
 
     pm = np.zeros((ny + 2, width), bool)
     pm[1:-1, 1:-1] = mask
-    seeds = np.flatnonzero(np.pad(_boundary_cells(mask), 1).ravel())  # interior mask cells cannot start any new burn
+    active = _boundary_cells(mask)  # interior mask cells cannot start any new burn
+    if seed_mask is not None:
+        seed_mask = np.asarray(seed_mask, bool)
+        if seed_mask.shape != mask.shape or (seed_mask & ~mask).any():
+            raise ValueError('seed_mask debe ser un subconjunto de la máscara inicial')
+        active = active & seed_mask
+    seeds = np.flatnonzero(np.pad(active, 1).ravel())
     arrival = np.where(pm, 0.0, np.inf).ravel().tolist()
     inf = math.inf
     heap = [(0.0, int(s)) for s in seeds]
