@@ -33,3 +33,7 @@ C reads A/B outputs at runtime; implement first without waiting. `scenario.json`
 ## Product claims
 
 Target cadence is camera-driven correction, satellite validation at available passes. The timelapse cannot prove corrections every minute; the 225 passes are not a fixed twice-daily cadence. Do not display the proposed slogan as an achieved capability. Show measured observation cadence, gates and uncertainty. No promised hundreds-of-meters accuracy until measured with independent evidence.
+
+## Current independent clock/bearing consistency check (root)
+
+`clock-check/comparison.json` contains two current images (2026-10-17) with full receipts. Printed time +7 h matches each catalog last-frame epoch to <1 s. Printed X modulo360 differs from current catalog azimuth by +0.28° (Delilah) / −0.16° (Buck Rock). This supports the clock/range convention today and makes the earlier categorical rejection of X-as-bearing too strong. It does not establish August2025 settings, motion scale, a historical pose, or geographic accuracy. Use as an external consistency check; do not replace satellite-heldout measurements with it.

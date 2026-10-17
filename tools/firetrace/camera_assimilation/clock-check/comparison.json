@@ -1,0 +1,40 @@
+{
+  "scope": "current frames on 2026-10-17 only",
+  "historicalClockVerified": false,
+  "historicalPoseVerified": false,
+  "results": [
+    {
+      "cameraId": "Axis-DelilahLookout2",
+      "transcription": {
+        "printedTime": "2026-10-17T07:21:13.54",
+        "xDeg": -51.99,
+        "yDeg": -4.89,
+        "zoom": 1.0
+      },
+      "reviewStatus": "agent-read-not-operator-reviewed",
+      "clockUnderPdtErrorSeconds": 0.54,
+      "printedXWrappedDeg": 308.01,
+      "catalogAzimuthDeg": 308.2900085449219,
+      "azimuthResidualDeg": 0.28
+    },
+    {
+      "cameraId": "Axis-BuckRock1",
+      "transcription": {
+        "printedTime": "2026-10-17T07:20:39.43",
+        "xDeg": -58.26,
+        "yDeg": -7.35,
+        "zoom": 1.0
+      },
+      "reviewStatus": "agent-read-not-operator-reviewed",
+      "clockUnderPdtErrorSeconds": 0.43,
+      "printedXWrappedDeg": 301.74,
+      "catalogAzimuthDeg": 301.5799865722656,
+      "azimuthResidualDeg": -0.16
+    }
+  ],
+  "limitations": [
+    "One pose per camera cannot validate a motion/zoom transfer function.",
+    "A current clock match does not prove historical camera configuration.",
+    "Public catalog azimuth is an external consistency check, not a surveyed ground-truth calibration."
+  ]
+}

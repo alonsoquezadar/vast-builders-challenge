@@ -1,0 +1,97 @@
+{
+  "historicalClockVerified": false,
+  "records": [
+    {
+      "cameraId": "Axis-DelilahLookout2",
+      "sourceUrl": "https://cameras.alertcalifornia.org/public-camera-data/Axis-DelilahLookout2/latest-frame.jpg",
+      "fetchedAt": "2026-10-17T14:22:27.452210+00:00",
+      "sha256": "41fe556f5d6af8f108759b8580468a067b80535fdb04dfd60a42aff4f0dd0a64",
+      "catalog": {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -119.12,
+            36.8,
+            1570
+          ]
+        },
+        "properties": {
+          "id": "Axis-DelilahLookout2",
+          "name": "Delilah Lookout 2",
+          "last_frame_ts": 1792246873,
+          "fov_lft": [
+            -119.47922061061854,
+            36.82955451978682
+          ],
+          "fov_rt": [
+            -119.2392720871163,
+            37.07292599666136
+          ],
+          "fov_center": [
+            -119.40343105317075,
+            36.979171744409875
+          ],
+          "fov": 65.1,
+          "ProdNbr": "Q6075-E",
+          "az_current": 308.2900085449219,
+          "tilt_current": 0.0,
+          "zoom_current": 1.0,
+          "is_patrol_mode": 0,
+          "is_currently_patrolling": 0,
+          "state": "CA",
+          "county": "fresno",
+          "isp": "sio",
+          "sponsor": "pge",
+          "region": "FKU"
+        }
+      }
+    },
+    {
+      "cameraId": "Axis-BuckRock1",
+      "sourceUrl": "https://cameras.alertcalifornia.org/public-camera-data/Axis-BuckRock1/latest-frame.jpg",
+      "fetchedAt": "2026-10-17T14:22:28.523949+00:00",
+      "sha256": "22e514883ff54ae3693cf93dbae702857718fb51eb7b4353639fbf70061e6b3c",
+      "catalog": {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -118.86,
+            36.74,
+            2578
+          ]
+        },
+        "properties": {
+          "id": "Axis-BuckRock1",
+          "name": "Buck Rock 1",
+          "last_frame_ts": 1792246839,
+          "fov_lft": [
+            -119.22079024386963,
+            36.735743030438705
+          ],
+          "fov_rt": [
+            -119.01815723908892,
+            36.99989729704978
+          ],
+          "fov_center": [
+            -119.16739409886827,
+            36.8914263594742
+          ],
+          "fov": 65.1,
+          "ProdNbr": "Q6075-E",
+          "az_current": 301.5799865722656,
+          "tilt_current": -0.6899999976158142,
+          "zoom_current": 1.0,
+          "is_patrol_mode": 0,
+          "is_currently_patrolling": 0,
+          "state": "CA",
+          "county": "tulare",
+          "isp": "sio",
+          "sponsor": "pge",
+          "region": "TUU"
+        }
+      }
+    }
+  ]
+}
