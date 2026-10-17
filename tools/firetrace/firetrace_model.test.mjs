@@ -11,7 +11,7 @@ const daily = read('daily-extent-reconstructed.geojson').features;
 const weather = read('weather-hourly.json');
 const utc = s => M.parseUtc(s);
 
-// Evalúa el subconjunto de expresiones que usan los filtros del mapa.
+// Evaluates the subset of expressions used by the map filters.
 function evaluate(expr, props) {
   if (!Array.isArray(expr)) return expr;
   const [op, ...args] = expr;
@@ -22,11 +22,11 @@ function evaluate(expr, props) {
     case '>': return v[0] > v[1];
     case '==': return v[0] === v[1];
     case 'all': return v.every(Boolean);
-    default: throw Error('operador no soportado ' + op);
+    default: throw Error('unsupported operator ' + op);
   }
 }
 
-test('el área acumulada nunca incluye celdas posteriores al cursor', () => {
+test('cumulative area never includes cells later than the cursor', () => {
   for (const iso of ['2025-08-24T12:00:00Z', '2025-08-27T20:38:00Z', '2025-09-01T00:00:00Z']) {
     const cursor = utc(iso), filter = M.cumulativeFilter(cursor);
     const shown = arrival.filter(f => evaluate(filter, f.properties));
@@ -37,7 +37,7 @@ test('el área acumulada nunca incluye celdas posteriores al cursor', () => {
   assert.equal(arrival.filter(f => evaluate(M.cumulativeFilter(utc('2025-08-24T00:00:00Z')), f.properties)).length, 0);
 });
 
-test('la franja reciente solo contiene celdas de las últimas X horas y es subconjunto del acumulado', () => {
+test('the recent band only contains cells from the last X hours and is a subset of the cumulative area', () => {
   const cursor = utc('2025-08-27T20:00:00Z');
   for (const hours of M.RECENT_HOURS) {
     const recent = arrival.filter(f => evaluate(M.recentFilter(cursor, hours), f.properties));
@@ -48,7 +48,7 @@ test('la franja reciente solo contiene celdas de las últimas X horas y es subco
   assert.ok(six <= day);
 });
 
-test('FIRMS muestra solo la última pasada <= cursor, con su t y source exactos', () => {
+test('FIRMS shows only the latest overpass <= cursor, with its exact t and source', () => {
   const cursor = utc('2025-08-27T20:40:00Z');
   const pass = M.currentOverpass(overpasses, cursor);
   assert.ok(pass.t <= cursor);
@@ -61,7 +61,7 @@ test('FIRMS muestra solo la última pasada <= cursor, con su t y source exactos'
   assert.equal(shown.length, pass.detections);
 });
 
-test('antes de la primera pasada no hay pasada actual ni puntos; los puntos futuros nunca cuentan', () => {
+test('before the first overpass there is no current overpass or points; future points never count', () => {
   const first = overpasses[0];
   assert.equal(M.currentOverpass(overpasses, first.t - 1), null);
   assert.equal(hotspots.filter(f => evaluate(M.passFilter(null), f.properties)).length, 0);
@@ -71,14 +71,14 @@ test('antes de la primera pasada no hay pasada actual ni puntos; los puntos futu
   assert.ok(hotspots.filter(f => evaluate(M.passFilter(pass), f.properties)).every(f => f.properties.t <= mid));
 });
 
-test('dos pasadas con el mismo t se distinguen por source', () => {
+test('two overpasses with the same t are told apart by source', () => {
   const a = {t: 100, source: 'A', detections: 2}, b = {t: 100, source: 'B', detections: 5};
   assert.equal(M.currentOverpass([a, b], 100).source, 'B');
   const pts = [{properties: {t: 100, source: 'A'}}, {properties: {t: 100, source: 'B'}}];
   assert.equal(M.hotspotsOfPass(pts, b).length, 1);
 });
 
-test('el área reconstruida concuerda con los acres diarios publicados y es monótona', () => {
+test('reconstructed area matches the published daily acres and is monotonic', () => {
   const series = M.cumulativeAreaSeries(arrival);
   assert.equal(series.t.length, arrival.length);
   for (let i = 1; i < series.acres.length; i++) assert.ok(series.acres[i] >= series.acres[i - 1]);
@@ -92,7 +92,7 @@ test('el área reconstruida concuerda con los acres diarios publicados y es mon�
   assert.ok(Math.abs(M.areaBetween(series, cursor - 6 * 3600, cursor) + M.areaAt(series, cursor - 6 * 3600) - M.areaAt(series, cursor)) < 1e-6);
 });
 
-test('el contorno acumulado solo aparece en el límite entre llegada y no llegada', () => {
+test('the cumulative outline only appears on the boundary between arrived and not arrived', () => {
   const edges = M.buildBoundaryEdges(arrival);
   assert.ok(edges.length > 1000);
   const cursor = utc('2025-08-27T20:00:00Z');
@@ -104,7 +104,7 @@ test('el contorno acumulado solo aparece en el límite entre llegada y no llegad
   assert.equal(recent.length + old.length, visible.length);
 });
 
-test('contorno de una rejilla pequeña: solo aristas exteriores y frontera temporal', () => {
+test('outline of a small grid: only exterior edges and the temporal boundary', () => {
   const cell = (ix, t) => ({type: 'Feature', properties: {t}, geometry: {type: 'Polygon', coordinates: [[[ix, 0], [ix + 1, 0], [ix + 1, 1], [ix, 1], [ix, 0]]]}});
   const edges = M.buildBoundaryEdges([cell(0, 10), cell(1, 20)]);
   const at = c => edges.filter(e => e.properties.a <= c && e.properties.b > c).length;
@@ -113,17 +113,22 @@ test('contorno de una rejilla pequeña: solo aristas exteriores y frontera tempo
   assert.equal(at(25), 6);
 });
 
-test('el tiempo se formatea en UTC o PDT sin confundir la zona', () => {
+test('time is formatted in UTC or PDT without mixing up the zone (en-GB)', () => {
   const t = utc('2025-08-27T23:00:00Z');
-  assert.deepEqual(M.formatStamp(t, 'UTC'), {date: '27 ago 2025', time: '23:00', zone: 'UTC'});
-  assert.deepEqual(M.formatStamp(t, 'PDT'), {date: '27 ago 2025', time: '16:00', zone: 'PDT'});
+  assert.deepEqual(M.formatStamp(t, 'UTC'), {date: '27 Aug 2025', time: '23:00', zone: 'UTC'});
+  assert.deepEqual(M.formatStamp(t, 'PDT'), {date: '27 Aug 2025', time: '16:00', zone: 'PDT'});
   assert.equal(M.isoZ(t), '2025-08-27T23:00:00Z');
   assert.equal(M.formatNumber(null), '—');
-  assert.equal(M.formatNumber(12345.6, 0), '12.346');
-  assert.equal(M.formatNumber(0.456, 2), '0,46');
+  assert.equal(M.formatNumber(12345.6, 0), '12,346');
+  assert.equal(M.formatNumber(1234, 0), '1,234');
+  assert.equal(M.formatNumber(999, 0), '999');
+  assert.equal(M.formatNumber(0.456, 2), '0.46');
+  assert.equal(M.formatNumber(-1234.5, 1), '−1,234.5');
+  assert.equal(M.shortDate('3 Sep 2025'), '3 Sep');
+  assert.equal(M.formatStamp(utc('2025-09-03T05:07:00Z')).time, '05:07');
 });
 
-test('la animación avanza a la velocidad pedida y se detiene en el final del rango', () => {
+test('the animation advances at the requested speed and stops at the end of the range', () => {
   assert.equal(M.advanceCursor(0, 1000, 6).cursor, 6 * 3600);
   const end = M.advanceCursor(M.RANGE_END_SEC - 10, 5000, 24);
   assert.deepEqual(end, {cursor: M.RANGE_END_SEC, ended: true});
@@ -131,7 +136,7 @@ test('la animación avanza a la velocidad pedida y se detiene en el final del ra
   assert.equal(M.clampCursor(1e12), M.RANGE_END_SEC);
 });
 
-test('la meteorología usa la hora que cubre el cursor y no extrapola fuera de rango', () => {
+test('weather uses the hour covering the cursor and does not extrapolate out of range', () => {
   const t = utc('2025-08-27T20:40:00Z');
   const hour = M.weatherAt(weather.hours, t);
   assert.equal(hour.timeUtc, '2025-08-27T20:00:00Z');
@@ -139,11 +144,14 @@ test('la meteorología usa la hora que cubre el cursor y no extrapola fuera de r
   assert.equal(M.weatherAt(weather.hours, utc('2025-08-23T23:59:00Z')), null);
   const last = weather.hours.at(-1);
   assert.equal(M.weatherAt(weather.hours, utc(last.timeUtc) + 3600), null);
-  assert.equal(M.compassPoint(221), 'SO');
+  assert.equal(M.compassPoint(221), 'SW');
+  assert.equal(M.compassPoint(270), 'W');
+  assert.equal(M.compassPoint(315), 'NW');
+  assert.equal(M.compassPoint(292), 'WNW');
   assert.equal(M.compassPoint(359), 'N');
 });
 
-test('la cámara más cercana usa la hora impresa como PDT y informa la diferencia con el cursor', () => {
+test('the nearest camera frame reads the printed time as PDT and reports the offset from the cursor', () => {
   const frames = [
     {id: 'a', cameraId: 'delilah', printedTime: '2025-08-27T16:16:57.53'},
     {id: 'b', cameraId: 'delilah', printedTime: '2025-08-27T18:13:32.25'},
@@ -154,10 +162,10 @@ test('la cámara más cercana usa la hora impresa como PDT y informa la diferenc
   assert.equal(near.frame.id, 'b');
   assert.equal(Math.round(near.deltaSec), 13 * 60 + 32);
   assert.equal(M.nearestFrame(frames, 'buckrock', utc('2025-08-24T00:00:00Z')).frame.id, 'c');
-  assert.equal(M.nearestFrame(frames, 'otra', 0), null);
+  assert.equal(M.nearestFrame(frames, 'other', 0), null);
 });
 
-test('los conos son hipótesis con apertura por focal y apuntan al azimut declarado', () => {
+test('cones are hypotheses with aperture set by focal length and point at the declared azimuth', () => {
   assert.ok(Math.abs(M.fovDeg(1) - 65.1) < 1e-9);
   assert.ok(Math.abs(M.fovDeg(1.4) - 49.02) < 0.1);
   const cone = M.coneFeature(M.CAMERA_POSES[0]);
@@ -169,25 +177,25 @@ test('los conos son hipótesis con apertura por focal y apuntan al azimut declar
   assert.ok(Math.abs(bearing - 25.27) < 2, String(bearing));
 });
 
-// ---------- pronóstico ----------
+// ---------- forecast ----------
 
 const request = {timeUtc: '2025-08-27T20:00:00Z', horizonHours: 12};
 const square = [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]];
 const forecast = overrides => ({type: 'FeatureCollection', features: [{type: 'Feature', geometry: {type: 'Polygon', coordinates: square}, properties: {role: 'modeled-extent', dataClass: 'modeled'}}],
   properties: {mode: 'retrospective-forecast', validated: false, timeUtc: request.timeUtc, validUtc: '2025-08-28T08:00:00Z', horizonHours: 12, referenceAvailable: true, metrics: {iou: .5, growthIou: null}, ...overrides}});
 
-// Forma de la respuesta real de /api/forecast-reconstruction (geometrías reducidas).
+// Shape of the real /api/forecast-reconstruction response (reduced geometries).
 const realForecast = () => {
   const poly = {type: 'Polygon', coordinates: square}, multi = {type: 'MultiPolygon', coordinates: [square]};
   const feature = (role, dataClass, geometry) => ({type: 'Feature', geometry, properties: {role, dataClass}});
   return {type: 'FeatureCollection', features: [
     feature('initial-extent', 'reconstructed', multi), feature('modeled-extent', 'modeled', poly), feature('reference-extent', 'reconstructed', multi),
     feature('overlap', 'modeled-comparison', multi), feature('overprediction', 'modeled-comparison', multi), feature('underprediction', 'modeled-comparison', multi)],
-  properties: {mode: 'retrospective-forecast', validated: false, label: 'PRONÓSTICO RETROSPECTIVO · NO VALIDADO', timeUtc: request.timeUtc, validUtc: '2025-08-28T08:00:00Z', horizonHours: 12,
+  properties: {mode: 'retrospective-forecast', validated: false, label: 'RETROSPECTIVE FORECAST · NOT VALIDATED', timeUtc: request.timeUtc, validUtc: '2025-08-28T08:00:00Z', horizonHours: 12,
     referenceAvailable: true, domainBoundaryReached: false, metrics: {iou: 0.2873, growthIou: 0.046, intersectionHa: 7528, overpredictionHa: 18676, underpredictionHa: 0, predictedHa: 26204, referenceHa: 7528, initialHa: 6628},
     weather: {windFromDeg: 253, hourly: []}, assumptions: {}, limitations: [], provenance: {}}};
 };
-test('la respuesta real con comparación modeled-comparison se acepta; una clase desconocida se rechaza', () => {
+test('the real response with a modeled-comparison class is accepted; an unknown class is rejected', () => {
   const ok = M.validateForecast(realForecast(), request);
   assert.equal(ok.features.length, 6);
   const wrongRole = realForecast(); wrongRole.features[1].properties.dataClass = 'modeled-comparison';
@@ -198,31 +206,31 @@ test('la respuesta real con comparación modeled-comparison se acepta; una clase
   assert.equal(M.classAllowed('initial-extent', 'modeled-comparison'), false);
 });
 
-test('el cuerpo del pronóstico usa ISO con Z y solo horizontes 6, 12 o 24', () => {
+test('the forecast body uses ISO with Z and only 6, 12 or 24 h horizons', () => {
   assert.deepEqual(M.forecastBody(utc('2025-08-27T20:00:00Z'), 24), {timeUtc: '2025-08-27T20:00:00Z', horizonHours: 24});
   assert.throws(() => M.forecastBody(0, 7), M.ForecastError);
 });
 
-test('validateForecast acepta el contrato y rechaza roles, clases o solicitudes distintas', () => {
+test('validateForecast accepts the contract and rejects other roles, classes or requests', () => {
   assert.equal(M.validateForecast(forecast(), request).top.mode, 'retrospective-forecast');
   assert.throws(() => M.validateForecast(forecast({horizonHours: 6}), request), M.ForecastError);
-  assert.throws(() => M.validateForecast(forecast({mode: 'otro'}), request), M.ForecastError);
-  const bad = forecast(); bad.features[0].properties.role = 'raro';
+  assert.throws(() => M.validateForecast(forecast({mode: 'other'}), request), M.ForecastError);
+  const bad = forecast(); bad.features[0].properties.role = 'odd';
   assert.throws(() => M.validateForecast(bad, request), M.ForecastError);
   const cls = forecast(); cls.features[0].properties.dataClass = 'observed';
   assert.throws(() => M.validateForecast(cls, request), M.ForecastError);
   assert.throws(() => M.validateForecast({type: 'FeatureCollection', features: []}, request), M.ForecastError);
 });
 
-test('requestForecast transmite el mensaje de error del servicio (503) y valida la respuesta', async () => {
-  const unavailable = async () => ({ok: false, status: 503, json: async () => ({error: 'El modelo desde el frente todavía se está preparando.'})});
-  await assert.rejects(M.requestForecast(request, unavailable), /todavía se está preparando/);
+test('requestForecast relays the service error message (503) and validates the response', async () => {
+  const unavailable = async () => ({ok: false, status: 503, json: async () => ({error: 'The model from the front is still being prepared.'})});
+  await assert.rejects(M.requestForecast(request, unavailable), /still being prepared/);
   const ok = async (url, init) => { assert.equal(url, './api/forecast-reconstruction'); assert.deepEqual(JSON.parse(init.body), request); return {ok: true, status: 200, json: async () => forecast()}; };
   assert.equal((await M.requestForecast(request, ok)).features.length, 1);
-  await assert.rejects(M.requestForecast(request, async () => { throw new TypeError('red'); }), /No se pudo contactar/);
+  await assert.rejects(M.requestForecast(request, async () => { throw new TypeError('red'); }), /Could not contact/);
 });
 
-test('cambiar el cursor o el horizonte invalida el pronóstico vigente y aborta la petición', () => {
+test('changing the cursor or horizon invalidates the current forecast and aborts the request', () => {
   const tracker = M.createForecastTracker(), controller = new AbortController();
   const ticket = tracker.begin(request, controller);
   assert.equal(tracker.sync(utc(request.timeUtc), 12), false);
@@ -236,7 +244,7 @@ test('cambiar el cursor o el horizonte invalida el pronóstico vigente y aborta 
   assert.equal(tracker.accept(t2, {}), false);
 });
 
-test('una respuesta tardía de una petición anterior se ignora', () => {
+test('a late response to an earlier request is ignored', () => {
   const tracker = M.createForecastTracker();
   const first = tracker.begin(request);
   const second = tracker.begin({timeUtc: '2025-08-27T21:00:00Z', horizonHours: 12});
@@ -249,14 +257,14 @@ test('una respuesta tardía de una petición anterior se ignora', () => {
   assert.equal(tracker.state.status, 'ready');
 });
 
-test('la comparación de procedencia conserva las razones 1,53 y 1,38', () => {
+test('the provenance comparison keeps the 1.53 and 1.38 ratios', () => {
   const summary = read('summary.json');
   const comparisons = M.areaComparisons(summary);
   assert.deepEqual(comparisons.map(c => c.ratio), [1.53, 1.38]);
   assert.equal(comparisons[0].atUtc, '2025-08-26T06:59:00Z');
 });
 
-test('los eventos marcados caen dentro del rango y declaran cuáles dependen de un supuesto', () => {
+test('marked events fall within the range and declare which depend on an assumption', () => {
   for (const e of M.EVENTS) { const t = utc(e.utc); assert.ok(t >= M.RANGE_START_SEC && t <= M.RANGE_END_SEC); }
   assert.equal(M.EVENTS.find(e => e.id === 'calfire').assumption, true);
   assert.equal(M.EVENTS.find(e => e.id === 'pyro').utc, M.EVENTS.find(e => e.id === 'frp').utc);
@@ -264,7 +272,7 @@ test('los eventos marcados caen dentro del rango y declaran cuáles dependen de 
   assert.ok(frp && frp.source === 'MODIS_SP');
 });
 
-test('los límites del pronóstico abarcan todas las geometrías, incluidas las partes separadas', () => {
+test('forecast bounds cover all geometries, including separate parts', () => {
   const small = M.featureBounds([{geometry: {type: 'Polygon', coordinates: [[[-119.1, 36.9], [-119.05, 36.9], [-119.05, 36.95], [-119.1, 36.9]]]}}]);
   const big = M.featureBounds([{geometry: {type: 'MultiPolygon', coordinates: [[[[-119.2, 36.8], [-118.8, 36.8], [-118.8, 37.1], [-119.2, 36.8]]]]}}, {geometry: {type: 'Polygon', coordinates: [[[-119.1, 36.9], [-119.05, 36.9], [-119.05, 36.95], [-119.1, 36.9]]]}}]);
   assert.deepEqual(big, {minx: -119.2, miny: 36.8, maxx: -118.8, maxy: 37.1});

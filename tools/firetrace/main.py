@@ -16,6 +16,7 @@ from urllib.parse import parse_qs, urlencode, urlparse
 from urllib.request import Request, urlopen
 
 from demo_bundle import load_bundle, replay_response
+from localisation import localise_payload
 
 ROOT = Path(__file__).parent
 REPLAY_PATH = os.environ.get('FIRETRACE_REPLAY')
@@ -110,7 +111,7 @@ def analyze(data):
     if task not in ('describe', 'smoke-base-v1'):
         raise ValueError('Tarea visual no disponible.')
     if BACKEND_PROXY:
-        result = json.loads(remote(BACKEND_PROXY + '/api/analyze', {'image': image, 'task': task}, timeout=160))
+        result = json.loads(remote(BACKEND_PROXY + '/api/analyze', {'image': image, 'task': task, 'language': 'en-GB'}, timeout=160))
         if task == 'smoke-base-v1' and result.get('task') != task:
             raise ValueError('El gateway todavía no admite observaciones estructuradas.')
         return {**result, 'imageSha256': hashlib.sha256(raw).hexdigest()}
@@ -120,7 +121,7 @@ def analyze(data):
     headers = {'Authorization': 'Bearer ' + token}
     models = json.loads(remote(COSMOS + '/v1/models', headers=headers))
     model = models['data'][0]['id']
-    prompt = ('Describe this wildfire observation in Spanish. Separate visible evidence from uncertainty. '
+    prompt = ('Describe this wildfire observation in British English. Separate visible evidence from uncertainty. '
               'If this is a screenshot, map, rendered scene, or simulation, explicitly identify it as such. '
               'A colored overlay in a screenshot is not an independent thermal measurement. '
               'State whether smoke, flames, or neither is visible, their image location, visibility obstructions, '
@@ -131,7 +132,7 @@ def analyze(data):
         from observation_schema import PROMPT
         prompt = PROMPT
     result = json.loads(remote(COSMOS + '/v1/chat/completions', {
-        'model': model, 'messages': [{'role': 'system', 'content': 'Responde exclusivamente en español. Describe solo evidencia visible; no conviertas gráficos o simulaciones en mediciones físicas.'}, {'role': 'user', 'content': [
+        'model': model, 'messages': [{'role': 'system', 'content': 'Respond only in British English. Describe visible evidence only; do not turn graphics or simulations into physical measurements.'}, {'role': 'user', 'content': [
             {'type': 'text', 'text': prompt}, {'type': 'image_url', 'image_url': {'url': image}}]}],
         'max_tokens': 800, 'temperature': 0.1}, headers, timeout=150))
     content = result['choices'][0]['message'].get('content')
@@ -170,7 +171,13 @@ class Handler(SimpleHTTPRequestHandler):
         pass
 
     def send_json(self, data, status=200):
-        body = json.dumps(data, ensure_ascii=False).encode()
+        display = localise_payload(data)
+        if isinstance(display, dict) and display != data and 'error' not in display:
+            display['_displayTranslation'] = {
+                'locale': 'en-GB', 'scope': 'presentation-only',
+                'hashesReferTo': 'Original source artefacts, preserved without changes in the evidence archive.'
+            }
+        body = json.dumps(display, ensure_ascii=False).encode()
         self.send_response(status)
         self.send_header('Content-Type', 'application/json; charset=utf-8')
         self.send_header('Cache-Control', 'no-store')

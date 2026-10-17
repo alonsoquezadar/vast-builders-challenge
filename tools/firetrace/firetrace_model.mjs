@@ -1,4 +1,4 @@
-// Lógica pura de la vista operativa FireTrace (Garnet Fire). Sin DOM ni mapa: se prueba con node --test.
+// Pure logic for the FireTrace operations view (Garnet Fire). No DOM or map: tested with node --test.
 
 export const RANGE_START_SEC = Date.UTC(2025, 7, 24, 0, 0) / 1000;
 export const RANGE_END_SEC = Date.UTC(2025, 8, 12, 23, 59) / 1000;
@@ -9,35 +9,35 @@ export const HORIZONS = [6, 12, 24];
 export const RECENT_HOURS = [6, 12, 24];
 export const SPEEDS = [{label: '3 h/s', hoursPerSec: 3}, {label: '6 h/s', hoursPerSec: 6}, {label: '12 h/s', hoursPerSec: 12}, {label: '24 h/s', hoursPerSec: 24}];
 
-// Hitos del incidente. `utc` es la hora de la fuente; `assumption` indica que la hora depende de un supuesto.
+// Incident milestones. `utc` is the source time; `assumption` marks a time that depends on an assumption.
 export const EVENTS = [
-  {id: 'wfigs', utc: '2025-08-24T07:10:00Z', label: 'Descubrimiento (WFIGS)', detail: '24 ago 07:10 UTC · registro WFIGS', tone: 'ok'},
-  {id: 'calfire', utc: '2025-08-24T14:13:00Z', label: 'Descubrimiento (CAL FIRE)', detail: '24 ago 14:13 · ficha CAL FIRE, zona horaria sin confirmar (se marca como UTC)', tone: 'warn', assumption: true},
-  {id: 'frp', utc: '2025-08-27T23:00:00Z', label: 'Pasada FRP del 27 ago', detail: '27 ago 23:00 UTC (~16:00 PDT) · pasada MODIS con mayor FRP del día', tone: 'ok'},
-  {id: 'pyro', utc: '2025-08-27T23:00:00Z', label: 'Pirocúmulo en cámara', detail: '27 ago ~16:00 PDT · según el supuesto PDT; equivale a 23:00 UTC', tone: 'warn', assumption: true}
+  {id: 'wfigs', utc: '2025-08-24T07:10:00Z', label: 'Discovery (WFIGS)', detail: '24 Aug 07:10 UTC · WFIGS record', tone: 'ok'},
+  {id: 'calfire', utc: '2025-08-24T14:13:00Z', label: 'Discovery (CAL FIRE)', detail: '24 Aug 14:13 · CAL FIRE record, time zone unconfirmed (treated as UTC)', tone: 'warn', assumption: true},
+  {id: 'frp', utc: '2025-08-27T23:00:00Z', label: 'FRP overpass, 27 Aug', detail: '27 Aug 23:00 UTC (~16:00 PDT) · MODIS overpass with the day\'s highest FRP', tone: 'ok'},
+  {id: 'pyro', utc: '2025-08-27T23:00:00Z', label: 'Pyrocumulus on camera', detail: '27 Aug ~16:00 PDT · under the PDT assumption; equals 23:00 UTC', tone: 'warn', assumption: true}
 ];
 
 export class FiretraceError extends Error {}
 
-// ---------- tiempo ----------
+// ---------- time ----------
 
 export function parseUtc(value) {
   const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2})(?:\.\d+)?)?Z$/.exec(String(value));
-  if (!m) throw new FiretraceError('Fecha UTC inválida.');
+  if (!m) throw new FiretraceError('Invalid UTC date.');
   const ms = Date.UTC(+m[1], +m[2] - 1, +m[3], +m[4], +m[5], +(m[6] || 0));
-  if (!Number.isFinite(ms)) throw new FiretraceError('Fecha UTC inválida.');
+  if (!Number.isFinite(ms)) throw new FiretraceError('Invalid UTC date.');
   return ms / 1000;
 }
 export function isoZ(sec) {
   return new Date(sec * 1000).toISOString().slice(0, 19) + 'Z';
 }
 export function clampCursor(sec) {
-  if (!Number.isFinite(sec)) throw new FiretraceError('Fecha del cursor inválida.');
+  if (!Number.isFinite(sec)) throw new FiretraceError('Invalid cursor date.');
   return Math.min(RANGE_END_SEC, Math.max(RANGE_START_SEC, Math.round(sec / 60) * 60));
 }
-const MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+export const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const pad = n => String(n).padStart(2, '0');
-// zone: 'UTC' | 'PDT' (PDT = UTC−7, supuesto que solo se usa para relacionar con las cámaras).
+// zone: 'UTC' | 'PDT' (PDT = UTC−7, an assumption used only to relate times to the cameras). en-GB: 24-hour clock, day month year.
 export function formatStamp(sec, zone = 'UTC') {
   const d = new Date((sec - (zone === 'PDT' ? PDT_OFFSET_SEC : 0)) * 1000);
   return {date: `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`, time: `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}`, zone};
@@ -46,29 +46,32 @@ export function formatDuration(sec) {
   const abs = Math.abs(sec), h = Math.floor(abs / 3600), m = Math.round((abs % 3600) / 60);
   return h ? `${h} h ${pad(m)} min` : `${m} min`;
 }
+// en-GB: comma thousands separator, decimal point.
 export function formatNumber(value, decimals = 0) {
   if (value === null || value === undefined || !Number.isFinite(value)) return '—';
   const [int, frac] = Math.abs(value).toFixed(decimals).split('.');
-  const grouped = int.length > 4 ? int.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : int;
-  return (value < 0 ? '−' : '') + grouped + (frac ? ',' + frac : '');
+  const grouped = int.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return (value < 0 ? '−' : '') + grouped + (frac ? '.' + frac : '');
 }
+// Day and month of a formatted date ("24 Aug 2025" -> "24 Aug").
+export const shortDate = date => date.split(' ').slice(0, 2).join(' ');
 
-// Avance de la animación: nunca supera el final del rango.
+// Animation step: never goes past the end of the range.
 export function advanceCursor(cursorSec, elapsedMs, hoursPerSec) {
   const next = cursorSec + (elapsedMs / 1000) * hoursPerSec * 3600;
   return next >= RANGE_END_SEC ? {cursor: RANGE_END_SEC, ended: true} : {cursor: next, ended: false};
 }
 
-// ---------- filtros de mapa (expresiones MapLibre) ----------
+// ---------- map filters (MapLibre expressions) ----------
 
-// Área acumulada: toda celda cuya llegada reconstruida es <= cursor. Nunca incluye el futuro.
+// Cumulative area: every cell whose reconstructed arrival is <= cursor. Never includes the future.
 export function cumulativeFilter(cursor) {
   return ['<=', ['get', 't'], cursor];
 }
 export function recentFilter(cursor, hours) {
   return ['all', ['<=', ['get', 't'], cursor], ['>', ['get', 't'], cursor - hours * 3600]];
 }
-// Contorno del área acumulada: aristas entre una celda ya llegada y una vecina que aún no llegó (o no existe).
+// Cumulative area outline: edges between an already-arrived cell and a neighbour that has not arrived yet (or does not exist).
 export function boundaryFilter(cursor) {
   return ['all', ['<=', ['get', 'a'], cursor], ['>', ['get', 'b'], cursor]];
 }
@@ -79,14 +82,14 @@ export function oldBoundaryFilter(cursor, hours) {
   return ['all', ['<=', ['get', 'a'], cursor - hours * 3600], ['>', ['get', 'b'], cursor]];
 }
 
-// ---------- pasadas FIRMS ----------
+// ---------- FIRMS overpasses ----------
 
-// Última pasada con t <= cursor (lista ordenada por t). Null si todavía no hubo ninguna.
+// Latest overpass with t <= cursor (list sorted by t). Null if there has been none yet.
 export function currentOverpass(overpasses, cursor) {
   let lo = 0, hi = overpasses.length;
   while (lo < hi) { const mid = (lo + hi) >> 1; if (overpasses[mid].t <= cursor) lo = mid + 1; else hi = mid; }
   if (lo === 0) return null;
-  // Si varias pasadas comparten el mismo t, se queda con la de más detecciones.
+  // If several overpasses share the same t, keep the one with the most detections.
   const t = overpasses[lo - 1].t;
   let best = overpasses[lo - 1];
   for (let i = lo - 2; i >= 0 && overpasses[i].t === t; i--) if (overpasses[i].detections > best.detections) best = overpasses[i];
@@ -104,7 +107,7 @@ export function hotspotsOfPass(features, pass) {
   return features.filter(f => f.properties.t === pass.t && f.properties.source === pass.source);
 }
 
-// ---------- reconstrucción: celdas, contorno y área ----------
+// ---------- reconstruction: cells, outline and area ----------
 
 const METRES_PER_DEG_LAT = lat => 111132.95 - 559.82 * Math.cos(2 * lat * Math.PI / 180) + 1.175 * Math.cos(4 * lat * Math.PI / 180);
 const METRES_PER_DEG_LON = lat => 111412.84 * Math.cos(lat * Math.PI / 180) - 93.5 * Math.cos(3 * lat * Math.PI / 180);
@@ -120,7 +123,7 @@ export function cellAcres(feature) {
   return (b.maxx - b.minx) * METRES_PER_DEG_LON(lat) * (b.maxy - b.miny) * METRES_PER_DEG_LAT(lat) * ACRES_PER_M2;
 }
 
-// Serie de área acumulada por instante de llegada (acres reconstruidos).
+// Cumulative area series by arrival time (reconstructed acres).
 export function cumulativeAreaSeries(features) {
   const rows = [];
   for (const f of features) {
@@ -142,8 +145,8 @@ export function areaBetween(series, fromExclusive, toInclusive) {
   return areaAt(series, toInclusive) - areaAt(series, fromExclusive);
 }
 
-// Aristas de contorno: cada una existe como borde entre [a, b) = [llegada de la celda, llegada de la vecina).
-// Las celdas son rectángulos de una rejilla regular; si no lo son se devuelve lista vacía y la UI usa el relleno.
+// Outline edges: each exists as a border between [a, b) = [cell arrival, neighbour arrival).
+// Cells are rectangles of a regular grid; if they are not, an empty list is returned and the UI falls back to the fill.
 export function buildBoundaryEdges(features) {
   const cells = [];
   for (const f of features) {
@@ -178,9 +181,9 @@ export function buildBoundaryEdges(features) {
   return edges;
 }
 
-// ---------- meteorología ----------
+// ---------- weather ----------
 
-// Hora del modelo que cubre el cursor: timeUtc <= cursor < timeUtc + 1 h. Fuera de rango devuelve null (sin extrapolar).
+// Model hour covering the cursor: timeUtc <= cursor < timeUtc + 1 h. Out of range returns null (no extrapolation).
 export function weatherAt(hours, cursor) {
   let best = null;
   for (const h of hours) {
@@ -189,14 +192,14 @@ export function weatherAt(hours, cursor) {
   }
   return best ? best.hour : null;
 }
-const COMPASS = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSO', 'SO', 'OSO', 'O', 'ONO', 'NO', 'NNO'];
+const COMPASS = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 export function compassPoint(deg) {
   return COMPASS[Math.round((((deg % 360) + 360) % 360) / 22.5) % 16];
 }
 
-// ---------- cámaras ----------
+// ---------- cameras ----------
 
-// La hora impresa no lleva zona: se interpreta como PDT (supuesto) y se convierte a UTC.
+// The printed time carries no zone: it is read as PDT (assumption) and converted to UTC.
 export function frameUtcSec(frame) {
   return parseUtc(frame.printedTime.replace(/\.\d+$/, '') + 'Z') + PDT_OFFSET_SEC;
 }
@@ -209,7 +212,7 @@ export function nearestFrame(frames, cameraId, cursor) {
   }
   return best;
 }
-// Cono hipotético: sector desde la posición candidata, azimut X impreso (supuesto) y FOV 65,1° a zoom 1 escalado por focal.
+// Hypothetical cone: sector from the candidate position, printed azimuth X (assumption) and 65.1° FOV at zoom 1 scaled by focal length.
 export const CAMERA_POSES = [
   {cameraId: 'delilah', pose: 'G2', lon: -119.1175, lat: 36.80417, yawDeg: 25.27, zoom: 1.0},
   {cameraId: 'buckrock', pose: 'G4', lon: -118.86067, lat: 36.73727, yawDeg: 333.87, zoom: 1.4}
@@ -231,10 +234,10 @@ export function coneFeature(pose, radiusM = 20000, steps = 24) {
   return {type: 'Feature', properties: {cameraId: pose.cameraId, pose: pose.pose, yawDeg: pose.yawDeg, fovDeg: Math.round(fov * 100) / 100, hypothetical: true}, geometry: {type: 'Polygon', coordinates: [ring]}};
 }
 
-// ---------- pronóstico: contrato, validación y ciclo de vida ----------
+// ---------- forecast: contract, validation and lifecycle ----------
 
 export const FORECAST_ROLES = ['initial-extent', 'modeled-extent', 'reference-extent', 'overlap', 'overprediction', 'underprediction'];
-// Clases de dato admitidas. Las tres geometrías de comparación son resultado del modelo contra la reconstrucción.
+// Accepted data classes. The three comparison geometries are model results against the reconstruction.
 export const COMPARISON_ROLES = ['overlap', 'overprediction', 'underprediction'];
 export const FORECAST_CLASSES = ['modeled', 'reconstructed'];
 export const COMPARISON_CLASS = 'modeled-comparison';
@@ -246,23 +249,23 @@ export class ForecastError extends FiretraceError {}
 export function forecastTop(fc) {
   return fc?.properties || fc?.top?.properties || null;
 }
-// Comprueba el contrato exacto y que la respuesta corresponde a lo solicitado.
+// Checks the exact contract and that the response matches what was requested.
 export function validateForecast(fc, request) {
   const top = forecastTop(fc);
-  if (!fc || fc.type !== 'FeatureCollection' || !Array.isArray(fc.features) || !top) throw new ForecastError('La respuesta del modelo no tiene el formato esperado.');
-  if (top.mode !== 'retrospective-forecast') throw new ForecastError('La respuesta no es un pronóstico retrospectivo.');
-  if (top.timeUtc !== request.timeUtc || top.horizonHours !== request.horizonHours) throw new ForecastError('La respuesta no corresponde al instante y horizonte solicitados.');
-  if (!top.metrics || typeof top.metrics !== 'object') throw new ForecastError('Faltan las métricas de coincidencia.');
+  if (!fc || fc.type !== 'FeatureCollection' || !Array.isArray(fc.features) || !top) throw new ForecastError('The model response does not have the expected format.');
+  if (top.mode !== 'retrospective-forecast') throw new ForecastError('The response is not a retrospective forecast.');
+  if (top.timeUtc !== request.timeUtc || top.horizonHours !== request.horizonHours) throw new ForecastError('The response does not match the requested time and horizon.');
+  if (!top.metrics || typeof top.metrics !== 'object') throw new ForecastError('The matching metrics are missing.');
   for (const f of fc.features) {
     const p = f?.properties;
-    if (!p || !FORECAST_ROLES.includes(p.role)) throw new ForecastError('Una geometría del pronóstico tiene un rol desconocido.');
-    if (!classAllowed(p.role, p.dataClass)) throw new ForecastError('Una geometría del pronóstico no declara su clase de dato.');
-    if (!['Polygon', 'MultiPolygon'].includes(f.geometry?.type)) throw new ForecastError('Una geometría del pronóstico no es un polígono.');
+    if (!p || !FORECAST_ROLES.includes(p.role)) throw new ForecastError('A forecast geometry has an unknown role.');
+    if (!classAllowed(p.role, p.dataClass)) throw new ForecastError('A forecast geometry does not declare its data class.');
+    if (!['Polygon', 'MultiPolygon'].includes(f.geometry?.type)) throw new ForecastError('A forecast geometry is not a polygon.');
   }
   return {features: fc.features, top};
 }
 export function forecastBody(cursorSec, horizonHours) {
-  if (!HORIZONS.includes(horizonHours)) throw new ForecastError('Horizonte no admitido.');
+  if (!HORIZONS.includes(horizonHours)) throw new ForecastError('Unsupported horizon.');
   return {timeUtc: isoZ(cursorSec), horizonHours};
 }
 export async function requestForecast(request, fetchFn, signal) {
@@ -271,14 +274,14 @@ export async function requestForecast(request, fetchFn, signal) {
     response = await fetchFn('./api/forecast-reconstruction', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(request), signal});
   } catch (e) {
     if (e?.name === 'AbortError') throw e;
-    throw new ForecastError('No se pudo contactar con el servicio de proyección.');
+    throw new ForecastError('Could not contact the projection service.');
   }
-  try { data = await response.json(); } catch { /* cuerpo no JSON */ }
-  if (!response.ok) throw new ForecastError(typeof data?.error === 'string' && data.error ? data.error : `El servicio de proyección respondió HTTP ${response.status}.`);
+  try { data = await response.json(); } catch { /* non-JSON body */ }
+  if (!response.ok) throw new ForecastError(typeof data?.error === 'string' && data.error ? data.error : `The projection service responded with HTTP ${response.status}.`);
   return validateForecast(data, request);
 }
 
-// Un único pronóstico vigente. Cualquier cambio de cursor u horizonte lo invalida y las respuestas viejas se descartan.
+// A single current forecast. Any change of cursor or horizon invalidates it and stale responses are discarded.
 export function createForecastTracker() {
   let seq = 0, current = null;
   const drop = () => { if (!current) return false; current.controller?.abort(); current = null; seq++; return true; };
@@ -286,7 +289,7 @@ export function createForecastTracker() {
     get state() { return current; },
     begin(request, controller = null) { drop(); seq++; current = {seq, request, controller, status: 'loading', result: null, error: null}; return current; },
     invalidate: drop,
-    // Devuelve true si el cursor/horizonte actual ya no coincide con el pronóstico vigente y lo descartó.
+    // Returns true if the current cursor/horizon no longer matches the current forecast and it was discarded.
     sync(cursorSec, horizonHours) {
       if (!current) return false;
       return current.request.timeUtc !== isoZ(cursorSec) || current.request.horizonHours !== horizonHours ? drop() : false;
@@ -302,7 +305,7 @@ export function createForecastTracker() {
   };
 }
 
-// ---------- encuadre ----------
+// ---------- framing ----------
 
 export function featureBounds(features) {
   let minx = Infinity, miny = Infinity, maxx = -Infinity, maxy = -Infinity;
@@ -310,7 +313,7 @@ export function featureBounds(features) {
   for (const f of features) if (f?.geometry?.coordinates) walk(f.geometry.coordinates);
   return minx <= maxx ? {minx, miny, maxx, maxy} : null;
 }
-// ---------- resumen de procedencia ----------
+// ---------- provenance summary ----------
 
 export function areaComparisons(summary) {
   return (summary?.validationAgainstReportedAcres || []).map(c => ({

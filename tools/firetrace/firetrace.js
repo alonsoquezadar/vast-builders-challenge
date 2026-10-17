@@ -36,30 +36,30 @@ const forecastTracker = M.createForecastTracker();
 let map = null;
 const pendingSources = new Map();
 
-// ---------- utilidades ----------
+// ---------- utilities ----------
 
 const fmtStamp = sec => M.formatStamp(sec, state.zone);
 function showData(msg) { const chip = $('data-chip'); chip.hidden = !msg; chip.textContent = msg || ''; }
 const failures = new Set();
-function reportFailure(name, message) { failures.add(name); showData(`No disponible: ${[...failures].join(', ')}. El resto de la vista sigue funcionando.`); return message; }
+function reportFailure(name, message) { failures.add(name); showData(`Unavailable: ${[...failures].join(', ')}. The rest of the view keeps working.`); return message; }
 
 async function fetchJson(url, init) {
   let response;
-  try { response = await fetch(url, init); } catch { throw new Error('No se pudo contactar con el servidor.'); }
+  try { response = await fetch(url, init); } catch { throw new Error('Could not contact the server.'); }
   let body = null;
-  try { body = await response.json(); } catch { /* sin cuerpo JSON */ }
+  try { body = await response.json(); } catch { /* no JSON body */ }
   if (!response.ok) throw new Error(typeof body?.error === 'string' ? body.error : `HTTP ${response.status}`);
   return body;
 }
 
-// ---------- capas de datos ----------
+// ---------- data layers ----------
 
 const LAYER_DEFS = [
-  {id: 'reconstruction', label: 'Reconstrucción de llegada', cls: 'rec', pill: 'RECONSTRUIDO', on: true, data: 'arrival', map: ['burn-fill', 'recent-fill', 'edge-old', 'edge-glow', 'edge-recent']},
-  {id: 'firms', label: 'Focos FIRMS · pasada actual', cls: 'obs', pill: 'OBSERVADO', on: true, data: 'hotspots', map: ['firms-glow', 'firms']},
-  {id: 'perimeter', label: 'Perímetro FINAL (dic 2025)', cls: 'obs', pill: 'OBSERVADO', on: false, data: 'perimeter', map: ['perimeter-fill', 'perimeter-line']},
-  {id: 'forecast', label: 'Pronóstico', cls: 'mod', pill: 'MODELADO', on: true, data: null, map: []},
-  {id: 'cones', label: 'Conos de cámara', cls: 'hyp', pill: 'HIPÓTESIS', on: false, data: null, map: ['cones-fill', 'cones-line']}
+  {id: 'reconstruction', label: 'Arrival reconstruction', cls: 'rec', pill: 'RECONSTRUCTED', on: true, data: 'arrival', map: ['burn-fill', 'recent-fill', 'edge-old', 'edge-glow', 'edge-recent']},
+  {id: 'firms', label: 'FIRMS hotspots · current overpass', cls: 'obs', pill: 'OBSERVED', on: true, data: 'hotspots', map: ['firms-glow', 'firms']},
+  {id: 'perimeter', label: 'FINAL perimeter (Dec 2025)', cls: 'obs', pill: 'OBSERVED', on: false, data: 'perimeter', map: ['perimeter-fill', 'perimeter-line']},
+  {id: 'forecast', label: 'Forecast', cls: 'mod', pill: 'MODELLED', on: true, data: null, map: []},
+  {id: 'cones', label: 'Camera cones', cls: 'hyp', pill: 'HYPOTHESIS', on: false, data: null, map: ['cones-fill', 'cones-line']}
 ];
 const layerOn = Object.fromEntries(LAYER_DEFS.map(d => [d.id, d.on]));
 const PILL = {rec: 'pill-rec', obs: 'pill-obs', mod: 'pill-mod', hyp: 'pill-hyp'};
@@ -80,7 +80,7 @@ async function loadData(name) {
 async function loadIncident() {
   dataStatus.incident = 'loading';
   try { data.incident = await fetchJson('./api/incident'); dataStatus.incident = 'ready'; addCameraPins(); }
-  catch (e) { dataStatus.incident = 'error:' + e.message; reportFailure('cámaras'); }
+  catch (e) { dataStatus.incident = 'error:' + e.message; reportFailure('cameras'); }
   cameraKey = ''; paintAll(); if (data.incident) paintProvenance();
 }
 function onData(name) {
@@ -103,13 +103,13 @@ function setSource(id, fc) {
 }
 
 function layerStatusText(def) {
-  if (!def.data) return def.id === 'forecast' ? (forecastTracker.state?.status === 'ready' ? 'proyección activa' : 'sin proyección en este instante') : 'posiciones hipotéticas';
+  if (!def.data) return def.id === 'forecast' ? (forecastTracker.state?.status === 'ready' ? 'projection active' : 'no projection at this moment') : 'hypothetical positions';
   const s = dataStatus[def.data];
-  if (!s) return def.on ? 'pendiente' : 'se carga al activarla';
-  if (s === 'loading') return 'cargando…';
+  if (!s) return def.on ? 'pending' : 'loads when enabled';
+  if (s === 'loading') return 'loading…';
   if (s.startsWith('error:')) return s.slice(6);
   const n = {arrival: data.arrival?.features.length, hotspots: data.hotspots?.features.length, perimeter: data.perimeter?.features.length}[def.data];
-  return n != null ? `${M.formatNumber(n)} elementos` : 'listo';
+  return n != null ? `${M.formatNumber(n)} items` : 'ready';
 }
 function renderLayerRows() {
   const list = $('layer-list'); list.replaceChildren();
@@ -119,7 +119,7 @@ function renderLayerRows() {
     const row = el('li', {class: 'layer-row'},
       el('input', {type: 'checkbox', id, checked: layerOn[def.id], onchange: e => toggleLayer(def.id, e.target.checked)}),
       el('label', {for: id}, el('span', {text: def.label}), el('span', {class: 'layer-status' + (isErr ? ' err' : ''), text: layerStatusText(def)})),
-      isErr ? el('button', {text: 'Reintentar', onclick: () => { dataStatus[def.data] = null; failures.delete(def.data); loadData(def.data); }}) : el('b', {class: 'pill ' + PILL[def.cls], text: def.pill}));
+      isErr ? el('button', {text: 'Retry', onclick: () => { dataStatus[def.data] = null; failures.delete(def.data); loadData(def.data); }}) : el('b', {class: 'pill ' + PILL[def.cls], text: def.pill}));
     list.append(row);
   }
   updateLegend();
@@ -141,10 +141,10 @@ function updateLegend() {
   q('.legend-cones').hidden = !layerOn.cones;
   const forecastShown = layerOn.forecast && forecastTracker.state?.status === 'ready';
   document.querySelectorAll('.legend-forecast').forEach(n => { n.hidden = !forecastShown; });
-  $('legend-recent').textContent = `Actividad reciente RECONSTRUIDA (${state.recentHours} h)`;
+  $('legend-recent').textContent = `RECONSTRUCTED recent activity (${state.recentHours} h)`;
 }
 
-// ---------- mapa ----------
+// ---------- map ----------
 
 function mapStyle() {
   return {
@@ -190,7 +190,7 @@ function addMapContent() {
 function popup(lngLat, p) {
   const t = fmtStamp(p.t);
   new maplibregl.Popup({closeButton: true, maxWidth: '260px'}).setLngLat(lngLat)
-    .setHTML(`<b>Foco térmico OBSERVADO</b><br>${t.date} ${t.time} ${t.zone}<br>Fuente: ${p.source}<br>FRP ${M.formatNumber(p.frpMW, 1)} MW · píxel ${p.pixelM} m<br><span style="color:#8d99a9">Centro del píxel de la pasada, no área ni frente.</span>`).addTo(map);
+    .setHTML(`<b>OBSERVED thermal hotspot</b><br>${t.date} ${t.time} ${t.zone}<br>Source: ${p.source}<br>FRP ${M.formatNumber(p.frpMW, 1)} MW · pixel ${p.pixelM} m<br><span style="color:#8d99a9">Pixel centre from the overpass; not an area or a front.</span>`).addTo(map);
 }
 
 function initMap() {
@@ -210,11 +210,11 @@ function initMap() {
     if (!tile) return;
     state.tileErrors++;
     const chip = $('tiles-chip'); chip.hidden = false;
-    chip.textContent = `Algunas teselas del mapa no cargan (${state.tileErrors}). Los datos del incendio siguen visibles.`;
+    chip.textContent = `Some map tiles are failing to load (${state.tileErrors}). The fire data remains visible.`;
   });
 }
 
-// ---------- pintado dependiente del cursor ----------
+// ---------- cursor-dependent painting ----------
 
 let paintQueued = false;
 function paintAll() {
@@ -243,27 +243,27 @@ function paintNow() {
 }
 function paintHudSub(pass) {
   const sub = $('hud-sub');
-  if (!derived.areaSeries) { sub.textContent = dataStatus.arrival?.startsWith?.('error') ? 'Reconstrucción no disponible.' : 'Cargando reconstrucción…'; return; }
+  if (!derived.areaSeries) { sub.textContent = dataStatus.arrival?.startsWith?.('error') ? 'Reconstruction unavailable.' : 'Loading reconstruction…'; return; }
   const acres = M.areaAt(derived.areaSeries, state.cursor);
-  sub.replaceChildren(el('b', {text: `${M.formatNumber(acres)} acres`}), document.createTextNode(` reconstruidos${pass ? ` · última pasada hace ${M.formatDuration(state.cursor - pass.t)}` : ''}`));
+  sub.replaceChildren(el('b', {text: `${M.formatNumber(acres)} acres`}), document.createTextNode(` reconstructed${pass ? ` · last overpass ${M.formatDuration(state.cursor - pass.t)} ago` : ''}`));
 }
 function paintState(pass) {
   const kv = $('state-kv'); kv.replaceChildren();
   const row = (k, v, sub, cls) => kv.append(el('dt', {text: k}), el('dd', {class: cls || ''}, document.createTextNode(v), sub ? el('small', {text: sub}) : ''));
   if (derived.areaSeries) {
     const a = M.areaAt(derived.areaSeries, state.cursor), recent = M.areaBetween(derived.areaSeries, state.cursor - state.recentHours * 3600, state.cursor);
-    row('Área acumulada', `${M.formatNumber(a)} ac`, `${M.formatNumber(a * 0.404686)} ha · RECONSTRUIDA`);
-    row(`Nueva en ${state.recentHours} h`, `${M.formatNumber(recent)} ac`, 'actividad reciente RECONSTRUIDA', 'hot');
-  } else row('Área acumulada', '—', dataStatus.arrival?.startsWith?.('error') ? 'capa no disponible' : 'cargando…');
+    row('Cumulative area', `${M.formatNumber(a)} ac`, `${M.formatNumber(a * 0.404686)} ha · RECONSTRUCTED`);
+    row(`New in ${state.recentHours} h`, `${M.formatNumber(recent)} ac`, 'RECONSTRUCTED recent activity', 'hot');
+  } else row('Cumulative area', '—', dataStatus.arrival?.startsWith?.('error') ? 'layer unavailable' : 'loading…');
   if (pass) {
     const t = fmtStamp(pass.t);
-    row('Pasada FIRMS actual', `${t.time} ${t.zone}`, `${t.date} · ${pass.source}`);
-    row('Focos / FRP', `${M.formatNumber(pass.detections)} · ${M.formatNumber(pass.totalFrpMW, 0)} MW`, `hace ${M.formatDuration(state.cursor - pass.t)} · OBSERVADO`);
-  } else row('Pasada FIRMS actual', '—', derived.overpasses.length ? 'aún no hay pasadas con detección' : 'cargando…');
-  $('state-note').textContent = 'La actividad reciente es la llegada reconstruida con datos posteriores, no un frente físico conocido. El mapa no usa puntos futuros.';
+    row('Current FIRMS overpass', `${t.time} ${t.zone}`, `${t.date} · ${pass.source}`);
+    row('Detections / FRP', `${M.formatNumber(pass.detections)} · ${M.formatNumber(pass.totalFrpMW, 0)} MW`, `${M.formatDuration(state.cursor - pass.t)} ago · OBSERVED`);
+  } else row('Current FIRMS overpass', '—', derived.overpasses.length ? 'no overpass with detections yet' : 'loading…');
+  $('state-note').textContent = 'Recent activity is the arrival reconstructed using later data, not a known physical front. The map does not use future points.';
 }
 
-// ---------- reproducción y línea de tiempo ----------
+// ---------- playback and timeline ----------
 
 function setCursor(sec, {fromPlay = false} = {}) {
   const c = M.clampCursor(sec);
@@ -287,12 +287,12 @@ function play() {
   if (state.playing) return;
   if (state.cursor >= M.RANGE_END_SEC) { state.playPos = M.RANGE_START_SEC; setCursor(M.RANGE_START_SEC); }
   state.playing = true; lastTs = performance.now(); rafId = requestAnimationFrame(tick);
-  $('play').textContent = '❚❚'; $('play').setAttribute('aria-label', 'Pausar');
+  $('play').textContent = '❚❚'; $('play').setAttribute('aria-label', 'Pause');
   refreshForecastControls();
 }
 function pause() {
   state.playing = false; cancelAnimationFrame(rafId);
-  $('play').textContent = '▶'; $('play').setAttribute('aria-label', 'Reproducir');
+  $('play').textContent = '▶'; $('play').setAttribute('aria-label', 'Play');
   refreshForecastControls();
 }
 const togglePlay = () => state.playing ? pause() : play();
@@ -323,7 +323,7 @@ function buildTimeline() {
   for (let d = 0; d <= 19; d += 1) {
     const t = M.RANGE_START_SEC + d * 86400;
     if (d % 2 && d !== 19) continue;
-    const s = el('span', {text: `${new Date(t * 1000).getUTCDate()} ${['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep'][new Date(t * 1000).getUTCMonth()]}`});
+    const s = el('span', {text: `${new Date(t * 1000).getUTCDate()} ${M.MONTHS[new Date(t * 1000).getUTCMonth()]}`});
     s.style.left = pos(t); axis.append(s);
   }
 }
@@ -332,7 +332,7 @@ function buildEventList() {
   for (const ev of M.EVENTS) list.append(el('li', {}, el('button', {class: ev.tone, onclick: () => { if (state.playing) pause(); setCursor(M.parseUtc(ev.utc)); }}, el('i'), el('span', {}, el('strong', {text: ev.label}), el('small', {text: ev.detail})))));
 }
 
-// ---------- controles de vista ----------
+// ---------- view controls ----------
 
 function bindView() {
   $('view-reset').addEventListener('click', () => {
@@ -349,7 +349,7 @@ function bindView() {
   $('legend-toggle').addEventListener('click', () => {
     const legend = document.querySelector('.legend'), collapsed = legend.classList.toggle('collapsed');
     $('legend-toggle').setAttribute('aria-expanded', String(!collapsed)); $('legend-toggle').textContent = collapsed ? '+' : '–';
-    $('legend-toggle').setAttribute('aria-label', collapsed ? 'Desplegar leyenda' : 'Plegar leyenda');
+    $('legend-toggle').setAttribute('aria-label', collapsed ? 'Expand legend' : 'Collapse legend');
   });
 }
 function setZone(zone) {
@@ -358,7 +358,7 @@ function setZone(zone) {
   paintAll();
 }
 
-// ---------- gráficos (SVG, mismo eje temporal y cursor alineado) ----------
+// ---------- charts (SVG, shared time axis and aligned cursor) ----------
 
 const CH = {l: 38, r: 8, t: 6, b: 15};
 const charts = {};
@@ -373,7 +373,7 @@ function chartFrame(id) {
 }
 function axisDays(f) {
   for (let d = 0; d <= 19; d += 5) {
-    const t = M.RANGE_START_SEC + d * 86400, label = M.formatStamp(t).date.slice(0, 6);
+    const t = M.RANGE_START_SEC + d * 86400, label = M.shortDate(M.formatStamp(t).date);
     f.svg.append(svgEl('line', {x1: f.x(t), x2: f.x(t), y1: f.y1, y2: f.y0, class: 'grid'}));
     svgText(f.svg, {x: f.x(t), y: f.h - 3, 'text-anchor': d === 0 ? 'start' : 'middle'}, label);
   }
@@ -402,7 +402,7 @@ function scrubFromChart(f, e) {
 function drawAreaChart() {
   const f = chartFrame('chart-area'); if (!f.svg.clientWidth) return;
   const series = derived.areaSeries;
-  if (!series) { svgText(f.svg, {x: f.w / 2, y: f.h / 2, 'text-anchor': 'middle'}, dataStatus.arrival?.startsWith?.('error') ? 'Serie no disponible' : 'Cargando…'); return; }
+  if (!series) { svgText(f.svg, {x: f.w / 2, y: f.h / 2, 'text-anchor': 'middle'}, dataStatus.arrival?.startsWith?.('error') ? 'Series unavailable' : 'Loading…'); return; }
   const comps = M.areaComparisons(data.summary), maxA = niceMax(Math.max(series.acres[series.acres.length - 1], ...comps.map(c => c.reportedAcres)));
   const sy = v => v / maxA;
   axisDays(f); yTicks(f, maxA, sy, v => v >= 1000 ? `${v / 1000}k` : String(v));
@@ -420,7 +420,7 @@ function drawAreaChart() {
   for (const c of comps) {
     const x = f.x(M.parseUtc(c.atUtc)), y = f.y0 - sy(c.reportedAcres) * (f.y0 - f.y1);
     const mark = svgEl('path', {d: `M${x},${y - 4.5}L${x + 4.5},${y}L${x},${y + 4.5}L${x - 4.5},${y}Z`, fill: '#0a0d11', stroke: '#38c7e8', 'stroke-width': '1.6'});
-    mark.append(svgEl('title')); mark.firstChild.textContent = `Reportado ${M.formatNumber(c.reportedAcres)} ac frente a ${M.formatNumber(c.reconstructedAcres)} ac reconstruidos (${M.formatNumber(c.ratio, 2)}×)`;
+    mark.append(svgEl('title')); mark.firstChild.textContent = `Reported ${M.formatNumber(c.reportedAcres)} ac versus ${M.formatNumber(c.reconstructedAcres)} ac reconstructed (${M.formatNumber(c.ratio, 2)}×)`;
     f.svg.append(mark);
     svgText(f.svg, {x: x + 7, y: y + 3, fill: '#7fdcf5', style: 'fill:#7fdcf5'}, `${M.formatNumber(c.ratio, 2)}×`);
   }
@@ -429,7 +429,7 @@ function drawAreaChart() {
 function drawFrpChart() {
   const f = chartFrame('chart-frp'); if (!f.svg.clientWidth) return;
   const passes = derived.overpasses;
-  if (!passes.length) { svgText(f.svg, {x: f.w / 2, y: f.h / 2, 'text-anchor': 'middle'}, dataStatus.overpasses?.startsWith?.('error') ? 'Serie no disponible' : 'Cargando…'); return; }
+  if (!passes.length) { svgText(f.svg, {x: f.w / 2, y: f.h / 2, 'text-anchor': 'middle'}, dataStatus.overpasses?.startsWith?.('error') ? 'Series unavailable' : 'Loading…'); return; }
   const max = Math.max(...passes.map(p => p.totalFrpMW)), sy = v => Math.sqrt(v / max);
   axisDays(f);
   for (const v of [0, max * 0.1, max]) {
@@ -451,7 +451,7 @@ function drawFrpChart() {
 function drawWindChart() {
   const f = chartFrame('chart-wind'); if (!f.svg.clientWidth) return;
   const hours = derived.weatherHours;
-  if (!hours.length) { svgText(f.svg, {x: f.w / 2, y: f.h / 2, 'text-anchor': 'middle'}, dataStatus.weather?.startsWith?.('error') ? 'Serie no disponible' : 'Cargando…'); return; }
+  if (!hours.length) { svgText(f.svg, {x: f.w / 2, y: f.h / 2, 'text-anchor': 'middle'}, dataStatus.weather?.startsWith?.('error') ? 'Series unavailable' : 'Loading…'); return; }
   const max = niceMax(Math.max(...hours.map(h => h.gustMps ?? h.windSpeedMps))), sy = v => v / max;
   axisDays(f); yTicks(f, max, sy, v => String(v));
   const path = key => hours.map((h, i) => `${i ? 'L' : 'M'}${f.x(M.parseUtc(h.timeUtc)).toFixed(1)},${(f.y0 - sy(h[key]) * (f.y0 - f.y1)).toFixed(1)}`).join('');
@@ -487,7 +487,7 @@ function observeCharts() {
   new ResizeObserver(() => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { drawCharts(); map?.resize(); }, 80); }).observe($('charts'));
 }
 
-// ---------- meteorología ----------
+// ---------- weather ----------
 
 let weatherKey = '';
 function paintWeather() {
@@ -495,10 +495,10 @@ function paintWeather() {
   const key = hour ? hour.timeUtc + state.zone : (derived.weatherHours.length ? 'none' : dataStatus.weather || 'wait');
   if (key === weatherKey) return; weatherKey = key;
   body.replaceChildren();
-  if (!derived.weatherHours.length) { body.append(el('p', {class: 'muted', text: dataStatus.weather?.startsWith?.('error') ? 'Meteorología no disponible.' : 'Cargando…'})); return; }
-  if (!hour) { body.append(el('p', {class: 'muted', text: 'Sin dato modelado para este instante; no se extrapola fuera del rango.'})); return; }
+  if (!derived.weatherHours.length) { body.append(el('p', {class: 'muted', text: dataStatus.weather?.startsWith?.('error') ? 'Weather unavailable.' : 'Loading…'})); return; }
+  if (!hour) { body.append(el('p', {class: 'muted', text: 'No modelled data for this moment; nothing is extrapolated outside the range.'})); return; }
   const to = (hour.windFromDeg + 180) * Math.PI / 180, ax = 37 + Math.sin(to) * 24, ay = 37 - Math.cos(to) * 24, bx = 37 - Math.sin(to) * 24, by = 37 + Math.cos(to) * 24;
-  const dial = svgEl('svg', {viewBox: '0 0 74 74', class: 'wind-dial', role: 'img', 'aria-label': `Viento desde ${M.compassPoint(hour.windFromDeg)}`});
+  const dial = svgEl('svg', {viewBox: '0 0 74 74', class: 'wind-dial', role: 'img', 'aria-label': `Wind from ${M.compassPoint(hour.windFromDeg)}`});
   dial.append(svgEl('circle', {cx: 37, cy: 37, r: 33, fill: 'none', stroke: '#2c3744'}));
   svgText(dial, {x: 37, y: 11, 'text-anchor': 'middle', style: 'fill:#8d99a9;font-size:9px'}, 'N');
   dial.append(svgEl('line', {x1: bx, y1: by, x2: ax, y2: ay, stroke: '#38c7e8', 'stroke-width': '2.5', 'stroke-linecap': 'round'}));
@@ -507,20 +507,20 @@ function paintWeather() {
   const metric = (value, unit, label, wide) => el('div', {class: 'metric' + (wide ? ' wide' : '')}, el('b', {text: value}), el('span', {text: `${unit} ${label}`.trim()}));
   const stamp = M.formatStamp(M.parseUtc(hour.timeUtc), state.zone);
   body.append(el('div', {class: 'weather-grid'}, dial,
-    metric(`${M.compassPoint(hour.windFromDeg)} ${hour.windFromDeg}°`, '', 'viento DESDE'),
-    metric(M.formatNumber(hour.windSpeedMps, 1), 'm/s', `· ráfaga ${M.formatNumber(hour.gustMps, 1)}`),
-    metric(`${M.formatNumber(hour.tempC, 1)} °C`, '', 'temperatura'),
-    metric(`${M.formatNumber(hour.rhPct)} %`, '', 'humedad relativa del aire')));
-  body.append(el('p', {class: 'weather-note', text: `Hora del modelo: ${stamp.date} ${stamp.time} ${stamp.zone} (última hora ≤ cursor). Open-Meteo Historical, Best Match, un punto a ${M.formatNumber(data.weather?.point?.elevationM)} m: modelo, no estación medida. La humedad relativa no es humedad del combustible.`}));
+    metric(`${M.compassPoint(hour.windFromDeg)} ${hour.windFromDeg}°`, '', 'wind FROM'),
+    metric(M.formatNumber(hour.windSpeedMps, 1), 'm/s', `· gust ${M.formatNumber(hour.gustMps, 1)}`),
+    metric(`${M.formatNumber(hour.tempC, 1)} °C`, '', 'temperature'),
+    metric(`${M.formatNumber(hour.rhPct)} %`, '', 'relative humidity of the air')));
+  body.append(el('p', {class: 'weather-note', text: `Model hour: ${stamp.date} ${stamp.time} ${stamp.zone} (latest hour ≤ cursor). Open-Meteo Historical, Best Match, a single point at ${M.formatNumber(data.weather?.point?.elevationM)} m: model output, not a measuring station. Relative humidity is not fuel moisture.`}));
 }
 
-// ---------- cámaras ----------
+// ---------- cameras ----------
 
 let cameraKey = '', cameraMarkers = [];
 const CAMERA_NAME = id => data.incident?.cameras.find(c => c.id === id)?.name || id;
 function selectCamera(id) { state.selectedCamera = state.selectedCamera === id ? null : id; cameraMarkers.forEach(m => m.pin.setAttribute('aria-pressed', String(m.id === state.selectedCamera))); cameraKey = ''; paintCameras(); if (state.selectedCamera) $('panel-camera').scrollIntoView({block: 'nearest', behavior: 'smooth'}); }
 const deltaText = d => `${d >= 0 ? '+' : '−'}${M.formatDuration(d)}`;
-const detailDelta = d => `${d >= 0 ? 'Posterior' : 'Anterior'} al cursor en ${M.formatDuration(d)}${Math.abs(d) > 1800 ? ' · no hay fotograma más cercano; la imagen no corresponde al instante del cursor' : ''}`;
+const detailDelta = d => `${d >= 0 ? 'Later than' : 'Earlier than'} the cursor by ${M.formatDuration(d)}${Math.abs(d) > 1800 ? ' · no closer frame exists; the image does not match the cursor time' : ''}`;
 function updateCameraDeltas(near) {
   for (const n of near) {
     if (!n) continue;
@@ -530,7 +530,7 @@ function updateCameraDeltas(near) {
 }
 function paintCameras() {
   const body = $('camera-body'), inc = data.incident;
-  if (!inc) { if (cameraKey !== 'wait') { cameraKey = 'wait'; body.replaceChildren(el('p', {class: 'muted', text: dataStatus.incident?.startsWith?.('error') ? 'Evidencia de cámaras no disponible.' : 'Cargando evidencia…'})); } return; }
+  if (!inc) { if (cameraKey !== 'wait') { cameraKey = 'wait'; body.replaceChildren(el('p', {class: 'muted', text: dataStatus.incident?.startsWith?.('error') ? 'Camera evidence unavailable.' : 'Loading evidence…'})); } return; }
   const near = inc.cameras.map(c => M.nearestFrame(inc.frames, c.id, state.cursor));
   const key = near.map(n => n?.frame.id).join('|') + '|' + state.selectedCamera + '|' + state.zone;
   if (key === cameraKey) { updateCameraDeltas(near); return; }
@@ -540,28 +540,29 @@ function paintCameras() {
   near.forEach((n, i) => {
     const cam = inc.cameras[i]; if (!n) return;
     const st = M.formatStamp(n.utcSec, state.zone);
-    grid.append(el('button', {class: 'cam-card', 'aria-pressed': String(state.selectedCamera === cam.id), onclick: () => selectCamera(cam.id), 'aria-label': `${cam.name}: fotograma más cercano, ${st.date} ${st.time} ${st.zone}`},
+    grid.append(el('button', {class: 'cam-card', 'aria-pressed': String(state.selectedCamera === cam.id), onclick: () => selectCamera(cam.id), 'aria-label': `${cam.name}: nearest frame, ${st.date} ${st.time} ${st.zone}`},
       el('img', {src: n.frame.imagePath, alt: `${cam.name}, ${st.time} ${st.zone}`, loading: 'lazy'}),
       el('span', {class: 'cam-meta'}, el('b', {text: cam.name}), document.createTextNode(`${st.date} ${st.time} ${st.zone} · `), el('span', {'data-delta-card': cam.id, text: deltaText(n.deltaSec)}))));
   });
   body.append(grid);
   const sel = near.find(n => n?.frame.cameraId === state.selectedCamera);
-  if (!sel) { body.append(el('p', {class: 'muted small', text: 'Toca una cámara (aquí o en el mapa) para ver el fotograma más cercano al cursor, su fecha real y la descripción guardada de NVIDIA Cosmos.'})); return; }
+  if (!sel) { body.append(el('p', {class: 'muted small', text: 'Select a camera (here or on the map) to see the frame nearest to the cursor, its real date and the saved NVIDIA Cosmos description.'})); return; }
   const cam = inc.cameras.find(c => c.id === sel.frame.cameraId), real = M.formatStamp(sel.utcSec, 'UTC'), pdt = M.formatStamp(sel.utcSec, 'PDT');
   const a = sel.frame.analysis;
   const detail = el('div', {class: 'cam-detail'});
-  detail.append(el('img', {src: sel.frame.imagePath, alt: `${cam.name}, fotograma ${sel.frame.id}`}));
-  detail.append(el('div', {class: 'stamp'}, el('b', {text: `${real.date} ${real.time} UTC`}), document.createTextNode(` · hora impresa ${sel.frame.printedTime.slice(11, 19)} (supuesto PDT = ${pdt.time} PDT)`)));
+  detail.append(el('img', {src: sel.frame.imagePath, alt: `${cam.name}, frame ${sel.frame.id}`}));
+  detail.append(el('div', {class: 'stamp'}, el('b', {text: `${real.date} ${real.time} UTC`}), document.createTextNode(` · printed time ${sel.frame.printedTime.slice(11, 19)} (PDT assumed = ${pdt.time} PDT)`)));
   detail.append(el('div', {class: 'delta', 'data-delta-detail': cam.id, text: detailDelta(sel.deltaSec)}));
-  detail.append(el('p', {text: a?.content || 'Sin descripción guardada para este fotograma.'}));
+  detail.append(el('p', {text: a?.content || 'No saved description for this frame.'}));
+  if (a?.translationNote) detail.append(el('p', {class: 'tiny translation-note', text: a.translationNote}));
   if (sel.frame.reviewNotes?.length) detail.append(el('p', {class: 'review-notes', text: sel.frame.reviewNotes.join(' ')}));
-  detail.append(el('div', {class: 'tiny', text: a ? `Descripción guardada de NVIDIA Cosmos (${a.model}, ${a.analyzedAt}); requiere revisión. La zona horaria de la cámara no está verificada.` : 'La zona horaria de la cámara no está verificada.'}));
-  const video = el('div'), actions = el('div', {class: 'cam-actions'}, el('button', {text: 'Ver clip', onclick: ev => {
+  detail.append(el('div', {class: 'tiny', text: a ? `Saved NVIDIA Cosmos description (${a.model}, ${a.analyzedAt}); requires review. The camera time zone is not verified.` : 'The camera time zone is not verified.'}));
+  const video = el('div'), actions = el('div', {class: 'cam-actions'}, el('button', {text: 'Watch clip', onclick: ev => {
     const v = el('video', {controls: true, playsinline: true, preload: 'metadata', src: cam.clipPath});
-    v.addEventListener('error', () => { video.replaceChildren(el('p', {class: 'tiny', text: 'El clip no está disponible en este servidor.'})); });
+    v.addEventListener('error', () => { video.replaceChildren(el('p', {class: 'tiny', text: 'The clip is not available on this server.'})); });
     v.addEventListener('loadedmetadata', () => { v.currentTime = Math.max(0, sel.frame.sourceVideoSecond - cam.sourceClipStart); });
     video.replaceChildren(v); ev.target.disabled = true;
-  }}), el('button', {text: 'Ir a su hora', onclick: () => { if (state.playing) pause(); setCursor(sel.utcSec); }}));
+  }}), el('button', {text: 'Go to its time', onclick: () => { if (state.playing) pause(); setCursor(sel.utcSec); }}));
   detail.append(actions, video);
   body.append(detail);
 }
@@ -569,30 +570,30 @@ function addCameraPins() {
   if (!data.incident || !state.mapReady || cameraMarkers.length) return;
   for (const pose of M.CAMERA_POSES) {
     const cam = data.incident.cameras.find(c => c.id === pose.cameraId); if (!cam) continue;
-    const pin = el('button', {class: 'cam-pin', 'aria-label': `Cámara ${cam.name}`, 'aria-pressed': 'false', title: `${cam.name} · posición candidata, no verificada`}, el('span', {class: 'cam-label', text: cam.name}));
+    const pin = el('button', {class: 'cam-pin', 'aria-label': `Camera ${cam.name}`, 'aria-pressed': 'false', title: `${cam.name} · candidate position, unverified`}, el('span', {class: 'cam-label', text: cam.name}));
     pin.addEventListener('click', e => { e.stopPropagation(); selectCamera(cam.id); });
     cameraMarkers.push({id: cam.id, pin, marker: new maplibregl.Marker({element: pin}).setLngLat([pose.lon, pose.lat]).addTo(map)});
   }
 }
 
-// ---------- procedencia ----------
+// ---------- provenance ----------
 
 function paintProvenance() {
   const body = $('provenance-body'); body.replaceChildren();
   const s = data.summary;
-  if (!s) { body.append(el('p', {class: 'muted', text: dataStatus.summary?.startsWith?.('error') ? 'Resumen no disponible.' : 'Cargando…'})); return; }
-  const comps = M.areaComparisons(s), ratios = comps.map(c => `${M.formatNumber(c.ratio, 2)}× el ${M.formatStamp(M.parseUtc(c.atUtc), 'PDT').date.slice(0, 6)}`).join(' · ');
-  body.append(el('p', {class: 'prov-warn', text: `La reconstrucción supera la superficie reportada (${ratios}; rango 1,4–1,5×). Es retrospectiva y está recortada con el perímetro final de dic 2025: no sustituye a un perímetro observado.`}));
-  body.append(el('p', {class: 'prov-warn', text: `Cronología sin resolver: WFIGS registra el descubrimiento el 24 ago a las 07:10 UTC, CAL FIRE publica 14:13 sin zona horaria confirmada y la primera detección FIRMS es ${s.firstDetectionUtc?.slice(11, 16) || '—'} UTC. Ninguna fija la ignición.`}));
+  if (!s) { body.append(el('p', {class: 'muted', text: dataStatus.summary?.startsWith?.('error') ? 'Summary unavailable.' : 'Loading…'})); return; }
+  const comps = M.areaComparisons(s), ratios = comps.map(c => `${M.formatNumber(c.ratio, 2)}× on ${M.shortDate(M.formatStamp(M.parseUtc(c.atUtc), 'PDT').date)}`).join(' · ');
+  body.append(el('p', {class: 'prov-warn', text: `The reconstruction exceeds the reported area (${ratios}; range 1.4–1.5×). It is retrospective and clipped to the final December 2025 perimeter: it does not replace an observed perimeter.`}));
+  body.append(el('p', {class: 'prov-warn', text: `Unresolved chronology: WFIGS records discovery on 24 Aug at 07:10 UTC, CAL FIRE publishes 14:13 with no confirmed time zone, and the first FIRMS detection is ${s.firstDetectionUtc?.slice(11, 16) || '—'} UTC. None of them fixes the ignition.`}));
   const lims = data.arrival?._provenance?.limitations || [];
-  body.append(el('details', {}, el('summary', {text: 'Más sobre los datos'}), el('ul', {class: 'prov-list'},
-    el('li', {text: `${M.formatNumber(s.counts.detections)} detecciones FIRMS en ${M.formatNumber(s.counts.overpasses)} pasadas; ${M.formatNumber(s.counts.arrivalCells)} celdas de ${s.parameters.cellM} m.`}),
+  body.append(el('details', {}, el('summary', {text: 'More about the data'}), el('ul', {class: 'prov-list'},
+    el('li', {text: `${M.formatNumber(s.counts.detections)} FIRMS detections in ${M.formatNumber(s.counts.overpasses)} overpasses; ${M.formatNumber(s.counts.arrivalCells)} cells of ${s.parameters.cellM} m.`}),
     ...lims.map(t => el('li', {text: t})),
-    el('li', {text: 'Meteorología: modelo Open-Meteo en un punto, no una estación medida.'}),
-    el('li', {text: 'Los conos de cámara son hipótesis (azimut impreso supuesto, FOV 65,1° a zoom 1 escalado por focal); no son un campo de visión verificado.'}))));
+    el('li', {text: 'Weather: Open-Meteo model at a single point, not a measuring station.'}),
+    el('li', {text: 'Camera cones are hypotheses (assumed printed azimuth, 65.1° FOV at zoom 1 scaled by focal length); they are not a verified field of view.'}))));
 }
 
-// ---------- pronóstico desde el frente ----------
+// ---------- projection from the front ----------
 
 const FC_LAYERS = ['fc-model-fill', 'fc-overlap-fill', 'fc-over-fill', 'fc-under-fill', 'fc-initial-line', 'fc-model-line', 'fc-ref-line'];
 function addForecastLayers() {
@@ -626,14 +627,14 @@ function fitForecast(features) {
 function setForecastStatus(text, kind = '') { const n = $('forecast-status'); n.textContent = text; n.className = 'forecast-status ' + kind; }
 function refreshForecastControls() {
   const loading = forecastTracker.state?.status === 'loading', btn = $('forecast-run');
-  btn.disabled = loading; btn.textContent = loading ? 'Proyectando…' : 'Proyectar desde este frente';
+  btn.disabled = loading; btn.textContent = loading ? 'Projecting…' : 'Project from this front';
   document.querySelectorAll('.horizon button').forEach(b => { b.setAttribute('aria-pressed', String(Number(b.dataset.h) === state.horizon)); });
 }
 function invalidateForecastIfStale() {
   if (!forecastTracker.sync(state.cursor, state.horizon)) return;
   $('forecast-card').replaceChildren();
   mapForecast(); refreshForecastControls();
-  setForecastStatus('El cursor cambió: la proyección anterior se ocultó. Proyecta de nuevo desde este instante.');
+  setForecastStatus('The cursor moved: the previous projection was hidden. Project again from this moment.');
 }
 function bindForecast() {
   document.querySelectorAll('.horizon button').forEach(b => b.addEventListener('click', () => {
@@ -649,15 +650,15 @@ async function runForecast() {
   const controller = new AbortController(), ticket = forecastTracker.begin(request, controller);
   $('forecast-card').replaceChildren(); mapForecast(); refreshForecastControls();
   const when = M.formatStamp(state.cursor, state.zone);
-  setForecastStatus(`Proyectando ${request.horizonHours} h desde ${when.date} ${when.time} ${when.zone}…`, 'busy');
+  setForecastStatus(`Projecting ${request.horizonHours} h from ${when.date} ${when.time} ${when.zone}…`, 'busy');
   try {
     const result = await M.requestForecast(request, (...a) => fetch(...a), controller.signal);
-    if (!forecastTracker.accept(ticket, result)) return; // respuesta obsoleta
-    setForecastStatus(`Proyección de ${request.horizonHours} h lista. Solo vale para el instante ${when.time} ${when.zone}; si mueves el cursor se oculta.`);
+    if (!forecastTracker.accept(ticket, result)) return; // stale response
+    setForecastStatus(`${request.horizonHours} h projection ready. It is only valid for ${when.time} ${when.zone}; moving the cursor hides it.`);
     renderForecastCard(result.top); mapForecast(); fitForecast(result.features);
   } catch (e) {
     if (e?.name === 'AbortError') return;
-    if (forecastTracker.fail(ticket, e)) setForecastStatus(e.message || 'No se pudo completar la proyección.', 'err');
+    if (forecastTracker.fail(ticket, e)) setForecastStatus(e.message || 'The projection could not be completed.', 'err');
   }
   refreshForecastControls();
 }
@@ -665,40 +666,40 @@ const listify = v => v == null ? [] : Array.isArray(v) ? v.map(x => typeof x ===
 function weatherLines(w) {
   if (!w || typeof w !== 'object') return [];
   const t = w.timeUtc ? M.formatStamp(M.parseUtc(w.timeUtc), state.zone) : null;
-  return [`Primera hora: viento DESDE ${w.windFromDeg}° (${M.compassPoint(w.windFromDeg)}), ${M.formatNumber(w.windSpeedMps, 1)} m/s, ráfaga ${M.formatNumber(w.gustMps, 1)} m/s (no se usa), HR ${M.formatNumber(w.rhPct)} %, ${M.formatNumber(w.tempC, 1)} °C${t ? ` · ${t.date} ${t.time} ${t.zone}` : ''}.`,
-    `${w.hoursUsed ?? '?'} horas de viento histórico modelado (un punto), constante dentro de cada hora. Sin humedad del combustible.`];
+  return [`First hour: wind FROM ${w.windFromDeg}° (${M.compassPoint(w.windFromDeg)}), ${M.formatNumber(w.windSpeedMps, 1)} m/s, gust ${M.formatNumber(w.gustMps, 1)} m/s (not used), RH ${M.formatNumber(w.rhPct)} %, ${M.formatNumber(w.tempC, 1)} °C${t ? ` · ${t.date} ${t.time} ${t.zone}` : ''}.`,
+    `${w.hoursUsed ?? '?'} hours of modelled historical wind (single point), constant within each hour. No fuel moisture.`];
 }
 function renderForecastCard(top) {
   const card = $('forecast-card'), m = top.metrics, valid = M.formatStamp(M.parseUtc(top.validUtc), state.zone);
-  const badges = el('div', {class: 'fc-badges'}, el('span', {class: 'fc-badge warn', text: top.validated ? 'VALIDACIÓN DECLARADA' : 'NO VALIDADO'}), el('span', {class: 'fc-badge info', text: 'vs RECONSTRUCCIÓN'}));
-  if (top.domainBoundaryReached) badges.append(el('span', {class: 'fc-badge warn', text: 'ALCANZÓ EL LÍMITE DEL DOMINIO'}));
-  if (!top.referenceAvailable) badges.append(el('span', {class: 'fc-badge info', text: 'SIN REFERENCIA POSTERIOR'}));
+  const badges = el('div', {class: 'fc-badges'}, el('span', {class: 'fc-badge warn', text: top.validated ? 'VALIDATION DECLARED' : 'NOT VALIDATED'}), el('span', {class: 'fc-badge info', text: 'vs RECONSTRUCTION'}));
+  if (top.domainBoundaryReached) badges.append(el('span', {class: 'fc-badge warn', text: 'REACHED THE DOMAIN BOUNDARY'}));
+  if (!top.referenceAvailable) badges.append(el('span', {class: 'fc-badge info', text: 'NO LATER REFERENCE'}));
   card.replaceChildren(badges);
   if (top.label) card.append(el('p', {class: 'fc-label', text: top.label}));
-  if (top.domainBoundaryReached) card.append(el('p', {class: 'prov-warn', text: 'La proyección alcanzó el límite del dominio de cálculo: el resultado está truncado y las métricas subestiman o distorsionan la comparación.'}));
+  if (top.domainBoundaryReached) card.append(el('p', {class: 'prov-warn', text: 'The projection reached the edge of the calculation domain: the result is truncated and the metrics understate or distort the comparison.'}));
   const stat = (label, value, cls) => el('div', {class: 'fc-stat ' + (cls || '')}, el('b', {text: value}), el('span', {text: label}));
   if (top.referenceAvailable) {
     card.append(el('div', {class: 'fc-grid'},
-      stat('IoU total', M.formatNumber(m.iou, 2)), stat('IoU del crecimiento', m.growthIou == null ? '—' : M.formatNumber(m.growthIou, 2)),
-      stat('Sobrepredicción (ha)', M.formatNumber(m.overpredictionHa), 'over'), stat('Subpredicción (ha)', M.formatNumber(m.underpredictionHa), 'under'),
-      stat('Predicho (ha)', M.formatNumber(m.predictedHa)), stat('Referencia (ha)', M.formatNumber(m.referenceHa))));
-  } else card.append(el('div', {class: 'fc-grid'}, stat('Superficie inicial (ha)', M.formatNumber(m.initialHa)), stat('Predicho (ha)', M.formatNumber(m.predictedHa))));
+      stat('Total IoU', M.formatNumber(m.iou, 2)), stat('Growth IoU', m.growthIou == null ? '—' : M.formatNumber(m.growthIou, 2)),
+      stat('Overprediction (ha)', M.formatNumber(m.overpredictionHa), 'over'), stat('Underprediction (ha)', M.formatNumber(m.underpredictionHa), 'under'),
+      stat('Predicted (ha)', M.formatNumber(m.predictedHa)), stat('Reference (ha)', M.formatNumber(m.referenceHa))));
+  } else card.append(el('div', {class: 'fc-grid'}, stat('Initial area (ha)', M.formatNumber(m.initialHa)), stat('Predicted (ha)', M.formatNumber(m.predictedHa))));
   const noGrowth = top.referenceAvailable && m.referenceHa != null && m.initialHa != null && m.referenceHa <= m.initialHa * 1.001;
-  card.append(el('p', {class: 'fc-compare'}, document.createTextNode(`Válida hasta ${valid.date} ${valid.time} ${valid.zone} (+${top.horizonHours} h). `), el('strong', {text: 'Compara el modelo con la RECONSTRUCCIÓN posterior, no con una validación independiente.'}), document.createTextNode(noGrowth ? ' La referencia no añade área nueva: eso no demuestra que el fuego se detuviera.' : '')));
-  if (m.growthIou == null && m.growthIouReason) card.append(el('p', {class: 'fc-compare', text: `IoU del crecimiento no disponible: ${m.growthIouReason}`}));
+  card.append(el('p', {class: 'fc-compare'}, document.createTextNode(`Valid until ${valid.date} ${valid.time} ${valid.zone} (+${top.horizonHours} h). `), el('strong', {text: 'It compares the model with the later RECONSTRUCTION, not with an independent validation.'}), document.createTextNode(noGrowth ? ' The reference adds no new area: that does not show that the fire stopped.' : '')));
+  if (m.growthIou == null && m.growthIouReason) card.append(el('p', {class: 'fc-compare', text: `Growth IoU unavailable: ${m.growthIouReason}`}));
   const more = (title, items) => items.length ? el('details', {class: 'fc-more'}, el('summary', {text: title}), el('ul', {}, ...items.map(t => el('li', {text: t})))) : '';
-  card.append(more('Supuestos', listify(top.assumptions)), more('Límites', listify(top.limitations)), more('Meteorología usada', weatherLines(top.weather)), more('Diagnóstico', listify(top.diagnostics)), more('Procedencia', listify(top.provenance)));
+  card.append(more('Assumptions', listify(top.assumptions)), more('Limitations', listify(top.limitations)), more('Weather used', weatherLines(top.weather)), more('Diagnostics', listify(top.diagnostics)), more('Provenance', listify(top.provenance)));
 }
 
-// ---------- extras que dependen del cursor ----------
+// ---------- extras that depend on the cursor ----------
 
 function paintCursorExtras() { paintChartCursor(); paintWeather(); paintCameras(); }
 
-// ---------- arranque ----------
+// ---------- start-up ----------
 
 function start() {
   renderLayerRows(); buildTimeline(); buildEventList(); bindView(); paintNow();
-  if (window.maplibregl) initMap(); else showData('No se pudo cargar el motor de mapas; la línea de tiempo sigue disponible.');
+  if (window.maplibregl) initMap(); else showData('The map engine could not be loaded; the timeline remains available.');
   loadData('overpasses'); loadData('arrival'); loadData('hotspots'); loadData('weather'); loadData('daily'); loadData('summary');
   loadIncident(); bindForecast(); observeCharts(); drawCharts();
   if (hash.get('play') === '1') play();

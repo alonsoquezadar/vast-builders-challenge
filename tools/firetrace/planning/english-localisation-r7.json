@@ -1,0 +1,20 @@
+{
+  "baseCommit": "683f9bc",
+  "locale": "en-GB",
+  "pages": ["firetrace.html", "index.html", "alignment.html", "incident.html", "simulation.html", "fusion.html"],
+  "implementation": {
+    "ui": "British English labels, status messages, tooltips, accessibility labels, dates, numbers and compass points",
+    "server": "English presentation copies through localisation.py and locales/en-GB.json",
+    "savedModelResponses": "Translations labelled explicitly, with original content SHA-256; original evidence is not rewritten",
+    "scientificData": "Geometry, timestamps, model parameters, metrics, source hashes and schema identifiers preserved"
+  },
+  "verification": {
+    "pythonTests": 113,
+    "javascriptTests": 51,
+    "http": "All six pages served with lang=en-GB; incident, alignment, Gann, Grizzly, weather and camera-fusion payloads checked in English; formatted 400 response checked",
+    "forecast": "6/12/24-hour HTTP contracts and numeric results unchanged; unavailable-reference and invalid-request cases pass",
+    "browser": "English main screen inspected in Safari; T3 screenshots timed out twice. Full visual inspection of every secondary page was not performed."
+  },
+  "deploymentChanged": false,
+  "branch": "firetrace/local-demo-20261017-alonso"
+}

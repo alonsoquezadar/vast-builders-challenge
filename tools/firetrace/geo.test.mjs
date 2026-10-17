@@ -21,9 +21,9 @@ test('geographic observations require explicit timezones and valid geometry',()=
  const data={type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'Point',coordinates:[-122,41]},properties:{observedAt:'2026-10-17T12:00:00Z'}}]};
  assert.equal(validateObservationCollection(data).features.length,1);
  const badTime=structuredClone(data);badTime.features[0].properties.observedAt='2026-10-17T12:00:00';
- assert.throws(()=>validateObservationCollection(badTime),/zona horaria/);
+ assert.throws(()=>validateObservationCollection(badTime),/time zone/);
  const badPoint=structuredClone(data);badPoint.features[0].geometry.coordinates=[-222,41];
- assert.throws(()=>validateObservationCollection(badPoint),/inválidas/);
+ assert.throws(()=>validateObservationCollection(badPoint),/Invalid geographic coordinates/);
  const badRing=structuredClone(data);badRing.features[0].geometry={type:'Polygon',coordinates:[[[-122,41],[-121,41],[-121,42],[-122,42]]]};
- assert.throws(()=>validateObservationCollection(badRing),/cerrados/);
+ assert.throws(()=>validateObservationCollection(badRing),/must be closed/);
 });

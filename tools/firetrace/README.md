@@ -2,6 +2,8 @@
 
 Demo de reconstrucción y modelación de incendios sobre relieve real, con un gateway Python y MapLibre GL JS 5.6.1. Se mantiene local por decisión del usuario. La entrada principal es `/firetrace.html`; `/` redirige a esa vista.
 
+Todas las pantallas usan inglés británico (`en-GB`), con reloj de 24 horas, punto decimal y coma de millares. Los textos del servidor se traducen para su presentación mediante `localisation.py` y `locales/en-GB.json`. Las traducciones de respuestas guardadas de Cosmos llevan un aviso y la huella del texto original. Los archivos de evidencia, sus huellas y los datos numéricos permanecen intactos. Las claves de esquema y los identificadores internos conservan su formato original.
+
 ## Abrir la demo local
 
 Desde la raíz del repositorio:

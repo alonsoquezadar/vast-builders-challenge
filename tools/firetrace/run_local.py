@@ -48,9 +48,9 @@ def main():
                     time.sleep(.2)
             if tunnel.poll() is None:
                 env['FIRETRACE_BACKEND_PROXY'] = f'http://127.0.0.1:{args.proxy_port}'
-                print('Conexión privada al laboratorio iniciada. Las respuestas guardadas siguen disponibles si falla.', flush=True)
+                print('Private laboratory connection started. Saved responses remain available if the connection fails.', flush=True)
             else:
-                print('No se pudo conectar al laboratorio. El mapa y las respuestas guardadas siguen disponibles.', flush=True)
+                print('Could not connect to the laboratory. The map and saved responses remain available.', flush=True)
                 env.pop('FIRETRACE_BACKEND_PROXY', None)
         else:
             env.pop('FIRETRACE_BACKEND_PROXY', None)

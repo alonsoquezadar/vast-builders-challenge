@@ -35,22 +35,22 @@ test('failed inference never exposes raw errors and keeps the saved response',as
  for(const [fetchFn,expected] of [
   [reply(502,'{}'),/HTTP 502/],
   [reply(502,'<html>Bad Gateway</html>'),/HTTP 502/],
-  [async()=>{throw new TypeError('Failed to fetch');},/No se pudo contactar/],
-  [reply(502,JSON.stringify({error:'El servicio no pudo completar el análisis'})),/análisis\. Se conserva/],
-  [reply(200,JSON.stringify({content:'x',imageSha256:'00'})),/no corresponde/],
+  [async()=>{throw new TypeError('Failed to fetch');},/Could not reach/],
+  [reply(502,JSON.stringify({error:'The service could not complete the analysis'})),/analysis\. The previous response has been kept/],
+  [reply(200,JSON.stringify({content:'x',imageSha256:'00'})),/does not match/],
  ]){
-  const frame={...frameOf('delilah-110'),analysis:{content:'guardada',imageSha256:'9a2aab2c33b261b1ba7df39e310af1e110bf8b5e871aa01eaf73bfd6b722bbc6'}};
+  const frame={...frameOf('delilah-110'),analysis:{content:'saved',imageSha256:'9a2aab2c33b261b1ba7df39e310af1e110bf8b5e871aa01eaf73bfd6b722bbc6'}};
   let notice;try{await requestAnalysis(frame,'data:',fetchFn);assert.fail('should reject');}catch(e){notice=inferenceFailureNotice(e,frame);}
   assert.match(notice,expected);assert.doesNotMatch(notice,/undefined|Unexpected token|Failed to fetch|JSON/);
-  assert.equal(frame.analysis.content,'guardada');assert.equal(frame.presentationMode,undefined);
+  assert.equal(frame.analysis.content,'saved');assert.equal(frame.presentationMode,undefined);
  }
 });
 test('a live response keeps the original model text and drops the review note meant for it',async()=>{
- const frame=frameOf('delilah-110');frame.analysis={content:'texto original',imageSha256:frame.imageSha256};
+ const frame=frameOf('delilah-110');frame.analysis={content:'original text',imageSha256:frame.imageSha256};
  assert.match(reviewNotesFor(frame),/cámara fija de torre/);
- await requestAnalysis(frame,'data:',reply(200,JSON.stringify({content:'nuevo',model:'m',imageSha256:frame.imageSha256})));
- acceptLiveAnalysis(frame,{content:'otro',imageSha256:frame.imageSha256});
- assert.equal(frame.analysis.content,'otro');assert.equal(frame.savedAnalysis.content,'texto original');
- assert.doesNotMatch(reviewNotesFor(frame),/cámara fija de torre/);assert.match(reviewNotesFor(frame),/no está revisada/);
+ await requestAnalysis(frame,'data:',reply(200,JSON.stringify({content:'new',model:'m',imageSha256:frame.imageSha256})));
+ acceptLiveAnalysis(frame,{content:'other',imageSha256:frame.imageSha256});
+ assert.equal(frame.analysis.content,'other');assert.equal(frame.savedAnalysis.content,'original text');
+ assert.doesNotMatch(reviewNotesFor(frame),/cámara fija de torre/);assert.match(reviewNotesFor(frame),/has not been reviewed/);
  assert.equal(reviewNotesFor(frameOf('delilah-86')),'');
 });
