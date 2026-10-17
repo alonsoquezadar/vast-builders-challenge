@@ -28,7 +28,7 @@ def main():
     root=Path(__file__).parent
     local=(root/'main.py').read_text();lo,hi=function_span(local,'analyze')
     function=''.join(local.splitlines(keepends=True)[lo:hi])
-    lo,hi=function_span(old,'analyze');newlines[lo:hi]=[function+'\n']
+    lo,hi=function_span(old,'analyze');newlines[lo:hi]=[function]
     updated=''.join(newlines)
     marker='# FireTrace structured visual gateway imports\n'
     if marker not in updated:

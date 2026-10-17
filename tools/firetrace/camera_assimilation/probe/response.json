@@ -1,0 +1,17 @@
+{
+  "task": "smoke-base-v1",
+  "observation": {
+    "smoke": true,
+    "base_visible": false,
+    "x_base": null,
+    "y_base": null,
+    "confidence": 0.98,
+    "reason": "Smoke plumes are visible rising from the mountainous terrain, but the exact point where the smoke contacts the ground is obscured by distance and atmospheric haze, making it impossible to distinguish the base of the fire."
+  },
+  "content": "```json\n{\n  \"smoke\": true,\n  \"base_visible\": false,\n  \"x_base\": null,\n  \"y_base\": null,\n  \"confidence\": 0.98,\n  \"reason\": \"Smoke plumes are visible rising from the mountainous terrain, but the exact point where the smoke contacts the ground is obscured by distance and atmospheric haze, making it impossible to distinguish the base of the fire.\"\n}\n```",
+  "model": "nvidia/cosmos3-nano-reasoner",
+  "analyzedAt": "2026-10-17T14:17:07.198897+00:00",
+  "geolocation": "unresolved",
+  "status": "requires-review",
+  "imageSha256": "5d74e87352fc3c6c8db0a3d104a33e567e67311a9ccb462166e5377cabca236c"
+}

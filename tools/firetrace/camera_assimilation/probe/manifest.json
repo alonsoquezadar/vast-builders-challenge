@@ -1,0 +1,12 @@
+{
+  "schema": "firetrace-structured-probe-v1",
+  "sourceVideoSha256": "2d54936d96ab5c3e6c8786282e1e86a4235d7504e84f8f76f132374f4ddf4240",
+  "sourceVideoSecond": 1,
+  "cameraId": "delilah",
+  "poseId": "G1",
+  "printedTime": "2025-08-27T10:35:24.49",
+  "printedTimeStatus": "verified-by-agent",
+  "imageSha256": "5d74e87352fc3c6c8db0a3d104a33e567e67311a9ccb462166e5377cabca236c",
+  "reviewStatus": "pending-operator-review",
+  "purpose": "Verify deployed Cosmos structured task; not a geographic calibration observation."
+}

@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "status": "local-integrated-demo-with-geolocation-open",
   "presentationMinutesAssumption": 3,
-  "deliveryDeadline": "2026-10-17T14:38:33Z",
+  "deliveryDeadline": null,
   "preserveExistingWorkshopApp": "pulse-corridor",
   "demoScope": {
     "incidentCount": 1,
@@ -61,13 +61,15 @@
     }
   ],
   "cutoffPolicy": {
-    "freezeFeatureMinutesBeforeDemoEstimate": 45,
+    "freezeFeatureMinutesBeforeDemoEstimate": null,
     "fallback": "Reproducir las seis observaciones reales guardadas sin GPU. Las teselas del relieve siguen necesitando red.",
     "fallbackIsNot": "una demostración validada de fusión cámara-terreno"
   },
-  "deliveryDeadlineLondon": "2026-10-17T15:38:33+01:00",
-  "budgetMinutes": 120,
+  "deliveryDeadlineLondon": null,
+  "budgetMinutes": null,
   "deliveryMode": "local-confirmed-by-user",
   "externalPublicationRequiredNow": false,
-  "frameAnalysisPermission": "User explicitly confirmed analysis with Cosmos is permitted"
+  "frameAnalysisPermission": "User explicitly confirmed analysis with Cosmos is permitted",
+  "priority": "Best product possible, shortest practical development time; no fixed demo deadline; camera-driven simulation is the target.",
+  "cameraAssimilationContract": "camera_assimilation/CONTRACT.md"
 }

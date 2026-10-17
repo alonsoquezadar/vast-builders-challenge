@@ -185,6 +185,20 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         path = urlparse(self.path).path
         try:
+            if path == '/api/camera-fusion':
+                from camera_bundle import load_camera_bundle
+                return self.send_json(load_camera_bundle())
+            if path == '/api/camera-frame':
+                from camera_bundle import camera_frame
+                params = parse_qs(urlparse(self.path).query)
+                raw, mime = camera_frame(params.get('id', [''])[0])
+                self.send_response(200)
+                self.send_header('Content-Type', mime)
+                self.send_header('Content-Length', str(len(raw)))
+                self.send_header('Cache-Control', 'no-store')
+                self.end_headers()
+                self.wfile.write(raw)
+                return
             if path == '/health':
                 return self.send_json({'ok': True})
             if path in ['/evidence/plaskett/clip.mp4', '/evidence/garnet/delilah.mp4', '/evidence/garnet/buckrock.mp4']:
@@ -296,6 +310,7 @@ class Handler(SimpleHTTPRequestHandler):
                             '/incident.html', '/incident.js', '/incident.css', '/incident_model.mjs',
                             '/simulation.html', '/simulation.js', '/simulation.css',
                             '/satellite-view.mjs', '/satellite-view.css',
+                            '/fusion.html', '/fusion.js', '/fusion.css',
                             '/evidence/garnet/delilah-86.jpg', '/evidence/garnet/delilah-110.jpg',
                             '/evidence/garnet/delilah-134.jpg', '/evidence/garnet/buckrock-222.jpg',
                             '/evidence/garnet/buckrock-244.jpg', '/evidence/garnet/buckrock-267.jpg',

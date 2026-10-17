@@ -1,0 +1,42 @@
+{
+  "baseSha": "52b8b99",
+  "priority": "camera-driven-simulation; no fixed deadline",
+  "provider": "claudeAgent",
+  "model": "claude-sonnet-5-5",
+  "tasks": [
+    {
+      "role": "vision",
+      "taskId": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-camera-vision-sonnet-r5",
+      "writeScope": "camera_assimilation/vision/"
+    },
+    {
+      "role": "calibration",
+      "taskId": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-satellite-calibration-sonnet-r5",
+      "writeScope": "camera_assimilation/calibration/"
+    },
+    {
+      "role": "assimilation",
+      "taskId": "node:delegated-task:command%3Amcp%3A2bbb7a57-94fc-4ed7-bc89-9de5c10c5af9%3Adelegate-task%3Afiretrace-camera-assimilation-sonnet-r5",
+      "writeScope": "camera_assimilation/assimilation/"
+    }
+  ],
+  "integration": {
+    "primaryServer": "http://localhost:5173",
+    "reviewServer": "http://localhost:5182/fusion.html",
+    "status": "prototype verified with missing-input gates; awaiting worker artifacts",
+    "rootOwns": [
+      "main.py",
+      "camera_bundle.py",
+      "fusion.*",
+      "Git",
+      "servers",
+      "deployment"
+    ]
+  },
+  "verification": {
+    "pythonTests": 69,
+    "actualCosmosProbe": "camera_assimilation/probe/response.json",
+    "gatewayUpdateDryRunChanged": false,
+    "humanReview": "pending"
+  }
+}

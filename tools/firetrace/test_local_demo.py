@@ -162,6 +162,18 @@ class LocalDemoTests(unittest.TestCase):
             self.get('/simulation.py')
         self.assertEqual(error.exception.code, 404)
 
+    def test_fusion_view_reports_experiment_and_keeps_sources_private(self):
+        data = self.get('/api/camera-fusion')
+        self.assertFalse(data['operationallyValidated'])
+        self.assertEqual(data['mode'], 'retrospective-experiment')
+        for path in ['/fusion.html', '/fusion.js', '/fusion.css']:
+            with urlopen(self.url + path, timeout=3) as response:
+                self.assertEqual(response.status, 200)
+                response.read()
+        with self.assertRaises(HTTPError) as error:
+            self.get('/camera_bundle.py')
+        self.assertEqual(error.exception.code, 404)
+
     def test_clip_supports_seeking_and_rejects_out_of_bounds_ranges(self):
         request = Request(self.url + '/evidence/plaskett/clip.mp4', headers={'Range': 'bytes=100-199'})
         clip = Path(__file__).with_name('evidence').joinpath('plaskett/clip.mp4').read_bytes()
