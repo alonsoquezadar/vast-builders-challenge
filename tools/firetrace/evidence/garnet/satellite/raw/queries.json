@@ -1,0 +1,131 @@
+{
+ "note": "FIRMS key redacted as {MAP_KEY}.",
+ "queries": [
+  {
+   "file": "firms_VIIRS_SNPP_SP_2025-08-24.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_SP/-119.35,36.75,-118.75,37.15/5/2025-08-24",
+   "fetchedAt": "2026-10-17T14:00:38+00:00",
+   "bytes": 47971,
+   "sha256": "a48f96419ef7472004d515074d3c348876141f234e94cc37000026470151a6f1"
+  },
+  {
+   "file": "firms_VIIRS_SNPP_SP_2025-08-29.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_SP/-119.35,36.75,-118.75,37.15/5/2025-08-29",
+   "fetchedAt": "2026-10-17T14:00:39+00:00",
+   "bytes": 104781,
+   "sha256": "cae44916d8a0169347bd9f9e931b0d66ce2c9033ce6226791d7054ffe571c1ad"
+  },
+  {
+   "file": "firms_VIIRS_SNPP_SP_2025-09-03.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_SP/-119.35,36.75,-118.75,37.15/5/2025-09-03",
+   "fetchedAt": "2026-10-17T14:00:41+00:00",
+   "bytes": 166928,
+   "sha256": "8be13f47f45cb1d57869ebf8c08ce4c159b8203401ace2d287d5dd59fa828d1e"
+  },
+  {
+   "file": "firms_VIIRS_SNPP_SP_2025-09-08.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_SNPP_SP/-119.35,36.75,-118.75,37.15/5/2025-09-08",
+   "fetchedAt": "2026-10-17T14:00:42+00:00",
+   "bytes": 81006,
+   "sha256": "cba76a45949526c7ba2ee6b38eaf4093c092de62edce465037888dbe8059c75c"
+  },
+  {
+   "file": "firms_VIIRS_NOAA20_SP_2025-08-24.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA20_SP/-119.35,36.75,-118.75,37.15/5/2025-08-24",
+   "fetchedAt": "2026-10-17T14:00:43+00:00",
+   "bytes": 46155,
+   "sha256": "4f6b1ffafdc904569f3a4dfcc51a11f68f7d99e5c95eee6d4a52f7d86bd61c0b"
+  },
+  {
+   "file": "firms_VIIRS_NOAA20_SP_2025-08-29.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA20_SP/-119.35,36.75,-118.75,37.15/5/2025-08-29",
+   "fetchedAt": "2026-10-17T14:00:44+00:00",
+   "bytes": 82789,
+   "sha256": "c35769a6639d859a9e923870eab07516a86ba0b5c9c59173f7590b85ed0edf6b"
+  },
+  {
+   "file": "firms_VIIRS_NOAA20_SP_2025-09-03.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA20_SP/-119.35,36.75,-118.75,37.15/5/2025-09-03",
+   "fetchedAt": "2026-10-17T14:00:45+00:00",
+   "bytes": 135215,
+   "sha256": "783dec301e5b3ab0d48a8cc48646bf104282085757c9a1781bfd99ed156011d5"
+  },
+  {
+   "file": "firms_VIIRS_NOAA20_SP_2025-09-08.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA20_SP/-119.35,36.75,-118.75,37.15/5/2025-09-08",
+   "fetchedAt": "2026-10-17T14:00:46+00:00",
+   "bytes": 134394,
+   "sha256": "4b88234714b05241163b9323c80e4e842feb8bd5b34177bfa667e7da51508771"
+  },
+  {
+   "file": "firms_VIIRS_NOAA21_NRT_2025-08-24.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA21_NRT/-119.35,36.75,-118.75,37.15/5/2025-08-24",
+   "fetchedAt": "2026-10-17T14:00:47+00:00",
+   "bytes": 50663,
+   "sha256": "16f6f13fc309d0107ed8ab0b034751d05ecb1b3a210328bef365d0f3f8a1ddde"
+  },
+  {
+   "file": "firms_VIIRS_NOAA21_NRT_2025-08-29.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA21_NRT/-119.35,36.75,-118.75,37.15/5/2025-08-29",
+   "fetchedAt": "2026-10-17T14:00:48+00:00",
+   "bytes": 98240,
+   "sha256": "15f67a065d4cfee137a8db76aba1e6b1178b5ce749a10ee71706394c75aaa414"
+  },
+  {
+   "file": "firms_VIIRS_NOAA21_NRT_2025-09-03.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA21_NRT/-119.35,36.75,-118.75,37.15/5/2025-09-03",
+   "fetchedAt": "2026-10-17T14:00:49+00:00",
+   "bytes": 118927,
+   "sha256": "8558d90eeb9be382c4a6e247d5579fd87aa2eda531ae05966616cdd6186de327"
+  },
+  {
+   "file": "firms_VIIRS_NOAA21_NRT_2025-09-08.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/VIIRS_NOAA21_NRT/-119.35,36.75,-118.75,37.15/5/2025-09-08",
+   "fetchedAt": "2026-10-17T14:00:50+00:00",
+   "bytes": 93308,
+   "sha256": "ddfb2f95a6cd1dc8975e1be594f76c9cf55fd512095ab6d3027558a763bd6839"
+  },
+  {
+   "file": "firms_MODIS_SP_2025-08-24.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/MODIS_SP/-119.35,36.75,-118.75,37.15/5/2025-08-24",
+   "fetchedAt": "2026-10-17T14:00:50+00:00",
+   "bytes": 10698,
+   "sha256": "ed4bbcd885ff13a1625150b73f37b0b5f547b4e7df5d22e1bcd1ca7859de0972"
+  },
+  {
+   "file": "firms_MODIS_SP_2025-08-29.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/MODIS_SP/-119.35,36.75,-118.75,37.15/5/2025-08-29",
+   "fetchedAt": "2026-10-17T14:00:51+00:00",
+   "bytes": 23142,
+   "sha256": "e9c70abacf28e0d4add15d09321d907f001722ddcbaab198d68a679c888c2dde"
+  },
+  {
+   "file": "firms_MODIS_SP_2025-09-03.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/MODIS_SP/-119.35,36.75,-118.75,37.15/5/2025-09-03",
+   "fetchedAt": "2026-10-17T14:00:52+00:00",
+   "bytes": 27504,
+   "sha256": "ceb3eef6fbd9c7fb2f11d68860291c6362ffae7437767aed714363eff86f35af"
+  },
+  {
+   "file": "firms_MODIS_SP_2025-09-08.csv",
+   "query": "https://firms.modaps.eosdis.nasa.gov/api/area/csv/{MAP_KEY}/MODIS_SP/-119.35,36.75,-118.75,37.15/5/2025-09-08",
+   "fetchedAt": "2026-10-17T14:00:52+00:00",
+   "bytes": 22174,
+   "sha256": "5069eef6a3e81311f21daef90e4d7730a3459ac617f40b36b84c75e6e49751a7"
+  },
+  {
+   "file": "wfigs_perimeter.geojson",
+   "query": "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/WFIGS_Interagency_Perimeters/FeatureServer/0/query?where=poly_IncidentName+LIKE+%27Garnet%25%27+AND+attr_POOState%3D%27US-CA%27+AND+attr_FireDiscoveryDateTime+%3E%3D+DATE+%272025-08-01%27&outFields=poly_IncidentName%2Cpoly_GISAcres%2Cpoly_PolygonDateTime%2Cattr_FireDiscoveryDateTime%2Cattr_UniqueFireIdentifier%2Cpoly_MapMethod&outSR=4326&f=geojson",
+   "fetchedAt": "2026-10-17T14:00:53+00:00",
+   "bytes": 848662,
+   "sha256": "7037e221da84a5c37c86ef4d16cd21a5a528016e853394465cd798d7d4699f78"
+  },
+  {
+   "file": "open_meteo_hourly.json",
+   "query": "https://archive-api.open-meteo.com/v1/archive?latitude=36.90&longitude=-119.00&start_date=2025-08-24&end_date=2025-09-13&hourly=wind_speed_10m%2Cwind_direction_10m%2Cwind_gusts_10m%2Crelative_humidity_2m%2Ctemperature_2m&wind_speed_unit=ms&timezone=UTC",
+   "fetchedAt": "2026-10-17T14:00:53+00:00",
+   "bytes": 20929,
+   "sha256": "8d94ee740711bc11dba66e1220a2f5f825886c9977569fa3fad2a902e85ff478"
+  }
+ ]
+}
